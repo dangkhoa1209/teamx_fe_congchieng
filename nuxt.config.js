@@ -11,5 +11,22 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     sourcemap: { server: true, client: true }
   },
-
+  components: [
+    {
+      path: '~/components',
+      prefix: 'x'
+    }
+  ],
+  modules: [
+    '@nuxtjs/tailwindcss', 
+    '@vueuse/nuxt', 
+    '@pinia/nuxt', 
+    'pinia-plugin-persistedstate/nuxt'
+  ],
+  piniaPersistedstate: {
+    cookieOptions: {
+      sameSite: 'strict'
+    },
+    storage: 'cookies'
+  },
 })
