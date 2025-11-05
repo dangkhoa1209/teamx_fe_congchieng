@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import svgLoader from 'vite-svg-loader'
+
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   srcDir: 'src/',
@@ -38,7 +41,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss', 
     '@vueuse/nuxt', 
     '@pinia/nuxt', 
-    'pinia-plugin-persistedstate/nuxt'
+    'pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/google-fonts'
   ],
   piniaPersistedstate: {
     cookieOptions: {
@@ -50,4 +54,28 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
     '~/assets/scss/index.scss',
   ],
+  vite: {
+    plugins: svgLoader(),
+  },
+  googleFonts: {
+    families: {
+      Montserrat: [100, 200, 300, 400, 500, 600, 700, 800],
+      Roboto: [100, 200, 300, 400, 500, 600, 700, 800]
+    },
+    display: 'swap',
+    preload: true,
+    download: true,
+    inject: true
+  },
+  tailwindcss: {
+    viewer: false
+  }
+  // runtimeConfig: {
+  //   appKey: process.env.APP_KEY || '',
+  //   public: {
+  //     clientId: process.env.CLIENT_ID,
+  //     clientSecret: process.env.CLIENT_SECRET,
+  //     grantType: process.env.GRANT_TYPE
+  //   }
+  // },
 })

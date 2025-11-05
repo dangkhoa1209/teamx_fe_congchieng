@@ -3,19 +3,31 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 
 module.exports = {
   mode: 'jit',
-  content: ['./components/**/*.{js,vue}', './layouts/**/*.{js,vue}', './pages/**/*.{js,vue}', './app.vue'],
+  content: [
+    './components/**/*.{vue,js}',
+    './layouts/**/*.{vue,js}',
+    './pages/**/*.{vue,js}',
+    './app.vue'
+  ],
   theme: {
-    colors,
     screens: {
       ...defaultTheme.screens,
-      tablet: '640px', 
-      laptop: '1024px', 
-      desktop: '1280px' 
+      tablet: '640px',
+      laptop: '1024px',
+      desktop: '1280px'
     },
     extend: {
       colors: {
-        main: 'F00000',
-        transparent: 'transparent'
+        primary: '#4C2014',
+        main: '#FFF7EB',
+        extra: '#FCEFDE',
+        white: '#FFFFFF',
+        transparent: 'transparent',
+        ...colors
+      },
+      fontFamily: {
+        mont: ['Montserrat', 'sans-serif'],
+        robo: ['Roboto', 'sans-serif'],
       }
     }
   }

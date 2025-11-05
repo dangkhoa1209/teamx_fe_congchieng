@@ -1,11 +1,13 @@
 <template>
     <div>
-        <h1>Layout default</h1>
+        <Header></Header>
+
         <router-view />
     </div>
 </template>
 
 <script setup>
+import Header from './header/index.vue'
 const { auth } = $store()
 
 useHead({

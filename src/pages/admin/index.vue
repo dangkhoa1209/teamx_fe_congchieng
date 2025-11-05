@@ -1,10 +1,10 @@
 <template>
-  <div>
-    khoa    
-
-    {{ a }}
-  </div>
+  <div>sdfsdf</div>
+  <!-- <RouterView></RouterView> -->
 </template>
 <script setup>
-const a = ref('admin')
+// definePageMeta({
+//   middleware: 'auth'
+// })
+// const a = ref('admin')
 </script>
