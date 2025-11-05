@@ -18,9 +18,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#4C2014',
-        main: '#FFF7EB',
-        extra: '#FCEFDE',
+        primary: '#4C2014',// nau
+        main: '#FFF7EB', // sang nhat
+        extra: '#FCEFDE', // sang dam
         white: '#FFFFFF',
         transparent: 'transparent',
         ...colors

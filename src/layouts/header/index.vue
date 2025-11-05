@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <header class="z-auto">
     <!-- header -->
-    <div class="header bg-primary">
+    <div class="bg-primary">
       <x-content-place>
         <div class="flex py-8 gap-4">
           <div class="flex items-center justify-center">
@@ -24,7 +24,7 @@
     </div>
     <!-- <menu></menu> -->
     <Menu class="sticky"></Menu>
-  </div>
+  </header>
 </template>
 <script setup>
 const logo = '/assets/logo.png'
