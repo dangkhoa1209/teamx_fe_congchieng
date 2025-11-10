@@ -7,8 +7,15 @@ module.exports = {
     './components/**/*.{vue,js}',
     './layouts/**/*.{vue,js}',
     './pages/**/*.{vue,js}',
+    './nuxt.config.{js,ts}",',
     './app.vue'
   ],
+  plugins: [
+    require('daisyui')  // Thêm dòng này
+  ],
+  daisyui: {  // Tùy chọn: Cấu hình theme DaisyUI (ví dụ: dùng theme light)
+    themes: ["light", "dark", "cupcake"]  // Hoặc true để dùng tất cả themes
+  },
   theme: {
     screens: {
       ...defaultTheme.screens,

@@ -19,4 +19,8 @@ body {
   .text-body {
      @apply text-[16px];
   }
+
+  .text-mini {
+    @apply text-[13px];
+  }
 }

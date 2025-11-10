@@ -43,7 +43,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt', 
     'pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/google-fonts',
-    '@nuxt/image-edge'
+    '@nuxt/image-edge',
+    'nuxt-icon'
   ],
   piniaPersistedstate: {
     cookieOptions: {
