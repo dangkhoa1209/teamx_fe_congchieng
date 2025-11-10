@@ -2,12 +2,14 @@
     <div>
         <Header />
         <router-view />
+        <Footer />
     </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
 import Header from './header/index.vue'
+import Footer from './footer/index.vue'
 
 // Lấy store (tuỳ framework — Vuex, Pinia, hay custom)
 const { auth } = $store()

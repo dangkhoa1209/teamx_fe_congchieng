@@ -3,11 +3,11 @@
     <!-- header -->
     <div class="bg-primary">
       <x-content-place>
-        <div class="flex py-8 gap-4">
+        <div class="flex py-8 gap-10 items-center">
           <div class="flex items-center justify-center">
               <img
-                class="h-12 w-auto"
-                :src="logo"
+                class="h-20 w-auto"
+                :src="$image().urlSquare"
                 alt="Logo"
                 @error="onLogoError">
           </div>
@@ -27,7 +27,8 @@
   </header>
 </template>
 <script setup>
-const logo = '/assets/logo.png'
+// const logo = '/assets/logo.png'
+import $image from '../../composables/$image'
 import Menu from './menu.vue'
 const onLogoError = (event) => {
   const target = event.target

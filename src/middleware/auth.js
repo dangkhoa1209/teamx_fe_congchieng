@@ -19,13 +19,7 @@ export default defineNuxtRouteMiddleware((to) => {
   const { auth } = $store()  
   const accessToken = auth?.getAccessToken
 
-
   if(!accessToken) {
     return navigateTo({ name: notAuthRoute} )
   }
-
-  console.log('accessToken', accessToken);
-  
- return navigateTo({ name: notAuthRoute} )
-
 })

@@ -54,6 +54,7 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/main.css',
     '~/assets/scss/index.scss',
+    'cropperjs/dist/cropper.css'
   ],
   vite: {
     plugins: svgLoader(),
@@ -70,13 +71,14 @@ export default defineNuxtConfig({
   },
   tailwindcss: {
     viewer: false
-  }
-  // runtimeConfig: {
-  //   appKey: process.env.APP_KEY || '',
-  //   public: {
-  //     clientId: process.env.CLIENT_ID,
-  //     clientSecret: process.env.CLIENT_SECRET,
-  //     grantType: process.env.GRANT_TYPE
-  //   }
-  // },
+  },
+  runtimeConfig: {
+    appKey: process.env.APP_KEY || '',
+    public: {
+      apiURL: process.env.API_URL,
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      grantType: process.env.GRANT_TYPE
+    }
+  },
 })
