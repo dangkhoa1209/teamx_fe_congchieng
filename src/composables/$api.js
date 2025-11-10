@@ -2,7 +2,6 @@ import { isRef, isReactive, toRaw } from 'vue'
 import isNil from 'lodash-es/isNil'
 import { decode } from '../ utils/str.js'
 
-// 🧩 Xử lý URL: thêm query hoặc thay param động
 const reformatUrl = (url, options = {}) => {
   const uriParams = options.uriParams || {}
   const queryParams = options.query || {}
@@ -25,17 +24,14 @@ const reformatUrl = (url, options = {}) => {
   return url
 }
 
-// 🧩 Gán key cho cache của useFetch
 const setKeyOptions = (options = {}, url) => {
   options.key = +new Date() + url
 }
 
-// 🧩 Cấu hình cache
 const setCacheOptions = (options = {}, value) => {
   options.initialCache = value
 }
 
-// 🧩 Hiển thị lỗi toast
 const errorProcess = (app, error) => {
   if (process.client) {
     let errorDataList = []
@@ -57,13 +53,12 @@ const errorProcess = (app, error) => {
           handleToastError(msg)
         })
       } else {
-        $toast().error(app.$t('notifications.serverConnectionError') || 'Lỗi kết nối máy chủ')
+        $toast().error('Lỗi kết nối máy chủ')
       }
     }
   }
 }
 
-// 🧩 Hiển thị lỗi chi tiết
 const handleToastError = (msg) => {
   if (Array.isArray(msg)) {
     msg.forEach((m) => handleToastError(m))
@@ -81,7 +76,6 @@ const handleToastError = (msg) => {
   }
 }
 
-// 🧩 Loại bỏ reactivity khỏi dữ liệu gửi đi
 const disableReactive = (data) => {
   if (data instanceof FormData) return data
   if (Array.isArray(data)) return data.map((d) => disableReactive(d))
@@ -110,7 +104,6 @@ const disableReactive = (data) => {
   return data
 }
 
-// 🧩 Hàm chính gọi API
 export default async function $api(source, options = {}, showError = true) {
   const app = useNuxtApp()
   const config = useRuntimeConfig().public
@@ -131,7 +124,6 @@ export default async function $api(source, options = {}, showError = true) {
   options = disableReactive(options)
 
   try {
-    // 🟢 Trường hợp truyền thẳng string
     if (typeof source === 'string') {
       setKeyOptions(options, reformatUrl(source, options))
       const response = await useFetch(reformatUrl(source, options), {
@@ -160,7 +152,6 @@ export default async function $api(source, options = {}, showError = true) {
       return response
     }
 
-    // 🟢 Trường hợp truyền object có method + url
     const { method, url, headers } = source
     setKeyOptions(options, reformatUrl(url, options))
 

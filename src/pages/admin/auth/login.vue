@@ -51,13 +51,8 @@ const backUrl = computed(() => String(route.query.backUrl) || null)
 const handleLogin = async () => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-//   const urlencoded = new URLSearchParams();
-// urlencoded.append("username", "admin");
-// urlencoded.append("password", "123456");
-// urlencoded.append("client_id", "690668de91f84f7501279470");
-// urlencoded.append("client_secret", "demosecret");
-// urlencoded.append("grant_type", "password");
-  const config = useRuntimeConfig().publicl
+
+  const config = useRuntimeConfig().public
 
   console.log('config', config);
   
@@ -66,9 +61,9 @@ const handleLogin = async () => {
   const dataForm = {
     username: username.value,
     password: password.value,
-    client_id: config?.client_id,
-    client_secret: config?.client_secret,
-    grant_type: config?.grant_type
+    client_id: config?.clientId,
+    client_secret: config?.clientSecret,
+    grant_type: config?.grantType
   }
 
 
