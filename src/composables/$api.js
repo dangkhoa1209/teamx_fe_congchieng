@@ -36,8 +36,7 @@ const errorProcess = (app, error) => {
   if (process.client) {
     let errorDataList = []
     if (error && error.value) {
-      const errorData = error.value.data || {}
-
+      const errorData = error.value.data || {}      
       errorDataList = errorData.errors ? Array(errorData.errors) : errorData.errors
       if (typeof errorDataList === 'string') {
         $toast().error(errorDataList)
@@ -185,11 +184,12 @@ export default async function $api(source, options = {}, showError = true) {
       Object.assign(response, {
         data: ref(response?.error?.value?.data)
       })
-      return response
+      return null
     }
 
     return response
   } catch (e) {
+    console.log('e', e);
     $toast().error(e.message || 'Lỗi kết nối máy chủ')
     throw e
   }

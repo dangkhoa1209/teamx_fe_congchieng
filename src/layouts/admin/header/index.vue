@@ -28,7 +28,6 @@
 </template>
 <script setup>
 // const logo = '/assets/logo.png'
-import $image from '../../composables/$image'
 import Menu from './menu.vue'
 const onLogoError = (event) => {
   const target = event.target

@@ -1,24 +1,22 @@
 <template>
     <div>
-        <!-- <Header></Header> -->
-
+        <Header />
         <router-view />
     </div>
 </template>
 
 <script setup>
-// const { auth } = $store()
+import { onMounted } from 'vue'
+import Header from './admin/header/index.vue'
 
-// useHead({
-//   title: 'khoa'
-// })
+// Lấy store (tuỳ framework — Vuex, Pinia, hay custom)
+const { auth } = $store()
 
-// onMounted(() => {
-//     auth.setAccessToken('nef m')
-//     console.log('khoa')
-// })
-// // const config = useRuntimeConfig().public
-// // useHead({
-// //   title: config.appName
-// // })
+// Cấu hình metadata
+useHead({
+  title: 'Quản trị hệ thống',
+  meta: [
+    { name: 'description', content: 'Website của Khoa - ví dụ SEO tốt hơn' }
+  ]
+})
 </script>

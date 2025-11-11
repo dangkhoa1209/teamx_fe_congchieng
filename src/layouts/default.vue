@@ -8,8 +8,8 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import Header from './header/index.vue'
-import Footer from './footer/index.vue'
+import Header from './default/header/index.vue'
+import Footer from './default/footer/index.vue'
 
 // Lấy store (tuỳ framework — Vuex, Pinia, hay custom)
 const { auth } = $store()
@@ -22,9 +22,4 @@ useHead({
   ]
 })
 
-// Mounted
-onMounted(() => {
-  auth.setAccessToken('nef m')
-  console.log('khoa')
-})
 </script>
