@@ -1,12 +1,12 @@
 <template>
-  <div class="p-6 space-y-6">
+  <div class="p-6">
     <div class="flex flex-wrap items-center justify-between gap-3">
       <div>
         <h1 class="text-2xl font-semibold text-gray-900">
           Quản lý tin tức - sự kiện
         </h1>
       </div>
-      <x-form-button icon="mdi:plus" title="Thêm bài viết" @click="handleCreate" />
+      <x-form-button icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm bài viết</x-form-button>
     </div>
 
     <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -96,6 +96,11 @@
       Bạn có chắc muốn {{ statusModalConfirmText.toLowerCase() }}
       bài viết <b>{{ statusTarget?.title }}</b>?
     </ConfirmModal>
+
+    ok: {{ ok }}
+    <x-modal v-model="ok">
+      <div class="h-[1500px] bg-primary"></div>
+    </x-modal>
   </div>
 </template>
 
@@ -110,6 +115,8 @@ import Status from '~/components/admin/common/Status.vue'
 definePageMeta({
   layout: 'admin'
 })
+
+const ok = ref(true)
 
 // const { $api, $lodash, $toast, $url } = useNuxtApp()
 

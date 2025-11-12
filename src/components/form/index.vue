@@ -8,9 +8,8 @@
   </form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useForm } from 'vee-validate'
-import { useToast } from 'vue-toastification'
 import { defineProps } from 'vue'
 
 const props = defineProps({
@@ -25,7 +24,6 @@ const props = defineProps({
   }
 })
 
-const toast = useToast()
 const { validate } = useForm()
 
 const submitForm = async () => {
@@ -43,6 +41,6 @@ const submitForm = async () => {
 
   // submit data
   console.log('Form valid:', values)
-  toast.success('Gửi form thành công!')
+  $toast().success('Gửi form thành công!')
 }
 </script>

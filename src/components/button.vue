@@ -16,10 +16,6 @@
 import { computed, toRefs } from 'vue'
 
 const props = defineProps({
-  title: {
-    type: String,
-    default: 'Button'
-  },
   type: {
     type: String,
     default: 'button' // 'button' | 'submit' | 'reset'

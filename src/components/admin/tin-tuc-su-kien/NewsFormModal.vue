@@ -2,7 +2,7 @@
   <Transition name="fade">
     <div
       v-if="modelValue"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
       tabindex="-1"
       @keydown.esc.prevent="handleClose"
     >
