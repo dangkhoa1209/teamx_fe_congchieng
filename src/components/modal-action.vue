@@ -1,28 +1,51 @@
 <template>
   <x-modal
-    v-model="visible"
-    :title="title"
-    :loading="loading"
+    v-model="isVisible"
+    :title="props.title"
+    :loading="props.loading"
     @submit="handleSubmit"
   >
-    div
+    <x-form ref="form" @submit="onFormSubmit">
+      <slot></slot>
+    </x-form>
   </x-modal>
 </template>
 <script setup>
-import { toRefs } from 'vue';
-
+import { computed } from 'vue'
 
 const props = defineProps({
-  title: 'Cập nhật'
+  visible: {
+    type: Boolean,
+    default: false
+  },
+  title: {
+    type: String,
+    default: 'Cập nhật'
+  },
+  loading: {
+    type: Boolean,
+    default: false
+  }
+})
+const emits = defineEmits(['update:visible', 'submit'])
+
+const isVisible = computed({
+  get: () => props.visible,
+  set: (value) => emits('update:visible', value)
+})
+const form = ref()
+
+const handleSubmit = async () => {
+  if (!form.value) return
+  await form.value.submit()
+}
+
+const onFormSubmit = (values) => {
+  emits('submit', values)
+}
+
+defineExpose({
+  form
 })
 
-const {title} = toRefs(props)
-
-const visible = ref(false) 
-const loading = ref(false)
-
-const handleSubmit = () => {
-  console.log('ok');
-  
-}
 </script>

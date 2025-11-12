@@ -11,10 +11,7 @@ export default defineNuxtPlugin(() => {
   configure({
     generateMessage: (ctx) => {
       const field = ctx.label || ctx.field || 'Trường này'
-      const params = ctx.rule?.params
-
-      console.log('ctx', ctx);
-      
+      const params = ctx.rule?.params      
 
       const messages= {
         required: `${field} là bắt buộc`,

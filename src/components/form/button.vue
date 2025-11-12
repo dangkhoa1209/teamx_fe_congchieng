@@ -1,6 +1,6 @@
 <template>
     <button
-      type="button",
+      type="button"
       :disabled="disabled"
       class="inline-flex items-center gap-2 rounded-lg px-4 py-2 cursor-pointer"
       :class="cClass"
@@ -13,7 +13,7 @@
     </button>
 </template>
 <script setup>
-import { computed } from 'vue';
+import { computed, toRefs } from 'vue'
 
 const props = defineProps({
 

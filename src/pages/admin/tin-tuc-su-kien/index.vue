@@ -61,46 +61,7 @@
       </div>
     </div>
 
-    <NewsFormModal
-      :model-value="isFormModalOpen"
-      :loading="isSaving"
-      :mode="formMode"
-      :initial-data="editingItem"
-      @update:model-value="isFormModalOpen = $event"
-      @submit="handleSubmitForm"
-    />
-
-    <ConfirmModal
-      :visible="isDeleteModalOpen"
-      title="Xoá bài viết"
-      confirm-text="Xoá"
-      confirm-variant="danger"
-      :loading="isDeleting"
-      @cancel="closeDeleteModal"
-      @confirm="confirmDelete"
-    >
-      Bạn có chắc muốn xoá bài viết
-      <b>{{ deleteTarget?.title }}</b>
-      ? Thao tác này không thể hoàn tác.
-    </ConfirmModal>
-
-    <ConfirmModal
-      :visible="isStatusModalOpen"
-      :title="statusModalTitle"
-      :confirm-text="statusModalConfirmText"
-      confirm-variant="warning"
-      :loading="isUpdatingStatus"
-      @cancel="closeStatusModal"
-      @confirm="confirmChangeStatus"
-    >
-      Bạn có chắc muốn {{ statusModalConfirmText.toLowerCase() }}
-      bài viết <b>{{ statusTarget?.title }}</b>?
-    </ConfirmModal>
-
-    ok: {{ ok }}
-    <x-modal v-model="ok">
-      <div class="h-[1500px] bg-primary"></div>
-    </x-modal>
+    <ModalAction ref="modalAction"></ModalAction>
   </div>
 </template>
 
@@ -111,6 +72,7 @@ import DataTable from '~/components/admin/common/DataTable.vue'
 import PaginationControls from '~/components/admin/common/PaginationControls.vue'
 import NewsFormModal from '~/components/admin/tin-tuc-su-kien/NewsFormModal.vue'
 import Status from '~/components/admin/common/Status.vue'
+import ModalAction from './ignore/action.vue'
 
 definePageMeta({
   layout: 'admin'
@@ -126,6 +88,8 @@ const tableList = ref({
   size: 10,
   totalItems: 0
 })
+
+const modalAction = ref()
 
 const isLoading = ref(false)
 
@@ -285,7 +249,6 @@ const handleRowAction = (action, item) => {
 const fetchList = async () => {
   isLoading.value = true
   try {
-    a = 'b'
     const response = await $api($url.news.list, {
       query: {
         page: tableList.value.currentPage,
@@ -357,9 +320,9 @@ const fetchList = async () => {
 }
 
 const handleCreate = () => {
-  editingItem.value = null
-  formMode.value = 'create'
-  isFormModalOpen.value = true
+  console.log('modalAction.value', modalAction.value);
+  
+  modalAction.value?.open()
 }
 
 const handleEdit = (item) => {
