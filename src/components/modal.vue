@@ -8,7 +8,7 @@
       tabindex="-1"
     >
       <div
-        class="w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-xl bg-white shadow-lg flex flex-col transition-all duration-150 ease-out scale-100"
+        class="w-full max-w-[70vw] max-h-[90vh] overflow-hidden rounded-xl bg-white shadow-lg flex flex-col transition-all duration-150 ease-out scale-100"
         role="dialog"
         aria-modal="true"
       >

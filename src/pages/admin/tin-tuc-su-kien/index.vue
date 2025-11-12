@@ -67,10 +67,9 @@
 
 <script setup>
 import ActionDropdown from '~/components/admin/common/ActionDropdown.vue'
-import ConfirmModal from '~/components/admin/common/ConfirmModal.vue'
+
 import DataTable from '~/components/admin/common/DataTable.vue'
 import PaginationControls from '~/components/admin/common/PaginationControls.vue'
-import NewsFormModal from '~/components/admin/tin-tuc-su-kien/NewsFormModal.vue'
 import Status from '~/components/admin/common/Status.vue'
 import ModalAction from './ignore/action.vue'
 

@@ -16,7 +16,6 @@
 import { computed, toRefs } from 'vue'
 
 const props = defineProps({
-
     icon: {
         type: String,
         default: ''
@@ -79,4 +78,14 @@ const cIcon = computed(() => {
   return props.icon || ''
 })
 const emits = defineEmits(['click'])
+
+
+// Material Design Icons	mdi:	<Icon name="mdi:close" />
+// Heroicons (Solid)	heroicons-solid:	<Icon name="heroicons-solid:trash" />
+// Heroicons (Outline)	heroicons-outline:	<Icon name="heroicons-outline:home" />
+// Tabler Icons	tabler:	<Icon name="tabler:edit" />
+// Phosphor Icons	ph:	<Icon name="ph:heart-fill" />
+// Lucide Icons	lucide:	<Icon name="lucide:settings" />
+// Bootstrap Icons	bi:	<Icon name="bi:check-circle" />
+// Solar Icons	solar:	<Icon name="solar:bell-outline" />
 </script>

@@ -2,7 +2,7 @@
   <div class="flex flex-col w-full">
     <!-- Label -->
     <label v-if="label" :for="name" class="mb-1 text-body font-medium font-robo">
-      {{ label }}<span v-if="required" class="ml-"> *</span>
+      {{ label }}<span v-if="required" class="ml-0.5"> *</span>
     </label>
 
     <!-- Input Field -->

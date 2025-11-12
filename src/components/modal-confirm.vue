@@ -1,7 +1,7 @@
 <template>
   <Transition name="fade">
     <div
-      v-if="visible"
+      v-if="isVisible"
       class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
     >
       <div class="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl">
@@ -17,7 +17,7 @@
           <button
             type="button"
             class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            @click="$emit('cancel')"
+            @click="handleCancel"
             :disabled="loading"
           >
             Huỷ
@@ -69,7 +69,17 @@ const props = defineProps({
   }
 })
 
-defineEmits(['confirm', 'cancel'])
+const emit = defineEmits(['confirm', 'cancel', 'update:visible'])
+
+const isVisible = computed({
+  get: () => props.visible,
+  set: (value) => emit('update:visible', value)
+})
+
+const handleCancel = () => {
+  emit('cancel')
+  isVisible.value = false
+}
 
 const confirmButtonClasses = computed(() => {
   if (props.confirmVariant === 'danger') {
