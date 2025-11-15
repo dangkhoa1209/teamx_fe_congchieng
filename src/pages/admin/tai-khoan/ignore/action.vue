@@ -8,11 +8,10 @@
   >
     <div class="flex gap-2" >
       <div class="w-full flex flex-col gap-4">
-        formData.username {{ formData.username }}
           <x-form-input
             v-model="formData.username"
             label="Tài khoản"
-            name="username"
+            name="create_username"
             rules="required"
             required
             placeholder="Nhập tài khoản"
@@ -21,21 +20,20 @@
            <x-form-input
             v-model="formData.password"
             label="Mật khẩu"
-            name="password"
+            name="create_password"
             rules="required"
             required
             type="password"
             placeholder="Nhập mật khẩu"
           />
-          formData.permissions: {{ formData.permissions }}
-           <x-form-select
-              v-model="formData.permissions"
-              :options="permissions"
-              label="Quyền"
-              name="permissions"
-              multiple
-              placeholder="Chọn quyền"
-            />
+          <x-form-select
+            v-model="formData.permissions"
+            :options="permissions"
+            label="Quyền"
+            name="permissions"
+            multiple
+            placeholder="Chọn quyền"
+          />
       </div>
     </div>
   </x-modal-action>
@@ -47,6 +45,7 @@ const initData = {
   password: '',
   permissions: []
 }
+const emits = defineEmits(['refresh'])
 const isVisible = ref(false)
 const isLoading = ref(false)
 const modalAction = ref(null)
@@ -60,20 +59,30 @@ const open = (taiKhoan) => {
   isVisible.value = true
 }
 
+const close = () => {
+  isVisible.value = false
+}
+
+const reset = () => {
+  formData.value = $lodash.cloneDeep(initData)
+}
+
 const handleSubmit = async (values) => {
   isLoading.value = true
   try {
     const response = await $api($url.admin.account.save, {
       body: formData.value
     })
+
     
-    // if (response) {
-    //   $toast().success('Thêm bài viết mới thành công.')
-    //   close()
-    //   emit('success')
-    // }
+     const { data, success } = response?.data?.value || { data: null, success: false }
+     if(success) {
+      $toast().success('Thêm bài viết mới thành công.')
+      reset()
+      emits('refresh')
+      close()
+     }
   } catch (error) {
-    console.error('Failed to create news', error)
   } finally {
     isLoading.value = false
   }

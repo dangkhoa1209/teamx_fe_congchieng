@@ -40,9 +40,9 @@ const handleSubmit = async () => {
   await form.value.submit()
 }
 
-const onFormSubmit = (values) => {
+const onFormSubmit = $lodash.debounce((values) => {
   emits('submit', values)
-}
+}, 200)
 
 defineExpose({
   form
