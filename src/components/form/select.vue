@@ -99,7 +99,7 @@
           </div>
 
           <!-- Options -->
-          <ul>
+          <ul class="max-h-[300px] overflow-auto">
             <li
               v-for="item in filteredOptions"
               :key="item[keyValue]"
@@ -114,7 +114,7 @@
                 class="w-4 h-4 text-primary rounded"
                 @click.stop
               /> -->
-              <span class="flex-1">{{ item[keyLabel] }}</span>
+              <span>{{ item[keyLabel] }}</span>
             </li>
             <li v-if="!filteredOptions.length" class="px-3 py-2 text-gray-400 text-sm font-robo">
               Không có kết quả
