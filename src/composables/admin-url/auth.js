@@ -3,10 +3,10 @@ export default {
     method: 'post',
     url: '/auth/token'
   },
-  // logout: {
-  //   method: 'post',
-  //   url: '/auth/user/logout'
-  // },
+  logout: {
+    method: 'post',
+    url: '/admin/logout'
+  },
   // register: {
   //   method: 'post',
   //   url: '/auth/register',

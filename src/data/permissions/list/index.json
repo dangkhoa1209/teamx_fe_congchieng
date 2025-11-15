@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Quản lý tài khoản",
+    "value": "tai-khoan"
+  },
+  {
+    "label": "Quản lý xã Lạc Dương",
+    "value": "xa-lac-duong"
+  },
+  {
+    "label": "Quản lý xã Đạ Tẻh",
+    "value": "xa-da-teh"
+  },
+  {
+    "label": "Quản lý xã Bảo Lâm 3",
+    "value": "xa-lac-bao-lam-3"
+  },
+  {
+    "label": "Quản lý xã Đinh Trang Thượng",
+    "value": "xa-dinh-trang-thuong"
+  },
+  {
+    "label": "Quản lý xã Đam Rông 4",
+    "value": "xa-tam-dong-4"
+  }
+]

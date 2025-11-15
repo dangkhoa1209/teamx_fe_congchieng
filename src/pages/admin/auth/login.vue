@@ -43,6 +43,18 @@ const { auth } = $store()
 const router = useRouter()
 const route = useRoute()
 
+definePageMeta({
+  layout: 'auth',
+  middleware: 'auth'
+})
+
+useHead({
+  title: 'Đăng nhập',
+  // meta: [
+  //   { name: 'description', content: 'Website của Khoa - ví dụ SEO tốt hơn' }
+  // ]
+})
+
 
 const username = ref('')
 const password = ref('')
@@ -75,28 +87,24 @@ const handleLogin = async () => {
   const { data, success } = res?.data?.value || { data: null, success: false }
 
 
-  if (success) {
-
-    console.log('data', data);
-    
+  if (success) {    
       const token = $lodash.get(data, 'accessToken', '')
       const expiresIn = $lodash.get(data, 'accessTokenExpiresAt', '')
       const refreshToken = $lodash.get(data, 'refreshToken', '')
-      const isAdmin = $lodash.get(data, 'isAdmin')
-
-
+      const user = $lodash.get(data, 'user')
+      
       auth.setAccessToken(token)
       auth.setRefreshToken(refreshToken)
       auth.setExpires(expiresIn)
+      auth.setUser(user)
 
       if (backUrl.value && backUrl.value !== 'undefined') {
         window.location.href = backUrl.value
         return
       }    
 
-      return router.push({
-        name: 'admin',
-      })
+      router.push('/admin')
+
     }
   
 

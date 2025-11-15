@@ -44,6 +44,8 @@ const menus = [
   // { label: 'Văn hoá cồng chiêng', page: '/van-hoa-cong-chieng' },
   // { label: 'Tiềm năng phát triển', page: '/tiem-nang-phat-trien' },
   { label: 'Tin tức - Sự kiện', page: '/admin/tin-tuc-su-kien' },
+  { label: 'Tài khoản', page: '/admin/tai-khoan' },
+  { label: 'Cá nhân', page: '/admin/ca-nhan' },
   // { label: 'Hợp tác', page: '/hop-tac' },
   // { label: 'Liên hệ', page: '/lien-he' }
 ]

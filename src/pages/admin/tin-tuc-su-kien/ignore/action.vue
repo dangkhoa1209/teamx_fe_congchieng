@@ -47,6 +47,8 @@
               required
               v-model="item.image"
             />
+
+            item.image: {{ item.image }}
             <x-form-input
               v-model="formData.imageName"
               label="Tiêu đề cho ảnh"
@@ -67,9 +69,6 @@
 </template>
 
 <script setup>
-import { template } from 'lodash-es'
-
-const { $api, $toast, $url } = useNuxtApp()
 
 const emit = defineEmits(['success'])
 
@@ -80,9 +79,7 @@ const isLoading = ref(false)
 const formData = ref({
   title: '',
   subtitle: '',
-  contents: [
-
-  ],
+  contents: [],
 
 })
 
@@ -125,18 +122,49 @@ const close = () => {
   isVisible.value = false
 }
 
+const buildFormData = async (data) => {
+  const fd = new FormData()
+
+  fd.append('title', data.title)
+  fd.append('subtitle', data.subtitle)
+
+  for (let i = 0; i < data.contents.length; i++) {
+    const item = data.contents[i]
+    fd.append(`contents[${i}][type]`, item.type)
+
+    if (item.type === 'content') {
+      fd.append(`contents[${i}][data]`, item.data)
+    } else if (item.type === 'image' && item.image) {
+      let blob = item.image
+
+      // Nếu là URL blob -> convert sang Blob thật
+      if (typeof blob === 'string' && blob.startsWith('blob:')) {
+        const res = await fetch(blob)
+        blob = await res.blob()
+      }
+
+      fd.append(`contents[${i}][image]`, blob, item.imageName || `image-${i}.jpg`)
+    }
+  }
+
+  return fd
+}
+
+
 const handleSubmit = async (values) => {
   isLoading.value = true
   try {
-    const response = await $api($url.news.create, {
-      body: values
+    const fd = await buildFormData(formData.value)
+
+    const response = await $api($url.admin.news.create, {
+      body: fd
     })
     
-    if (response) {
-      $toast().success('Thêm bài viết mới thành công.')
-      close()
-      emit('success')
-    }
+    // if (response) {
+    //   $toast().success('Thêm bài viết mới thành công.')
+    //   close()
+    //   emit('success')
+    // }
   } catch (error) {
     console.error('Failed to create news', error)
   } finally {

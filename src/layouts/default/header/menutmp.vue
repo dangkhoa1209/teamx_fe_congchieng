@@ -10,7 +10,6 @@
         <x-content-place>
           <div class="flex justify-between items-center h-[75px]">
             <!-- Menu -->
-            <nav>
               <ul class="flex gap-[52px] uppercase text-[16px] font-robo font-medium">
                 <li
                   v-for="item in menus"
@@ -22,7 +21,6 @@
                   </x-link>
                 </li>
               </ul>
-            </nav>
 
             <!-- Icon -->
             <IconFind class="w-6 h-6 fill-primary" />
@@ -35,17 +33,70 @@
 </template>
 
 <script setup>
+import { Children } from 'react'
 import { ref, onMounted, onUnmounted } from 'vue'
 import IconFind from '~/public/assets/icon/find.svg'
 
 const menus = [
-  { label: 'Trang chủ', page: '/trang-chu' },
-  { label: 'Giới thiệu', page: '/gioi-thieu' },
-  { label: 'Văn hoá cồng chiêng', page: '/van-hoa-cong-chieng' },
-  { label: 'Tiềm năng phát triển', page: '/tiem-nang-phat-trien' },
-  { label: 'Tin tức - Sự kiện', page: '/tin-tuc-su-kien' },
-  { label: 'Hợp tác', page: '/hop-tac' },
-  { label: 'Liên hệ', page: '/lien-he' }
+  { 
+    label: 'Trang chủ', 
+    page: '/trang-chu' 
+  },
+  { 
+    label: 'Giới thiệu', 
+    page: '/gioi-thieu' 
+  },
+  { 
+    label: 'Văn hoá cồng chiêng', 
+    // page: '/van-hoa-cong-chieng',
+    childrens: [
+      {
+        label: 'Tổng quan văn hoá cồng chiêng',
+        page: '/van-hoa-cong-chieng/tong-quan',
+      },
+      {
+        label: 'Văn hóa cồng chiêng tại các Xã',
+        // page: '/van-hoa-cong-chieng/xa',
+        childrens: [
+          {
+            label: 'Xã Lạc Dương',
+            page: '/van-hoa-cong-chieng/xa/lac-duong'
+          },
+          {
+            label: 'Xã Đạ Tẻh',
+            page: '/van-hoa-cong-chieng/xa/da-teh'
+          },
+          {
+            label: 'Xã Bảo Lâm 3',
+            page: '/van-hoa-cong-chieng/xa/bao-lam-3'
+          },
+          {
+            label: 'Xã Đinh Trang Thượng',
+            page: '/van-hoa-cong-chieng/xa/dinh-trang-thuong'
+          },
+          {
+            label: 'Xã Đam Rông 4',
+            page: '/van-hoa-cong-chieng/xa/tam-dong-4'
+          }
+        ]
+      }
+    ]
+  },
+  { 
+    label: 'Tiềm năng phát triển', 
+    page: '/tiem-nang-phat-trien' 
+  },
+  { 
+    label: 'Tin tức - Sự kiện', 
+    page: '/tin-tuc-su-kien' 
+  },
+  { 
+    label: 'Hợp tác', 
+    page: '/hop-tac' 
+  },
+  { label: 'Liên hệ', 
+    page: '/lien-he' 
+  }
 ]
 
 const headerWrapper = ref(null)

@@ -109,9 +109,48 @@ export default async function $api(source, options = {}, showError = true) {
   const { auth } = $store()
   const router = useRouter()
 
+  const refreshTokenFn = async () => {
+    try {
+
+      const body = new URLSearchParams({
+        refresh_token: auth.refreshToken,
+        grant_type: config?.grantTypeRefresh,
+        client_id: config?.clientId,
+        client_secret: config?.clientSecret
+      })
+
+      const res = await useFetch('/auth/refresh', {
+        baseURL: config.apiURL,
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body
+      })
+
+      const tokenData = res.data?.value
+      if(!tokenData.data.accessToken){
+        auth?.clear?.()
+        router.push({ name: 'admin-auth-login' })
+      }
+
+      if (tokenData) {
+        auth.setAccessToken(tokenData.data.accessToken)
+        auth.setRefreshToken(tokenData.data.refreshToken)
+        return tokenData.data.accessToken
+      }
+
+      return false
+    } catch (err) {
+      auth?.clear?.()
+      router.push({ name: 'admin-auth-login' })
+    }
+  }
+
   const accessToken = auth?.accessToken
+  
   const requestHeaders = {
-    Authorization: accessToken ? 'Bearer ' + accessToken : '',
+    ...(accessToken && { Authorization: 'Bearer ' + accessToken }),
     'Accept-Language': 'vi',
     ...options.headers
   }
@@ -123,34 +162,6 @@ export default async function $api(source, options = {}, showError = true) {
   options = disableReactive(options)
 
   try {
-    if (typeof source === 'string') {
-      setKeyOptions(options, reformatUrl(source, options))
-      const response = await useFetch(reformatUrl(source, options), {
-        baseURL: config.apiURL,
-        headers: requestHeaders,
-        ...options
-      })
-
-      if (response.status.value === 'error') {
-        const errorResponse = (response.error && response.error.value) || {}
-        const errorStatus = errorResponse.statusCode || 500
-
-        if (errorStatus === 401) {
-          auth?.clear?.()
-          router.push({ name: 'auth-login' })
-          return null
-        }
-
-        showError && errorProcess(app, response.error)
-        Object.assign(response, {
-          data: ref(response?.error?.value?.data)
-        })
-        return response
-      }
-
-      return response
-    }
-
     const { method, url, headers } = source
     setKeyOptions(options, reformatUrl(url, options))
 
@@ -173,10 +184,40 @@ export default async function $api(source, options = {}, showError = true) {
     const errorResponse = (response.error && response.error.value) || {}
     const errorStatus = errorResponse.statusCode || 500
 
+    // refreshToken
     if (errorStatus === 401) {
+      const token = await refreshTokenFn()
+      if(!token) {
+        auth?.clear?.()
+        router.push({ name: 'admin-auth-login' })
+      }
+      opts.headers.Authorization = `Bearer ${token}`;
+      const response2 = await useFetch(reformatUrl(url, options), opts)
+
+      const errorResponse = (response2.error && response2.error.value) || {}
+      const errorStatus = errorResponse.statusCode || 500
+
+      if(errorStatus === 403) {
+        auth?.clear?.()
+        router.push({ name: 'admin-auth-login' })
+        return
+      }
+
+      if (response2.status.value === 'error') {
+        showError && errorProcess(app, response2.error)
+        Object.assign(response2, {
+          data: ref(response2?.error?.value?.data)
+        })
+        return null
+      }
+
+      return response2
+    }
+
+    if(errorStatus === 403) {
       auth?.clear?.()
-      router.push({ name: 'auth-login' })
-      return null
+      router.push({ name: 'admin-auth-login' })
+      return
     }
 
     if (response.status.value === 'error') {

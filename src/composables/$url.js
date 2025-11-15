@@ -1,7 +1,9 @@
 import auth from './admin-url/auth'
-import news from './admin-url/news'
+import news from './admin-url/news.js'
 
 export default {
   auth,
-  news
+  admin: {
+    news
+  }
 }

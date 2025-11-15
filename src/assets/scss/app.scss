@@ -2,6 +2,9 @@ body {
   @apply bg-main min-h-screen;
 }
 
+.user-select-none {
+  user-select: none; /* Ngăn bôi đen trên hầu hết trình duyệt */
+}
 
 @layer utilities {
   .text-hero {
@@ -20,6 +23,9 @@ body {
      @apply text-[16px];
   }
 
+  .text-14 {
+     @apply text-[14px];
+  }
   .text-mini {
     @apply text-[13px];
   }

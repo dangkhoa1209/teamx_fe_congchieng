@@ -79,8 +79,6 @@ definePageMeta({
 
 const ok = ref(true)
 
-// const { $api, $lodash, $toast, $url } = useNuxtApp()
-
 const tableList = ref({
   data: [],
   currentPage: 1,
@@ -246,9 +244,11 @@ const handleRowAction = (action, item) => {
 }
 
 const fetchList = async () => {
+
+  
   isLoading.value = true
-  try {
-    const response = await $api($url.news.list, {
+  try {    
+    const response = await $api($url.admin.news.list, {
       query: {
         page: tableList.value.currentPage,
         per_page: tableList.value.size
@@ -260,8 +260,7 @@ const fetchList = async () => {
       $lodash.get(payload, 'data.data') ??
       $lodash.get(payload, 'data.items') ??
       $lodash.get(payload, 'data') ??
-      $lodash.get(payload, 'items') ??
-      []
+      $lodash.get(payload, 'items') ?? []
 
     const normalizedItems = Array.isArray(dataSource) ? dataSource : $lodash.get(dataSource, 'data', [])
     const safeItems = Array.isArray(normalizedItems) ? normalizedItems : []
@@ -304,7 +303,7 @@ const fetchList = async () => {
     console.log('sdfsdf');
     
     console.error('Failed to fetch news list', error)
-    $toast().error('Không thể tải danh sách bài viết. Đang hiển thị dữ liệu mẫu.')
+    // $toast().error('Không thể tải danh sách bài viết. Đang hiển thị dữ liệu mẫu.')
 
     const start = (tableList.value.currentPage - 1) * tableList.value.size
     const pagedRecords = mockRecords.slice(start, start + tableList.value.size)

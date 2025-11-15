@@ -1,5 +1,5 @@
 <template>
-  <header class="z-auto">
+  <header class="z-auto appearance-none user-select-none">
     <!-- header -->
     <div class="bg-primary">
       <x-content-place>
@@ -28,7 +28,7 @@
 </template>
 <script setup>
 // const logo = '/assets/logo.png'
-import Menu from './menu.vue'
+import Menu from './menu/index.vue'
 const onLogoError = (event) => {
   const target = event.target
   target.style.display = 'none'
@@ -38,8 +38,6 @@ const onLogoError = (event) => {
 </script>
 
 <style>
-/* // .header {
-//   @apply text-primary;
-// } */
+
 </style>
 

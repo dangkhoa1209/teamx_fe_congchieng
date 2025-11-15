@@ -8,6 +8,7 @@ export default defineStore('auth',
       accessToken: '',
       refreshToken: '',
       expiresIn: 0,
+      user: {},
     }
   },
   actions: {
@@ -15,6 +16,7 @@ export default defineStore('auth',
       this.accessToken = ''
       this.refreshToken = ''
       this.expiresIn = 0
+      this.user = {}
     },
     setAccessToken: function (payload) {
       this.accessToken = payload
@@ -24,6 +26,9 @@ export default defineStore('auth',
     },
     setExpires: function (payload) {
       this.expiresIn = payload
+    },
+    setUser: function (payload) {
+      this.user = payload
     }
   },
   getters: {
@@ -35,6 +40,9 @@ export default defineStore('auth',
     },
     getExpiresIn: function (payload) {
       return this.expiresIn
+    },
+    getUser: function (payload) {
+      return this.user
     }
   }
 })

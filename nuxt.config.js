@@ -79,7 +79,8 @@ export default defineNuxtConfig({
       apiURL: process.env.API_URL,
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      grantType: process.env.GRANT_TYPE
+      grantType: process.env.GRANT_TYPE,
+      grantTypeRefresh: process.env.GRANT_TYPE_REFRESH
     }
   },
 })

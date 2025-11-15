@@ -117,11 +117,17 @@ const loadFile = (file, handleChange) => {
 
 const cropImage = (handleChange) => {
   if (!cropper) return
+
+  const targetWidth = 1920
+  const targetHeight = Math.round((386 / 565) * targetWidth) // ≈1311
+
   const canvas = cropper.getCroppedCanvas({
-    width: 565,
-    height: 386,
+    width: targetWidth,
+    height: targetHeight,
+    imageSmoothingEnabled: true,
     imageSmoothingQuality: 'high'
   })
+
   canvas.toBlob(
     (blob) => {
       const url = URL.createObjectURL(blob)
@@ -135,7 +141,7 @@ const cropImage = (handleChange) => {
       handleChange(url)
     },
     'image/jpeg',
-    0.8
+    0.9 // chất lượng cao
   )
 }
 

@@ -1,0 +1,130 @@
+<template>
+  <nav class="h-[75px] "> 
+    <div ref="headerWrapper" class="h-0"></div>
+    <header class="h-[75px] ">
+      <div
+        ref="header"
+        class="header z-50 bg-main border border-primary"
+        :class="{ 'fixed-header': isFixed }"
+      >
+        <x-content-place>
+          <div class="flex justify-between items-center h-[75px] ">
+              <ul class="flex gap-[52px]">
+                <menu-item v-for="item in menus" :key="item.label" :item="item" />
+              </ul>
+            <IconFind class="w-6 h-6 fill-primary" />
+          </div>
+        </x-content-place>
+      </div>
+    </header>
+  </nav>
+ 
+</template>
+<script setup>
+import MenuItem from './menu-item.vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import IconFind from '~/public/assets/icon/find.svg'
+
+const menus = [
+  { 
+    label: 'Trang chủ', 
+    page: '/trang-chu' 
+  },
+  { 
+    label: 'Giới thiệu', 
+    page: '/gioi-thieu' 
+  },
+  { 
+    label: 'Văn hoá cồng chiêng', 
+    // page: '/van-hoa-cong-chieng',
+    childrens: [
+      {
+        label: 'Tổng quan văn hoá cồng chiêng',
+        page: '/van-hoa-cong-chieng/tong-quan',
+      },
+      {
+        label: 'Văn hóa cồng chiêng tại các Xã',
+        // page: '/van-hoa-cong-chieng/xa',
+        childrens: [
+          {
+            label: 'Xã Lạc Dương',
+            page: '/van-hoa-cong-chieng/xa/lac-duong'
+          },
+          {
+            label: 'Xã Đạ Tẻh',
+            page: '/van-hoa-cong-chieng/xa/da-teh'
+          },
+          {
+            label: 'Xã Bảo Lâm 3',
+            page: '/van-hoa-cong-chieng/xa/bao-lam-3'
+          },
+          {
+            label: 'Xã Đinh Trang Thượng',
+            page: '/van-hoa-cong-chieng/xa/dinh-trang-thuong'
+          },
+          {
+            label: 'Xã Đam Rông 4',
+            page: '/van-hoa-cong-chieng/xa/tam-dong-4'
+          }
+        ]
+      }
+    ]
+  },
+  { 
+    label: 'Tiềm năng phát triển', 
+    // page: '/tiem-nang-phat-trien' 
+    childrens: [
+      {
+        label: 'Phát triển văn hóa - nghệ thuật',
+        page: '/tiem-nang-phat-trien/van-hoa-nghe-thuat'
+      },
+      {
+        label: 'Phát triển du lịch văn hóa - cộng đồng',
+        page: '/tiem-nang-phat-trien/du-lich-van-hoa-cong-dong'
+      },
+      {
+        label: 'Phát triển du lịch tại địa phương',
+        page: '/tiem-nang-phat-trien/du-lich-tai-dia-phuong'
+      }
+    ]
+  },
+  { 
+    label: 'Tin tức - Sự kiện', 
+    page: '/tin-tuc-su-kien' 
+  },
+  { 
+    label: 'Hợp tác', 
+    page: '/hop-tac' 
+  },
+  { label: 'Liên hệ', 
+    page: '/lien-he' 
+  }
+]
+
+const headerWrapper = ref(null)
+const isFixed = ref(false)
+let observer
+
+onMounted(() => {
+  observer = new IntersectionObserver(
+    ([entry]) => {
+      isFixed.value = !entry.isIntersecting
+    },
+    { threshold: 0 }
+  )
+  if (headerWrapper.value) observer.observe(headerWrapper.value)
+})
+
+onUnmounted(() => {
+  observer?.disconnect()
+})
+</script>
+
+<style scoped>
+.fixed-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+</style>
