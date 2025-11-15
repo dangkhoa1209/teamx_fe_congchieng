@@ -1,13 +1,14 @@
 <template>
   <x-modal-action
-    ref="modalRef"
+    ref="modalAction"
     v-model:visible="isVisible"
-    title="Thêm tài khoản mới"
+    title="Tài khoản"
     :loading="isLoading"
     @submit="handleSubmit"
   >
     <div class="flex gap-2" >
       <div class="w-full flex flex-col gap-4">
+        formData.username {{ formData.username }}
           <x-form-input
             v-model="formData.username"
             label="Tài khoản"
@@ -26,13 +27,12 @@
             type="password"
             placeholder="Nhập mật khẩu"
           />
+          formData.permissions: {{ formData.permissions }}
            <x-form-select
               v-model="formData.permissions"
               :options="permissions"
               label="Quyền"
               name="permissions"
-              rules="required"
-              required
               multiple
               placeholder="Chọn quyền"
             />
@@ -48,6 +48,9 @@ const initData = {
   permissions: []
 }
 const isVisible = ref(false)
+const isLoading = ref(false)
+const modalAction = ref(null)
+
 const formData = ref($lodash.cloneDeep(initData))
 
 const open = (taiKhoan) => {
@@ -55,6 +58,25 @@ const open = (taiKhoan) => {
     formData.value = $lodash.cloneDeep(taiKhoan)
   }
   isVisible.value = true
+}
+
+const handleSubmit = async (values) => {
+  isLoading.value = true
+  try {
+    const response = await $api($url.admin.account.save, {
+      body: formData.value
+    })
+    
+    // if (response) {
+    //   $toast().success('Thêm bài viết mới thành công.')
+    //   close()
+    //   emit('success')
+    // }
+  } catch (error) {
+    console.error('Failed to create news', error)
+  } finally {
+    isLoading.value = false
+  }
 }
 
 defineExpose({
