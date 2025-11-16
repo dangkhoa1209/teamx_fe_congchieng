@@ -83,4 +83,8 @@ export default defineNuxtConfig({
       grantTypeRefresh: process.env.GRANT_TYPE_REFRESH
     }
   },
+  // đảm bảo chuyển sang trang chủ nhưng vẫn tối ưu SEO
+  routeRules: {
+    '/': { redirect: { to: '/trang-chu', statusCode: 301 } }
+  }
 })
