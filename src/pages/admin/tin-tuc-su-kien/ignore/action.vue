@@ -108,7 +108,7 @@ import draggable from 'vuedraggable'
 import $lodash from '../../../../composables/$lodash'
 import { filter } from 'lodash-es'
 
-const emit = defineEmits(['success'])
+const emits = defineEmits(['refresh'])
 const modalRef = ref(null)
 const isVisible = ref(false)
 const isLoading = ref(false)
@@ -154,28 +154,58 @@ const open = () => {
 }
 
 const close = () => { 
-  isVisible.value = false }
+  isVisible.value = false 
+}
+
+const reset = () => {}
 
 // Xây dựng FormData để gửi
 const buildFormData = async (data) => {
   const fd = new FormData()
+
+  // Thêm thông tin chung
   fd.append('title', data.title)
   fd.append('subtitle', data.subtitle)
-  fd.append('contents', JSON.stringify(data.contents))
+  fd.append('status', data.status)
 
+  // Chuyển contents (text + info image) thành JSON
+  fd.append('contents', JSON.stringify(data.contents.map(c => {
+    // Loại bỏ file Blob/File thực tế, chỉ giữ id, type, data
+    const copy = { ...c }
+    if (c.type === 'image') delete copy.image
+    return copy
+  })))
+
+  // Xử lý từng image để append FormData
   for (const item of data.contents) {
     if (item.type === 'image' && item.image) {
-      let blob = item.image
-      if (typeof blob === 'string' && blob.startsWith('blob:')) {
-        const res = await fetch(blob)   // ✅ ok
-        blob = await res.blob()
+      let file = item.image
+      let fileName = `image-${item.id}`
+
+      if (file instanceof File) {
+        // File object → giữ tên gốc
+        fileName = file.name
+      } else if (typeof file === 'string' && file.startsWith('blob:')) {
+        // Blob URL → fetch + tạo File
+        const res = await fetch(file)
+        const arrayBuffer = await res.arrayBuffer()
+        const contentType = res.headers.get('Content-Type') || 'image/jpeg'
+
+        // Lấy extension từ content-type
+        let ext = contentType.split('/')[1] || 'jpeg'
+        ext = ext.includes('jpeg') ? 'jpg' : ext
+        fileName = `${fileName}.${ext}`
+
+        file = new File([arrayBuffer], fileName, { type: contentType })
       }
-      fd.append(`image_${item.id}`, blob, item.imageTitle || `image-${item.id}.jpg`)
+
+      fd.append(`image_${item.id}`, file, fileName)
     }
   }
 
   return fd
 }
+
 
 
 
@@ -185,12 +215,12 @@ const handleSubmit = async () => {
   try {
     const fd = await buildFormData(formData.value)
     const response = await $api($url.admin.news.create, { body: fd })
-
-    return 
-    if (response) {
-      $toast().success('Thêm bài viết mới thành công.')
+const { data, success } = response?.data?.value || { data: null, success: false } 
+    if(success) {
+      $toast().success('Thêm tin tức - sự kiên thành công.')
+      reset()
+      emits('refresh')
       close()
-      emit('success')
     }
   } catch (error) {
     console.error('Failed to create news', error)

@@ -7,7 +7,7 @@
     </label>
 
     <!-- Field -->
-    <Field :name="name" :rules="rules" v-slot="{ field, errors }">
+    <Field :name="name" :label="label" :rules="rules" v-slot="{ field, errors }">
       <textarea
         v-bind="field"
         v-model="fieldValue"

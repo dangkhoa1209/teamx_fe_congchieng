@@ -78,7 +78,7 @@ const handleSubmit = async (values) => {
     
      const { data, success } = response?.data?.value || { data: null, success: false }
      if(success) {
-      $toast().success('Thêm bài viết mới thành công.')
+      $toast().success('Thêm tài khoảng mới thành công.')
       reset()
       emits('refresh')
       close()
