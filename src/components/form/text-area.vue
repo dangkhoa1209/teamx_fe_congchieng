@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { Field } from 'vee-validate'
+import { Field, useField } from 'vee-validate'
 import { defineProps, defineEmits, computed } from 'vue'
 
 const props = defineProps({
@@ -47,6 +47,7 @@ const props = defineProps({
 })
 
 const emits = defineEmits(['update:modelValue', 'change'])
+const { value } = useField(props.name)
 
 // computed kết nối v-model bên ngoài với textarea
 const fieldValue = computed({
@@ -56,4 +57,12 @@ const fieldValue = computed({
     emits('change', val)
   }
 })
+
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    value.value = newVal ?? ''
+  },
+  { immediate: true }
+)
 </script>

@@ -1,6 +1,5 @@
 <template>
   <x-modal-action
-    ref="modalRef"
     v-model:visible="isVisible"
     title="Thêm bài viết mới"
     :loading="isLoading"
@@ -38,9 +37,6 @@
           required
           placeholder="Nhập tiêu đề phụ"
         />
-
-       
-
         <!-- Draggable list -->
         <draggable v-model="formData.contents" handle=".drag-handle" item-key="id" class="space-y-4">
           <template #item="{ element: item, index }">
@@ -68,6 +64,8 @@
               />
               <!-- Image content -->
               <div v-if="item.type === 'image'" class="rounded-2xl border px-4 py-2 border-primary">
+
+                item.image: {{ item.image}}
                 <x-form-image-picker
                   v-model="item.image"
                   :name="'content-' + item.id"
@@ -109,16 +107,17 @@ import $lodash from '../../../../composables/$lodash'
 import { filter } from 'lodash-es'
 
 const emits = defineEmits(['refresh'])
-const modalRef = ref(null)
 const isVisible = ref(false)
 const isLoading = ref(false)
 
-const formData = ref({
+const init = {
   title: '',
   subtitle: '',
   status: 'active',
   contents: []
-})
+}
+
+const formData = ref($lodash.cloneDeep(init))
 
 const addContent = () => {
   formData.value.contents.push({
@@ -141,15 +140,14 @@ const removeItem = (index) => {
   formData.value.contents.splice(index, 1)
 }
 
-const resetForm = () => {
-  formData.value.title = ''
-  formData.value.subtitle = ''
-  formData.value.contents = []
-  if (modalRef.value?.form) modalRef.value.form.reset()
-}
-
-const open = () => {
-  // resetForm()
+const open = (news) => {
+  console.log('news', news);
+  
+  if(news) {
+    formData.value = $lodash.cloneDeep(news)
+  }else {
+    formData.value = $lodash.cloneDeep(init)
+  }
   isVisible.value = true
 }
 
@@ -157,7 +155,9 @@ const close = () => {
   isVisible.value = false 
 }
 
-const reset = () => {}
+const reset = () => {
+  formData.value = $lodash.cloneDeep(init)
+}
 
 // Xây dựng FormData để gửi
 const buildFormData = async (data) => {

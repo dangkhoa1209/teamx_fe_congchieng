@@ -56,6 +56,8 @@ const formData = ref($lodash.cloneDeep(initData))
 const open = (taiKhoan) => {
   if(taiKhoan){
     formData.value = $lodash.cloneDeep(taiKhoan)
+  }else{
+    formData.value = $lodash.cloneDeep(initData)
   }
   isVisible.value = true
 }

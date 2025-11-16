@@ -27,7 +27,7 @@
           </template>
 
           <template #cell-subtitle="{ row }">
-            <p class="truncate text-gray-600" :title="row.subtitle">
+            <p class="" :title="row.subtitle">
               {{ row.subtitle || '—' }}
             </p>
           </template>
@@ -41,6 +41,9 @@
           <template #cell-status="{ row }">
             <Status :status="row.status" />
           </template>
+          <template #cell-createdAt="{ row }">
+            {{ $formatter().date(row.createdAt) }}
+          </template>
         </x-data-table>
         <x-data-table-pagination
           :page="tableList.currentPage"
@@ -53,7 +56,7 @@
         />
       </div>
 
-      <ModalAction ref="modalAction"></ModalAction>
+      <ModalAction ref="modalAction"  @refresh="fetchList"></ModalAction>
     </div>
   </x-content-place>
   
@@ -81,72 +84,41 @@ const columns = [
   {
     key: 'title',
     label: 'Tiêu đề',
-    headerClass: 'min-w-[220px]'
-  },
-  {
-    key: 'subtitle',
-    label: 'Mô tả ngắn',
     headerClass: 'min-w-[200px]'
   },
   {
-    key: 'content',
-    label: 'Nội dung',
-    headerClass: 'min-w-[240px]'
+    key: 'subtitle',
+    label: 'Tiêu đề phụ',
+    headerClass: 'min-w-[200px]'
   },
   {
     key: 'status',
     label: 'Trạng thái',
     headerClass: 'w-40',
-    align: 'center',
-    bodyClass: 'text-center'
+  },
+  {
+    key: 'createdAt',
+    label: 'Ngày tạo',
+    headerClass: 'w-52',
   },
   {
     key: 'actions',
     label: 'Thao tác',
     headerClass: 'w-24 text-right',
-    align: 'right'
+    align: 'right',
+    actions: [
+      {
+        label: 'Chỉnh sửa',
+        value: 'update',
+      },
+      {
+        label: 'Xoá',
+        value: 'delete',
+        variant: 'danger'
+      }
+    ]
   }
 ]
-
-// const formatStatus = (item) => {
-//   return item.status === 'active' ? 'Đang hiển thị' : 'Tạm ẩn'
-// }
-
-// const formatStatusAction = (item) => {
-//   return item.status === 'active' ? 'Ẩn bài viết' : 'Hiển thị bài viết'
-// }
-
-// const getStatusClasses = (item) => {
-//   if (item.status === 'active') {
-//     return 'bg-green-100 text-green-700'
-//   }
-//   return 'bg-gray-100 text-gray-600'
-// }
-
-// const getRowActions = (item) => {
-//   return [
-//     {
-//       label: 'Chỉnh sửa',
-//       value: 'edit',
-//       icon: 'mdi:pencil'
-//     },
-//     {
-//       label: formatStatusAction(item),
-//       value: 'toggle-status',
-//       icon: item.status === 'active' ? 'mdi:eye-off-outline' : 'mdi:eye-outline',
-//       variant: item.status === 'active' ? 'warning' : 'success'
-//     },
-//     {
-//       label: 'Xoá',
-//       value: 'delete',
-//       icon: 'mdi:trash-can-outline',
-//       variant: 'danger'
-//     }
-//   ]
-// }
-
-
-
 
 const isLoading = ref(false)
 const fetchList = $lodash.debounce(async() => {
@@ -172,8 +144,8 @@ const handleCreate = () => {
 const handleRowAction = (data) => {
   const {action, row} = data  
   switch (action.value) {
-    case 'update-permission':
-      // modelUpdatePermission.value && modelUpdatePermission.value.open(row)
+    case 'update':
+      modalAction.value?.open(row)
       break  
     case 'update-password':
       // modelUpdatePassword.value && modelUpdatePassword.value.open(row)
