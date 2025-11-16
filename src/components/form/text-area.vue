@@ -1,19 +1,16 @@
+<!-- x-form-text-area.vue -->
 <template>
   <div class="flex flex-col w-full">
     <!-- Label -->
     <label v-if="label" :for="name" class="mb-1 text-body font-medium font-robo">
-      {{ label }}<span v-if="required" class="ml-"> *</span>
+      {{ label }}<span v-if="required" class="ml-1 text-red-500">*</span>
     </label>
 
-    <!-- Textarea Field -->
-    <Field
-      :name="name"
-      :rules="rules"
-      :label="label"
-      v-slot="{ field, errors }"
-    >
+    <!-- Field -->
+    <Field :name="name" :rules="rules" v-slot="{ field, errors }">
       <textarea
         v-bind="field"
+        v-model="fieldValue"
         :id="name"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -21,14 +18,11 @@
         :rows="rows"
         class="w-full rounded-2xl border px-4 py-2 transition-colors duration-200 outline-none
                bg-main border-primary hover:border-primary focus:ring-2 focus:ring-primary
-               disabled:bg-gray-100 disabled:cursor-not-allowed resize-none h-[150px] text-body font-medium font-robo"
+               disabled:bg-gray-100 disabled:cursor-not-allowed resize-none text-body font-medium font-robo"
       ></textarea>
+      <!-- Error -->
+      <p v-if="errors.length" class="mt-1 text-sm text-red-500">{{ errors[0] }}</p>
     </Field>
-
-    <!-- Error -->
-    <ErrorMessage :name="name" v-slot="{ message }">
-      <p class="mt-1 text-sm text-red-500">{{ message }}</p>
-    </ErrorMessage>
 
     <!-- Description -->
     <p v-if="description" class="mt-1 text-sm text-gray-500">{{ description }}</p>
@@ -36,8 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import { Field, ErrorMessage } from 'vee-validate'
-import { defineProps, defineEmits } from 'vue'
+import { Field } from 'vee-validate'
+import { defineProps, defineEmits, computed } from 'vue'
 
 const props = defineProps({
   modelValue: String,
@@ -54,8 +48,12 @@ const props = defineProps({
 
 const emits = defineEmits(['update:modelValue', 'change'])
 
-const updateValue = (field: any) => {
-  emits('update:modelValue', field.value)
-  emits('change', field.value)
-}
+// computed kết nối v-model bên ngoài với textarea
+const fieldValue = computed({
+  get: () => props.modelValue,
+  set: val => {
+    emits('update:modelValue', val)
+    emits('change', val)
+  }
+})
 </script>

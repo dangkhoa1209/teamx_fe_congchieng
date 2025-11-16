@@ -1,9 +1,6 @@
 <template>
   <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
-
-    sdf
   <div class="overflow-x-auto">
-    dsfsddsfsds
     <table class="min-w-full divide-y divide-gray-200">
       
       <thead :class="['text-left text-sm font-semibold text-gray-600', stickyHeader ? 'sticky top-0 bg-gray-50 z-10' : 'bg-gray-50']">

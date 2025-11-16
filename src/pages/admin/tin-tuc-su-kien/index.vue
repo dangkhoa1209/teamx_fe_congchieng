@@ -1,74 +1,73 @@
 <template>
-  <div class="p-6">
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-semibold text-gray-900">
-          Quản lý tin tức - sự kiện
-        </h1>
+  <x-content-place>
+    <div>
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+        <div>
+          <h1 class="text-2xl font-semibold text-gray-900">
+            Quản lý tin tức - sự kiện
+          </h1>
+        </div>
+        <x-form-button icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm bài viết</x-form-button>
       </div>
-      <x-form-button icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm bài viết</x-form-button>
-    </div>
 
-    <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
-      <DataTable
-        :columns="columns"
-        :rows="rows"
-        :loading="isLoading"
-        empty-text="Chưa có bài viết nào."
-        show-index
-        :index-offset="rowIndexOffset"
-        sticky-header
-      >
-        <template #cell-title="{ row }">
-          <p class="font-medium text-gray-900">
-            {{ row.title || '—' }}
-          </p>
-        </template>
+      <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
+        <x-data-table
+          :columns="columns"
+          :rows="tableList.data"
+          :loading="isLoading"
+          empty-text="Chưa có tin tức - sự kiện"
+          show-index
+          sticky-header
+          @onAction="handleRowAction"
+        >
+          <template #cell-title="{ row }">
+            <p class="font-medium text-gray-900">
+              {{ row.title || '—' }}
+            </p>
+          </template>
 
-        <template #cell-subtitle="{ row }">
-          <p class="truncate text-gray-600" :title="row.subtitle">
-            {{ row.subtitle || '—' }}
-          </p>
-        </template>
+          <template #cell-subtitle="{ row }">
+            <p class="truncate text-gray-600" :title="row.subtitle">
+              {{ row.subtitle || '—' }}
+            </p>
+          </template>
 
-        <template #cell-content="{ row }">
-          <p class="truncate text-gray-600" :title="row.content">
-            {{ row.content || '—' }}
-          </p>
-        </template>
+          <template #cell-content="{ row }">
+            <p class="truncate text-gray-600" :title="row.content">
+              {{ row.content || '—' }}
+            </p>
+          </template>
 
-        <template #cell-status="{ row }">
-          <Status :status="row.status" />
-        </template>
+          <template #cell-status="{ row }">
+            <Status :status="row.status" />
+          </template>
 
-        <template #cell-actions="{ row }">
-          <ActionDropdown
-            :actions="getRowActions(row)"
-            @select="(action) => handleRowAction(action, row)"
-          />
-        </template>
-      </DataTable>
-
-      <div class="border-t border-gray-100 px-6 py-4" v-if="rows.length">
-        <PaginationControls
+          <template #cell-actions="{ row }">
+            <ActionDropdown
+              :actions="getRowActions(row)"
+              @select="(action) => handleRowAction(action, row)"
+            />
+          </template>
+        </x-data-table>
+        <x-data-table-pagination
           :page="tableList.currentPage"
           :page-size="tableList.size"
-          :page-count="totalPages"
+          :total-items="tableList.totalItems"
           :loading="isLoading"
-          @update:page="updateCurrentPage"
-          @update:pageSize="updatePageSize"
+          @update:page="tableList.currentPage = $event"
+          @update:page-size="tableList.size = $event"
+          @refresh="fetchList"
         />
       </div>
-    </div>
 
-    <ModalAction ref="modalAction"></ModalAction>
-  </div>
+      <ModalAction ref="modalAction"></ModalAction>
+    </div>
+  </x-content-place>
+  
 </template>
 
 <script setup>
 import ActionDropdown from '~/components/admin/common/ActionDropdown.vue'
-
-import DataTable from '~/components/admin/common/DataTable.vue'
 import PaginationControls from '~/components/admin/common/PaginationControls.vue'
 import Status from '~/components/admin/common/Status.vue'
 import ModalAction from './ignore/action.vue'
@@ -151,10 +150,6 @@ const mockRecords = [
 
 const rows = computed(() => tableList.value.data ?? [])
 
-const totalPages = computed(() => {
-  const size = Number(tableList.value.size) || 1
-  return Math.max(1, Math.ceil((tableList.value.totalItems || 0) / size))
-})
 
 const rowIndexOffset = computed(() => {
   const currentPage = Number(tableList.value.currentPage) || 1
@@ -317,9 +312,7 @@ const fetchList = async () => {
   }
 }
 
-const handleCreate = () => {
-  console.log('modalAction.value', modalAction.value);
-  
+const handleCreate = () => {  
   modalAction.value?.open()
 }
 

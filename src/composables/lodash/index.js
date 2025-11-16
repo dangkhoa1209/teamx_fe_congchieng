@@ -26,6 +26,8 @@ import pick from 'lodash-es/pick' // use pick lodash
 import max from 'lodash-es/max'
 import min from 'lodash-es/min'
 import sumBy from 'lodash-es/sumBy'
+import uniqueId from 'lodash-es/uniqueId'
+
 
 export default {
   get,
@@ -55,5 +57,6 @@ export default {
   pick,
   max,
   min,
-  sumBy
+  sumBy,
+  uniqueId
 }
