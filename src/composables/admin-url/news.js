@@ -1,7 +1,7 @@
 export default {
   list: {
-    method: 'get',
-    url: '/admin/news'
+    method: 'post',
+    url: '/admin/news/list'
   },
   detail: {
     method: 'get',

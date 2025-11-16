@@ -41,13 +41,6 @@
           <template #cell-status="{ row }">
             <Status :status="row.status" />
           </template>
-
-          <template #cell-actions="{ row }">
-            <ActionDropdown
-              :actions="getRowActions(row)"
-              @select="(action) => handleRowAction(action, row)"
-            />
-          </template>
         </x-data-table>
         <x-data-table-pagination
           :page="tableList.currentPage"
@@ -67,16 +60,15 @@
 </template>
 
 <script setup>
-import ActionDropdown from '~/components/admin/common/ActionDropdown.vue'
-import PaginationControls from '~/components/admin/common/PaginationControls.vue'
 import Status from '~/components/admin/common/Status.vue'
+
 import ModalAction from './ignore/action.vue'
+
+const modalAction = ref()
 
 definePageMeta({
   layout: 'admin'
 })
-
-const ok = ref(true)
 
 const tableList = ref({
   data: [],
@@ -84,23 +76,6 @@ const tableList = ref({
   size: 10,
   totalItems: 0
 })
-
-const modalAction = ref()
-
-const isLoading = ref(false)
-
-const isFormModalOpen = ref(false)
-const formMode = ref('create')
-const editingItem = ref(null)
-const isSaving = ref(false)
-
-const isDeleteModalOpen = ref(false)
-const deleteTarget = ref(null)
-const isDeleting = ref(false)
-
-const isStatusModalOpen = ref(false)
-const statusTarget = ref(null)
-const isUpdatingStatus = ref(false)
 
 const columns = [
   {
@@ -133,306 +108,84 @@ const columns = [
   }
 ]
 
-const mockRecords = [
-  { id: 1, title: 'Tin tức 1', subtitle: 'Mô tả ngắn 1', content: 'Nội dung 1', status: 'active' },
-  { id: 2, title: 'Tin tức 2', subtitle: 'Mô tả ngắn 2', content: 'Nội dung 2', status: 'inactive' },
-  { id: 3, title: 'Tin tức 3', subtitle: 'Mô tả ngắn 3', content: 'Nội dung 3', status: 'active' },
-  { id: 4, title: 'Tin tức 4', subtitle: 'Mô tả ngắn 4', content: 'Nội dung 4', status: 'inactive' },
-  { id: 5, title: 'Tin tức 5', subtitle: 'Mô tả ngắn 5', content: 'Nội dung 5', status: 'active' },
-  { id: 6, title: 'Tin tức 6', subtitle: 'Mô tả ngắn 6', content: 'Nội dung 6', status: 'inactive' },
-  { id: 7, title: 'Tin tức 7', subtitle: 'Mô tả ngắn 7', content: 'Nội dung 7', status: 'active' },
-  { id: 8, title: 'Tin tức 8', subtitle: 'Mô tả ngắn 8', content: 'Nội dung 8', status: 'inactive' },
-  { id: 9, title: 'Tin tức 9', subtitle: 'Mô tả ngắn 9', content: 'Nội dung 9', status: 'active' },
-  { id: 10, title: 'Tin tức 10', subtitle: 'Mô tả ngắn 10', content: 'Nội dung 10', status: 'inactive' },
-  { id: 11, title: 'Tin tức 11', subtitle: 'Mô tả ngắn 11', content: 'Nội dung 11', status: 'active' },
-  { id: 12, title: 'Tin tức 12', subtitle: 'Mô tả ngắn 12', content: 'Nội dung 12', status: 'inactive' }
-]
+// const formatStatus = (item) => {
+//   return item.status === 'active' ? 'Đang hiển thị' : 'Tạm ẩn'
+// }
 
-const rows = computed(() => tableList.value.data ?? [])
+// const formatStatusAction = (item) => {
+//   return item.status === 'active' ? 'Ẩn bài viết' : 'Hiển thị bài viết'
+// }
 
+// const getStatusClasses = (item) => {
+//   if (item.status === 'active') {
+//     return 'bg-green-100 text-green-700'
+//   }
+//   return 'bg-gray-100 text-gray-600'
+// }
 
-const rowIndexOffset = computed(() => {
-  const currentPage = Number(tableList.value.currentPage) || 1
-  const size = Number(tableList.value.size) || 0
-  return (currentPage - 1) * size
-})
-
-const statusModalTitle = computed(() => {
-  if (!statusTarget.value) return 'Thay đổi trạng thái'
-  return formatStatusAction(statusTarget.value)
-})
-
-const statusModalConfirmText = computed(() => {
-  if (!statusTarget.value) return 'Xác nhận'
-  return formatStatusAction(statusTarget.value)
-})
-
-const updateCurrentPage = (newPage) => {
-  if (newPage === tableList.value.currentPage) return
-  tableList.value = {
-    ...tableList.value,
-    currentPage: newPage
-  }
-}
-
-const updatePageSize = (newSize) => {
-  if (newSize === tableList.value.size) return
-  tableList.value = {
-    ...tableList.value,
-    size: newSize,
-    currentPage: 1
-  }
-}
+// const getRowActions = (item) => {
+//   return [
+//     {
+//       label: 'Chỉnh sửa',
+//       value: 'edit',
+//       icon: 'mdi:pencil'
+//     },
+//     {
+//       label: formatStatusAction(item),
+//       value: 'toggle-status',
+//       icon: item.status === 'active' ? 'mdi:eye-off-outline' : 'mdi:eye-outline',
+//       variant: item.status === 'active' ? 'warning' : 'success'
+//     },
+//     {
+//       label: 'Xoá',
+//       value: 'delete',
+//       icon: 'mdi:trash-can-outline',
+//       variant: 'danger'
+//     }
+//   ]
+// }
 
 
-const formatStatus = (item) => {
-  return item.status === 'active' ? 'Đang hiển thị' : 'Tạm ẩn'
-}
 
-const formatStatusAction = (item) => {
-  return item.status === 'active' ? 'Ẩn bài viết' : 'Hiển thị bài viết'
-}
 
-const getStatusClasses = (item) => {
-  if (item.status === 'active') {
-    return 'bg-green-100 text-green-700'
-  }
-  return 'bg-gray-100 text-gray-600'
-}
-
-const getRowActions = (item) => {
-  return [
-    {
-      label: 'Chỉnh sửa',
-      value: 'edit',
-      icon: 'mdi:pencil'
-    },
-    {
-      label: formatStatusAction(item),
-      value: 'toggle-status',
-      icon: item.status === 'active' ? 'mdi:eye-off-outline' : 'mdi:eye-outline',
-      variant: item.status === 'active' ? 'warning' : 'success'
-    },
-    {
-      label: 'Xoá',
-      value: 'delete',
-      icon: 'mdi:trash-can-outline',
-      variant: 'danger'
+const isLoading = ref(false)
+const fetchList = $lodash.debounce(async() => {
+  isLoading.value = true
+  const response = await $api($url.admin.news.list, {
+    body: {
+      page: tableList.value.currentPage,
+      per_page: tableList.value.size
     }
-  ]
+  })
+  const { data, success } = response?.data?.value || { data: null, success: false }
+  if(success) {
+    tableList.value = data
+  }
+  isLoading.value = false
+}, 50)
+
+
+const handleCreate = () => {  
+  modalAction.value?.open()
 }
 
-const handleRowAction = (action, item) => {
+const handleRowAction = (data) => {
+  const {action, row} = data  
   switch (action.value) {
-    case 'edit':
-      handleEdit(item)
-      break
-    case 'toggle-status':
-      handleChangeStatus(item)
+    case 'update-permission':
+      // modelUpdatePermission.value && modelUpdatePermission.value.open(row)
+      break  
+    case 'update-password':
+      // modelUpdatePassword.value && modelUpdatePassword.value.open(row)
       break
     case 'delete':
-      handleDelete(item)
+      // modelDelete.value && modelDelete.value.open(row)
       break
     default:
       break
   }
 }
 
-const fetchList = async () => {
-
-  
-  isLoading.value = true
-  try {    
-    const response = await $api($url.admin.news.list, {
-      query: {
-        page: tableList.value.currentPage,
-        per_page: tableList.value.size
-      }
-    })
-
-    const payload = response?.data?.value || {}
-    const dataSource =
-      $lodash.get(payload, 'data.data') ??
-      $lodash.get(payload, 'data.items') ??
-      $lodash.get(payload, 'data') ??
-      $lodash.get(payload, 'items') ?? []
-
-    const normalizedItems = Array.isArray(dataSource) ? dataSource : $lodash.get(dataSource, 'data', [])
-    const safeItems = Array.isArray(normalizedItems) ? normalizedItems : []
-
-    const meta =
-      $lodash.get(payload, 'data.meta') ??
-      $lodash.get(payload, 'meta') ??
-      $lodash.get(payload, 'pagination') ??
-      {}
-
-    const resolvedTotal =
-      $lodash.get(meta, 'total') ??
-      $lodash.get(payload, 'total') ??
-      safeItems.length
-
-    const resolvedPageSize =
-      Number(
-        $lodash.get(meta, 'per_page') ??
-          $lodash.get(meta, 'perPage') ??
-          $lodash.get(payload, 'per_page') ??
-          tableList.value.size
-      ) || tableList.value.size
-
-    const resolvedCurrentPage =
-      Number(
-        $lodash.get(meta, 'current_page') ??
-          $lodash.get(meta, 'currentPage') ??
-          $lodash.get(payload, 'current_page') ??
-          tableList.value.currentPage
-      ) || tableList.value.currentPage
-
-    tableList.value = {
-      ...tableList.value,
-      data: safeItems,
-      totalItems: resolvedTotal,
-      size: resolvedPageSize,
-      currentPage: resolvedCurrentPage
-    }
-  } catch (error) {
-    console.log('sdfsdf');
-    
-    console.error('Failed to fetch news list', error)
-    // $toast().error('Không thể tải danh sách bài viết. Đang hiển thị dữ liệu mẫu.')
-
-    const start = (tableList.value.currentPage - 1) * tableList.value.size
-    const pagedRecords = mockRecords.slice(start, start + tableList.value.size)
-    tableList.value = {
-      ...tableList.value,
-      data: pagedRecords,
-      totalItems: mockRecords.length
-    }
-  } finally {
-    isLoading.value = false
-  }
-}
-
-const handleCreate = () => {  
-  modalAction.value?.open()
-}
-
-const handleEdit = (item) => {
-  editingItem.value = { ...item }
-  formMode.value = 'edit'
-  isFormModalOpen.value = true
-}
-
-const handleSubmitForm = async (payload) => {
-  isSaving.value = true
-  try {
-    if (formMode.value === 'edit' && editingItem.value?.id) {
-      const response = await $api($url.news.update, {
-        body: payload,
-        uriParams: {
-          ':id': editingItem.value.id
-        }
-      })
-      if (response) {
-        $toast().success('Cập nhật bài viết thành công.')
-      }
-      
-    } else {
-      const response = await $api($url.news.create, {
-        body: payload
-      })
-      if (response) {
-        $toast().success('Thêm bài viết mới thành công.')
-      }
-    }
-    isFormModalOpen.value = false
-    await fetchList()
-  } catch (error) {
-    console.error('Failed to submit form', error)
-  } finally {
-    isSaving.value = false
-  }
-}
-
-const handleDelete = (item) => {
-  deleteTarget.value = item
-  isDeleteModalOpen.value = true
-}
-
-const closeDeleteModal = () => {
-  isDeleteModalOpen.value = false
-  deleteTarget.value = null
-}
-
-const confirmDelete = async () => {
-  if (!deleteTarget.value?.id) return
-  isDeleting.value = true
-  try {
-    const res = await $api($url.news.delete, {
-      uriParams: {
-        ':id': deleteTarget.value.id
-      }
-    })
-    if(res) {
-      $toast().success('Đã xoá bài viết.')
-      closeDeleteModal()
-      if (rows.value.length === 1 && tableList.value.currentPage > 1) {
-        updateCurrentPage(tableList.value.currentPage - 1)
-      } else {
-        await fetchList()
-      }
-    }
-   
-  } catch (error) {
-    console.error('Failed to delete item', error)
-  } finally {
-    isDeleting.value = false
-  }
-}
-
-const handleChangeStatus = (item) => {
-  statusTarget.value = item
-  isStatusModalOpen.value = true
-}
-
-const closeStatusModal = () => {
-  isStatusModalOpen.value = false
-  statusTarget.value = null
-}
-
-const confirmChangeStatus = async () => {
-  if (!statusTarget.value?.id) return
-  isUpdatingStatus.value = true
-  try {
-    const nextStatus = statusTarget.value.status === 'active' ? 'inactive' : 'active'
-    const res = await $api($url.news.changeStatus, {
-      body: {
-        status: nextStatus
-      },
-      uriParams: {
-        ':id': statusTarget.value.id
-      }
-    })
-
-    if(res) {
-      $toast().success('Đã cập nhật trạng thái bài viết.')
-      closeStatusModal()
-      await fetchList()
-    }
-   
-  } catch (error) {
-    console.error('Failed to change status', error)
-  } finally {
-    isUpdatingStatus.value = false
-  }
-}
-
-watch(
-  [() => tableList.value.currentPage, () => tableList.value.size],
-  ([newPage, newSize], [oldPage, oldSize]) => {
-    if (newPage === oldPage && newSize === oldSize) return
-    fetchList()
-  }
-)
 
 onMounted(() => {
   fetchList()

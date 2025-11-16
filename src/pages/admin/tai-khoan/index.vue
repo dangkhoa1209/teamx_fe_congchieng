@@ -127,10 +127,6 @@ const fetchList = $lodash.debounce(async() => {
 
 const handleRowAction = (data) => {
   const {action, row} = data  
-
-  console.log('action', action);
-  console.log('row', row);
-  
   switch (action.value) {
     case 'update-permission':
       modelUpdatePermission.value && modelUpdatePermission.value.open(row)
