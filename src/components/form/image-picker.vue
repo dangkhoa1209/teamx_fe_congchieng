@@ -75,7 +75,8 @@ const props = defineProps({
   name: { type: String, required: true },
   label: String,
   rules: [String, Object, Function],
-  required: Boolean
+  required: Boolean,
+  
 })
 
 const isDragging = ref(false)

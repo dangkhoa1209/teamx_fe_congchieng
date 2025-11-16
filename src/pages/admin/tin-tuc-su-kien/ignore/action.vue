@@ -37,7 +37,7 @@
           required
           placeholder="Nhập tiêu đề phụ"
         />
-        <!-- Draggable list -->
+
         <draggable v-model="formData.contents" handle=".drag-handle" item-key="id" class="space-y-4">
           <template #item="{ element: item, index }">
             <div class="border rounded-lg p-3 relative bg-white shadow-sm flex flex-col gap-2">
@@ -51,7 +51,6 @@
                 </span>
               </div>
 
-              <!-- Text content -->
               <x-form-text-area
                 v-if="item.type === 'content'"
                 v-model="item.data"
@@ -62,25 +61,41 @@
                 placeholder="Nhập nội dung bài viết"
                 :rows="6"
               />
-              <!-- Image content -->
+
               <div v-if="item.type === 'image'" class="rounded-2xl border px-4 py-2 border-primary">
 
-                item.image: {{ item.image}}
-                <x-form-image-picker
-                  v-model="item.image"
-                  :name="'content-' + item.id"
-                  label="Hình ảnh"
-                  rules="required"
-                  required
-                />
-
-                <x-form-input
-                  v-model="item.imageTitle"
-                  label="Tiêu đề cho ảnh"
-                  name="titleforimage"
-                  placeholder="Nhập tiêu đề ảnh"
-                  :name="'title-image-' + item.id"
-                />
+                <div v-if="item.url">
+                  <p>Hình ảnh</p>
+                  <x-image :url="`${config.apiURLFile}${item.url}`"></x-image>
+                  <div class="flex gap-2 pt-2">
+                    <x-form-button @click="clearImage(index)">Chọn ảnh mới</x-form-button>
+                  </div>
+                  <x-form-input
+                    v-model="item.imageTitle"
+                    label="Tiêu đề cho ảnh"
+                    name="titleforimage"
+                    placeholder="Nhập tiêu đề ảnh"
+                    :name="'title-image-' + item.id"
+                    class="pt-2"
+                  />
+                </div>
+                <div v-else>
+                  <x-form-image-picker
+                    v-model="item.image"
+                    :name="'content-' + item.id"
+                    label="Hình ảnh"
+                    rules="required"
+                    required
+                  />
+                  <x-form-input
+                    v-model="item.imageTitle"
+                    label="Tiêu đề cho ảnh"
+                    name="titleforimage"
+                    placeholder="Nhập tiêu đề ảnh"
+                    :name="'title-image-' + item.id"
+                  />
+                </div>
+                
               </div>
             </div>
           </template>
@@ -104,7 +119,8 @@
 <script setup>
 import draggable from 'vuedraggable'
 import $lodash from '../../../../composables/$lodash'
-import { filter } from 'lodash-es'
+import { v4 as uuidv4 } from 'uuid';
+const config = useRuntimeConfig().public
 
 const emits = defineEmits(['refresh'])
 const isVisible = ref(false)
@@ -121,7 +137,7 @@ const formData = ref($lodash.cloneDeep(init))
 
 const addContent = () => {
   formData.value.contents.push({
-    id: $lodash.uniqueId(),
+    id: uuidv4(),
     type: 'content',
     data: ''
   })
@@ -129,7 +145,7 @@ const addContent = () => {
 
 const addImage = () => {
   formData.value.contents.push({
-    id:  $lodash.uniqueId(),
+    id: uuidv4(),
     type: 'image',
     image: null,
     imageTitle: ''
@@ -141,7 +157,6 @@ const removeItem = (index) => {
 }
 
 const open = (news) => {
-  console.log('news', news);
   
   if(news) {
     formData.value = $lodash.cloneDeep(news)
@@ -159,39 +174,31 @@ const reset = () => {
   formData.value = $lodash.cloneDeep(init)
 }
 
-// Xây dựng FormData để gửi
 const buildFormData = async (data) => {
   const fd = new FormData()
 
-  // Thêm thông tin chung
   fd.append('title', data.title)
   fd.append('subtitle', data.subtitle)
   fd.append('status', data.status)
 
-  // Chuyển contents (text + info image) thành JSON
   fd.append('contents', JSON.stringify(data.contents.map(c => {
-    // Loại bỏ file Blob/File thực tế, chỉ giữ id, type, data
     const copy = { ...c }
     if (c.type === 'image') delete copy.image
     return copy
   })))
 
-  // Xử lý từng image để append FormData
   for (const item of data.contents) {
     if (item.type === 'image' && item.image) {
       let file = item.image
       let fileName = `image-${item.id}`
 
       if (file instanceof File) {
-        // File object → giữ tên gốc
         fileName = file.name
       } else if (typeof file === 'string' && file.startsWith('blob:')) {
-        // Blob URL → fetch + tạo File
         const res = await fetch(file)
         const arrayBuffer = await res.arrayBuffer()
         const contentType = res.headers.get('Content-Type') || 'image/jpeg'
 
-        // Lấy extension từ content-type
         let ext = contentType.split('/')[1] || 'jpeg'
         ext = ext.includes('jpeg') ? 'jpg' : ext
         fileName = `${fileName}.${ext}`
@@ -207,7 +214,14 @@ const buildFormData = async (data) => {
 }
 
 
-
+const clearImage = (index) => {
+  formData.value.contents[index] = {
+    image: '',
+    type: 'image',
+    imageTitle: formData.value.contents[index].imageTitle,
+    id: formData.value.contents[index].id
+  }
+} 
 
 // Submit
 const handleSubmit = async () => {
