@@ -16,6 +16,7 @@
       empty-text="Chưa có tài khoản."
       show-index
       sticky-header
+      @onAction="handleRowAction"
     >
       <template #cell-permissions="{ row }">
         <div v-if="row.permissions || row.permissions.length">
@@ -38,16 +39,25 @@
     />
 
     <ModelAction ref="modalAction" @refresh="fetchList"></ModelAction>
+    <ModelUpdatePermission ref="modelUpdatePermission" @refresh="fetchList"></ModelUpdatePermission>
+    <ModelUpdatePassword ref="modelUpdatePassword" @refresh="fetchList"></ModelUpdatePassword>
+    <ModelDelete ref="modelDelete" @refresh="fetchList"></ModelDelete>
   </div>
 </template>
 <script setup>
-
 import { onMounted } from 'vue'
-import ModelAction from './ignore/action.vue'
 import permissions from '~/data/permissions/list/index.json'
-const permissionsObj = Object.fromEntries(permissions.map(item => [item.value, item.label]))
+
+import ModelAction from './ignore/action.vue'
+import ModelUpdatePermission from './ignore/update-permission.vue'
+import ModelUpdatePassword from './ignore/update-password.vue'
+import ModelDelete from './ignore/delete.vue'
 
 const modalAction = ref()
+const modelUpdatePermission = ref()
+const modelUpdatePassword = ref()
+const modelDelete = ref()
+
 const handleCreate = () => {    
   modalAction.value?.open()
 }
@@ -62,6 +72,29 @@ const columns = [
      key: 'permissions',
     label: 'Phân quyền',
     headerClass: 'min-w-[200px]'
+  },
+   {
+    key: 'actions',
+    label: 'Thao tác',
+    headerClass: 'w-24 text-right',
+    align: 'right',
+    actions: [
+      {
+        label: 'Cập nhật quyền',
+        value: 'update-permission',
+        // icon: 'mdi:pencil'
+      },
+      {
+        label: 'Cập nhật mật khẩu',
+        value: 'update-password',
+      },
+      {
+        label: 'Xoá',
+        value: 'delete',
+        // icon: 'mdi:trash-can-outline',
+        variant: 'danger'
+      }
+    ]
   }
 ]
 
@@ -72,9 +105,11 @@ const tableList = ref({
   totalItems: 0
 })
 
-const isLoading = ref(false)
+const permissionsObj = Object.fromEntries(permissions.map(item => [item.value, item.label]))
 
+const isLoading = ref(false)
 const fetchList = $lodash.debounce(async() => {
+  isLoading.value = true
   const response = await $api($url.admin.account.list, {
     body: {
       page: tableList.value.currentPage,
@@ -85,7 +120,29 @@ const fetchList = $lodash.debounce(async() => {
   if(success) {
     tableList.value = data
   }
+  isLoading.value = false
 }, 50)
+
+const handleRowAction = (data) => {
+  const {action, row} = data  
+
+  console.log('action', action);
+  console.log('row', row);
+  
+  switch (action.value) {
+    case 'update-permission':
+      modelUpdatePermission.value && modelUpdatePermission.value.open(row)
+      break  
+    case 'update-password':
+      modelUpdatePassword.value && modelUpdatePassword.value.open(row)
+      break
+    case 'delete':
+      modelDelete.value && modelDelete.value.open(row)
+      break
+    default:
+      break
+  }
+}
 
 onMounted(async() => {
   await fetchList()

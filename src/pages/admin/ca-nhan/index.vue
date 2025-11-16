@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <x-button @click="handleLogout" theme="primary">Đăng xuất</x-button>
+    <x-form-button @click="handleLogout" theme="primary">Đăng xuất</x-form-button>
   </div>
 </template>
 <script setup>

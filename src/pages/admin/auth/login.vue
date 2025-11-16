@@ -6,32 +6,30 @@
       </h1>
 
       <form @submit.prevent="handleLogin" class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium mb-1">Tên đăng nhập</label>
-          <input
-            v-model="username"
-            type="text"
-            required
-            class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:outline-none"
-          />
-        </div>
 
-        <div>
-          <label class="block text-sm font-medium mb-1">Mật khẩu</label>
-          <input
-            v-model="password"
-            type="password"
-            required
-            class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-primary focus:outline-none"
-          />
-        </div>
+        <x-form-input
+          v-model="username"
+          label="Tài khoản"
+          name="username"
+          placeholder="Nhập tài khoản"
+        />
 
-        <button
-          type="submit"
-          class="w-full bg-primary text-white py-2 rounded-lg hover:bg-opacity-90 transition"
+        <x-form-input
+          v-model="password"
+          label="Mật khẩu"
+          name="create_password"
+          type="password"
+          placeholder="Nhập mật khẩu"
+        />
+
+        <x-form-button
+            type="submit"
+            theme="primary"
         >
           Đăng nhập
-        </button>
+        </x-form-button>
+
+       
       </form>
     </div>
   </div>

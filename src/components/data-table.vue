@@ -48,9 +48,14 @@
                 ]"
               >
                 <slot :name="`cell-${column.key}`" :row="row" :column="column" :index="rowIndex">
-                  <span class="block truncate">
-                    {{ row?.[column.key] ?? '—' }}
+                  <span v-if="row?.[column.key]" class="block truncate">
+                    {{ row?.[column.key] }}
                   </span>
+                  <x-dropdown 
+                    v-if="column.actions" 
+                    :actions="column.actions"
+                    @select="(action) => emits('onAction', {action, row})"
+                  ></x-dropdown>
                 </slot>
               </td>
             </tr>
@@ -96,6 +101,8 @@ const props = defineProps({
     default: false
   }
 })
+
+const emits = defineEmits(['onAction']) 
 
 const resolveRowKey = (row, index) => {
   if (typeof props.rowKey === 'function') {
