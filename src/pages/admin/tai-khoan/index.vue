@@ -1,48 +1,50 @@
 <template>
-  <div class="p-6">
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-semibold text-gray-900">
-          Quản lý tài khoản
-        </h1>
-      </div>
-      <x-form-button  icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm tài khoản</x-form-button>
-    </div>
-
-    <x-data-table
-      :columns="columns"
-      :rows="tableList.data"
-      :loading="isLoading"
-      empty-text="Chưa có tài khoản."
-      show-index
-      sticky-header
-      @onAction="handleRowAction"
-    >
-      <template #cell-permissions="{ row }">
-        <div v-if="row.permissions || row.permissions.length">
-          <p v-for="(permission, index) in (row.permissions || [])" :key="permission">
-            {{ permissionsObj[permission] }}
-          </p>
+  <x-content-place>
+    <div >
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+        <div>
+          <h1 class="text-2xl font-semibold text-gray-900">
+            Quản lý tài khoản
+          </h1>
         </div>
-       
-      </template>
-    </x-data-table>
+        <x-form-button  icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm tài khoản</x-form-button>
+      </div>
 
-    <x-data-table-pagination
-      :page="tableList.currentPage"
-      :page-size="tableList.size"
-      :total-items="tableList.totalItems"
-      :loading="isLoading"
-      @update:page="tableList.currentPage = $event"
-      @update:page-size="tableList.size = $event"
-      @refresh="fetchList"
-    />
+      <x-data-table
+        :columns="columns"
+        :rows="tableList.data"
+        :loading="isLoading"
+        empty-text="Chưa có tài khoản."
+        show-index
+        sticky-header
+        @onAction="handleRowAction"
+      >
+        <template #cell-permissions="{ row }">
+          <div v-if="row.permissions || row.permissions.length">
+            <p v-for="(permission, index) in (row.permissions || [])" :key="permission">
+              {{ permissionsObj[permission] }}
+            </p>
+          </div>
+        
+        </template>
+      </x-data-table>
 
-    <ModelAction ref="modalAction" @refresh="fetchList"></ModelAction>
-    <ModelUpdatePermission ref="modelUpdatePermission" @refresh="fetchList"></ModelUpdatePermission>
-    <ModelUpdatePassword ref="modelUpdatePassword" @refresh="fetchList"></ModelUpdatePassword>
-    <ModelDelete ref="modelDelete" @refresh="fetchList"></ModelDelete>
-  </div>
+      <x-data-table-pagination
+        :page="tableList.currentPage"
+        :page-size="tableList.size"
+        :total-items="tableList.totalItems"
+        :loading="isLoading"
+        @update:page="tableList.currentPage = $event"
+        @update:page-size="tableList.size = $event"
+        @refresh="fetchList"
+      />
+
+      <ModelAction ref="modalAction" @refresh="fetchList"></ModelAction>
+      <ModelUpdatePermission ref="modelUpdatePermission" @refresh="fetchList"></ModelUpdatePermission>
+      <ModelUpdatePassword ref="modelUpdatePassword" @refresh="fetchList"></ModelUpdatePassword>
+      <ModelDelete ref="modelDelete" @refresh="fetchList"></ModelDelete>
+    </div>
+  </x-content-place>
 </template>
 <script setup>
 import { onMounted } from 'vue'
