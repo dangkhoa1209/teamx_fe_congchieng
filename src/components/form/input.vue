@@ -6,7 +6,7 @@
     </label>
 
     <!-- VeeValidate Field -->
-    <Field :name="name" :rules="rules" v-slot="{ field, errors }">
+    <Field :name="name" :label="label" :rules="rules" v-slot="{ field, errors }">
       <div class="relative w-full">
         <input
           :id="name"

@@ -1,71 +1,71 @@
 <template>
-  <x-model-confirm
+  <x-modal-action
+    ref="modalAction"
     v-model:visible="isVisible"
-    title="Xoá bài viết"
-    confirm-text="Xoá"
-    confirm-variant="danger"
+    title="Xoá Tin tức - sự kiện"
     :loading="isLoading"
-    @confirm="handleConfirm"
-    @cancel="handleCancel"
+    @submit="handleSubmit"
   >
-    Bạn có chắc muốn xoá bài viết
-    <b>{{ targetItem?.title }}</b>
-    ? Thao tác này không thể hoàn tác.
-  </x-model-confirm>
+    <div class="flex gap-2" >
+      <div class="w-full flex flex-col gap-4">
+           <p>Xác nhận xoá tin tức - sự kiện <strong>{{ formData.title }}</strong></p>
+           <p>Tin tức - sự kiện bị xoá và không thể khôi phục</p>
+      </div>
+    </div>
+  </x-modal-action>
 </template>
-
 <script setup>
-import ConfirmModal from '~/components/admin/common/ConfirmModal.vue'
-
-const { $api, $toast, $url } = useNuxtApp()
-
-const emit = defineEmits(['success'])
-
+const initData = {
+  _id: '',
+  title: ''
+}
+const emits = defineEmits(['refresh'])
 const isVisible = ref(false)
 const isLoading = ref(false)
-const targetItem = ref(null)
+const modalAction = ref(null)
 
-const open = (item) => {
-  if (!item) return
-  targetItem.value = item
+const formData = ref($lodash.cloneDeep(initData))
+
+const open = (taiKhoan) => {
+  if(taiKhoan){
+    formData.value = {
+      ...$lodash.cloneDeep(taiKhoan), 
+      password: ''
+    }
+  }
   isVisible.value = true
 }
 
 const close = () => {
   isVisible.value = false
-  targetItem.value = null
 }
 
-const handleCancel = () => {
-  close()
+const reset = () => {
+  formData.value = $lodash.cloneDeep(initData)
 }
 
-const handleConfirm = async () => {
-  if (!targetItem.value?.id) return
-  
+const handleSubmit = async (values) => {
   isLoading.value = true
   try {
-    const response = await $api($url.news.delete, {
-      uriParams: {
-        ':id': targetItem.value.id
-      }
+    const response = await $api($url.admin.account.delete, {
+      body: formData.value
     })
-    
-    if (response) {
-      $toast().success('Đã xoá bài viết.')
-      close()
-      emit('success', targetItem.value)
+
+    const { success } = response?.data?.value || { data: null, success: false }
+    if(success) {
+    $toast().success('Xoá tài khoản thành công')
+    reset()
+    emits('refresh')
+    close()
     }
   } catch (error) {
-    console.error('Failed to delete news', error)
   } finally {
     isLoading.value = false
   }
 }
 
-// Expose open function để có thể gọi từ bên ngoài
 defineExpose({
   open
 })
-</script>
 
+</script>

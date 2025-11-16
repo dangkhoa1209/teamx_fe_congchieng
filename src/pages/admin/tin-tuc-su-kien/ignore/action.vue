@@ -1,7 +1,7 @@
 <template>
   <x-modal-action
     v-model:visible="isVisible"
-    title="Thêm bài viết mới"
+    title="Tin tức - sự kiện"
     :loading="isLoading"
     @submit="handleSubmit"
   >
@@ -227,15 +227,33 @@ const clearImage = (index) => {
 const handleSubmit = async () => {
   isLoading.value = true
   try {
-    const fd = await buildFormData(formData.value)
-    const response = await $api($url.admin.news.create, { body: fd })
-const { data, success } = response?.data?.value || { data: null, success: false } 
-    if(success) {
-      $toast().success('Thêm tin tức - sự kiên thành công.')
-      reset()
-      emits('refresh')
-      close()
-    }
+    if(!formData.value._id) {
+      const fd = await buildFormData(formData.value)
+      const response = await $api($url.admin.news.create, { body: fd })
+      const { data, success } = response?.data?.value || { data: null, success: false } 
+      if(success) {
+        $toast().success('Thêm tin tức - sự kiện thành công.')
+        reset()
+        emits('refresh')
+        close()
+      }
+    }else {
+      const fd = await buildFormData(formData.value)
+      const response = await $api($url.admin.news.update, { 
+        body: fd,
+        uriParams: {
+          ':id': formData.value._id
+        }
+      })
+      const { data, success } = response?.data?.value || { data: null, success: false } 
+      if(success) {
+        $toast().success('Cập nhật tin tức - sự kiện thành công.')
+        reset()
+        emits('refresh')
+        close()
+      }
+    } 
+    
   } catch (error) {
     console.error('Failed to create news', error)
   } finally {

@@ -1,9 +1,9 @@
 <template>
-  <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
-    <div class="overflow-x-auto">
-      <table class="min-w-full divide-y divide-gray-200">
+  <div class="rounded-xl border border-main bg-white shadow-sm">
+    <div class="overflow-x-auto min-h-[50vh]">
+      <table class="min-w-full  divide-main ">
         
-        <thead :class="['text-left text-sm font-semibold text-gray-600', stickyHeader ? 'sticky top-0 bg-gray-50 z-10' : 'bg-gray-50']">
+        <thead :class="['text-left text-sm font-semibold text-gray-600']">
           <tr>
             <th v-if="showIndex" scope="col" class="px-6 py-3">
               STT
@@ -18,7 +18,7 @@
             </th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-gray-100 text-sm text-gray-700">
+        <tbody class="divide-y divide-main text-sm text-gray-700 " >
           <tr v-if="loading">
             <td :colspan="columns.length + (showIndex ? 1 : 0)" class="px-6 py-10 text-center text-gray-500">
               <slot name="loading">
@@ -96,10 +96,10 @@ const props = defineProps({
     type: [String, Function],
     default: 'id'
   },
-  stickyHeader: {
-    type: Boolean,
-    default: false
-  }
+  // stickyHeader: {
+  //   type: Boolean,
+  //   default: false
+  // }
 })
 
 const emits = defineEmits(['onAction']) 

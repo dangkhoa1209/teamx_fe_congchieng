@@ -3,7 +3,7 @@ import isNil from 'lodash-es/isNil'
 import { decode } from '../ utils/str.js'
 
 const reformatUrl = (url, options = {}) => {
-  const uriParams = options.uriParams || {}
+  const uriParams = options.uriParams || options.params || {}
   const queryParams = options.query || {}
 
   if (uriParams) {

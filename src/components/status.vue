@@ -24,9 +24,9 @@ const cClass = computed(() => {
 
 const cFormatStatus = computed(() => {
     if(props.status === 'active') {
-       return 'Đang hiển thị'
+       return 'Hoạt động'
     }
-    return 'Tạm ẩn'
+    return 'Dừng hoạt động'
 })
 
 </script>

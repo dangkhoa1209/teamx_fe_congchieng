@@ -7,7 +7,7 @@
             Quản lý tin tức - sự kiện
           </h1>
         </div>
-        <x-form-button icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm bài viết</x-form-button>
+        <x-form-button icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm tin tức - sự kiện</x-form-button>
       </div>
 
       <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -39,7 +39,7 @@
           </template>
 
           <template #cell-status="{ row }">
-            <Status :status="row.status" />
+            <x-status :status="row.status" />
           </template>
           <template #cell-createdAt="{ row }">
             {{ $formatter().date(row.createdAt) }}
@@ -57,17 +57,18 @@
       </div>
 
       <ModalAction ref="modalAction"  @refresh="fetchList"></ModalAction>
+      <ModelDelete ref="modelDelete"  @refresh="fetchList"></ModelDelete>
     </div>
   </x-content-place>
   
 </template>
 
 <script setup>
-import Status from '~/components/admin/common/Status.vue'
-
 import ModalAction from './ignore/action.vue'
+import ModelDelete from './ignore/delete.vue'
 
 const modalAction = ref()
+const modelDelete = ref() 
 
 definePageMeta({
   layout: 'admin'
@@ -147,11 +148,8 @@ const handleRowAction = (data) => {
     case 'update':
       modalAction.value?.open(row)
       break  
-    case 'update-password':
-      // modelUpdatePassword.value && modelUpdatePassword.value.open(row)
-      break
     case 'delete':
-      // modelDelete.value && modelDelete.value.open(row)
+      modelDelete.value && modelDelete.value.open(row)
       break
     default:
       break
