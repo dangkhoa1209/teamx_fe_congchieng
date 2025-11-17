@@ -8,6 +8,18 @@
     <div class="flex gap-2">
       <div class="w-full flex flex-col gap-4">
         <x-form-select
+          v-model="formData.location"
+          :options="$newScope().list"
+          label="Trực thuộc"
+          name="location"
+          :filterable="false"
+          :clearable="false"
+          placeholder="Tin tức - sự kiện trực thuộc cơ sở nào"
+        >
+
+        </x-form-select>
+
+        <x-form-select
           v-model="formData.status"
           :options="[
             {label: 'Hoạt động', value: 'active'},
@@ -127,6 +139,7 @@ const isVisible = ref(false)
 const isLoading = ref(false)
 
 const init = {
+  location: '',
   title: '',
   subtitle: '',
   status: 'active',
@@ -180,6 +193,7 @@ const buildFormData = async (data) => {
   fd.append('title', data.title)
   fd.append('subtitle', data.subtitle)
   fd.append('status', data.status)
+  fd.append('location', data.location)
 
   fd.append('contents', JSON.stringify(data.contents.map(c => {
     const copy = { ...c }

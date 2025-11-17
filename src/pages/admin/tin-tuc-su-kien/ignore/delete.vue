@@ -8,8 +8,8 @@
   >
     <div class="flex gap-2" >
       <div class="w-full flex flex-col gap-4">
-           <p>Xác nhận xoá tin tức - sự kiện <strong>{{ formData.title }}</strong></p>
-           <p>Tin tức - sự kiện bị xoá và không thể khôi phục</p>
+        <p>Xác nhận xoá tin tức - sự kiện <strong>{{ formData.title }}</strong></p>
+        <p>Tin tức - sự kiện bị xoá và không thể khôi phục</p>
       </div>
     </div>
   </x-modal-action>

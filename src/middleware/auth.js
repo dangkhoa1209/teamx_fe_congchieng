@@ -1,3 +1,6 @@
+import { checkRoutePermission } from '@/utils/permission-check.js';
+
+
 export default defineNuxtRouteMiddleware((to) => {
   
   const toRoute = to.name
@@ -22,4 +25,6 @@ export default defineNuxtRouteMiddleware((to) => {
   if(!accessToken) {
     return navigateTo({ name: notAuthRoute} )
   }
+
+  checkRoutePermission(to.name.toString(), true)
 })

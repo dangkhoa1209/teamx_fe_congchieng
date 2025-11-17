@@ -10,6 +10,8 @@
         <x-form-button icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm tin tức - sự kiện</x-form-button>
       </div>
 
+      <!-- {{ $newScope().list }}
+      {{ $newScope().key }} -->
       <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
         <x-data-table
           :columns="columns"
@@ -20,6 +22,11 @@
           sticky-header
           @onAction="handleRowAction"
         >
+          <template #cell-location="{ row }">
+              <p class="font-medium text-gray-900">
+                {{ $newScope().getLabel(row.location) }}
+              </p>
+          </template>
           <template #cell-title="{ row }">
             <p class="font-medium text-gray-900">
               {{ row.title || '—' }}
@@ -83,6 +90,11 @@ const tableList = ref({
 
 const columns = [
   {
+    key: 'location',
+    label: 'Trực thuộc',
+    headerClass: 'min-w-[200px]'
+  },
+  {
     key: 'title',
     label: 'Tiêu đề',
     headerClass: 'min-w-[200px]'
@@ -127,7 +139,10 @@ const fetchList = $lodash.debounce(async() => {
   const response = await $api($url.admin.news.list, {
     body: {
       page: tableList.value.currentPage,
-      per_page: tableList.value.size
+      per_page: tableList.value.size,
+      query: {
+        location: $newScope().key
+      }
     }
   })
   const { data, success } = response?.data?.value || { data: null, success: false }

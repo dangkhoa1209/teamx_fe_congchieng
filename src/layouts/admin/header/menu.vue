@@ -12,15 +12,18 @@
             <!-- Menu -->
             <nav>
               <ul class="flex gap-[52px] uppercase text-[16px] font-robo font-medium">
-                <li
-                  v-for="item in menus"
+               <template  v-for="item in menus">
+                 <li
+                  v-if="checkPermission(item.permissions, true)"
                   :key="item.label"
                   class="cursor-pointer hover:text-secondary"
+                 
                 >
-                  <x-link :to="item.page">
-                    <span class="text-primary">{{ item.label }}</span>
+                  <x-link  :to="item.page">
+                    <span class="text-primary">{{ item.label }} {{ checkPermission(item.permissions, true) }}</span>
                   </x-link>
                 </li>
+               </template>
               </ul>
             </nav>
 
@@ -37,17 +40,29 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import IconFind from '~/public/assets/icon/find.svg'
+import { checkPermission } from '@/utils/permission-check.js';
 
 const menus = [
-  // { label: 'Trang chủ', page: '/trang-chu' },
-  // { label: 'Giới thiệu', page: '/gioi-thieu' },
-  // { label: 'Văn hoá cồng chiêng', page: '/van-hoa-cong-chieng' },
-  // { label: 'Tiềm năng phát triển', page: '/tiem-nang-phat-trien' },
-  { label: 'Tin tức - Sự kiện', page: '/admin/tin-tuc-su-kien' },
-  { label: 'Tài khoản', page: '/admin/tai-khoan' },
-  { label: 'Cá nhân', page: '/admin/ca-nhan' },
-  // { label: 'Hợp tác', page: '/hop-tac' },
-  // { label: 'Liên hệ', page: '/lien-he' }
+  { label: 'Tin tức - Sự kiện', 
+    page: '/admin/tin-tuc-su-kien',
+    permissions: [
+      "tin-tuc-su-kien",
+      "xa-lac-duong",
+      "xa-da-teh",
+      "xa-lac-bao-lam-3",
+      "xa-dinh-trang-thuong",
+      "xa-tam-dong-4"
+    ]
+  },
+  { label: 'Tài khoản', 
+    page: '/admin/tai-khoan',
+    permissions: [
+      'tai-khoan'
+    ]
+  },
+  { label: 'Cá nhân', 
+    page: '/admin/ca-nhan' 
+  }
 ]
 
 const headerWrapper = ref(null)

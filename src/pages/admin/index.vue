@@ -1,8 +1,12 @@
 <template>
-  <div>sdfsdf</div>
+  <div>
+    checkPermission: {{ checkPermission('khoa') }}
+  </div>
   <!-- <RouterView></RouterView> -->
+   
 </template>
 <script setup>
+import { checkPermission } from '@/utils/permission-check.js';
 // definePageMeta({
 //   middleware: 'auth'
 // })
