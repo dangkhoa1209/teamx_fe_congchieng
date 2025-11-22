@@ -33,6 +33,13 @@
         />
 
         <x-form-input
+          v-model="formData.author"
+          label="Tác giả"
+          name="author"
+          placeholder="Tên tác giả"
+        />
+
+        <x-form-input
           v-model="formData.title"
           label="Tiêu đề"
           name="title"
@@ -140,10 +147,12 @@ const isLoading = ref(false)
 
 const init = {
   location: '',
+  author: '',
   title: '',
   subtitle: '',
   status: 'active',
   contents: []
+
 }
 
 const formData = ref($lodash.cloneDeep(init))
@@ -194,6 +203,7 @@ const buildFormData = async (data) => {
   fd.append('subtitle', data.subtitle)
   fd.append('status', data.status)
   fd.append('location', data.location)
+  fd.append('author', data.author)
 
   fd.append('contents', JSON.stringify(data.contents.map(c => {
     const copy = { ...c }

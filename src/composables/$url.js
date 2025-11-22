@@ -1,13 +1,15 @@
 import auth from './admin-url/auth'
-import news from './admin-url/news.js'
-import account from './admin-url/account.js'
-import profile from './admin-url/profile.js'
+import newsAdmin from './admin-url/news.js'
+import accountAdmin from './admin-url/account.js'
+import profileAdmin from './admin-url/profile.js'
+import news from './url/news.js'
 
 export default {
   auth,
+  news,
   admin: {
-    news,
-    account,
-    profile
+    news: newsAdmin,
+    account: accountAdmin,
+    profile: profileAdmin
   }
 }

@@ -1,20 +1,13 @@
 <template>
-    <div>
-        <Header />
-        <NuxtPage />
-        <Footer />
-    </div>
+    <Header />
+    <NuxtPage />
+    <Footer />
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
 import Header from './default/header/index.vue'
 import Footer from './default/footer/index.vue'
 
-// Lấy store (tuỳ framework — Vuex, Pinia, hay custom)
-const { auth } = $store()
-
-// Cấu hình metadata
 useHead({
   title: 'Khoa',
   meta: [

@@ -62,11 +62,7 @@ const handleLogin = async () => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-  const config = useRuntimeConfig().public
-
-  console.log('config', config);
-  
-
+  const config = useRuntimeConfig().public  
 
   const dataForm = {
     username: username.value,

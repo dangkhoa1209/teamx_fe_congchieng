@@ -1,6 +1,6 @@
 <template>
   <header class="z-auto appearance-none user-select-none">
-    <!-- header -->
+      <!-- header -->
     <div class="bg-primary">
       <x-content-place>
         <div class="flex py-8 gap-10 items-center">
@@ -22,16 +22,17 @@
         </div>
       </x-content-place>
     </div>
-    <!-- <menu></menu> -->
-    <Menu class="sticky"></Menu>
+      <!-- <menu></menu> -->
   </header>
+
+  <Menu class=""></Menu>  
 </template>
 <script setup>
 // const logo = '/assets/logo.png'
 import Menu from './menu/index.vue'
 const onLogoError = (event) => {
   const target = event.target
-  target.style.display = 'none'
+  if(target.style ) target.style.display = 'none'
 }
 
 

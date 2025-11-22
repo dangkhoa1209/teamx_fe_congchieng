@@ -47,7 +47,7 @@ const reset = () => {
 const handleSubmit = async (values) => {
   isLoading.value = true
   try {
-    const response = await $api($url.admin.account.delete, {
+    const response = await $api($url.admin.news.delete, {
       body: formData.value
     })
 

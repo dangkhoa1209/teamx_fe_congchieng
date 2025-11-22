@@ -31,7 +31,7 @@
 import Menu from './menu.vue'
 const onLogoError = (event) => {
   const target = event.target
-  target.style.display = 'none'
+  if(target.style ) target.style.display = 'none'
 }
 
 

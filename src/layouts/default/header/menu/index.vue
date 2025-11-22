@@ -1,29 +1,49 @@
 <template>
-  <nav class="h-[75px] "> 
-    <div ref="headerWrapper" class="h-0"></div>
-    <header class="h-[75px] ">
+  <nav class="sticky top-0 z-[999] "> 
+    <div class="h-[75px] ">
       <div
         ref="header"
         class="header z-50 bg-main border border-primary"
-        :class="{ 'fixed-header': isFixed }"
+        :class="{ 'fixed-header': false }"
       >
         <x-content-place>
           <div class="flex justify-between items-center h-[75px] ">
-              <ul class="flex gap-[52px]">
-                <menu-item v-for="item in menus" :key="item.label" :item="item" />
-              </ul>
-            <IconFind class="w-6 h-6 fill-primary" />
+            <ul class="flex gap-[52px] z-50">
+              <menu-item v-for="item in menus" :key="item.label" :item="item" />
+            </ul>
+            <div 
+              class="relative h-[75px] flex items-center"
+              @mouseenter="onEnter"
+              @mouseleave="onLeave"
+            >
+              <IconFind 
+                class="w-6 h-6 fill-primary cursor-pointer"
+                @click="focusInput"
+              />
+
+              <div
+                class="absolute bottom-0 right-0 translate-y-[100%] text-main w-64"
+                v-if="show"
+              >
+                <input-fitter
+                  ref="inputRef"
+                  @focus="isFocused = true"
+                  @blur="outForcus"
+                  @enter="handleEnter"
+                />
+              </div>
+            </div>
           </div>
         </x-content-place>
       </div>
-    </header>
+    </div>
   </nav>
- 
 </template>
 <script setup>
+import InputFitter from './input-fitter.vue'
 import MenuItem from './menu-item.vue'
-import { ref, onMounted, onUnmounted } from 'vue'
 import IconFind from '~/public/assets/icon/find.svg'
+const router = useRouter()
 
 const menus = [
   { 
@@ -101,30 +121,55 @@ const menus = [
   }
 ]
 
-const headerWrapper = ref(null)
-const isFixed = ref(false)
-let observer
 
-onMounted(() => {
-  observer = new IntersectionObserver(
-    ([entry]) => {
-      isFixed.value = !entry.isIntersecting
-    },
-    { threshold: 0 }
-  )
-  if (headerWrapper.value) observer.observe(headerWrapper.value)
-})
+const show = ref(false)
+const isFocused = ref(false)
+const inputRef = ref(null)
 
-onUnmounted(() => {
-  observer?.disconnect()
-})
+const onEnter = () => {
+  show.value = true
+}
+
+const onLeave = $lodash.debounce(() => {
+  console.log('isFocused.value', isFocused.value);
+  
+  if (!isFocused.value) {
+    show.value = false
+  }
+}, 2000)
+
+const focusInput = () => {
+  show.value = true
+  setTimeout(() => {
+    inputRef.value?.$el?.focus?.()
+  }, 0)
+}
+
+const outForcus = () => {
+  isFocused.value = false
+  onLeave()
+}
+
+
+const handleEnter = (value) => {
+  if(!value) {
+    return 
+  }
+
+  router.push({
+    path: '/tim-kiem',
+    query: {q: value}
+  })
+}
+
 </script>
 
 <style scoped>
-.fixed-header {
-  position: fixed !important;
+.fixed-header{
+  position: sticky !important;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 999999;
 }
 </style>

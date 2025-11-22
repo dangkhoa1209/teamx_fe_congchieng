@@ -2,7 +2,7 @@
   <x-content-place>
     <x-space :height="40"></x-space>
      <section class="">
-        <h2 class="font-robo font-bold text-title text-primary">VĂN HOÁ CỒNG CHIÊNG</h2>
+        <h2 class="font-robo font-bold text-subtitle text-primary">VĂN HOÁ CỒNG CHIÊNG</h2>
         <x-space :height="40"></x-space>
         <h1 class="text-title font-bold font-robo text-primary" >ÂM THANH CỒNG CHIÊNG HƠI THỞ VĂN HOÁ TÂY NGUYÊN</h1>
       </section>
@@ -11,7 +11,7 @@
       <x-image :url="$image().url"></x-image>
       <x-image :url="$image().url"></x-image>
     </div>
-    <div class="font-robo text-body flex flex-col font-regular gap-5">
+    <div class="font-robo text-body flex flex-col font-normal gap-5">
       <p class="text-subtitle  text-primary font-bold">Văn hóa cồng chiêng Tây Bắc</p>
       <p class="italic font-light">“Ở Tây Bắc, tiếng chiêng hòa cùng gió núi, mây trời như tiếng vọng của đất trời cổ xưa”</p>
       <p>Trong các lễ hội như Xên bản, Xên mường, tiếng chiêng hòa cùng tiếng khèn, trống, tiếng hát, tiếng chân người nhảy múa bên đống lửa. Với người Thái, Mường, Dao, Tày, Nùng..., chiêng là biểu tượng của sự no đủ, lòng biết ơn và mối giao hòa giữa con người với thiên nhiên.</p>

@@ -1,14 +1,16 @@
 <template>
   <x-content-place class="font-robo">
     <x-space :height="40"></x-space>
-    <h2 class="font-bold text-title text-primary uppercase">Liên hệ</h2>
+    <h2 class="font-bold text-subtitle text-primary">
+      HỢP TÁC
+    </h2>
     <x-space :height="40"></x-space>
     
     <div class="flex gap-5 ">
       <div class="w-[35%]">
         <p class="text-subtitle font-bold">Thông tin liên hệ</p>
         <x-space :height="50"></x-space>
-        <div class="flex flex-col gap-[40px] text-body font-regular">
+        <div class="flex flex-col gap-[40px] text-body font-normal">
           <p>
             Ban Biên tập Chuyên Trang thông tin điện tử -<br>Văn hóa, Thể thao và Du lịch tỉnh Lâm Đồng
           </p>

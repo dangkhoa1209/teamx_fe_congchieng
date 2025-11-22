@@ -108,7 +108,6 @@ export default async function $api(source, options = {}, showError = true) {
   const config = useRuntimeConfig().public
   const { auth } = $store()
   const router = useRouter()
-
   const refreshTokenFn = async () => {
     try {
 
@@ -155,18 +154,16 @@ export default async function $api(source, options = {}, showError = true) {
     ...options.headers
   }
 
-  if (isNil(options.initialCache)) {
-    setCacheOptions(options, false)
-  }
-
-  options = disableReactive(options)
+  setCacheOptions(options, false)
+  options.key = null
+  options.watch = [] 
+  options = disableReactive({...options})
+  options.cache = false  
 
   try {
     const { method, url, headers } = source
-    setKeyOptions(options, reformatUrl(url, options))
-
     const opts = {
-      onResponse({ response }) {
+      onResponse({ response }) {        
         response._data.headers = response.headers
         return response._data
       },
@@ -227,6 +224,7 @@ export default async function $api(source, options = {}, showError = true) {
       })
       return null
     }
+    console.log('response1: ', response);
 
     return response
   } catch (e) {

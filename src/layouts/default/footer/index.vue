@@ -22,7 +22,7 @@
                 </p>
               </div>
             </div>
-            <p class="font-robo font-regular text-body ">Chuyên trang thông tin điện tử giới thiệu, quảng bá mô hình văn hoá cồng chiêng gắn với phát triển du lịch tỉnh Lâm Đồng</p>
+            <p class="font-robo font-normal text-body ">Chuyên trang thông tin điện tử giới thiệu, quảng bá mô hình văn hoá cồng chiêng gắn với phát triển du lịch tỉnh Lâm Đồng</p>
           </div>
           <div class="flex gap-4">
             <div class="border border-white p-2 rounded-full box-border">
@@ -38,20 +38,20 @@
         </div>
         <div class="w-[25%] flex flex-col gap-6">
           <p class="font-robo font-medium text-subtitle ">Danh mục</p>
-          <p class="font-robo font-regular text-boby">Giới thiệu về chuyên trang</p>
-          <p class="font-robo font-regular text-boby">Tiềm năng phát triển</p>
-          <p class="font-robo font-regular text-boby">Văn hóa cồng chiêng</p>
-          <p class="font-robo font-regular text-boby">Tin tức - Sự kiện</p>
-          <p class="font-robo font-regular text-boby">Hợp tác</p>
+          <p class="font-robo font-normal text-boby">Giới thiệu về chuyên trang</p>
+          <p class="font-robo font-normal text-boby">Tiềm năng phát triển</p>
+          <p class="font-robo font-normal text-boby">Văn hóa cồng chiêng</p>
+          <p class="font-robo font-normal text-boby">Tin tức - Sự kiện</p>
+          <p class="font-robo font-normal text-boby">Hợp tác</p>
         </div>
         <div class="w-[35%] flex flex-col gap-6">
           <p class="font-robo font-medium text-subtitle "> LIÊN HỆ</p>
-          <p class="font-robo font-regular text-boby">
+          <p class="font-robo font-normal text-boby">
             Ban Biên tập Chuyên Trang thông tin điện tử - Sở Văn hóa, Thể thao và Du lịch tỉnh Lâm Đồng
           </p>
-          <p class="font-robo font-regular text-boby">Địa chỉ: Tầng 2 khu 9 tầng, Số 36 Trần Phú, Phường Xuân Hương Đà Lạt - Tỉnh Lâm Đồng</p>
-          <p class="font-robo font-regular text-boby">Số điện thoại: (0263) 3822141</p>
-          <p class="font-robo font-regular text-boby">Email: svhttdl.lamdong.gov.vn</p>
+          <p class="font-robo font-normal text-boby">Địa chỉ: Tầng 2 khu 9 tầng, Số 36 Trần Phú, Phường Xuân Hương Đà Lạt - Tỉnh Lâm Đồng</p>
+          <p class="font-robo font-normal text-boby">Số điện thoại: (0263) 3822141</p>
+          <p class="font-robo font-normal text-boby">Email: svhttdl.lamdong.gov.vn</p>
         </div>
       </div>
       <x-space :height="58"></x-space>

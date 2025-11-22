@@ -33,8 +33,6 @@
 </template>
 
 <script setup>
-import { Children } from 'react'
-import { ref, onMounted, onUnmounted } from 'vue'
 import IconFind from '~/public/assets/icon/find.svg'
 
 const menus = [
