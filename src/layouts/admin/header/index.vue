@@ -9,9 +9,7 @@
           </div>
           <div>
             <p class="font-mont font-semibold text-white text-[20px]">UBND TỈNH LÂM ĐỒNG</p>
-            <p class="font-mont font-semibold text-white text-[28px]">
-              SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
-            </p>
+            <p class="font-mont font-semibold text-white text-[28px]">SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH</p>
           </div>
         </div>
       </x-content-place>

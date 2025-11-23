@@ -29,10 +29,7 @@
           class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
           @click="togglePassword"
         >
-          <Icon
-            :name="showPassword ? 'heroicons-solid:eye' : 'heroicons-solid:eye-slash'"
-            class="h-6 w-6"
-          />
+          <Icon :name="showPassword ? 'heroicons-solid:eye' : 'heroicons-solid:eye-slash'" class="h-6 w-6" />
         </button>
       </div>
 
@@ -87,9 +84,7 @@
   // === Password Toggle ===
   const showPassword = ref(false);
   const isPasswordType = computed(() => props.type === 'password');
-  const inputType = computed(() =>
-    isPasswordType.value && !showPassword.value ? 'password' : 'text'
-  );
+  const inputType = computed(() => (isPasswordType.value && !showPassword.value ? 'password' : 'text'));
 
   const togglePassword = () => {
     showPassword.value = !showPassword.value;
@@ -136,7 +131,7 @@
     (newVal) => {
       value.value = newVal ?? '';
     },
-    { immediate: true }
+    { immediate: true },
   );
 </script>
 

@@ -1,0 +1,32 @@
+{
+  // ESLint
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.validate": ["javascript", "typescript", "vue"],
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+
+  // Prettier làm formatter mặc định
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // QUAN TRỌNG NHẤT: Save là tự động fix + format luôn
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll": "explicit"
+  },
+
+  // Format khi save (Prettier)
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+
+  // Vue / Volar
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

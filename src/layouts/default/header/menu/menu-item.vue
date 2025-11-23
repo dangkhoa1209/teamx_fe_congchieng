@@ -2,16 +2,11 @@
   <li class="relative" @mouseenter="show = true" @mouseleave="handleMouseLeave">
     <div>
       <x-link v-if="item.page" :to="item.page">
-        <span
-          class="leading-[75px] uppercase text-[16px] font-robo font-medium text-primary whitespace-nowrap"
-        >
+        <span class="leading-[75px] uppercase text-[16px] font-robo font-medium text-primary whitespace-nowrap">
           {{ item.label }}
         </span>
       </x-link>
-      <span
-        v-else
-        class="leading-[75px] uppercase text-[16px] font-robo font-medium text-primary whitespace-nowrap"
-      >
+      <span v-else class="leading-[75px] uppercase text-[16px] font-robo font-medium text-primary whitespace-nowrap">
         {{ item.label }}
       </span>
     </div>

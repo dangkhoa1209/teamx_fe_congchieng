@@ -12,15 +12,7 @@ export default [
 
   // 2. Ignore các thư mục không bao giờ được lint
   {
-    ignores: [
-      'node_modules/**',
-      '.nuxt/**',
-      '.output/**',
-      'dist/**',
-      'coverage/**',
-      '**/*.d.ts',
-      '**/.env*',
-    ],
+    ignores: ['node_modules/**', '.nuxt/**', '.output/**', 'dist/**', 'coverage/**', '**/*.d.ts', '**/.env*'],
   },
 
   // 3. Config chung cho JS/TS/Vue

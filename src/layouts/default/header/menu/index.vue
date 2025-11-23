@@ -1,11 +1,7 @@
 <template>
   <nav class="sticky top-0 z-[999]">
     <div class="h-[75px]">
-      <div
-        ref="header"
-        class="header z-50 bg-main border border-primary"
-        :class="{ 'fixed-header': false }"
-      >
+      <div ref="header" class="header z-50 bg-main border border-primary" :class="{ 'fixed-header': false }">
         <x-content-place>
           <!-- <div class="flex justify-between items-center h-[75px] gap-5">
             <ul class="flex gap-[52px] z-50">
@@ -47,12 +43,7 @@
 
               <!-- List menu scroll ngang -->
               <ul ref="menuList" class="flex gap-[52px] overflow-x-auto no-scrollbar scroll-smooth">
-                <menu-item
-                  v-for="item in menus"
-                  :key="item.label"
-                  :item="item"
-                  @showDropdown="openDropdown"
-                />
+                <menu-item v-for="item in menus" :key="item.label" :item="item" @showDropdown="openDropdown" />
               </ul>
 
               <!-- Nút NEXT -->
@@ -66,20 +57,11 @@
             </div>
 
             <!-- SEARCH -->
-            <div
-              class="relative h-[75px] flex items-center"
-              @mouseenter="onEnter"
-              @mouseleave="onLeave"
-            >
+            <div class="relative h-[75px] flex items-center" @mouseenter="onEnter" @mouseleave="onLeave">
               <IconFind class="w-6 h-6 fill-primary cursor-pointer" @click="focusInput" />
 
               <div v-if="show" class="absolute bottom-0 right-0 translate-y-[100%] text-main w-64">
-                <input-fitter
-                  ref="inputRef"
-                  @focus="isFocused = true"
-                  @blur="outForcus"
-                  @enter="handleEnter"
-                />
+                <input-fitter ref="inputRef" @focus="isFocused = true" @blur="outForcus" @enter="handleEnter" />
               </div>
             </div>
           </div>

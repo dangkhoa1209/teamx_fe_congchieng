@@ -86,10 +86,7 @@
       end = totalPages.value;
       start = Math.max(1, end - count + 1);
     }
-    displayedPages.value = Array.from(
-      { length: Math.min(count, totalPages.value) },
-      (_, i) => start + i
-    );
+    displayedPages.value = Array.from({ length: Math.min(count, totalPages.value) }, (_, i) => start + i);
   };
 
   // Prev / Next
@@ -100,8 +97,7 @@
     emit('change', next);
     if (!displayedPages.value.includes(next)) {
       const newLast = displayedPages.value[displayedPages.value.length - 1] + 1;
-      if (newLast <= totalPages.value)
-        displayedPages.value = [...displayedPages.value.slice(1), newLast];
+      if (newLast <= totalPages.value) displayedPages.value = [...displayedPages.value.slice(1), newLast];
     }
   };
 
