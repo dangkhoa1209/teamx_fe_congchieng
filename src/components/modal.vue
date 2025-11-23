@@ -3,9 +3,9 @@
     <div
       v-if="modelValue"
       class="fixed inset-0 z-[2000] flex items-center justify-center bg-black/40"
+      tabindex="-1"
       @click.self="handleBackdropClick"
       @keydown.esc.prevent="handleClose"
-      tabindex="-1"
     >
       <div
         class="w-full max-w-[70vw] max-h-[90vh] overflow-hidden rounded-xl bg-white shadow-lg flex flex-col transition-all duration-150 ease-out scale-100"
@@ -30,18 +30,15 @@
         </div>
 
         <div class="flex items-center justify-end gap-3 border-t border-gray-200 px-6 py-4">
-          <x-form-button
-            type="button"
-            @click="handleClose"
-          >
+          <x-form-button type="button" @click="handleClose">
             {{ cancelLabel }}
           </x-form-button>
           <x-form-button
             type="button"
             theme="primary"
-            @click="handleSubmit"
             :disabled="loading"
             :loading="loading"
+            @click="handleSubmit"
           >
             <span>{{ submitLabel }}</span>
           </x-form-button>
@@ -52,22 +49,22 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    require: true
-  },
-  title: { type: String, default: 'Modal' },
-  loading: { type: Boolean, default: false},
-  submitLabel: { type: String, default: 'Lưu' },
-  cancelLabel: { type: String, default: 'Đóng' }
-})
-const emit = defineEmits(['update:modelValue', 'submit', 'close'])
+  const props = defineProps({
+    modelValue: {
+      type: Boolean,
+      require: true,
+    },
+    title: { type: String, default: 'Modal' },
+    loading: { type: Boolean, default: false },
+    submitLabel: { type: String, default: 'Lưu' },
+    cancelLabel: { type: String, default: 'Đóng' },
+  });
+  const emit = defineEmits(['update:modelValue', 'submit', 'close']);
 
-const handleClose = () => {
-  emit('update:modelValue', false)
-  emit('close')
-}
-const handleBackdropClick = () => handleClose()
-const handleSubmit = () => emit('submit')
+  const handleClose = () => {
+    emit('update:modelValue', false);
+    emit('close');
+  };
+  const handleBackdropClick = () => handleClose();
+  const handleSubmit = () => emit('submit');
 </script>

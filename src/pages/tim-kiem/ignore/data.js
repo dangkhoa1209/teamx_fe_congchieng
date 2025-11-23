@@ -1,57 +1,54 @@
 const locationTypes = [
   {
     value: '',
-    label: 'Tất cả'
+    label: 'Tất cả',
   },
   {
     value: 'xa-lac-duong',
-    label: 'Xã Lạc Dương'
+    label: 'Xã Lạc Dương',
   },
   {
     value: 'xa-da-teh',
-    label: 'Xã Đạ Tẻh'
+    label: 'Xã Đạ Tẻh',
   },
   {
     value: 'xa-lac-bao-lam-3',
-    label: 'Xã Bảo Lâm 3'
+    label: 'Xã Bảo Lâm 3',
   },
   {
     value: 'xa-dinh-trang-thuong',
-    label: 'Xã Đinh Trang Thượng'
+    label: 'Xã Đinh Trang Thượng',
   },
   {
     value: 'xa-tam-dong-4',
-    label: 'Xã Đam Rông 4'
-  }
-]
+    label: 'Xã Đam Rông 4',
+  },
+];
 
 const timeOptions = [
   {
     label: 'Tất cả',
-    value: ''
+    value: '',
   },
   {
     label: 'Hôm nay',
-    value: 'to-day'
+    value: 'to-day',
   },
   {
     label: '1 ngày trước',
-    value: 'one-day-ago'
+    value: 'one-day-ago',
   },
   {
     label: '7 tuần trước',
-    value: 'one-week-ago'
+    value: 'one-week-ago',
   },
   {
     label: '1 tháng trước',
-    value: 'one-month-ago'
+    value: 'one-month-ago',
   },
   {
     label: '1 năm trước',
-    value: 'one-year-ago'
-  }
-]
-export {
-  locationTypes,
-  timeOptions
-}
+    value: 'one-year-ago',
+  },
+];
+export { locationTypes, timeOptions };

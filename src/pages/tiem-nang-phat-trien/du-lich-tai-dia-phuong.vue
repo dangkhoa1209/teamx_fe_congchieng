@@ -1,67 +1,100 @@
 <template>
   <x-content-place class="font-robo">
-    <x-space :height="40"></x-space>
-     <h2 class="font-bold text-body text-primary">
+    <x-space :height="40" />
+    <h2 class="font-bold text-body text-primary">
       <div class="flex items-center gap-2">
         TIỀM NĂNG PHÁT TRIỂN
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Phát triển du lịch tại địa phương
       </div>
     </h2>
-    <x-space :height="40"></x-space>
+    <x-space :height="40" />
 
     <section class="flex flex-col gap-5">
       <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN DU LỊCH TẠI ĐỊA PHƯƠNG</h2>
-      <p class="font-bold text-subtitle text-primary">Giữ gìn và lan tỏa không gian văn hóa cồng chiêng tại các vùng, xã, địa phương không chỉ là phương thức hữu hiệu để phát triển du lịch mà còn góp phần bảo tồn và giữ gìn di sản văn hóa phi vật thể nhân loại.</p>
-     <p>Không gian văn hóa cồng chiêng, khi được bảo tồn ngay trong từng buôn làng, từng xã, trở thành nguồn lực vô giá để phát triển du lịch tại chỗ một cách bền vững. Điều này đặc biệt quan trọng đối với tỉnh Lâm Đồng - nơi các cộng đồng dân tộc bản địa vẫn giữ được những giá trị nguyên sơ, phong tục tập quán phong phú và đời sống văn hóa có chiều sâu.</p>
-     <p>Việc khôi phục, duy trì và quảng bá sinh hoạt cồng chiêng ở từng địa phương mở ra cơ hội để mỗi xã trở thành một “điểm đến văn hóa” độc lập, gắn liền với đời sống thực hành của người dân. Khi du khách đến với các xã Đạ Tẻh, Đam Rông 4, Đinh Trang Thượng.... hay bất kỳ địa phương nào trong tỉnh, họ không chỉ được nghe tiếng chiêng mà còn được tham gia vào không gian lễ hội, cảm nhận tinh thần cộng đồng, tìm hiểu nghệ thuật diễn xướng và khám phá bối cảnh văn hóa đặc trưng của từng vùng đất.</p>
-  </section>
-  <x-space :height="40"></x-space>
-  <section>
-    <div class="flex gap-5">
-       <x-image :url="$image().url"></x-image>
-       <x-image :url="$image().url"></x-image>
-    </div>
-  </section>
-   <x-space :height="40"></x-space>
-   <section>
-    <p>Chuyên trang điện tử về mô hình văn hóa cồng chiêng đóng vai trò hệ thống hóa và giới thiệu sâu sắc tiềm năng ấy, giúp mỗi địa phương xây dựng hình ảnh riêng trong bức tranh chung của du lịch tỉnh Lâm Đồng. Từ việc số hóa tư liệu, ghi lại các đội chiêng, nghệ nhân, lễ hội, nghề thủ công truyền thống cho đến việc giới thiệu tour trải nghiệm, sản phẩm văn hóa - du lịch đặc thù... chuyên trang giúp du khách và nhà đầu tư có cái nhìn toàn diện hơn về lợi thế của từng vùng.</p>
-   </section>
-   <x-space :height="40"></x-space>
-   <section>
-     <x-image :url="$image().url"></x-image>
-   </section>
-    <x-space :height="40"></x-space>
+      <p class="font-bold text-subtitle text-primary">
+        Giữ gìn và lan tỏa không gian văn hóa cồng chiêng tại các vùng, xã, địa phương không chỉ là
+        phương thức hữu hiệu để phát triển du lịch mà còn góp phần bảo tồn và giữ gìn di sản văn hóa
+        phi vật thể nhân loại.
+      </p>
+      <p>
+        Không gian văn hóa cồng chiêng, khi được bảo tồn ngay trong từng buôn làng, từng xã, trở
+        thành nguồn lực vô giá để phát triển du lịch tại chỗ một cách bền vững. Điều này đặc biệt
+        quan trọng đối với tỉnh Lâm Đồng - nơi các cộng đồng dân tộc bản địa vẫn giữ được những giá
+        trị nguyên sơ, phong tục tập quán phong phú và đời sống văn hóa có chiều sâu.
+      </p>
+      <p>
+        Việc khôi phục, duy trì và quảng bá sinh hoạt cồng chiêng ở từng địa phương mở ra cơ hội để
+        mỗi xã trở thành một “điểm đến văn hóa” độc lập, gắn liền với đời sống thực hành của người
+        dân. Khi du khách đến với các xã Đạ Tẻh, Đam Rông 4, Đinh Trang Thượng.... hay bất kỳ địa
+        phương nào trong tỉnh, họ không chỉ được nghe tiếng chiêng mà còn được tham gia vào không
+        gian lễ hội, cảm nhận tinh thần cộng đồng, tìm hiểu nghệ thuật diễn xướng và khám phá bối
+        cảnh văn hóa đặc trưng của từng vùng đất.
+      </p>
+    </section>
+    <x-space :height="40" />
     <section>
-      <p>Khi địa phương được trao quyền chủ động trong việc bảo tồn và khai thác di sản, du lịch sẽ trở thành công cụ hiệu quả để phát triển kinh tế - xã hội. Các hoạt động biểu diễn cồng chiêng, chế tác nhạc cụ, tổ chức lễ hội, sinh hoạt văn hóa cộng đồng không chỉ tạo trải nghiệm độc đáo mà còn mang lại nguồn thu trực tiếp cho người dân, qua đó nuôi dưỡng chính những người đang gìn giữ di sản.</p>
-      <p>Tiềm năng phát triển du lịch tại từng địa phương vì thế không chỉ nằm ở cảnh quan hay tài nguyên thiên nhiên, mà còn nằm ở chính đời sống văn hóa đang được gìn giữ mỗi ngày. Với nền tảng lan tỏa từ chuyên trang, các xã, buôn làng có thể tự tin xây dựng sản phẩm du lịch đặc thù, góp phần đưa Lâm Đồng trở thành điểm đến văn hóa - bản sắc nổi bật của Tây Nguyên và Việt Nam.</p>
-     </section>
-    <x-space :height="80"></x-space>
-    <x-line></x-line>
-    <x-space :height="40"></x-space>
+      <div class="flex gap-5">
+        <x-image :url="$image().url" />
+        <x-image :url="$image().url" />
+      </div>
+    </section>
+    <x-space :height="40" />
+    <section>
+      <p>
+        Chuyên trang điện tử về mô hình văn hóa cồng chiêng đóng vai trò hệ thống hóa và giới thiệu
+        sâu sắc tiềm năng ấy, giúp mỗi địa phương xây dựng hình ảnh riêng trong bức tranh chung của
+        du lịch tỉnh Lâm Đồng. Từ việc số hóa tư liệu, ghi lại các đội chiêng, nghệ nhân, lễ hội,
+        nghề thủ công truyền thống cho đến việc giới thiệu tour trải nghiệm, sản phẩm văn hóa - du
+        lịch đặc thù... chuyên trang giúp du khách và nhà đầu tư có cái nhìn toàn diện hơn về lợi
+        thế của từng vùng.
+      </p>
+    </section>
+    <x-space :height="40" />
+    <section>
+      <x-image :url="$image().url" />
+    </section>
+    <x-space :height="40" />
+    <section>
+      <p>
+        Khi địa phương được trao quyền chủ động trong việc bảo tồn và khai thác di sản, du lịch sẽ
+        trở thành công cụ hiệu quả để phát triển kinh tế - xã hội. Các hoạt động biểu diễn cồng
+        chiêng, chế tác nhạc cụ, tổ chức lễ hội, sinh hoạt văn hóa cộng đồng không chỉ tạo trải
+        nghiệm độc đáo mà còn mang lại nguồn thu trực tiếp cho người dân, qua đó nuôi dưỡng chính
+        những người đang gìn giữ di sản.
+      </p>
+      <p>
+        Tiềm năng phát triển du lịch tại từng địa phương vì thế không chỉ nằm ở cảnh quan hay tài
+        nguyên thiên nhiên, mà còn nằm ở chính đời sống văn hóa đang được gìn giữ mỗi ngày. Với nền
+        tảng lan tỏa từ chuyên trang, các xã, buôn làng có thể tự tin xây dựng sản phẩm du lịch đặc
+        thù, góp phần đưa Lâm Đồng trở thành điểm đến văn hóa - bản sắc nổi bật của Tây Nguyên và
+        Việt Nam.
+      </p>
+    </section>
+    <x-space :height="80" />
+    <x-line />
+    <x-space :height="40" />
     <h2 class="font-bold text-primary text-subtitle">BÀI VIẾT CÙNG CHUYÊN MỤC</h2>
-    <x-space :height="40"></x-space>
+    <x-space :height="40" />
     <section>
-       <div class="grid grid-cols-3 gap-5">
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
+      <div class="grid grid-cols-3 gap-5">
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
       </div>
     </section>
   </x-content-place>
-
-  
 </template>
 <script setup></script>

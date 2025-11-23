@@ -1,235 +1,234 @@
-import { isRef, isReactive, toRaw } from 'vue'
-import isNil from 'lodash-es/isNil'
-import { decode } from '../ utils/str.js'
+import { isRef, isReactive, toRaw } from 'vue';
+import isNil from 'lodash-es/isNil';
+import { decode } from '../ utils/str.js';
 
 const reformatUrl = (url, options = {}) => {
-  const uriParams = options.uriParams || options.params || {}
-  const queryParams = options.query || {}
+  const uriParams = options.uriParams || options.params || {};
+  const queryParams = options.query || {};
 
   if (uriParams) {
     if (url.startsWith('/')) {
-      url = url.substring(1)
+      url = url.substring(1);
     }
     Object.keys(uriParams).forEach((key) => {
-      const value = encodeURIComponent(uriParams[key])
-      url = url.replace(key, value)
-    })
+      const value = encodeURIComponent(uriParams[key]);
+      url = url.replace(key, value);
+    });
   }
 
   if (Object.keys(queryParams).length > 0) {
-    const queryString = new URLSearchParams(queryParams).toString()
-    url += (url.includes('?') ? '&' : '?') + queryString
+    const queryString = new URLSearchParams(queryParams).toString();
+    url += (url.includes('?') ? '&' : '?') + queryString;
   }
 
-  return url
-}
+  return url;
+};
 
 const setKeyOptions = (options = {}, url) => {
-  options.key = +new Date() + url
-}
+  options.key = +new Date() + url;
+};
 
 const setCacheOptions = (options = {}, value) => {
-  options.initialCache = value
-}
+  options.initialCache = value;
+};
 
 const errorProcess = (app, error) => {
   if (process.client) {
-    let errorDataList = []
+    let errorDataList = [];
     if (error && error.value) {
-      const errorData = error.value.data || {}      
-      errorDataList = errorData.errors ? Array(errorData.errors) : errorData.errors
+      const errorData = error.value.data || {};
+      errorDataList = errorData.errors ? Array(errorData.errors) : errorData.errors;
       if (typeof errorDataList === 'string') {
-        $toast().error(errorDataList)
-        return
+        $toast().error(errorDataList);
+        return;
       }
 
       if (Array.isArray(errorDataList) && errorDataList.length) {
         errorDataList.forEach((msg) => {
           if (Array.isArray(msg) && msg.length) {
-            msg.forEach((m) => handleToastError(m))
-            return
+            msg.forEach((m) => handleToastError(m));
+            return;
           }
-          handleToastError(msg)
-        })
+          handleToastError(msg);
+        });
       } else {
-        $toast().error('Lỗi kết nối máy chủ')
+        $toast().error('Lỗi kết nối máy chủ');
       }
     }
   }
-}
+};
 
 const handleToastError = (msg) => {
   if (Array.isArray(msg)) {
-    msg.forEach((m) => handleToastError(m))
-    return
+    msg.forEach((m) => handleToastError(m));
+    return;
   }
 
   if (typeof msg === 'string') {
-    $toast().error(decode(msg))
+    $toast().error(decode(msg));
   }
   if (typeof msg === 'object' && 'msg' in msg) {
-    $toast().error(String(msg.msg))
+    $toast().error(String(msg.msg));
   }
   if (typeof msg === 'object' && 'message' in msg) {
-    $toast().error(msg.message)
+    $toast().error(msg.message);
   }
-}
+};
 
 const disableReactive = (data) => {
-  if (data instanceof FormData) return data
-  if (Array.isArray(data)) return data.map((d) => disableReactive(d))
+  if (data instanceof FormData) return data;
+  if (Array.isArray(data)) return data.map((d) => disableReactive(d));
 
   if (typeof data === 'object' && data !== null) {
-    data = { ...toRaw(data) }
+    data = { ...toRaw(data) };
     Object.keys(data).forEach((key) => {
       if (!(data[key] instanceof URLSearchParams || data[key] instanceof FormData)) {
-        const raw = toRaw(data[key])
+        const raw = toRaw(data[key]);
         if (Array.isArray(raw)) {
-          data[key] = raw.map((o) => disableReactive(o))
+          data[key] = raw.map((o) => disableReactive(o));
         } else if (raw !== null && typeof raw === 'object') {
-          data[key] = { ...disableReactive(raw) }
+          data[key] = { ...disableReactive(raw) };
         } else {
-          data[key] = raw
+          data[key] = raw;
         }
       }
-    })
-    return data
+    });
+    return data;
   }
 
   if (isReactive(data) || isRef(data)) {
-    return toRaw(data)
+    return toRaw(data);
   }
 
-  return data
-}
+  return data;
+};
 
 export default async function $api(source, options = {}, showError = true) {
-  const app = useNuxtApp()
-  const config = useRuntimeConfig().public
-  const { auth } = $store()
-  const router = useRouter()
+  const app = useNuxtApp();
+  const config = useRuntimeConfig().public;
+  const { auth } = $store();
+  const router = useRouter();
   const refreshTokenFn = async () => {
     try {
-
       const body = new URLSearchParams({
         refresh_token: auth.refreshToken,
         grant_type: config?.grantTypeRefresh,
         client_id: config?.clientId,
-        client_secret: config?.clientSecret
-      })
+        client_secret: config?.clientSecret,
+      });
 
       const res = await useFetch('/auth/refresh', {
         baseURL: config.apiURL,
         method: 'POST',
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body
-      })
+        body,
+      });
 
-      const tokenData = res.data?.value
-      if(!tokenData.data.accessToken){
-        auth?.clear?.()
-        router.push({ name: 'admin-auth-login' })
+      const tokenData = res.data?.value;
+      if (!tokenData.data.accessToken) {
+        auth?.clear?.();
+        router.push({ name: 'admin-auth-login' });
       }
 
       if (tokenData) {
-        auth.setAccessToken(tokenData.data.accessToken)
-        auth.setRefreshToken(tokenData.data.refreshToken)
-        return tokenData.data.accessToken
+        auth.setAccessToken(tokenData.data.accessToken);
+        auth.setRefreshToken(tokenData.data.refreshToken);
+        return tokenData.data.accessToken;
       }
 
-      return false
+      return false;
     } catch (err) {
-      auth?.clear?.()
-      router.push({ name: 'admin-auth-login' })
+      auth?.clear?.();
+      router.push({ name: 'admin-auth-login' });
     }
-  }
+  };
 
-  const accessToken = auth?.accessToken
-  
+  const accessToken = auth?.accessToken;
+
   const requestHeaders = {
     ...(accessToken && { Authorization: 'Bearer ' + accessToken }),
     'Accept-Language': 'vi',
-    ...options.headers
-  }
+    ...options.headers,
+  };
 
-  setCacheOptions(options, false)
-  options.key = null
-  options.watch = [] 
-  options = disableReactive({...options})
-  options.cache = false  
+  setCacheOptions(options, false);
+  options.key = null;
+  options.watch = [];
+  options = disableReactive({ ...options });
+  options.cache = false;
 
   try {
-    const { method, url, headers } = source
+    const { method, url, headers } = source;
     const opts = {
-      onResponse({ response }) {        
-        response._data.headers = response.headers
-        return response._data
+      onResponse({ response }) {
+        response._data.headers = response.headers;
+        return response._data;
       },
       baseURL: config.apiURL,
       headers: {
         ...headers,
-        ...requestHeaders
+        ...requestHeaders,
       },
       ...options,
-      method
-    }
+      method,
+    };
 
-    const response = await useFetch(reformatUrl(url, options), opts)
+    const response = await useFetch(reformatUrl(url, options), opts);
 
-    const errorResponse = (response.error && response.error.value) || {}
-    const errorStatus = errorResponse.statusCode || 500
+    const errorResponse = (response.error && response.error.value) || {};
+    const errorStatus = errorResponse.statusCode || 500;
 
     // refreshToken
     if (errorStatus === 401) {
-      const token = await refreshTokenFn()
-      if(!token) {
-        auth?.clear?.()
-        router.push({ name: 'admin-auth-login' })
+      const token = await refreshTokenFn();
+      if (!token) {
+        auth?.clear?.();
+        router.push({ name: 'admin-auth-login' });
       }
       opts.headers.Authorization = `Bearer ${token}`;
-      const response2 = await useFetch(reformatUrl(url, options), opts)
+      const response2 = await useFetch(reformatUrl(url, options), opts);
 
-      const errorResponse = (response2.error && response2.error.value) || {}
-      const errorStatus = errorResponse.statusCode || 500
+      const errorResponse = (response2.error && response2.error.value) || {};
+      const errorStatus = errorResponse.statusCode || 500;
 
-      if(errorStatus === 403) {
-        auth?.clear?.()
-        router.push({ name: 'admin-auth-login' })
-        return
+      if (errorStatus === 403) {
+        auth?.clear?.();
+        router.push({ name: 'admin-auth-login' });
+        return;
       }
 
       if (response2.status.value === 'error') {
-        showError && errorProcess(app, response2.error)
+        showError && errorProcess(app, response2.error);
         Object.assign(response2, {
-          data: ref(response2?.error?.value?.data)
-        })
-        return null
+          data: ref(response2?.error?.value?.data),
+        });
+        return null;
       }
 
-      return response2
+      return response2;
     }
 
-    if(errorStatus === 403) {
-      auth?.clear?.()
-      router.push({ name: 'admin-auth-login' })
-      return
+    if (errorStatus === 403) {
+      auth?.clear?.();
+      router.push({ name: 'admin-auth-login' });
+      return;
     }
 
     if (response.status.value === 'error') {
-      showError && errorProcess(app, response.error)
+      showError && errorProcess(app, response.error);
       Object.assign(response, {
-        data: ref(response?.error?.value?.data)
-      })
-      return null
+        data: ref(response?.error?.value?.data),
+      });
+      return null;
     }
     console.log('response1: ', response);
 
-    return response
+    return response;
   } catch (e) {
     console.log('e', e);
-    $toast().error(e.message || 'Lỗi kết nối máy chủ')
-    throw e
+    $toast().error(e.message || 'Lỗi kết nối máy chủ');
+    throw e;
   }
 }

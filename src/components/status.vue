@@ -8,25 +8,24 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  status: {
-    type: String,
-    default: 'inactive'
-  }
-})
+  const props = defineProps({
+    status: {
+      type: String,
+      default: 'inactive',
+    },
+  });
 
-const cClass = computed(() => {
-    if(props.status === 'active') {
-       return 'bg-green-100 text-green-700'
+  const cClass = computed(() => {
+    if (props.status === 'active') {
+      return 'bg-green-100 text-green-700';
     }
-    return 'bg-gray-100 text-gray-600'
-})
+    return 'bg-gray-100 text-gray-600';
+  });
 
-const cFormatStatus = computed(() => {
-    if(props.status === 'active') {
-       return 'Hoạt động'
+  const cFormatStatus = computed(() => {
+    if (props.status === 'active') {
+      return 'Hoạt động';
     }
-    return 'Dừng hoạt động'
-})
-
+    return 'Dừng hoạt động';
+  });
 </script>

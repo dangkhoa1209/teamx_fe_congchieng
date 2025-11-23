@@ -3,11 +3,11 @@
     <div>
       <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
         <div>
-          <h1 class="text-2xl font-semibold text-gray-900">
-            Quản lý tin tức - sự kiện
-          </h1>
+          <h1 class="text-2xl font-semibold text-gray-900">Quản lý tin tức - sự kiện</h1>
         </div>
-        <x-form-button icon="mdi:plus" theme="primary" @click="handleCreate" >Thêm tin tức - sự kiện</x-form-button>
+        <x-form-button icon="mdi:plus" theme="primary" @click="handleCreate">
+          Thêm tin tức - sự kiện
+        </x-form-button>
       </div>
 
       <!-- {{ $newScope().list }}
@@ -23,9 +23,9 @@
           @onAction="handleRowAction"
         >
           <template #cell-location="{ row }">
-              <p class="font-medium text-gray-900">
-                {{ $newScope().getLabel(row.location) }}
-              </p>
+            <p class="font-medium text-gray-900">
+              {{ $newScope().getLabel(row.location) }}
+            </p>
           </template>
           <template #cell-title="{ row }">
             <p class="font-medium text-gray-900">
@@ -63,117 +63,116 @@
         />
       </div>
 
-      <ModalAction ref="modalAction"  @refresh="fetchList"></ModalAction>
-      <ModelDelete ref="modelDelete"  @refresh="fetchList"></ModelDelete>
+      <ModalAction ref="modalAction" @refresh="fetchList" />
+      <ModelDelete ref="modelDelete" @refresh="fetchList" />
     </div>
   </x-content-place>
-  
 </template>
 
 <script setup>
-import ModalAction from './ignore/action.vue'
-import ModelDelete from './ignore/delete.vue'
+  import ModalAction from './ignore/action.vue';
+  import ModelDelete from './ignore/delete.vue';
 
-const modalAction = ref()
-const modelDelete = ref() 
+  const modalAction = ref();
+  const modelDelete = ref();
 
-definePageMeta({
-  layout: 'admin'
-})
+  definePageMeta({
+    layout: 'admin',
+  });
 
-const tableList = ref({
-  data: [],
-  currentPage: 1,
-  size: 10,
-  totalItems: 0
-})
+  const tableList = ref({
+    data: [],
+    currentPage: 1,
+    size: 10,
+    totalItems: 0,
+  });
 
-const columns = [
-  {
-    key: 'location',
-    label: 'Trực thuộc',
-    headerClass: 'min-w-[200px]'
-  },
-  {
-    key: 'title',
-    label: 'Tiêu đề',
-    headerClass: 'min-w-[200px]'
-  },
-  {
-    key: 'subtitle',
-    label: 'Tiêu đề phụ',
-    headerClass: 'min-w-[200px]'
-  },
-  {
-    key: 'status',
-    label: 'Trạng thái',
-    headerClass: 'w-40',
-  },
-  {
-    key: 'createdAt',
-    label: 'Ngày tạo',
-    headerClass: 'w-52',
-  },
-  {
-    key: 'actions',
-    label: 'Thao tác',
-    headerClass: 'w-24 text-right',
-    align: 'right',
-    actions: [
-      {
-        label: 'Chỉnh sửa',
-        value: 'update',
+  const columns = [
+    {
+      key: 'location',
+      label: 'Trực thuộc',
+      headerClass: 'min-w-[200px]',
+    },
+    {
+      key: 'title',
+      label: 'Tiêu đề',
+      headerClass: 'min-w-[200px]',
+    },
+    {
+      key: 'subtitle',
+      label: 'Tiêu đề phụ',
+      headerClass: 'min-w-[200px]',
+    },
+    {
+      key: 'status',
+      label: 'Trạng thái',
+      headerClass: 'w-40',
+    },
+    {
+      key: 'createdAt',
+      label: 'Ngày tạo',
+      headerClass: 'w-52',
+    },
+    {
+      key: 'actions',
+      label: 'Thao tác',
+      headerClass: 'w-24 text-right',
+      align: 'right',
+      actions: [
+        {
+          label: 'Chỉnh sửa',
+          value: 'update',
+        },
+        {
+          label: 'Xoá',
+          value: 'delete',
+          variant: 'danger',
+        },
+      ],
+    },
+  ];
+
+  const isLoading = ref(false);
+  const fetchList = $lodash.debounce(async () => {
+    isLoading.value = true;
+    const response = await $api($url.admin.news.list, {
+      body: {
+        page: tableList.value.currentPage,
+        per_page: tableList.value.size,
+        query: {
+          location: $newScope().key,
+        },
       },
-      {
-        label: 'Xoá',
-        value: 'delete',
-        variant: 'danger'
-      }
-    ]
-  }
-]
-
-const isLoading = ref(false)
-const fetchList = $lodash.debounce(async() => {
-  isLoading.value = true
-  const response = await $api($url.admin.news.list, {
-    body: {
-      page: tableList.value.currentPage,
-      per_page: tableList.value.size,
-      query: {
-        location: $newScope().key
-      }
+    });
+    const { data, success } = response?.data?.value || {
+      data: null,
+      success: false,
+    };
+    if (success) {
+      tableList.value = data;
     }
-  })
-  const { data, success } = response?.data?.value || { data: null, success: false }
-  if(success) {
-    tableList.value = data
-  }
-  isLoading.value = false
-}, 50)
+    isLoading.value = false;
+  }, 50);
 
+  const handleCreate = () => {
+    modalAction.value?.open();
+  };
 
-const handleCreate = () => {  
-  modalAction.value?.open()
-}
+  const handleRowAction = (data) => {
+    const { action, row } = data;
+    switch (action.value) {
+      case 'update':
+        modalAction.value?.open(row);
+        break;
+      case 'delete':
+        modelDelete.value && modelDelete.value.open(row);
+        break;
+      default:
+        break;
+    }
+  };
 
-const handleRowAction = (data) => {
-  const {action, row} = data  
-  switch (action.value) {
-    case 'update':
-      modalAction.value?.open(row)
-      break  
-    case 'delete':
-      modelDelete.value && modelDelete.value.open(row)
-      break
-    default:
-      break
-  }
-}
-
-
-onMounted(() => {
-  fetchList()
-})
+  onMounted(() => {
+    fetchList();
+  });
 </script>
-

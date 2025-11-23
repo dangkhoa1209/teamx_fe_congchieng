@@ -1,8 +1,8 @@
-import auth from './admin-url/auth'
-import newsAdmin from './admin-url/news.js'
-import accountAdmin from './admin-url/account.js'
-import profileAdmin from './admin-url/profile.js'
-import news from './url/news.js'
+import auth from './admin-url/auth';
+import newsAdmin from './admin-url/news.js';
+import accountAdmin from './admin-url/account.js';
+import profileAdmin from './admin-url/profile.js';
+import news from './url/news.js';
 
 export default {
   auth,
@@ -10,6 +10,6 @@ export default {
   admin: {
     news: newsAdmin,
     account: accountAdmin,
-    profile: profileAdmin
-  }
-}
+    profile: profileAdmin,
+  },
+};

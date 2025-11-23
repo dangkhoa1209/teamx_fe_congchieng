@@ -1,8 +1,8 @@
-import * as stores from '@/store'
+import * as stores from '@/store';
 
 export default () => {
-  const { $pinia } = useNuxtApp()
+  const { $pinia } = useNuxtApp();
   return {
     auth: stores.auth($pinia),
-  }
-}
+  };
+};

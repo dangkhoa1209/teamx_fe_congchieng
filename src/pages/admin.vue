@@ -1,9 +1,9 @@
 <template>
-    <NuxtPage />
+  <NuxtPage />
 </template>
 <script setup>
-definePageMeta({
-  layout: 'admin',
-  middleware: 'auth'
-})
+  definePageMeta({
+    layout: 'admin',
+    middleware: 'auth',
+  });
 </script>

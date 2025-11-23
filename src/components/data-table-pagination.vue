@@ -27,9 +27,7 @@
         >
           Trước
         </button>
-        <span>
-          Trang {{ Math.min(page, pageCount) }} / {{ Math.max(pageCount, 1) }}
-        </span>
+        <span>Trang {{ Math.min(page, pageCount) }} / {{ Math.max(pageCount, 1) }}</span>
         <button
           type="button"
           class="rounded-lg border border-gray-200 px-3 py-1.5 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
@@ -44,63 +42,63 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue'
+  import { computed, watch } from 'vue';
 
-const props = defineProps({
-  page: {
-    type: Number,
-    default: 1,
-  },
-  pageSize: {
-    type: Number,
-    default: 10,
-  },
-  totalItems: {
-    type: Number,
-    default: 0,
-    required: true, // Bắt buộc truyền totalItems
-  },
-  pageSizeOptions: {
-    type: Array,
-    default: () => [5, 10, 20, 50],
-  },
-  loading: {
-    type: Boolean,
-    default: false,
-  },
-})
+  const props = defineProps({
+    page: {
+      type: Number,
+      default: 1,
+    },
+    pageSize: {
+      type: Number,
+      default: 10,
+    },
+    totalItems: {
+      type: Number,
+      default: 0,
+      required: true, // Bắt buộc truyền totalItems
+    },
+    pageSizeOptions: {
+      type: Array,
+      default: () => [5, 10, 20, 50],
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  });
 
-const emit = defineEmits(['update:page', 'update:pageSize', 'refresh'])
+  const emit = defineEmits(['update:page', 'update:pageSize', 'refresh']);
 
-// Tính pageCount dựa trên totalItems và pageSize
-const pageCount = computed(() => {
-  if (props.totalItems === 0) return 1
-  return Math.ceil(props.totalItems / props.pageSize)
-})
+  // Tính pageCount dựa trên totalItems và pageSize
+  const pageCount = computed(() => {
+    if (props.totalItems === 0) return 1;
+    return Math.ceil(props.totalItems / props.pageSize);
+  });
 
-// Kiểm tra disable nút Trước/Sau
-const disablePrev = computed(() => props.loading || props.page <= 1)
-const disableNext = computed(() => props.loading || props.page >= pageCount.value)
+  // Kiểm tra disable nút Trước/Sau
+  const disablePrev = computed(() => props.loading || props.page <= 1);
+  const disableNext = computed(() => props.loading || props.page >= pageCount.value);
 
-// Cập nhật page
-const updatePage = (newPage) => {
-  if (newPage < 1 || newPage > pageCount.value || props.loading) return
-  emit('update:page', newPage)
-  emit('refresh')
-}
+  // Cập nhật page
+  const updatePage = (newPage) => {
+    if (newPage < 1 || newPage > pageCount.value || props.loading) return;
+    emit('update:page', newPage);
+    emit('refresh');
+  };
 
-// Xử lý thay đổi pageSize
-const onPageSizeChange = (event) => {
-  const newSize = Number(event.target.value)
-  emit('update:pageSize', newSize)
-  emit('refresh')
-}
+  // Xử lý thay đổi pageSize
+  const onPageSizeChange = (event) => {
+    const newSize = Number(event.target.value);
+    emit('update:pageSize', newSize);
+    emit('refresh');
+  };
 
-// Theo dõi pageSize: nếu page hiện tại vượt quá pageCount, reset về trang 1
-watch([() => props.pageSize, pageCount], () => {
-  if (props.page > pageCount.value) {
-    emit('update:page', 1)
-    emit('refresh')
-  }
-})
+  // Theo dõi pageSize: nếu page hiện tại vượt quá pageCount, reset về trang 1
+  watch([() => props.pageSize, pageCount], () => {
+    if (props.page > pageCount.value) {
+      emit('update:page', 1);
+      emit('refresh');
+    }
+  });
 </script>

@@ -17,8 +17,8 @@
           <button
             type="button"
             class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            @click="handleCancel"
             :disabled="loading"
+            @click="handleCancel"
           >
             Huỷ
           </button>
@@ -44,62 +44,61 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+  import { computed } from 'vue';
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    default: false
-  },
-  title: {
-    type: String,
-    default: 'Xác nhận'
-  },
-  confirmText: {
-    type: String,
-    default: 'Đồng ý'
-  },
-  confirmVariant: {
-    type: String,
-    default: 'primary' // primary | warning | danger
-  },
-  loading: {
-    type: Boolean,
-    default: false
-  }
-})
+  const props = defineProps({
+    visible: {
+      type: Boolean,
+      default: false,
+    },
+    title: {
+      type: String,
+      default: 'Xác nhận',
+    },
+    confirmText: {
+      type: String,
+      default: 'Đồng ý',
+    },
+    confirmVariant: {
+      type: String,
+      default: 'primary', // primary | warning | danger
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  });
 
-const emit = defineEmits(['confirm', 'cancel', 'update:visible'])
+  const emit = defineEmits(['confirm', 'cancel', 'update:visible']);
 
-const isVisible = computed({
-  get: () => props.visible,
-  set: (value) => emit('update:visible', value)
-})
+  const isVisible = computed({
+    get: () => props.visible,
+    set: (value) => emit('update:visible', value),
+  });
 
-const handleCancel = () => {
-  emit('cancel')
-  isVisible.value = false
-}
+  const handleCancel = () => {
+    emit('cancel');
+    isVisible.value = false;
+  };
 
-const confirmButtonClasses = computed(() => {
-  if (props.confirmVariant === 'danger') {
-    return 'bg-red-500 hover:bg-red-600 focus:ring-red-200'
-  }
-  if (props.confirmVariant === 'warning') {
-    return 'bg-amber-500 hover:bg-amber-600 focus:ring-amber-200'
-  }
-  return 'bg-primary hover:bg-primary/90 focus:ring-primary/20'
-})
+  const confirmButtonClasses = computed(() => {
+    if (props.confirmVariant === 'danger') {
+      return 'bg-red-500 hover:bg-red-600 focus:ring-red-200';
+    }
+    if (props.confirmVariant === 'warning') {
+      return 'bg-amber-500 hover:bg-amber-600 focus:ring-amber-200';
+    }
+    return 'bg-primary hover:bg-primary/90 focus:ring-primary/20';
+  });
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.2s ease;
+  }
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
 </style>
-

@@ -7,71 +7,71 @@
     @click="handleClick"
   >
     <div class="px-10">
-      <slot></slot>
+      <slot />
     </div>
   </button>
 </template>
 
 <script setup>
-import { computed, toRefs } from 'vue'
+  import { computed, toRefs } from 'vue';
 
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'button' // 'button' | 'submit' | 'reset'
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  theme: {
-    type: String,
-    default: 'main' // main: nền trắng chữ màu, primary: nền màu chữ trắng
-  },
-  uppercase: {
-    type: Boolean,
-    default: true
-  },
-  outline: {
-    type: Boolean,
-    default: false
-  }
-})
+  const props = defineProps({
+    type: {
+      type: String,
+      default: 'button', // 'button' | 'submit' | 'reset'
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    theme: {
+      type: String,
+      default: 'main', // main: nền trắng chữ màu, primary: nền màu chữ trắng
+    },
+    uppercase: {
+      type: Boolean,
+      default: true,
+    },
+    outline: {
+      type: Boolean,
+      default: false,
+    },
+  });
 
-const emits = defineEmits(['click'])
-const { theme, uppercase, outline } = toRefs(props)
+  const emits = defineEmits(['click']);
+  const { theme, uppercase, outline } = toRefs(props);
 
-const cClass = computed(() => {
-  const results = []
+  const cClass = computed(() => {
+    const results = [];
 
-  if (outline.value) {
-    // outline = true
-    if (theme.value === 'primary') {
-      results.push('bg-transparent', 'text-primary', 'border', 'border-primary')
+    if (outline.value) {
+      // outline = true
+      if (theme.value === 'primary') {
+        results.push('bg-transparent', 'text-primary', 'border', 'border-primary');
+      } else {
+        results.push('bg-transparent', 'text-main', 'border', 'border-main');
+      }
     } else {
-      results.push('bg-transparent', 'text-main', 'border', 'border-main')
+      // normal filled button
+      if (theme.value === 'main') {
+        results.push('bg-main', 'text-primary', 'hover:bg-primary', 'hover:text-main');
+      } else {
+        results.push('bg-primary', 'text-main', 'hover:bg-main', 'hover:text-primary');
+      }
     }
-  } else {
-    // normal filled button
-    if (theme.value === 'main') {
-      results.push('bg-main', 'text-primary')
-    } else {
-      results.push('bg-primary', 'text-main')
+
+    if (uppercase.value) {
+      results.push('uppercase');
     }
-  }
 
-  if (uppercase.value) {
-    results.push('uppercase')
-  }
+    return results.join(' ');
+  });
 
-  return results.join(' ')
-})
-
-const handleClick = (e) => {
-  if (e instanceof MouseEvent) {
-    if (props.type !== 'submit') e.preventDefault()
-    e.stopPropagation()
-  }
-  emits('click', e)
-}
+  const handleClick = (e) => {
+    if (e instanceof MouseEvent) {
+      if (props.type !== 'submit') e.preventDefault();
+      e.stopPropagation();
+    }
+    emits('click', e);
+  };
 </script>

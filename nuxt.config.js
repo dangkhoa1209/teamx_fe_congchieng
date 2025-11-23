@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import svgLoader from 'vite-svg-loader'
-
+import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -12,7 +11,7 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/x-icon',
-          href: '/favicon.ico'
+          href: '/favicon.ico',
         },
         // {
         //   rel: 'preconnect',
@@ -27,51 +26,47 @@ export default defineNuxtConfig({
         //   rel: 'stylesheet',
         //   href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
         // }
-      ]
-    }
+      ],
+    },
   },
 
   components: [
     {
       path: '~/components',
-      prefix: 'x'
-    }
+      prefix: 'x',
+    },
   ],
   modules: [
-    '@nuxtjs/tailwindcss', 
-    '@vueuse/nuxt', 
-    '@pinia/nuxt', 
+    '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt',
+    '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxt/image-edge',
-    'nuxt-icon'
+    'nuxt-icon',
   ],
   piniaPersistedstate: {
     cookieOptions: {
-      sameSite: 'strict'
+      sameSite: 'strict',
     },
-    storage: 'cookies'
+    storage: 'cookies',
   },
-  css: [
-    '~/assets/css/main.css',
-    '~/assets/scss/index.scss',
-    'cropperjs/dist/cropper.css'
-  ],
+  css: ['~/assets/css/main.css', '~/assets/scss/index.scss', 'cropperjs/dist/cropper.css'],
   vite: {
     plugins: svgLoader(),
   },
   googleFonts: {
     families: {
       Montserrat: [100, 200, 300, 400, 500, 600, 700, 800],
-      Roboto: [100, 200, 300, 400, 500, 600, 700, 800]
+      Roboto: [100, 200, 300, 400, 500, 600, 700, 800],
     },
     display: 'swap',
     preload: true,
     download: true,
-    inject: true
+    inject: true,
   },
   tailwindcss: {
-    viewer: false
+    viewer: false,
   },
   runtimeConfig: {
     appKey: process.env.APP_KEY || '',
@@ -81,11 +76,11 @@ export default defineNuxtConfig({
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       grantType: process.env.GRANT_TYPE,
-      grantTypeRefresh: process.env.GRANT_TYPE_REFRESH
-    }
+      grantTypeRefresh: process.env.GRANT_TYPE_REFRESH,
+    },
   },
   // đảm bảo chuyển sang trang chủ nhưng vẫn tối ưu SEO
   routeRules: {
-    '/': { redirect: { to: '/trang-chu', statusCode: 301 } }
-  }
-})
+    '/': { redirect: { to: '/trang-chu', statusCode: 301 } },
+  },
+});

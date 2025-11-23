@@ -2,10 +2,11 @@
   <div class="flex flex-col w-full">
     <!-- Label -->
     <label v-if="label" :for="name" class="mb-1 text-body font-medium font-robo">
-      {{ label }}<span v-if="required" class="text-red-500 ml-0.5">*</span>
+      {{ label }}
+      <span v-if="required" class="text-red-500 ml-0.5">*</span>
     </label>
 
-    <Field :name="name" :label="label"s :rules="rules" v-slot="{ field, errors, handleChange }">
+    <Field v-slot="{ field, errors, handleChange }" :name="name" :label="label" s :rules="rules">
       <div
         class="flex flex-col gap-3 items-start w-full"
         @dragover.prevent="isDragging = true"
@@ -19,13 +20,18 @@
           :class="{
             'border-red-400': errors.length > 0,
             'border-gray-300': errors.length === 0,
-            'bg-gray-100': isDragging
+            'bg-gray-100': isDragging,
           }"
         >
           <Icon name="mdi:image-plus-outline" class="w-6 h-6 mb-1 text-gray-400" />
           <span v-if="!isDragging">Chọn ảnh hoặc kéo thả vào đây</span>
           <span v-else class="text-primary font-semibold">Thả ảnh vào đây</span>
-          <input type="file" accept="image/*" class="hidden" @change="(e) => onFileChange(e, handleChange)" />
+          <input
+            type="file"
+            accept="image/*"
+            class="hidden"
+            @change="(e) => onFileChange(e, handleChange)"
+          />
         </label>
 
         <!-- Cropper -->
@@ -33,7 +39,12 @@
           v-if="imageSrc && !croppedData"
           class="relative w-full overflow-hidden rounded-lg border border-gray-200"
         >
-          <img ref="cropperImage" :src="imageSrc" alt="Ảnh cắt" class="block w-full object-contain" />
+          <img
+            ref="cropperImage"
+            :src="imageSrc"
+            alt="Ảnh cắt"
+            class="block w-full object-contain"
+          />
         </div>
 
         <!-- Action buttons -->
@@ -56,134 +67,141 @@
         </div>
 
         <!-- Error -->
-        <p v-if="errors.length" class="mt-1 text-sm text-red-500">{{ errors[0] }}</p>
+        <p v-if="errors.length" class="mt-1 text-sm text-red-500">
+          {{ errors[0] }}
+        </p>
       </div>
     </Field>
   </div>
 </template>
 
 <script setup>
-import { ref, nextTick, watch, computed } from 'vue'
-import { Field } from 'vee-validate'
-import Cropper from 'cropperjs'
-import 'cropperjs/dist/cropper.css'
+  import { ref, nextTick, watch, computed } from 'vue';
+  import { Field } from 'vee-validate';
+  import Cropper from 'cropperjs';
+  import 'cropperjs/dist/cropper.css';
 
-const emit = defineEmits(['update:modelValue', 'change'])
+  const emit = defineEmits(['update:modelValue', 'change']);
 
-const props = defineProps({
-  modelValue: [File, String, null],
-  name: { type: String, required: true },
-  label: String,
-  rules: [String, Object, Function],
-  required: Boolean,
-  
-})
+  const props = defineProps({
+    modelValue: [File, String, null],
+    name: { type: String, required: true },
+    label: String,
+    rules: [String, Object, Function],
+    required: Boolean,
+  });
 
-const isDragging = ref(false)
-const imageSrc = ref(null)
-const croppedData = ref(props.modelValue || null)
-const cropperImage = ref(null)
-let cropper = null
+  const isDragging = ref(false);
+  const imageSrc = ref(null);
+  const croppedData = ref(props.modelValue || null);
+  const cropperImage = ref(null);
+  let cropper = null;
 
-// computed để preview
-const croppedDataPreview = computed(() => {
-  if (!croppedData.value) return null
-  return croppedData.value instanceof File ? URL.createObjectURL(croppedData.value) : croppedData.value
-})
+  // computed để preview
+  const croppedDataPreview = computed(() => {
+    if (!croppedData.value) return null;
+    return croppedData.value instanceof File
+      ? URL.createObjectURL(croppedData.value)
+      : croppedData.value;
+  });
 
-watch(
-  () => props.modelValue,
-  (val) => (croppedData.value = val)
-)
+  watch(
+    () => props.modelValue,
+    (val) => (croppedData.value = val)
+  );
 
-const onFileChange = (e, handleChange) => {
-  const file = e.target.files[0]
-  if (!file) return
-  loadFile(file)
-}
+  const onFileChange = (e, handleChange) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    loadFile(file);
+  };
 
-const onDrop = (e, handleChange) => {
-  isDragging.value = false
-  const file = e.dataTransfer.files[0]
-  if (!file) return
-  loadFile(file)
-}
+  const onDrop = (e, handleChange) => {
+    isDragging.value = false;
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    loadFile(file);
+  };
 
-const loadFile = (file) => {
-  const reader = new FileReader()
-  reader.onload = (event) => {
-    imageSrc.value = event.target.result
-    nextTick(() => {
-      cropper?.destroy()
-      cropper = new Cropper(cropperImage.value, {
-        aspectRatio: 565 / 386,
-        viewMode: 1,
-        autoCropArea: 1
-      })
-    })
-  }
-  reader.readAsDataURL(file)
-}
+  const loadFile = (file) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      imageSrc.value = event.target.result;
+      nextTick(() => {
+        cropper?.destroy();
+        cropper = new Cropper(cropperImage.value, {
+          aspectRatio: 900 / 600,
+          viewMode: 1,
+          autoCropArea: 1,
+        });
+      });
+    };
+    reader.readAsDataURL(file);
+  };
 
-const cropImage = (handleChange) => {
-  if (!cropper) return
+  const cropImage = (handleChange) => {
+    if (!cropper) return;
 
-  const targetWidth = 1920
-  const targetHeight = Math.round((386 / 565) * targetWidth)
+    const targetWidth = 1920;
+    const targetHeight = Math.round((600 / 900) * targetWidth);
 
-  const canvas = cropper.getCroppedCanvas({
-    width: targetWidth,
-    height: targetHeight,
-    imageSmoothingEnabled: true,
-    imageSmoothingQuality: 'high'
-  })
+    const canvas = cropper.getCroppedCanvas({
+      width: targetWidth,
+      height: targetHeight,
+      imageSmoothingEnabled: true,
+      imageSmoothingQuality: 'high',
+    });
 
-  canvas.toBlob((blob) => {
-    if (!blob) return
-    const fileName = `image-${props.name || Date.now()}.jpg`
-    const file = new File([blob], fileName, { type: 'image/jpeg' })
+    canvas.toBlob(
+      (blob) => {
+        if (!blob) return;
+        const fileName = `image-${props.name || Date.now()}.jpg`;
+        const file = new File([blob], fileName, { type: 'image/jpeg' });
 
-    croppedData.value = file
-    imageSrc.value = null
-    cropper?.destroy()
-    cropper = null
+        croppedData.value = file;
+        imageSrc.value = null;
+        cropper?.destroy();
+        cropper = null;
 
-    emit('update:modelValue', file)
-    emit('change', file)
-    handleChange(file)
-  }, 'image/jpeg', 0.9)
-}
+        emit('update:modelValue', file);
+        emit('change', file);
+        handleChange(file);
+      },
+      'image/jpeg',
+      0.9
+    );
+  };
 
-const editImage = (handleChange) => {
-  if (!croppedData.value) return
+  const editImage = (handleChange) => {
+    if (!croppedData.value) return;
 
-  const file = croppedData.value instanceof File ? croppedData.value : null
-  if (!file) return
+    const file = croppedData.value instanceof File ? croppedData.value : null;
+    if (!file) return;
 
-  const reader = new FileReader()
-  reader.onload = (e) => {
-    imageSrc.value = e.target.result
-    nextTick(() => {
-      cropper?.destroy()
-      cropper = new Cropper(cropperImage.value, {
-        aspectRatio: 565 / 386,
-        viewMode: 1,
-        autoCropArea: 1
-      })
-    })
-  }
-  reader.readAsDataURL(file)
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      imageSrc.value = e.target.result;
+      nextTick(() => {
+        cropper?.destroy();
+        cropper = new Cropper(cropperImage.value, {
+          aspectRatio: 900 / 600,
+          viewMode: 1,
+          autoCropArea: 1,
+        });
+      });
+    };
+    reader.readAsDataURL(file);
 
-  // giữ croppedData cũ cho đến khi crop xong
-  croppedData.value = null
-}
+    // giữ croppedData cũ cho đến khi crop xong
+    croppedData.value = null;
+  };
 
-const clearImage = () => {
-  cropper?.destroy()
-  cropper = null
-  imageSrc.value = null
-  croppedData.value = null
-  emit('update:modelValue', null)
-  emit('change', null)
-}
+  const clearImage = () => {
+    cropper?.destroy();
+    cropper = null;
+    imageSrc.value = null;
+    croppedData.value = null;
+    emit('update:modelValue', null);
+    emit('change', null);
+  };
 </script>

@@ -1,40 +1,53 @@
 <template>
   <div class="rounded-xl border border-main bg-white shadow-sm">
     <div class="overflow-x-auto min-h-[50vh]">
-      <table class="min-w-full  divide-main ">
-        
+      <table class="min-w-full divide-main">
         <thead :class="['text-left text-sm font-semibold text-gray-600']">
           <tr>
-            <th v-if="showIndex" scope="col" class="px-6 py-3">
-              STT
-            </th>
+            <th v-if="showIndex" scope="col" class="px-6 py-3">STT</th>
             <th
               v-for="column in columns"
               :key="column.key"
               scope="col"
-              :class="['px-6 py-3', column.align === 'right' ? 'text-right' : column.align === 'center' ? 'text-center' : '', column.headerClass]"
+              :class="[
+                'px-6 py-3',
+                column.align === 'right'
+                  ? 'text-right'
+                  : column.align === 'center'
+                    ? 'text-center'
+                    : '',
+                column.headerClass,
+              ]"
             >
               {{ column.label }}
             </th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-main text-sm text-gray-700 " >
+        <tbody class="divide-y divide-main text-sm text-gray-700">
           <tr v-if="loading">
-            <td :colspan="columns.length + (showIndex ? 1 : 0)" class="px-6 py-10 text-center text-gray-500">
-              <slot name="loading">
-                Đang tải dữ liệu...
-              </slot>
+            <td
+              :colspan="columns.length + (showIndex ? 1 : 0)"
+              class="px-6 py-10 text-center text-gray-500"
+            >
+              <slot name="loading">Đang tải dữ liệu...</slot>
             </td>
           </tr>
           <tr v-else-if="!rows?.length">
-            <td :colspan="columns.length + (showIndex ? 1 : 0)" class="px-6 py-10 text-center text-gray-500">
+            <td
+              :colspan="columns.length + (showIndex ? 1 : 0)"
+              class="px-6 py-10 text-center text-gray-500"
+            >
               <slot name="empty">
                 {{ emptyText }}
               </slot>
             </td>
           </tr>
           <template v-else>
-            <tr v-for="(row, rowIndex) in rows" :key="resolveRowKey(row, rowIndex)" class="hover:bg-gray-50">
+            <tr
+              v-for="(row, rowIndex) in rows"
+              :key="resolveRowKey(row, rowIndex)"
+              class="hover:bg-gray-50"
+            >
               <td v-if="showIndex" class="px-6 py-4 text-gray-600">
                 {{ indexOffset + rowIndex + 1 }}
               </td>
@@ -43,19 +56,23 @@
                 :key="`${column.key}-${resolveRowKey(row, rowIndex)}`"
                 :class="[
                   'px-6 py-4',
-                  column.align === 'right' ? 'text-right' : column.align === 'center' ? 'text-center' : '',
-                  column.bodyClass
+                  column.align === 'right'
+                    ? 'text-right'
+                    : column.align === 'center'
+                      ? 'text-center'
+                      : '',
+                  column.bodyClass,
                 ]"
               >
                 <slot :name="`cell-${column.key}`" :row="row" :column="column" :index="rowIndex">
                   <span v-if="row?.[column.key]" class="block truncate">
                     {{ row?.[column.key] }}
                   </span>
-                  <x-dropdown 
-                    v-if="column.actions" 
+                  <x-dropdown
+                    v-if="column.actions"
                     :actions="column.actions"
-                    @select="(action) => emits('onAction', {action, row})"
-                  ></x-dropdown>
+                    @select="(action) => emits('onAction', { action, row })"
+                  />
                 </slot>
               </td>
             </tr>
@@ -67,53 +84,52 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  columns: {
-    type: Array,
-    default: () => []
-  },
-  rows: {
-    type: Array,
-    default: () => []
-  },
-  loading: {
-    type: Boolean,
-    default: false
-  },
-  emptyText: {
-    type: String,
-    default: 'Không có dữ liệu'
-  },
-  showIndex: {
-    type: Boolean,
-    default: false
-  },
-  indexOffset: {
-    type: Number,
-    default: 0
-  },
-  rowKey: {
-    type: [String, Function],
-    default: 'id'
-  },
-  // stickyHeader: {
-  //   type: Boolean,
-  //   default: false
-  // }
-})
+  const props = defineProps({
+    columns: {
+      type: Array,
+      default: () => [],
+    },
+    rows: {
+      type: Array,
+      default: () => [],
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+    emptyText: {
+      type: String,
+      default: 'Không có dữ liệu',
+    },
+    showIndex: {
+      type: Boolean,
+      default: false,
+    },
+    indexOffset: {
+      type: Number,
+      default: 0,
+    },
+    rowKey: {
+      type: [String, Function],
+      default: 'id',
+    },
+    // stickyHeader: {
+    //   type: Boolean,
+    //   default: false
+    // }
+  });
 
-const emits = defineEmits(['onAction']) 
+  const emits = defineEmits(['onAction']);
 
-const resolveRowKey = (row, index) => {
-  if (typeof props.rowKey === 'function') {
-    return props.rowKey(row, index)
-  }
+  const resolveRowKey = (row, index) => {
+    if (typeof props.rowKey === 'function') {
+      return props.rowKey(row, index);
+    }
 
-  if (props.rowKey && row && row[props.rowKey] !== undefined) {
-    return row[props.rowKey]
-  }
+    if (props.rowKey && row && row[props.rowKey] !== undefined) {
+      return row[props.rowKey];
+    }
 
-  return index
-}
+    return index;
+  };
 </script>
-

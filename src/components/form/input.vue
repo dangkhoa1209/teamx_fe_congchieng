@@ -2,11 +2,12 @@
   <div class="flex flex-col w-full">
     <!-- Label -->
     <label v-if="label" :for="name" class="mb-1 text-body font-medium font-robo">
-      {{ label }}<span v-if="required" class="ml-0.5 text-red-500"> *</span>
+      {{ label }}
+      <span v-if="required" class="ml-0.5 text-red-500">*</span>
     </label>
 
     <!-- VeeValidate Field -->
-    <Field :name="name" :label="label" :rules="rules" v-slot="{ field, errors }">
+    <Field v-slot="{ field, errors }" :name="name" :label="label" :rules="rules">
       <div class="relative w-full">
         <input
           :id="name"
@@ -17,10 +18,8 @@
           :min="min"
           :max="max"
           :value="field.value"
+          class="w-full rounded-2xl border px-4 py-2 transition-colors duration-200 outline-none bg-main border-primary hover:border-primary focus:ring-2 focus:ring-primary disabled:bg-gray-100 disabled:cursor-not-allowed h-[60px] text-body font-medium font-robo"
           @input="handleInput($event, field)"
-          class="w-full rounded-2xl border px-4 py-2 transition-colors duration-200 outline-none
-                 bg-main border-primary hover:border-primary focus:ring-2 focus:ring-primary
-                 disabled:bg-gray-100 disabled:cursor-not-allowed h-[60px] text-body font-medium font-robo"
         />
 
         <!-- Toggle Password Visibility -->
@@ -42,103 +41,105 @@
     </Field>
 
     <!-- Description -->
-    <p v-if="description" class="mt-1 text-sm text-gray-500">{{ description }}</p>
+    <p v-if="description" class="mt-1 text-sm text-gray-500">
+      {{ description }}
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Field, useField } from 'vee-validate'
-import { defineProps, defineEmits, ref, computed, watch } from 'vue'
+  import { Field, useField } from 'vee-validate';
+  import { defineProps, defineEmits, ref, computed, watch } from 'vue';
 
-// === Props ===
-const props = defineProps({
-  modelValue: {
-    type: [String, Number],
-    default: ''
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  label: String,
-  placeholder: String,
-  description: String,
-  rules: [String, Object, Function],
-  type: {
-    type: String,
-    default: 'text'
-  },
-  required: Boolean,
-  disabled: Boolean,
-  readonly: Boolean,
-  min: Number,
-  max: Number,
-  numberInteger: {
-    type: Boolean,
-    default: false
-  }
-})
+  // === Props ===
+  const props = defineProps({
+    modelValue: {
+      type: [String, Number],
+      default: '',
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    label: String,
+    placeholder: String,
+    description: String,
+    rules: [String, Object, Function],
+    type: {
+      type: String,
+      default: 'text',
+    },
+    required: Boolean,
+    disabled: Boolean,
+    readonly: Boolean,
+    min: Number,
+    max: Number,
+    numberInteger: {
+      type: Boolean,
+      default: false,
+    },
+  });
 
-// === Emits ===
-const emits = defineEmits(['update:modelValue', 'change'])
-const { value } = useField(props.name)
+  // === Emits ===
+  const emits = defineEmits(['update:modelValue', 'change']);
+  const { value } = useField(props.name);
 
-// === Password Toggle ===
-const showPassword = ref(false)
-const isPasswordType = computed(() => props.type === 'password')
-const inputType = computed(() =>
-  isPasswordType.value && !showPassword.value ? 'password' : 'text'
-)
+  // === Password Toggle ===
+  const showPassword = ref(false);
+  const isPasswordType = computed(() => props.type === 'password');
+  const inputType = computed(() =>
+    isPasswordType.value && !showPassword.value ? 'password' : 'text'
+  );
 
-const togglePassword = () => {
-  showPassword.value = !showPassword.value
-}
+  const togglePassword = () => {
+    showPassword.value = !showPassword.value;
+  };
 
-// === Xử lý Input ===
-const handleInput = (event: Event, field: any) => {
-  const target = event.target as HTMLInputElement
-  let rawValue = target.value
+  // === Xử lý Input ===
+  const handleInput = (event: Event, field: any) => {
+    const target = event.target as HTMLInputElement;
+    let rawValue = target.value;
 
-  if (props.type === 'number') {
-    // Xử lý số
-    if (!rawValue || rawValue === '') {
-      updateFieldAndEmit(field, '')
-      return
+    if (props.type === 'number') {
+      // Xử lý số
+      if (!rawValue || rawValue === '') {
+        updateFieldAndEmit(field, '');
+        return;
+      }
+
+      let num: number = props.numberInteger ? parseInt(rawValue, 10) : parseFloat(rawValue);
+
+      if (isNaN(num)) {
+        num = props.min ?? 0;
+      }
+
+      if (props.min !== undefined && num < props.min) num = props.min;
+      if (props.max !== undefined && num > props.max) num = props.max;
+
+      updateFieldAndEmit(field, num);
+    } else {
+      // Text, email, password...
+      updateFieldAndEmit(field, rawValue);
     }
+  };
 
-    let num: number = props.numberInteger ? parseInt(rawValue, 10) : parseFloat(rawValue)
+  // === Helper: Cập nhật field + emit ===
+  const updateFieldAndEmit = (field: any, value: string | number) => {
+    field.value = value;
+    emits('update:modelValue', value);
+    emits('change', value);
+  };
 
-    if (isNaN(num)) {
-      num = props.min ?? 0
-    }
-
-    if (props.min !== undefined && num < props.min) num = props.min
-    if (props.max !== undefined && num > props.max) num = props.max
-
-    updateFieldAndEmit(field, num)
-  } else {
-    // Text, email, password...
-    updateFieldAndEmit(field, rawValue)
-  }
-}
-
-// === Helper: Cập nhật field + emit ===
-const updateFieldAndEmit = (field: any, value: string | number) => {
-  field.value = value
-  emits('update:modelValue', value)
-  emits('change', value)
-}
-
-// === Đồng bộ modelValue → field khi props thay đổi ===
-watch(
-  () => props.modelValue,
-  (newVal) => {
-    value.value = newVal ?? ''
-  },
-  { immediate: true }
-)
+  // === Đồng bộ modelValue → field khi props thay đổi ===
+  watch(
+    () => props.modelValue,
+    (newVal) => {
+      value.value = newVal ?? '';
+    },
+    { immediate: true }
+  );
 </script>
 
 <style scoped>
-/* Nếu cần thêm style riêng */
+  /* Nếu cần thêm style riêng */
 </style>

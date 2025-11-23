@@ -1,19 +1,19 @@
-import { defineRule, configure } from 'vee-validate'
-import * as rules from '@vee-validate/rules'
+import { defineRule, configure } from 'vee-validate';
+import * as rules from '@vee-validate/rules';
 
 export default defineNuxtPlugin(() => {
   Object.entries(rules).forEach(([r, v]) => {
     if (typeof v === 'function') {
-      defineRule(r, v)
+      defineRule(r, v);
     }
-  })
+  });
 
   configure({
     generateMessage: (ctx) => {
-      const field = ctx.label || ctx.field || 'Trường này'
-      const params = ctx.rule?.params      
+      const field = ctx.label || ctx.field || 'Trường này';
+      const params = ctx.rule?.params;
 
-      const messages= {
+      const messages = {
         required: `${field} là bắt buộc`,
         email: `${field} phải là email hợp lệ`,
         min: `${field} phải có ít nhất ${params ? params[0] : ''} ký tự`,
@@ -25,10 +25,10 @@ export default defineNuxtPlugin(() => {
         alpha_num: `${field} chỉ được chứa chữ cái và số`,
         confirmed: `${field} không trùng khớp`,
         regex: `${field} không hợp lệ`,
-        url: `${field} phải là đường dẫn hợp lệ`
-      }
+        url: `${field} phải là đường dẫn hợp lệ`,
+      };
 
-      return messages[ctx.rule.name] || `${field} không hợp lệ`
-    }
-  })
-})
+      return messages[ctx.rule.name] || `${field} không hợp lệ`;
+    },
+  });
+});

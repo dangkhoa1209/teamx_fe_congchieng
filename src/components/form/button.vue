@@ -1,91 +1,90 @@
 <template>
-    <button
-      type="button"
-      :disabled="disabled"
-      class="inline-flex items-center gap-2 rounded-lg px-4 py-2 cursor-pointer"
-      :class="cClass"
-      @click="emits('click')"
-    >
-      <div class="flex gap-1 items-center">
-        <Icon v-if="cIcon" :name="cIcon" class="h-5 w-5" />
-        <p><slot></slot></p>
-      </div>
-    </button>
+  <button
+    type="button"
+    :disabled="disabled"
+    class="inline-flex items-center gap-2 rounded-lg px-4 py-2 cursor-pointer"
+    :class="cClass"
+    @click="emits('click')"
+  >
+    <div class="flex gap-1 items-center">
+      <Icon v-if="cIcon" :name="cIcon" class="h-5 w-5" />
+      <p><slot /></p>
+    </div>
+  </button>
 </template>
 <script setup>
-import { computed, toRefs } from 'vue'
+  import { computed, toRefs } from 'vue';
 
-const props = defineProps({
+  const props = defineProps({
     icon: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     loading: {
-       type: Boolean,
-      default: false
+      type: Boolean,
+      default: false,
     },
     theme: {
       type: String,
-      default: 'main' // main: nền trắng chữ màu, primary: nền màu chữ trắng
+      default: 'main', // main: nền trắng chữ màu, primary: nền màu chữ trắng
     },
     uppercase: {
       type: Boolean,
-      default: false
+      default: false,
     },
     outline: {
       type: Boolean,
-      default: false
-    }
-})
+      default: false,
+    },
+  });
 
-const { theme, uppercase, outline } = toRefs(props)
+  const { theme, uppercase, outline } = toRefs(props);
 
-const cClass = computed(() => {
-  const results = []
+  const cClass = computed(() => {
+    const results = [];
 
-  if (outline.value) {
-    // outline = true
-    if (theme.value === 'primary') {
-      results.push('bg-transparent', 'text-primary', 'border', 'border-primary')
+    if (outline.value) {
+      // outline = true
+      if (theme.value === 'primary') {
+        results.push('bg-transparent', 'text-primary', 'border', 'border-primary');
+      } else {
+        results.push('bg-transparent', 'text-main', 'border', 'border-main');
+      }
     } else {
-      results.push('bg-transparent', 'text-main', 'border', 'border-main')
+      // normal filled button
+      if (theme.value === 'main') {
+        results.push('bg-main', 'text-primary');
+      } else {
+        results.push('bg-primary', 'text-main');
+      }
     }
-  } else {
-    // normal filled button
-    if (theme.value === 'main') {
-      results.push('bg-main', 'text-primary')
-    } else {
-      results.push('bg-primary', 'text-main')
+
+    if (uppercase.value) {
+      results.push('uppercase');
     }
-  }
 
-  if (uppercase.value) {
-    results.push('uppercase')
-  }
+    return results.join(' ');
+  });
 
-  return results.join(' ')
-})
+  const cIcon = computed(() => {
+    if (props.loading) {
+      return 'svg-spinners:180-ring-with-bg';
+    }
 
-const cIcon = computed(() => {
-  if(props.loading) {
-    return 'svg-spinners:180-ring-with-bg'
-  }
+    return props.icon || '';
+  });
+  const emits = defineEmits(['click']);
 
-  return props.icon || ''
-})
-const emits = defineEmits(['click'])
-
-
-// Material Design Icons	mdi:	<Icon name="mdi:close" />
-// Heroicons (Solid)	heroicons-solid:	<Icon name="heroicons-solid:trash" />
-// Heroicons (Outline)	heroicons-outline:	<Icon name="heroicons-outline:home" />
-// Tabler Icons	tabler:	<Icon name="tabler:edit" />
-// Phosphor Icons	ph:	<Icon name="ph:heart-fill" />
-// Lucide Icons	lucide:	<Icon name="lucide:settings" />
-// Bootstrap Icons	bi:	<Icon name="bi:check-circle" />
-// Solar Icons	solar:	<Icon name="solar:bell-outline" />
+  // Material Design Icons	mdi:	<Icon name="mdi:close" />
+  // Heroicons (Solid)	heroicons-solid:	<Icon name="heroicons-solid:trash" />
+  // Heroicons (Outline)	heroicons-outline:	<Icon name="heroicons-outline:home" />
+  // Tabler Icons	tabler:	<Icon name="tabler:edit" />
+  // Phosphor Icons	ph:	<Icon name="ph:heart-fill" />
+  // Lucide Icons	lucide:	<Icon name="lucide:settings" />
+  // Bootstrap Icons	bi:	<Icon name="bi:check-circle" />
+  // Solar Icons	solar:	<Icon name="solar:bell-outline" />
 </script>

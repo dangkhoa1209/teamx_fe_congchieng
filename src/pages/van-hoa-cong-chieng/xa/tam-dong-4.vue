@@ -1,67 +1,88 @@
 <template>
   <x-content-place class="font-robo">
-    <x-space :height="40"></x-space>
-     <h2 class="font-bold text-body text-primary">
+    <x-space :height="40" />
+    <h2 class="font-bold text-body text-primary">
       <div class="flex items-center gap-2">
-        VĂN HOÁ CỒNG CHIÊNG 
+        VĂN HOÁ CỒNG CHIÊNG
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Văn hóa cồng chiêng tại các xã 
+        Văn hóa cồng chiêng tại các xã
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Xã Đam Rông 4
       </div>
     </h2>
-    <x-space :height="40"></x-space>
+    <x-space :height="40" />
 
     <section class="flex flex-col gap-5">
-      <h2 class="font-bold text-body text-primary text-subtitle">VĂN HÓA CỒNG CHIÊNG TẠI XÃ ĐAM RÔNG 4</h2>
+      <h2 class="font-bold text-body text-primary text-subtitle">
+        VĂN HÓA CỒNG CHIÊNG TẠI XÃ ĐAM RÔNG 4
+      </h2>
       <p>
-        Nằm ở vùng Tây Bắc của tỉnh Lâm Đồng, xã Đam Rông 4 là một trong những không gian cư trú đặc trưng của các dân tộc Mạ và K’Ho - hai chủ thể quan trọng trong Không gian văn hóa Cồng chiêng Tây Nguyên được UNESCO ghi danh. Trải qua bao thế hệ, tiếng chiêng tại Đam Rông 4 vẫn vang lên như một nhịp sống nối liền quá khứ, hiện tại, là linh hồn đại ngàn và cũng là điểm tựa tinh thần của cộng đồng nơi đây.
-      </p>  
-      <p>
-        Với người Mạ và K’Ho tại xã Đam Rông 4, cồng chiêng là báu vật thiêng, mang trong mình hồn vía của buôn làng. Mỗi bộ chiêng gắn với một dòng họ, một câu chuyện, một vị thần bảo hộ. Trong các nghi lễ quan trọng như lễ mừng lúa mới, lễ cúng bến nước, lễ cầu mưa, lễ mừng sức khỏe, tiếng chiêng được xem như lời khẩn cầu gửi đến Yàng và tổ tiên, đồng thời là tiếng gọi cộng đồng trở về bên ánh lửa chung, nơi mọi người hòa vào vòng xoang đoàn kết.
+        Nằm ở vùng Tây Bắc của tỉnh Lâm Đồng, xã Đam Rông 4 là một trong những không gian cư trú đặc
+        trưng của các dân tộc Mạ và K’Ho - hai chủ thể quan trọng trong Không gian văn hóa Cồng
+        chiêng Tây Nguyên được UNESCO ghi danh. Trải qua bao thế hệ, tiếng chiêng tại Đam Rông 4 vẫn
+        vang lên như một nhịp sống nối liền quá khứ, hiện tại, là linh hồn đại ngàn và cũng là điểm
+        tựa tinh thần của cộng đồng nơi đây.
       </p>
       <p>
-        Những năm gần đây, xã Đam Rông 4 tích cực triển khai các chương trình bảo tồn, truyền dạy cồng chiêng cho thế hệ trẻ. Nhiều đội cồng chiêng thanh thiếu niên được thành lập, do chính các nghệ nhân cao tuổi hướng dẫn. Tại đây, các em không chỉ học cách đánh chiêng, giữ nhịp xoang, mà còn được truyền lại những tri thức văn hóa về luật tục, các điệu chiêng, cách phân vai trong dàn chiêng - những giá trị mà chỉ có nghệ nhân bản địa mới có thể trao truyền.
+        Với người Mạ và K’Ho tại xã Đam Rông 4, cồng chiêng là báu vật thiêng, mang trong mình hồn
+        vía của buôn làng. Mỗi bộ chiêng gắn với một dòng họ, một câu chuyện, một vị thần bảo hộ.
+        Trong các nghi lễ quan trọng như lễ mừng lúa mới, lễ cúng bến nước, lễ cầu mưa, lễ mừng sức
+        khỏe, tiếng chiêng được xem như lời khẩn cầu gửi đến Yàng và tổ tiên, đồng thời là tiếng gọi
+        cộng đồng trở về bên ánh lửa chung, nơi mọi người hòa vào vòng xoang đoàn kết.
       </p>
       <p>
-        Cồng chiêng tại xã Đam Rông 4 ngày nay đang trở thành nguồn lực phát triển du lịch cộng đồng. Một số thôn buôn đã xây dựng mô hình trải nghiệm văn hóa bản địa: trình diễn cồng chiêng quanh bếp lửa, giới thiệu ẩm thực truyền thống, nghề dệt thổ cẩm, kể sử thi - tất cả giúp du khách hiểu hơn về đời sống tinh thần của người Mạ, K’Ho. Những hoạt động này không chỉ bảo tồn di sản mà còn tạo kế sinh nhai bền vững, tăng thu nhập cho đồng bào.
+        Những năm gần đây, xã Đam Rông 4 tích cực triển khai các chương trình bảo tồn, truyền dạy
+        cồng chiêng cho thế hệ trẻ. Nhiều đội cồng chiêng thanh thiếu niên được thành lập, do chính
+        các nghệ nhân cao tuổi hướng dẫn. Tại đây, các em không chỉ học cách đánh chiêng, giữ nhịp
+        xoang, mà còn được truyền lại những tri thức văn hóa về luật tục, các điệu chiêng, cách phân
+        vai trong dàn chiêng - những giá trị mà chỉ có nghệ nhân bản địa mới có thể trao truyền.
       </p>
       <p>
-        Giữa nhịp sống hiện đại, xã Đam Rông 4 vẫn giữ được tiếng chiêng nguyên sơ, trầm hùng và đầy bản sắc, như một tuyên ngôn văn hóa của vùng Tây Bắc Lâm Đồng. Mỗi thanh âm vang lên là lời nhắc về cội nguồn, là niềm tự hào của đồng bào, và cũng là lời chào mời thân ái gửi tới du khách muốn tìm đến vẻ đẹp chân thật của di sản cồng chiêng Tây Nguyên.
+        Cồng chiêng tại xã Đam Rông 4 ngày nay đang trở thành nguồn lực phát triển du lịch cộng
+        đồng. Một số thôn buôn đã xây dựng mô hình trải nghiệm văn hóa bản địa: trình diễn cồng
+        chiêng quanh bếp lửa, giới thiệu ẩm thực truyền thống, nghề dệt thổ cẩm, kể sử thi - tất cả
+        giúp du khách hiểu hơn về đời sống tinh thần của người Mạ, K’Ho. Những hoạt động này không
+        chỉ bảo tồn di sản mà còn tạo kế sinh nhai bền vững, tăng thu nhập cho đồng bào.
+      </p>
+      <p>
+        Giữa nhịp sống hiện đại, xã Đam Rông 4 vẫn giữ được tiếng chiêng nguyên sơ, trầm hùng và đầy
+        bản sắc, như một tuyên ngôn văn hóa của vùng Tây Bắc Lâm Đồng. Mỗi thanh âm vang lên là lời
+        nhắc về cội nguồn, là niềm tự hào của đồng bào, và cũng là lời chào mời thân ái gửi tới du
+        khách muốn tìm đến vẻ đẹp chân thật của di sản cồng chiêng Tây Nguyên.
       </p>
     </section>
-    <x-space :height="50"></x-space>
+    <x-space :height="50" />
     <section>
-      <h2 class="font-bold text-body text-primary text-subtitle">TIN TỨC - SỰ KIỆN XÃ ĐAM RÔNG 4</h2>
-      <x-page-news></x-page-news>
+      <h2 class="font-bold text-body text-primary text-subtitle">
+        TIN TỨC - SỰ KIỆN XÃ ĐAM RÔNG 4
+      </h2>
+      <x-page-news />
     </section>
 
-    <x-line></x-line>
+    <x-line />
 
-     <section >
+    <section>
       <div class="grid grid-cols-3 gap-5">
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
       </div>
 
-        <div class="flex justify-center">
-       <x-button theme="primary" outline :uppercase="false">
-          Xem thêm
-        </x-button>
-    </div>
+      <div class="flex justify-center">
+        <x-button theme="primary" outline :uppercase="false">Xem thêm</x-button>
+      </div>
     </section>
   </x-content-place>
 </template>

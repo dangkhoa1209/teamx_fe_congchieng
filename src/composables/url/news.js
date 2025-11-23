@@ -1,15 +1,10 @@
 export default {
   detail: {
     method: 'post',
-    url: '/news'
+    url: '/news',
   },
   find: {
     method: 'post',
-    url: '/news/find'
+    url: '/news/find',
   },
-  delete: {
-    method: 'delete',
-    url: '/news'
-  }
-}
-
+};

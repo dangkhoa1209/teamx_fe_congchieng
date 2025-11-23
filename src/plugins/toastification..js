@@ -3,11 +3,11 @@
  * Doc: https://github.com/Maronato/vue-toastification#usage
  */
 
-import Toast from 'vue-toastification'
-import 'vue-toastification/dist/index.css'
+import Toast from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
 
 export default defineNuxtPlugin(() => {
-  const nuxtApp = useNuxtApp()
+  const nuxtApp = useNuxtApp();
   const options = {
     position: 'top-right',
     timeout: 5000,
@@ -19,7 +19,7 @@ export default defineNuxtPlugin(() => {
     newestOnTop: true,
     transition: 'Vue-Toastification__bounce',
     maxToasts: 5,
-  }
+  };
 
-  nuxtApp.vueApp.use(Toast, options)
-})
+  nuxtApp.vueApp.use(Toast, options);
+});

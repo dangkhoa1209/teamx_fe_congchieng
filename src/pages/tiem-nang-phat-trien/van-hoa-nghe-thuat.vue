@@ -1,71 +1,97 @@
 <template>
   <x-content-place class="font-robo">
-    <x-space :height="40"></x-space>
-     <h2 class="font-bold text-body text-primary">
+    <x-space :height="40" />
+    <h2 class="font-bold text-body text-primary">
       <div class="flex items-center gap-2">
         TIỀM NĂNG PHÁT TRIỂN
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Phát triển du lịch văn hóa - cộng đồng
       </div>
     </h2>
-    <x-space :height="40"></x-space>
+    <x-space :height="40" />
 
     <section class="flex flex-col gap-5">
       <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN DU LỊCH VĂN HÓA - CỘNG ĐỒNG</h2>
-      <p class="font-bold text-subtitle text-primary">Gắn liền không gian văn hóa cồng chiêng Tây Nguyên với việc phát triển du lịch văn hóa - cộng đồng là kim chỉ nam cho ngành văn hóa, du lịch của vùng.</p>
-      <p>
-       Không gian văn hóa cồng chiêng Tây Nguyên từ lâu đã là một kho tàng sống động, nơi hội tụ những giá trị nguyên bản của đời sống cộng đồng các dân tộc bản địa. Những thanh âm vang vọng giữa núi rừng không chỉ chứa đựng tâm hồn, niềm tin và lịch sử mà còn mở ra tiềm năng mạnh mẽ để phát triển du lịch văn hóa - cộng đồng theo hướng bền vững và giàu bản sắc.
+      <p class="font-bold text-subtitle text-primary">
+        Gắn liền không gian văn hóa cồng chiêng Tây Nguyên với việc phát triển du lịch văn hóa -
+        cộng đồng là kim chỉ nam cho ngành văn hóa, du lịch của vùng.
       </p>
       <p>
-       Khi gắn kết cồng chiêng với hoạt động du lịch, các địa phương có cơ hội xây dựng những sản phẩm đặc thù: tour trải nghiệm cồng chiêng ngay tại buôn làng, đêm diễn chiêng lửa, các lớp học chế tác và diễn tấu, lễ hội truyền thống, trải nghiệm ẩm thực bản địa và sinh hoạt nhà dài, nhà rông. Du khách không chỉ “xem” văn hóa, mà được sống trong văn hóa, trở thành một phần của câu chuyện cộng đồng.
+        Không gian văn hóa cồng chiêng Tây Nguyên từ lâu đã là một kho tàng sống động, nơi hội tụ
+        những giá trị nguyên bản của đời sống cộng đồng các dân tộc bản địa. Những thanh âm vang
+        vọng giữa núi rừng không chỉ chứa đựng tâm hồn, niềm tin và lịch sử mà còn mở ra tiềm năng
+        mạnh mẽ để phát triển du lịch văn hóa - cộng đồng theo hướng bền vững và giàu bản sắc.
       </p>
-  </section>
-  <x-space :height="40"></x-space>
-  <section>
-    <div class="flex gap-5">
-       <x-image :url="$image().url"></x-image>
-       <x-image :url="$image().url"></x-image>
-    </div>
-  </section>
-   <x-space :height="40"></x-space>
-   <section>
-    <p>Chuyên trang điện tử đóng vai trò như cầu nối để những giá trị này được tiếp cận rộng rãi hơn. Thông qua việc số hóa dữ liệu, giới thiệu hình ảnh, video, câu chuyện buôn làng và các sản phẩm du lịch đặc trưng, chuyên trang giúp du khách, doanh nghiệp và cơ quan quản lý hiểu rõ hơn tiềm năng từng địa phương. Đây cũng là nền tảng để thu hút đầu tư, kết nối tour tuyến, xây dựng thương hiệu du lịch văn hóa Lâm Đồng dựa trên bản sắc Tây Nguyên.</p>
-    <p>Với sự đồng hành của chính quyền địa phương, cộng đồng dân tộc thiểu số và các đơn vị làm du lịch, mô hình phát triển dựa trên cồng chiêng có thể trở thành một hướng đi bền vững, vừa bảo tồn di sản vừa tạo sinh kế cho người dân. Cồng chiêng, vì thế, không chỉ ngân vang trong đời sống văn hóa, mà còn trở thành nhịp cầu dẫn dắt du khách đến gần hơn với trái tim của đại ngàn.</p>
-   </section>
-   <x-space :height="40"></x-space>
-   <section>
-     <x-image :url="$image().url"></x-image>
-   </section>
-    <x-space :height="40"></x-space>
+      <p>
+        Khi gắn kết cồng chiêng với hoạt động du lịch, các địa phương có cơ hội xây dựng những sản
+        phẩm đặc thù: tour trải nghiệm cồng chiêng ngay tại buôn làng, đêm diễn chiêng lửa, các lớp
+        học chế tác và diễn tấu, lễ hội truyền thống, trải nghiệm ẩm thực bản địa và sinh hoạt nhà
+        dài, nhà rông. Du khách không chỉ “xem” văn hóa, mà được sống trong văn hóa, trở thành một
+        phần của câu chuyện cộng đồng.
+      </p>
+    </section>
+    <x-space :height="40" />
     <section>
-      <p>Như vậy, chuyên trang không chỉ kể câu chuyện du lịch - cộng đồng mà còn góp phần mở ra hướng phát triển mới cho cả vùng: phát triển du lịch dựa trên di sản, tôn trọng yếu tố bản địa, lấy con người làm trung tâm và văn hóa làm nguồn lực cốt lõi. Đây chính là tiềm năng dài hạn mà chuyên trang hướng tới trong hành trình đưa cồng chiêng trở thành biểu tượng du lịch văn hóa đặc sắc của tỉnh Lâm Đồng.</p>
-     </section>
-    <x-space :height="80"></x-space>
-    <x-line></x-line>
-    <x-space :height="40"></x-space>
+      <div class="flex gap-5">
+        <x-image :url="$image().url" />
+        <x-image :url="$image().url" />
+      </div>
+    </section>
+    <x-space :height="40" />
+    <section>
+      <p>
+        Chuyên trang điện tử đóng vai trò như cầu nối để những giá trị này được tiếp cận rộng rãi
+        hơn. Thông qua việc số hóa dữ liệu, giới thiệu hình ảnh, video, câu chuyện buôn làng và các
+        sản phẩm du lịch đặc trưng, chuyên trang giúp du khách, doanh nghiệp và cơ quan quản lý hiểu
+        rõ hơn tiềm năng từng địa phương. Đây cũng là nền tảng để thu hút đầu tư, kết nối tour
+        tuyến, xây dựng thương hiệu du lịch văn hóa Lâm Đồng dựa trên bản sắc Tây Nguyên.
+      </p>
+      <p>
+        Với sự đồng hành của chính quyền địa phương, cộng đồng dân tộc thiểu số và các đơn vị làm du
+        lịch, mô hình phát triển dựa trên cồng chiêng có thể trở thành một hướng đi bền vững, vừa
+        bảo tồn di sản vừa tạo sinh kế cho người dân. Cồng chiêng, vì thế, không chỉ ngân vang trong
+        đời sống văn hóa, mà còn trở thành nhịp cầu dẫn dắt du khách đến gần hơn với trái tim của
+        đại ngàn.
+      </p>
+    </section>
+    <x-space :height="40" />
+    <section>
+      <x-image :url="$image().url" />
+    </section>
+    <x-space :height="40" />
+    <section>
+      <p>
+        Như vậy, chuyên trang không chỉ kể câu chuyện du lịch - cộng đồng mà còn góp phần mở ra
+        hướng phát triển mới cho cả vùng: phát triển du lịch dựa trên di sản, tôn trọng yếu tố bản
+        địa, lấy con người làm trung tâm và văn hóa làm nguồn lực cốt lõi. Đây chính là tiềm năng
+        dài hạn mà chuyên trang hướng tới trong hành trình đưa cồng chiêng trở thành biểu tượng du
+        lịch văn hóa đặc sắc của tỉnh Lâm Đồng.
+      </p>
+    </section>
+    <x-space :height="80" />
+    <x-line />
+    <x-space :height="40" />
     <h2 class="font-bold text-primary text-subtitle">BÀI VIẾT CÙNG CHUYÊN MỤC</h2>
-    <x-space :height="40"></x-space>
+    <x-space :height="40" />
     <section>
-       <div class="grid grid-cols-3 gap-5">
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
-        <x-page-news-thumb-ver></x-page-news-thumb-ver>
+      <div class="grid grid-cols-3 gap-5">
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
+        <x-page-news-thumb-ver />
       </div>
     </section>
   </x-content-place>
-
-  
 </template>
 <script setup></script>

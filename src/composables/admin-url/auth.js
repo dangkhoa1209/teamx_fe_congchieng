@@ -1,11 +1,11 @@
 export default {
   login: {
     method: 'post',
-    url: '/auth/token'
+    url: '/auth/token',
   },
   logout: {
     method: 'post',
-    url: '/admin/logout'
+    url: '/admin/logout',
   },
   // register: {
   //   method: 'post',
@@ -34,4 +34,4 @@ export default {
   //   method: 'post',
   //   url: 'auth/invite/accept'
   // }
-}
+};
