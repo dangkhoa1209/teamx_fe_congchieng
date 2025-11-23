@@ -1,4 +1,3 @@
-// eslint.config.js – PHIÊN BẢN HOÀN HẢO 2025 (copy-paste là chạy ngon)
 import vue from 'eslint-plugin-vue';
 import typescript from '@typescript-eslint/eslint-plugin';
 import parserTs from '@typescript-eslint/parser';

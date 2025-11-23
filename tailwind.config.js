@@ -14,7 +14,6 @@ module.exports = {
     require('daisyui'), // Thêm dòng này
   ],
   daisyui: {
-    // Tùy chọn: Cấu hình theme DaisyUI (ví dụ: dùng theme light)
     themes: ['light', 'dark', 'cupcake'], // Hoặc true để dùng tất cả themes
   },
   theme: {
