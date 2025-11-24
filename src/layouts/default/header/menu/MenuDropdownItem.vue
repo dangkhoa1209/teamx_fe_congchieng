@@ -1,4 +1,3 @@
-<!-- components/MenuDropdownItem.vue (dùng cho cả cấp 1, 2, 3...) -->
 <template>
   <li
     ref="itemRef"
@@ -9,7 +8,7 @@
         : 'h-[40px] bg-primary text-main hover:bg-main hover:text-primary border-primary border-[1px] border-solid border-t-0 first:border-t'
     "
     @mouseenter="enter"
-    @mouseleave="leave"
+    @mouseleave="$emit('mouseleave')"
   >
     <!-- Label -->
     <x-link v-if="item.page" :to="item.page">
@@ -23,10 +22,18 @@
         {{ item.label }}
       </span>
     </x-link>
-    <span v-else :class="isRoot ? 'leading-[75px] ...' : 'px-[15px] leading-[40px]'">
+    <span
+      v-else
+      :class="
+        isRoot
+          ? 'leading-[75px] uppercase text-[16px] font-robo font-medium text-primary whitespace-nowrap cursor-default'
+          : 'font-robo font-medium text-14 whitespace-nowrap leading-[40px] px-[15px]'
+      "
+    >
       {{ item.label }}
     </span>
 
+    <!-- Đường kẻ ngang -->
     <x-line v-if="!isRoot && line" classColor="bg-white opacity-30" className="mx-[15px]" />
 
     <!-- Dropdown con -->
@@ -35,9 +42,9 @@
         class="absolute bg-primary text-main border border-main z-50 shadow-2xl"
         :style="dropdownStyle"
         @mouseenter="enter"
-        @mouseleave="leave"
+        @mouseleave="$emit('mouseleave')"
       >
-        <ul :class="!isRoot ? 'border border-main border-t-primary' : ''">
+        <ul class="border border-main border-t-primary">
           <MenuDropdownItem
             v-for="(child, i) in item.childrens"
             :key="child.id"
@@ -47,6 +54,7 @@
             :line="i < item.childrens.length - 1"
             :is-root="false"
             @update:path="$emit('update:path', $event)"
+            @mouseleave="$emit('mouseleave')"
           />
         </ul>
       </div>
@@ -63,13 +71,10 @@
     isRoot: { type: Boolean, default: true },
   });
 
-  const emit = defineEmits(['update:path']);
+  const emit = defineEmits(['update:path', 'mouseleave']);
   const itemRef = ref(null);
-  const top = ref(0);
-  const left = ref(0);
-  const width = ref(200);
 
-  // Đường dẫn hiện tại của item này
+  // Đường dẫn đầy đủ đến item này
   const currentPath = computed(() => [...props.parentPath, props.item.id]);
 
   // Item này có đang được mở không?
@@ -87,18 +92,22 @@
     }
   };
 
-  const leave = () => {
-    // Không đóng ngay, chỉ để NavMenu xử lý scheduleClose
-    // (trong NavMenu đã có scheduleClose khi mouseleave toàn bộ)
-  };
-
+  // Tính vị trí dropdown
   const dropdownStyle = computed(() => {
     if (!itemRef.value) return {};
     const rect = itemRef.value.getBoundingClientRect();
     if (props.isRoot) {
-      return { top: rect.bottom + 'px', left: rect.left + 'px', minWidth: rect.width + 'px' };
+      return {
+        top: rect.bottom + 'px',
+        left: rect.left + 'px',
+        minWidth: rect.width + 'px',
+      };
     } else {
-      return { top: rect.top + 'px', left: rect.right + 'px', minWidth: '240px' };
+      return {
+        top: rect.top + 'px',
+        left: rect.right + 'px',
+        minWidth: '240px',
+      };
     }
   });
 </script>
@@ -110,7 +119,7 @@
     left: 0;
     right: 0;
     top: 100%;
-    height: 15px;
+    height: 18px;
     background: transparent;
   }
 </style>

@@ -44,35 +44,11 @@
           <x-form submitText="Lưu" :handle-error="false" :show-button="false" @submit="onSubmit">
             <div class="flex flex-col gap-10">
               <div class="flex gap-5">
-                <x-form-input
-                  v-model="formData.name"
-                  label="Họ và tên"
-                  name="name"
-                  rules="required"
-                  required
-                />
-                <x-form-input
-                  v-model="formData.name"
-                  label="Số điện thoại"
-                  name="phone"
-                  rules="required"
-                  required
-                />
+                <x-form-input v-model="formData.name" label="Họ và tên" name="name" rules="required" required />
+                <x-form-input v-model="formData.name" label="Số điện thoại" name="phone" rules="required" required />
               </div>
-              <x-form-input
-                v-model="formData.name"
-                label="Email"
-                name="email"
-                rules="required"
-                required
-              />
-              <x-form-text-area
-                v-model="formData.des"
-                label="Nội dung"
-                name="content"
-                rules="required"
-                required
-              />
+              <x-form-input v-model="formData.name" label="Email" name="email" rules="required" required />
+              <x-form-text-area v-model="formData.des" label="Nội dung" name="content" rules="required" required />
 
               <div class="flex justify-end">
                 <x-button theme="primary" type="submit" :uppercase="false">Gửi yêu cầu</x-button>
@@ -86,8 +62,6 @@
   </x-content-place>
 </template>
 <script setup>
-  import { email } from '@vee-validate/rules';
-
   const formData = ref({
     name: '',
     phone: '',
