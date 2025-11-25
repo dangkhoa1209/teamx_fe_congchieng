@@ -75,8 +75,7 @@
               <MobileMenu :menus="menus" @close="isDrawerOpen = false" />
             </nav>
 
-            <!-- Thanh tìm kiếm -->
-            <div v-if="showSearch" class="p-4 border-t bg-gray-50">
+            <div class="p-4 border-t bg-gray-50">
               <input-fitter
                 ref="searchRef"
                 placeholder="Nhập từ khóa..."
@@ -103,24 +102,21 @@
   import Menu from './menu/index.vue';
   import MobileMenu from './menu/MobileMenu.vue';
   import IconHeader from '~/public/assets/icon/header.svg';
+  import InputFitter from './menu/input-fitter.vue';
 
   const router = useRouter();
   const route = useRoute();
 
   const isDrawerOpen = ref(false);
-  const showSearch = ref(false);
   const searchRef = ref(null);
 
   const toggleSearch = () => {
-    showSearch.value = !showSearch.value;
-    if (showSearch.value) {
-      nextTick(() => searchRef.value?.$el?.focus());
-    }
+    isDrawerOpen.value = true;
+    nextTick(() => searchRef.value?.$el?.focus());
   };
 
   const handleSearch = (q) => {
     if (!q) return;
-    showSearch.value = false;
     isDrawerOpen.value = false;
     router.push({ path: '/tim-kiem', query: { q } });
   };

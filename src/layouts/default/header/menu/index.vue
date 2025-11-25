@@ -50,6 +50,7 @@
               >
                 <input-fitter
                   ref="inputRef"
+                  placeholder="Nhập từ khóa..."
                   @focus="isFocused = true"
                   @blur="outForcus"
                   @enter="handleEnter"
