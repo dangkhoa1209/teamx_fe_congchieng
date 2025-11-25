@@ -4,7 +4,7 @@
       v-if="isVisible"
       class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
     >
-      <div class="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl">
+      <div class="w-full max-w-md overflow-hidden rounded-2xl bg-main shadow-xl">
         <div class="px-6 py-5">
           <h3 class="text-lg font-semibold text-gray-900">
             {{ title }}
@@ -24,7 +24,7 @@
           </button>
           <button
             type="button"
-            class="rounded-lg px-4 py-2 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
+            class="rounded-lg px-4 py-2 text-sm font-semibold text-main focus:outline-none focus:ring-2 focus:ring-offset-2"
             :class="confirmButtonClasses"
             :disabled="loading"
             @click="$emit('confirm')"

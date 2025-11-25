@@ -62,7 +62,7 @@
           class="space-y-4"
         >
           <template #item="{ element: item, index }">
-            <div class="border rounded-lg p-3 relative bg-white shadow-sm flex flex-col gap-2">
+            <div class="border rounded-lg p-3 relative bg-main shadow-sm flex flex-col gap-2">
               <!-- Drag handle & Delete button -->
               <div class="flex justify-end gap-2 top-2 right-2">
                 <span class="drag-handle cursor-move">

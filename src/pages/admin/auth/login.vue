@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-50">
-    <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+    <div class="bg-main shadow-lg rounded-2xl p-8 w-full max-w-md">
       <h1 class="text-2xl font-semibold text-center text-primary mb-6">Đăng nhập quản trị</h1>
 
       <form class="space-y-4" @submit.prevent="handleLogin">

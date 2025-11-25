@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-xl border border-main bg-white shadow-sm">
+  <div class="rounded-xl border border-main bg-main shadow-sm">
     <div class="overflow-x-auto min-h-[50vh]">
       <table class="min-w-full divide-main">
         <thead :class="['text-left text-sm font-semibold text-gray-600']">

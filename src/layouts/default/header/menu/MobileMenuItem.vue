@@ -20,7 +20,7 @@
     </nuxt-link>
 
     <!-- Submenu -->
-    <ul v-if="item.childrens && open" class="bg-gray-50">
+    <ul v-if="item.childrens && open" class="bg-main">
       <MobileMenuItem
         v-for="child in item.childrens"
         :key="child.id || child.label"

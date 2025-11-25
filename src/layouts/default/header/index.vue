@@ -12,7 +12,7 @@
               alt="Logo"
               @error="onLogoError"
             />
-            <div class="hidden tablet:block text-white">
+            <div class="hidden tablet:block text-main">
               <p class="font-mont font-semibold text-[16px] laptop:text-[20px] leading-tight">
                 UBND TỈNH LÂM ĐỒNG
               </p>
@@ -25,10 +25,10 @@
           <!-- NÚT MOBILE (dưới laptop) -->
           <div class="flex items-center gap-4 laptop:hidden">
             <button class="p-2" @click="toggleSearch">
-              <Icon name="heroicons:magnifying-glass" class="w-7 h-7 text-white" />
+              <Icon name="heroicons:magnifying-glass" class="w-7 h-7 text-main" />
             </button>
             <button class="p-2" @click="isDrawerOpen = true">
-              <Icon name="heroicons:bars-3" class="w-8 h-8 text-white" />
+              <Icon name="heroicons:bars-3" class="w-8 h-8 text-main" />
             </button>
           </div>
         </div>
@@ -53,20 +53,22 @@
 
           <!-- 2. Drawer – phải nằm SAU overlay và có pointer-events-auto -->
           <div
-            class="absolute inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl flex flex-col pointer-events-auto translate-x-0 transition-transform duration-300 ease-out"
+            class="absolute inset-y-0 right-0 w-full max-w-md bg-main shadow-2xl flex flex-col pointer-events-auto translate-x-0 transition-transform duration-300 ease-out"
             :class="isDrawerOpen ? 'translate-x-0' : 'translate-x-full'"
           >
             <!-- Header drawer -->
             <div class="bg-primary p-5 flex items-center justify-between">
               <div class="flex items-center gap-4">
                 <img class="h-12 w-auto" :src="$image().urlSquare" alt="Logo" />
-                <div class="text-white">
-                  <p class="font-mont font-bold text-sm">SỞ VHTTDL</p>
-                  <p class="font-mont text-xs opacity-90">LÂM ĐỒNG</p>
+                <div class="text-main">
+                  <p class="font-mont text-xs">UBND TỈNH LÂM ĐỒNG</p>
+                  <p class="font-mont text-sm font-bold opacity-90">
+                    SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
+                  </p>
                 </div>
               </div>
               <button class="p-2" @click="isDrawerOpen = false">
-                <Icon name="heroicons:x-mark" class="w-8 h-8 text-white" />
+                <Icon name="heroicons:x-mark" class="w-8 h-8 text-main" />
               </button>
             </div>
 
@@ -75,7 +77,7 @@
               <MobileMenu :menus="menus" @close="isDrawerOpen = false" />
             </nav>
 
-            <div class="p-4 border-t bg-gray-50">
+            <div class="p-4 border-t bg-main-50">
               <input-fitter
                 ref="searchRef"
                 placeholder="Nhập từ khóa..."

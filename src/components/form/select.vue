@@ -21,11 +21,11 @@
               <span
                 v-for="(val, idx) in modelArray"
                 :key="val"
-                class="inline-flex items-center gap-1 bg-primary text-white text-xs px-2 py-1 rounded-xl"
+                class="inline-flex items-center gap-1 bg-primary text-main text-xs px-2 py-1 rounded-xl"
               >
                 {{ getLabel(val) }}
                 <button
-                  class="hover:bg-white hover:text-primary rounded-full w-4 h-4 flex items-center justify-center text-xs"
+                  class="hover:bg-main hover:text-primary rounded-full w-4 h-4 flex items-center justify-center text-xs"
                   @click.stop="removeItem(val)"
                 >
                   ×
@@ -64,7 +64,7 @@
         <!-- Dropdown -->
         <div
           v-if="showDropdown"
-          class="absolute z-50 w-full mt-1 bg-white border border-primary rounded-2xl shadow-lg max-h-Ronald overflow-auto"
+          class="absolute z-50 w-full mt-1 bg-main border border-primary rounded-2xl shadow-lg max-h-Ronald overflow-auto"
         >
           <!-- Search -->
           <div v-if="filterable" class="p-2 border-b border-gray-200">

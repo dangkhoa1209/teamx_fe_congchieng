@@ -14,7 +14,7 @@
       :key="n"
       class="w-[38px] h-[38px] rounded-full border border-primary flex items-center justify-center font-semibold transition-all"
       :class="{
-        'bg-primary text-white border-primary': n === currentPage,
+        'bg-primary text-main border-primary': n === currentPage,
         'text-primary hover:bg-primary/10': n !== currentPage,
       }"
       @click="selectPage(n)"
@@ -86,7 +86,10 @@
       end = totalPages.value;
       start = Math.max(1, end - count + 1);
     }
-    displayedPages.value = Array.from({ length: Math.min(count, totalPages.value) }, (_, i) => start + i);
+    displayedPages.value = Array.from(
+      { length: Math.min(count, totalPages.value) },
+      (_, i) => start + i
+    );
   };
 
   // Prev / Next
@@ -97,7 +100,8 @@
     emit('change', next);
     if (!displayedPages.value.includes(next)) {
       const newLast = displayedPages.value[displayedPages.value.length - 1] + 1;
-      if (newLast <= totalPages.value) displayedPages.value = [...displayedPages.value.slice(1), newLast];
+      if (newLast <= totalPages.value)
+        displayedPages.value = [...displayedPages.value.slice(1), newLast];
     }
   };
 

@@ -43,7 +43,12 @@
               @mouseenter="onEnter"
               @mouseleave="onLeave"
             >
-              <IconFind class="w-6 h-6 fill-primary cursor-pointer" @click="focusInput" />
+              <Icon
+                name="heroicons:magnifying-glass"
+                class="w-6 h-6 fill-primary cursor-pointer"
+                @click="focusInput"
+              />
+
               <div
                 v-if="showSearch"
                 class="absolute bottom-0 right-0 translate-y-[100%] text-main w-64"

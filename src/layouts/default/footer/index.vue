@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-primary text-white">
+  <footer class="bg-primary text-main">
     <x-content-place>
       <x-space :height="58" />
       <div class="flex gap-16">
@@ -15,8 +15,8 @@
                 />
               </div>
               <div>
-                <p class="font-mont font-semibold text-white text-mini">UBND TỈNH LÂM ĐỒNG</p>
-                <p class="font-mont font-semibold text-white text-subtitle">
+                <p class="font-mont font-semibold text-main text-mini">UBND TỈNH LÂM ĐỒNG</p>
+                <p class="font-mont font-semibold text-main text-subtitle">
                   SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
                 </p>
               </div>
@@ -27,13 +27,13 @@
             </p>
           </div>
           <div class="flex gap-4">
-            <div class="border border-white p-2 rounded-full box-border">
+            <div class="border border-main p-2 rounded-full box-border">
               <img :src="$image().urlSquare" class="h-5 w-5 rounded-full" alt="" />
             </div>
-            <div class="border border-white p-2 rounded-full box-border">
+            <div class="border border-main p-2 rounded-full box-border">
               <img :src="$image().urlSquare" class="h-5 w-5 rounded-full" alt="" />
             </div>
-            <div class="border border-white p-2 rounded-full box-border">
+            <div class="border border-main p-2 rounded-full box-border">
               <img :src="$image().urlSquare" class="h-5 w-5 rounded-full" alt="" />
             </div>
           </div>

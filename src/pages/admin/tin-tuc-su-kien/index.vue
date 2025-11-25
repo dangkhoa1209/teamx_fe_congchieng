@@ -12,7 +12,7 @@
 
       <!-- {{ $newScope().list }}
       {{ $newScope().key }} -->
-      <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
+      <div class="rounded-xl border border-gray-200 bg-main shadow-sm">
         <x-data-table
           :columns="columns"
           :rows="tableList.data"

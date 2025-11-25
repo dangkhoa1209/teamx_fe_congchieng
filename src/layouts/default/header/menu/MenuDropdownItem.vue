@@ -55,7 +55,7 @@
     </span>
 
     <!-- Đường kẻ ngang giữa các item con -->
-    <x-line v-if="!isRoot && line" classColor="bg-white opacity-30" className="mx-[15px]" />
+    <x-line v-if="!isRoot && line" classColor="bg-main opacity-30" className="mx-[15px]" />
 
     <!-- DROPDOWN CON -->
     <teleport v-if="item.childrens && isOpen" to="body">

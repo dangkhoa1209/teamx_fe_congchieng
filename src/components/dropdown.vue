@@ -9,7 +9,7 @@
       <p class="whitespace-nowrap">Thao tác</p>
     </button>
 
-    <Transition name="dropdown-fade bg-white">
+    <Transition name="dropdown-fade bg-main">
       <div
         v-if="open"
         class="absolute left-0 translate-x-[-105%] w-44 origin-top-right rounded-xl border border-gray-100 bg-main shadow-lg ring-1 ring-black/5 focus:outline-none"

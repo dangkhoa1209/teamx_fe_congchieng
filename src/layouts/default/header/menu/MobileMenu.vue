@@ -1,5 +1,5 @@
 <template>
-  <ul class="divide-y divide-gray-200">
+  <ul class="divide-y divide-main">
     <MobileMenuItem
       v-for="item in menus"
       :key="item.id || item.label"
