@@ -117,7 +117,14 @@
     isFocused.value = false;
     onLeave();
   };
-  const handleEnter = (v) => v && router.push({ path: '/tim-kiem', query: { q: v } });
+  const handleEnter = (v) => {
+    if (!v) {
+      return;
+    }
+    isFocused.value = false;
+    onLeave();
+    router.push({ path: '/tim-kiem', query: { q: v } });
+  };
 
   // === MENU DATA ===
   const menus = [

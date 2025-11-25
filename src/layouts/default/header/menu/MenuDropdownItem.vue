@@ -55,6 +55,7 @@
             :is-root="false"
             @update:path="$emit('update:path', $event)"
             @mouseleave="$emit('mouseleave')"
+            @click="$emit('mouseleave')"
           />
         </ul>
       </div>
@@ -63,6 +64,8 @@
 </template>
 
 <script setup>
+  import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue';
+
   const props = defineProps({
     item: Object,
     activePath: Array,
@@ -71,18 +74,22 @@
     isRoot: { type: Boolean, default: true },
   });
 
-  const emit = defineEmits(['update:path', 'mouseleave']);
+  const emit = defineEmits(['update:path', 'schedule-close']);
+
   const itemRef = ref(null);
+  const dropdownStyle = ref({});
 
-  // Đường dẫn đầy đủ đến item này
-  const currentPath = computed(() => [...props.parentPath, props.item.id]);
+  // Đường dẫn đầy đủ đến item hiện tại
+  const currentPath = computed(() =>
+    props.item.id ? [...props.parentPath, props.item.id] : props.parentPath
+  );
 
-  // Item này có đang được mở không?
+  // Kiểm tra xem dropdown của item này có đang mở không
   const isOpen = computed(() => {
     if (!props.item.id) return false;
-    const path = currentPath.value;
     return (
-      props.activePath.length >= path.length && path.every((id, i) => props.activePath[i] === id)
+      props.activePath.length >= currentPath.value.length &&
+      currentPath.value.every((id, i) => props.activePath[i] === id)
     );
   });
 
@@ -92,23 +99,58 @@
     }
   };
 
-  // Tính vị trí dropdown
-  const dropdownStyle = computed(() => {
-    if (!itemRef.value) return {};
+  const scheduleClose = () => {
+    emit('schedule-close');
+  };
+
+  // Cập nhật vị trí dropdown
+  const updateDropdownPosition = () => {
+    if (!itemRef.value || !isOpen.value) return;
     const rect = itemRef.value.getBoundingClientRect();
+
     if (props.isRoot) {
-      return {
+      dropdownStyle.value = {
         top: rect.bottom + 'px',
         left: rect.left + 'px',
         minWidth: rect.width + 'px',
       };
     } else {
-      return {
+      dropdownStyle.value = {
         top: rect.top + 'px',
         left: rect.right + 'px',
         minWidth: '240px',
       };
     }
+  };
+
+  // Chỉ cập nhật khi mở + khi scroll (dùng scroll event thay vì onUpdated)
+  watch(
+    isOpen,
+    (open) => {
+      if (open) {
+        nextTick(updateDropdownPosition);
+      }
+    },
+    { flush: 'post' }
+  );
+
+  // Theo dõi scroll của menu ngang (chỉ cần 1 lần ở cấp root)
+  onMounted(() => {
+    if (props.isRoot) {
+      const menuList = document.querySelector('[ref="menuList"]');
+      if (menuList) {
+        menuList.addEventListener('scroll', updateDropdownPosition);
+      }
+    }
+    window.addEventListener('resize', updateDropdownPosition);
+  });
+
+  onUnmounted(() => {
+    if (props.isRoot) {
+      const menuList = document.querySelector('[ref="menuList"]');
+      menuList?.removeEventListener('scroll', updateDropdownPosition);
+    }
+    window.removeEventListener('resize', updateDropdownPosition);
   });
 </script>
 
@@ -119,7 +161,7 @@
     left: 0;
     right: 0;
     top: 100%;
-    height: 18px;
+    height: 0px;
     background: transparent;
   }
 </style>
