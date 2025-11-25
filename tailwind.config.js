@@ -37,6 +37,10 @@ module.exports = {
         mont: ['Montserrat', 'sans-serif'],
         robo: ['Roboto', 'sans-serif'],
       },
+      container: {
+        center: true,
+        padding: '1rem',
+      },
     },
   },
 };

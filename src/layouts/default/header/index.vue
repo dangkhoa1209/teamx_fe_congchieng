@@ -1,143 +1,133 @@
 <template>
-  <header class="z-50 relative bg-primary">
+  <header class="relative z-50">
     <!-- HEADER TRÊN CÙNG -->
-    <div class="relative">
+    <div class="bg-primary relative">
       <x-content-place>
-        <div class="flex items-center justify-between py-6 lg:py-8">
+        <div class="flex items-center justify-between py-5 laptop:py-8">
           <!-- Logo + Tên đơn vị -->
-          <div class="flex items-center gap-6 lg:gap-10">
+          <div class="flex items-center gap-4 laptop:gap-10">
             <img
-              class="h-16 w-auto lg:h-20"
+              class="h-14 w-auto laptop:h-20"
               :src="$image().urlSquare"
               alt="Logo"
               @error="onLogoError"
             />
-            <div class="hidden sm:block">
-              <p
-                class="font-mont font-semibold text-white text-[18px] lg:text-[20px] leading-tight"
-              >
+            <div class="hidden tablet:block text-white">
+              <p class="font-mont font-semibold text-[16px] laptop:text-[20px] leading-tight">
                 UBND TỈNH LÂM ĐỒNG
               </p>
-              <p
-                class="font-mont font-semibold text-white text-[24px] lg:text-[28px] leading-tight"
-              >
+              <p class="font-mont font-semibold text-[22px] laptop:text-[28px] leading-tight">
                 SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
               </p>
             </div>
           </div>
 
-          <!-- NÚT MOBILE: Hamburger + Tìm kiếm -->
-          <div class="flex items-center gap-4 lg:hidden">
-            <button class="p-2" @click="toggleSearchMobile">
-              <!-- <IconFind class="w-7 h-7 fill-white" /> -->
-              <Icon name="heroicons:chevron-double-right" class="w-8 h-8 fill-white" />
+          <!-- NÚT MOBILE (dưới laptop) -->
+          <div class="flex items-center gap-4 laptop:hidden">
+            <button class="p-2" @click="toggleSearch">
+              <Icon name="heroicons:magnifying-glass" class="w-7 h-7 text-white" />
             </button>
-            <button class="p-2" @click="isOpen = true">
-              <!-- <IconMenu class="w-8 h-8 fill-white" /> -->
-              <Icon name="heroicons:chevron-double-right" class="w-8 h-8 fill-white" />
+            <button class="p-2" @click="isDrawerOpen = true">
+              <Icon name="heroicons:bars-3" class="w-8 h-8 text-white" />
             </button>
-          </div>
-
-          <!-- ICON TÌM KIẾM + BACKGROUND TRANG TRÍ (chỉ desktop) -->
-          <div class="absolute top-0 right-0 h-full">
-            <div class="max-w-[1440px] w-full mx-auto h-full flex justify-end">
-              <IconHeader class="h-full fill-primary" />
-              <!-- <Icon name="heroicons:chevron-double-right" class="h-full" /> -->
-            </div>
           </div>
         </div>
       </x-content-place>
-    </div>
 
-    <teleport to="body">
-      <div v-if="isOpen" class="fixed inset-0 z-[9999] flex" @click.self="isOpen = false">
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/50" />
-
-        <!-- Drawer panel -->
-        <div
-          class="relative w-full max-w-md bg-white shadow-2xl ml-auto flex flex-col"
-          :class="isOpen ? 'animate-in slide-in-from-right' : 'animate-out slide-out-to-right'"
-        >
-          <!-- Header drawer -->
-          <div class="bg-primary p-6 flex">
-            <button class="p-2" @click="isOpen = false">
-              <!-- <IconClose class="w-8 h-8 fill-white" /> -->
-              <Icon name="heroicons:chevron-double-right" class="w-8 h-8 fill-white" />
-            </button>
-          </div>
-
-          <!-- Menu trong drawer -->
-          <div class="overflow-y-auto bg-gray-50">
-            <MobileMenu :menus="menus" />
-          </div>
-
-          <!-- Thanh tìm kiếm trong drawer -->
-          <div class="p-4 border-t w-full">
-            <input-fitter ref="mobileSearchRef" class="w-full" @enter="handleMobileSearch" />
-          </div>
+      <!-- Background trang trí (desktop) -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="max-w-[1440px] mx-auto h-full flex justify-end">
+          <IconHeader class="h-full text-primary opacity-20" />
         </div>
       </div>
+    </div>
+
+    <!-- MENU NGANG - CHỈ HIỆN TỪ LAPTOP TRỞ LÊN + STICKY -->
+
+    <!-- DRAWER MOBILE -->
+    <teleport to="body">
+      <transition name="fade">
+        <div v-if="isDrawerOpen" class="fixed inset-0 z-[9999]" @click.self="isDrawerOpen = false">
+          <!-- 1. Overlay – chỉ che phần ngoài drawer -->
+          <div class="absolute inset-0 bg-black/50" />
+
+          <!-- 2. Drawer – phải nằm SAU overlay và có pointer-events-auto -->
+          <div
+            class="absolute inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl flex flex-col pointer-events-auto translate-x-0 transition-transform duration-300 ease-out"
+            :class="isDrawerOpen ? 'translate-x-0' : 'translate-x-full'"
+          >
+            <!-- Header drawer -->
+            <div class="bg-primary p-5 flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <img class="h-12 w-auto" :src="$image().urlSquare" alt="Logo" />
+                <div class="text-white">
+                  <p class="font-mont font-bold text-sm">SỞ VHTTDL</p>
+                  <p class="font-mont text-xs opacity-90">LÂM ĐỒNG</p>
+                </div>
+              </div>
+              <button class="p-2" @click="isDrawerOpen = false">
+                <Icon name="heroicons:x-mark" class="w-8 h-8 text-white" />
+              </button>
+            </div>
+
+            <!-- Menu mobile -->
+            <nav class="flex-1 overflow-y-auto">
+              <MobileMenu :menus="menus" @close="isDrawerOpen = false" />
+            </nav>
+
+            <!-- Thanh tìm kiếm -->
+            <div v-if="showSearch" class="p-4 border-t bg-gray-50">
+              <input-fitter
+                ref="searchRef"
+                placeholder="Nhập từ khóa..."
+                class="w-full"
+                @enter="handleSearch"
+              />
+            </div>
+          </div>
+        </div>
+      </transition>
     </teleport>
   </header>
 
-  <!-- // laptop -->
-  <Menu v-if="screenWidth >= 1024" class="mx-auto max-w-[1440px]" />
+  <div class="sticky top-0 z-40 bg-main laptop:block hidden">
+    <x-content-place>
+      <Menu :menus="menus" />
+    </x-content-place>
+  </div>
 </template>
 
 <script setup>
   import { ref, nextTick } from 'vue';
-  import { useRouter } from 'vue-router';
+  import { useRouter, useRoute } from 'vue-router';
   import Menu from './menu/index.vue';
-  import MobileMenu from './menu/MobileMenu.vue'; // sẽ tạo bên dưới
+  import MobileMenu from './menu/MobileMenu.vue';
   import IconHeader from '~/public/assets/icon/header.svg';
-  import InputFitter from './menu/input-fitter.vue';
-
-  // import IconFind from '~/public/assets/icon/find.svg';
-  // import IconMenu from '~/public/assets/icon/menu.svg'; // icon 3 gạch
-  // import IconClose from '~/public/assets/icon/close.svg'; // icon X
-
-  const windowWidth = ref(window?.innerWidth);
-
-  const handleResize = () => {
-    windowWidth.value = window?.innerWidth;
-  };
-
-  onMounted(() => {
-    window.addEventListener('resize', handleResize);
-  });
-
-  onUnmounted(() => {
-    window.removeEventListener('resize', handleResize);
-  });
-
-  // Computed nếu bạn muốn dùng trực tiếp
-  const screenWidth = computed(() => windowWidth.value);
 
   const router = useRouter();
-  const isOpen = ref(false);
-  const showSearchMobile = ref(false);
-  const mobileSearchRef = ref(null);
+  const route = useRoute();
 
-  const toggleSearchMobile = () => {
-    showSearchMobile.value = !showSearchMobile.value;
-    if (showSearchMobile.value) {
-      nextTick(() => mobileSearchRef.value?.$el?.focus());
+  const isDrawerOpen = ref(false);
+  const showSearch = ref(false);
+  const searchRef = ref(null);
+
+  const toggleSearch = () => {
+    showSearch.value = !showSearch.value;
+    if (showSearch.value) {
+      nextTick(() => searchRef.value?.$el?.focus());
     }
   };
 
-  const handleMobileSearch = (q) => {
+  const handleSearch = (q) => {
     if (!q) return;
-    showSearchMobile.value = false;
-    isOpen.value = false;
+    showSearch.value = false;
+    isDrawerOpen.value = false;
     router.push({ path: '/tim-kiem', query: { q } });
   };
 
-  const onLogoError = (e) => {
-    e.target.style.display = 'none';
-  };
+  const onLogoError = (e) => (e.target.style.display = 'none');
 
-  // Dữ liệu menu (copy từ file menu cũ của bạn)
+  // Menu data
   const menus = [
     { label: 'Trang chủ', page: '/trang-chu' },
     { label: 'Giới thiệu', page: '/gioi-thieu' },
@@ -201,28 +191,13 @@
     { label: 'Liên hệ', page: '/lien-he' },
   ];
 </script>
-
 <style scoped>
-  .animate-in {
-    animation: slideIn 0.3s ease-out;
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.3s ease-out;
   }
-  .animate-out {
-    animation: slideOut 0.3s ease-in forwards;
-  }
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-  @keyframes slideOut {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(100%);
-    }
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
   }
 </style>

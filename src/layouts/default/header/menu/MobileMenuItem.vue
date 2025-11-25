@@ -1,40 +1,58 @@
 <!-- MobileMenuItem.vue -->
 <template>
   <li>
-    <div
-      class="flex items-center justify-between px-6 py-4 text-lg font-medium"
-      :class="depth === 0 ? 'text-primary' : 'text-gray-800'"
-      @click="toggle"
+    <nuxt-link
+      :to="item.page || '#'"
+      class="flex items-center justify-between px-6 py-4 text-lg font-medium transition"
+      :class="[
+        depth === 0 ? 'text-primary' : 'text-gray-800 pl-10',
+        isActive ? 'bg-main/10 font-bold text-primary' : 'hover:bg-gray-100',
+      ]"
+      @click="handleClick"
     >
-      <nuxt-link :to="item.page || '#'" class="flex-1">
-        {{ item.label }}
-      </nuxt-link>
-      <IconChevron
+      <span>{{ item.label }}</span>
+      <Icon
         v-if="item.childrens"
+        name="heroicons:chevron-right"
         class="w-5 h-5 transition-transform"
         :class="open ? 'rotate-90' : ''"
       />
-    </div>
+    </nuxt-link>
 
-    <ul v-if="item.childrens && open" class="bg-gray-100">
+    <!-- Submenu -->
+    <ul v-if="item.childrens && open" class="bg-gray-50">
       <MobileMenuItem
         v-for="child in item.childrens"
         :key="child.id || child.label"
         :item="child"
         :depth="depth + 1"
+        @close="$emit('close')"
       />
     </ul>
   </li>
 </template>
 
 <script setup>
+  import { ref, computed } from 'vue';
+  import { useRoute } from 'vue-router';
+
   const props = defineProps({
     item: Object,
     depth: Number,
   });
+  const emit = defineEmits(['close']);
+  const route = useRoute();
 
   const open = ref(false);
-  const toggle = () => {
+
+  const isActive = computed(() => {
+    if (!props.item.page) return false;
+    const path = props.item.page.replace(/\/$/, '');
+    return route.path === path || route.path.startsWith(path + '/');
+  });
+
+  const handleClick = () => {
+    if (props.item.page) emit('close');
     if (props.item.childrens) open.value = !open.value;
   };
 </script>

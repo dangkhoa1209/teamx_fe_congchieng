@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="max-w-[1440px] mx-auto" :class="[CClass, className]">
+    <div class="mx-auto w-full max-w-[1440px]" :class="[paddingClass, className]">
       <slot />
     </div>
   </div>
@@ -16,7 +16,14 @@
     },
   });
 
-  const CClass = computed(() => {
-    return 'px-[120px]'; // luôn giữ 120px, không mất khi >1440px
+  /**
+   * Padding responsive cực đẹp & chuẩn thực tế
+   *  mobile     → px-4     (16px)
+   *  tablet     → px-6     (24px)
+   *  laptop     → px-10    (40px)
+   *  wide (1440+) → px-[120px]
+   */
+  const paddingClass = computed(() => {
+    return 'px-4 tablet:px-6 laptop:px-10 wide:px-[120px]';
   });
 </script>
