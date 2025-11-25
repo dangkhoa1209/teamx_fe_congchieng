@@ -126,42 +126,61 @@
       <ul class="list-disc pl-6 space-y-1 text-justify">
         <li>
           Bảo tồn và tôn vinh di sản cồng chiêng
-          <ul class="list-none- pl-6 space-y-1">
-            <li class="before:content-['–'] before:mr-2">
-              Gìn giữ, số hóa và giới thiệu đến công chúng những tư liệu, câu chuyện, hình ảnh, âm
-              vang và ký ức về không gian văn hóa cồng chiêng tỉnh Lâm Đồng cách riêng và không gian
-              văn hóa cồng chiêng Tây Nguyên cách chung.
+          <ul class="list-none space-y-1">
+            <li class="flex">
+              <span class="mr-2 flex-none">–</span>
+              <span>
+                Gìn giữ, số hóa và giới thiệu đến công chúng những tư liệu, câu chuyện, hình ảnh, âm
+                vang và ký ức về không gian văn hóa cồng chiêng tỉnh Lâm Đồng cách riêng và không
+                gian văn hóa cồng chiêng Tây Nguyên cách chung.
+              </span>
             </li>
-            <li class="before:content-['–'] before:mr-2">
-              Tôn vinh nghệ nhân - những người “giữ hồn” của di sản; đồng thời khơi dậy niềm tự hào
-              và ý thức bảo tồn văn hóa trong cộng đồng.
+            <li class="flex">
+              <span class="mr-2 flex-none">–</span>
+              <span>
+                Tôn vinh nghệ nhân - những người “giữ hồn” của di sản; đồng thời khơi dậy niềm tự
+                hào và ý thức bảo tồn văn hóa trong cộng đồng.
+              </span>
             </li>
           </ul>
         </li>
         <li>
           Truyền thông – quảng bá bản sắc văn hóa tỉnh Lâm Đồng
-          <ul class="list-none- pl-6 space-y-1">
-            <li class="before:content-['–'] before:mr-2">
-              Xây dựng không gian truyền thông hiện đại, sáng tạo, giúp di sản được tiếp cận gần
-              gũi, hấp dẫn và sống động hơn với mọi tầng lớp khán giả, đặc biệt là giới trẻ.
+          <ul class="list-none space-y-1">
+            <li class="flex">
+              <span class="mr-2 flex-none">–</span>
+              <span>
+                Xây dựng không gian truyền thông hiện đại, sáng tạo, giúp di sản được tiếp cận gần
+                gũi, hấp dẫn và sống động hơn với mọi tầng lớp khán giả, đặc biệt là giới trẻ.
+              </span>
             </li>
-            <li class="before:content-['–'] before:mr-2">
-              Quảng bá hình ảnh Lâm Đồng - vùng đất của cồng chiêng, của sự hòa quyện giữa thiên
-              nhiên, văn hóa và con người như một điểm đến đặc sắc trên bản đồ du lịch Việt Nam và
-              Quốc tế.
+            <li class="flex">
+              <span class="mr-2 flex-none">–</span>
+              <span>
+                Quảng bá hình ảnh Lâm Đồng - vùng đất của cồng chiêng, của sự hòa quyện giữa thiên
+                nhiên, văn hóa và con người như một điểm đến đặc sắc trên bản đồ du lịch Việt Nam và
+                Quốc tế.
+              </span>
             </li>
           </ul>
         </li>
         <li>
           Kết nối di sản với phát triển bền vững
-          <ul class="list-none- pl-6 space-y-1">
-            <li class="before:content-['–'] before:mr-2">
-              Tạo cầu nối giữa văn hóa – du lịch – cộng đồng, đưa cồng chiêng trở thành nguồn cảm
-              hứng cho các mô hình du lịch trải nghiệm, nghệ thuật và giáo dục.
+          <ul class="list-none space-y-1">
+            <li class="flex">
+              <span class="mr-2 flex-none">–</span>
+              <span>
+                Tạo cầu nối giữa văn hóa – du lịch – cộng đồng, đưa cồng chiêng trở thành nguồn cảm
+                hứng cho các mô hình du lịch trải nghiệm, nghệ thuật và giáo dục.
+              </span>
             </li>
-            <li class="before:content-['–'] before:mr-2">
-              Góp phần lan tỏa thông điệp về sự giao hòa giữa truyền thống và hiện đại, để mỗi âm
-              vang cồng chiêng không chỉ vang vọng trong lễ hội mà còn sống trong đời sống hôm nay.
+            <li class="flex">
+              <span class="mr-2 flex-none">–</span>
+              <span>
+                Góp phần lan tỏa thông điệp về sự giao hòa giữa truyền thống và hiện đại, để mỗi âm
+                vang cồng chiêng không chỉ vang vọng trong lễ hội mà còn sống trong đời sống hôm
+                nay.
+              </span>
             </li>
           </ul>
         </li>

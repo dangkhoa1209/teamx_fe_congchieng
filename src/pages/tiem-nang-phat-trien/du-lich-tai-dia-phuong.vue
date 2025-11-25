@@ -1,16 +1,16 @@
 <template>
   <x-content-place class="font-robo">
     <x-space :height="40" />
-    <h2 class="font-bold text-body text-primary">
-      <div class="flex items-center gap-2">
+    <x-title variant="bottom">
+      <div class="flex items-center gap-2 font-bold text-body text-primary">
         TIỀM NĂNG PHÁT TRIỂN
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Phát triển du lịch tại địa phương
       </div>
-    </h2>
+    </x-title>
     <x-space :height="40" />
 
-    <section class="flex flex-col gap-5">
+    <section class="flex flex-col gap-[25px]">
       <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN DU LỊCH TẠI ĐỊA PHƯƠNG</h2>
       <p class="font-bold text-subtitle text-primary">
         Giữ gìn và lan tỏa không gian văn hóa cồng chiêng tại các vùng, xã, địa phương không chỉ là
@@ -32,6 +32,7 @@
         cảnh văn hóa đặc trưng của từng vùng đất.
       </p>
     </section>
+
     <x-space :height="40" />
     <section>
       <div class="flex gap-5">
@@ -39,8 +40,9 @@
         <x-image :url="$image().url" />
       </div>
     </section>
+
     <x-space :height="40" />
-    <section>
+    <section class="flex flex-col gap-[25px]">
       <p>
         Chuyên trang điện tử về mô hình văn hóa cồng chiêng đóng vai trò hệ thống hóa và giới thiệu
         sâu sắc tiềm năng ấy, giúp mỗi địa phương xây dựng hình ảnh riêng trong bức tranh chung của
@@ -49,13 +51,6 @@
         lịch đặc thù... chuyên trang giúp du khách và nhà đầu tư có cái nhìn toàn diện hơn về lợi
         thế của từng vùng.
       </p>
-    </section>
-    <x-space :height="40" />
-    <section>
-      <x-image :url="$image().url" />
-    </section>
-    <x-space :height="40" />
-    <section>
       <p>
         Khi địa phương được trao quyền chủ động trong việc bảo tồn và khai thác di sản, du lịch sẽ
         trở thành công cụ hiệu quả để phát triển kinh tế - xã hội. Các hoạt động biểu diễn cồng
@@ -71,10 +66,16 @@
         Việt Nam.
       </p>
     </section>
+
+    <x-space :height="40" />
+    <section>
+      <x-image :url="$image().url" />
+    </section>
+
     <x-space :height="80" />
     <x-line />
     <x-space :height="40" />
-    <h2 class="font-bold text-primary text-subtitle">BÀI VIẾT CÙNG CHUYÊN MỤC</h2>
+    <x-title title="BÀI VIẾT CÙNG CHUYÊN MỤC" variant="left" class-name="font-bold text-subtitle" />
     <x-space :height="40" />
     <section>
       <div class="grid grid-cols-3 gap-5">
@@ -95,6 +96,8 @@
         <x-page-news-thumb-ver />
       </div>
     </section>
+    <x-space :height="80" />
   </x-content-place>
 </template>
+
 <script setup></script>

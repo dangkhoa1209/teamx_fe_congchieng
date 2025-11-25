@@ -56,7 +56,15 @@
       if (theme.value === 'main') {
         results.push('bg-main', 'text-primary', 'hover:bg-primary', 'hover:text-main');
       } else {
-        results.push('bg-primary', 'text-main', 'hover:bg-main', 'hover:text-primary');
+        results.push(
+          'bg-primary',
+          'text-main',
+          'hover:bg-main',
+          'hover:text-primary',
+          'border', // bật border
+          'border-transparent', // border mặc định trong suốt
+          'hover:border-primary' // hover thì border đổi màu primary
+        );
       }
     }
 

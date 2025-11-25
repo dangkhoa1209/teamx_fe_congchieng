@@ -1,7 +1,8 @@
 <template>
   <x-content-place class="font-robo">
     <x-space :height="40" />
-    <h2 class="font-bold text-subtitle text-primary">HỢP TÁC</h2>
+    <x-title title="LIÊN HỆ" variant="bottom" class-name="font-bold text-subtitle" />
+
     <x-space :height="40" />
 
     <div class="flex gap-5">
@@ -44,11 +45,35 @@
           <x-form submitText="Lưu" :handle-error="false" :show-button="false" @submit="onSubmit">
             <div class="flex flex-col gap-10">
               <div class="flex gap-5">
-                <x-form-input v-model="formData.name" label="Họ và tên" name="name" rules="required" required />
-                <x-form-input v-model="formData.name" label="Số điện thoại" name="phone" rules="required" required />
+                <x-form-input
+                  v-model="formData.name"
+                  label="Họ và tên"
+                  name="name"
+                  rules="required"
+                  required
+                />
+                <x-form-input
+                  v-model="formData.name"
+                  label="Số điện thoại"
+                  name="phone"
+                  rules="required"
+                  required
+                />
               </div>
-              <x-form-input v-model="formData.name" label="Email" name="email" rules="required" required />
-              <x-form-text-area v-model="formData.des" label="Nội dung" name="content" rules="required" required />
+              <x-form-input
+                v-model="formData.name"
+                label="Email"
+                name="email"
+                rules="required"
+                required
+              />
+              <x-form-text-area
+                v-model="formData.des"
+                label="Nội dung"
+                name="content"
+                rules="required"
+                required
+              />
 
               <div class="flex justify-end">
                 <x-button theme="primary" type="submit" :uppercase="false">Gửi yêu cầu</x-button>

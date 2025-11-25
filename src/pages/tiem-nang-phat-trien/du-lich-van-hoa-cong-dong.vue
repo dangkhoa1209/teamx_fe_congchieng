@@ -1,16 +1,20 @@
 <template>
   <x-content-place class="font-robo">
     <x-space :height="40" />
-    <h2 class="font-bold text-body text-primary">
-      <div class="flex items-center gap-2">
+
+    <!-- Tiêu đề chính -->
+    <x-title variant="bottom">
+      <div class="flex items-center gap-2 font-bold text-body text-primary">
         TIỀM NĂNG PHÁT TRIỂN
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Phát triển du lịch văn hóa - cộng đồng
       </div>
-    </h2>
+    </x-title>
+
     <x-space :height="40" />
 
-    <section class="flex flex-col gap-5">
+    <!-- Section giới thiệu -->
+    <section class="flex flex-col gap-[25px]">
       <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN DU LỊCH VĂN HÓA - CỘNG ĐỒNG</h2>
       <p class="font-bold text-subtitle text-primary">
         Gắn liền không gian văn hóa cồng chiêng Tây Nguyên với việc phát triển du lịch văn hóa -
@@ -30,15 +34,19 @@
         phần của câu chuyện cộng đồng.
       </p>
     </section>
+
     <x-space :height="40" />
+    <!-- Grid ảnh -->
     <section>
       <div class="flex gap-5">
         <x-image :url="$image().url" />
         <x-image :url="$image().url" />
       </div>
     </section>
+
     <x-space :height="40" />
-    <section>
+    <!-- Section nội dung tiếp -->
+    <section class="flex flex-col gap-[25px]">
       <p>
         Chuyên trang điện tử đóng vai trò như cầu nối để những giá trị này được tiếp cận rộng rãi
         hơn. Thông qua việc số hóa dữ liệu, giới thiệu hình ảnh, video, câu chuyện buôn làng và các
@@ -54,12 +62,16 @@
         đại ngàn.
       </p>
     </section>
+
     <x-space :height="40" />
+    <!-- Ảnh đơn -->
     <section>
       <x-image :url="$image().url" />
     </section>
+
     <x-space :height="40" />
-    <section>
+    <!-- Section kết luận -->
+    <section class="flex flex-col gap-[25px]">
       <p>
         Như vậy, chuyên trang không chỉ kể câu chuyện du lịch - cộng đồng mà còn góp phần mở ra
         hướng phát triển mới cho cả vùng: phát triển du lịch dựa trên di sản, tôn trọng yếu tố bản
@@ -68,10 +80,13 @@
         lịch văn hóa đặc sắc của tỉnh Lâm Đồng.
       </p>
     </section>
+
     <x-space :height="80" />
     <x-line />
     <x-space :height="40" />
-    <h2 class="font-bold text-primary text-subtitle">BÀI VIẾT CÙNG CHUYÊN MỤC</h2>
+
+    <!-- Bài viết liên quan -->
+    <x-title title="BÀI VIẾT CÙNG CHUYÊN MỤC" variant="left" class-name="font-bold text-subtitle" />
     <x-space :height="40" />
     <section>
       <div class="grid grid-cols-3 gap-5">
@@ -92,6 +107,8 @@
         <x-page-news-thumb-ver />
       </div>
     </section>
+    <x-space :height="80" />
   </x-content-place>
 </template>
+
 <script setup></script>
