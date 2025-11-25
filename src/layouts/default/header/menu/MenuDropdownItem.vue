@@ -12,13 +12,13 @@
     <!-- GẠCH CHÂN DƯỚI - CHỈ HIỆN KHI ACTIVE (ROOT) - KHÔNG HOVER -->
     <div
       v-if="isRoot && isActive"
-      class="absolute bottom-[10px] left-0 right-0 h-[2px] bg-primary mx-4"
+      class="absolute bottom-[10px] left-0 right-0 h-[2px] bg-primary"
     />
 
     <!-- LINK HOẶC TEXT -->
     <x-link v-if="item.page" :to="item.page">
       <span
-        class="block whitespace-nowrap transition-all duration-300 px-4"
+        class="block whitespace-nowrap transition-all duration-300"
         :class="[
           // Kích thước chữ
           isRoot
