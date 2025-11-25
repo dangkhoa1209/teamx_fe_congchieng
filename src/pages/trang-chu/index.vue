@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="user-select-none">
     <!-- Banner -->
     <!-- TODO: gán x-content-place -->
     <div class="max-w-[1440px] mx-auto">
@@ -103,68 +103,7 @@
         />
         <x-space :height="50" />
 
-        <!-- TODO: đổi thành slide image -->
-        <div class="flex gap-[40px] flex-col laptop:flex-row">
-          <!-- Card 1 -->
-          <div
-            class="flex-1 rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
-          >
-            <x-image :url="$image().url" />
-            <div class="p-5 flex flex-col justify-between flex-1">
-              <div>
-                <p class="font-robo font-medium text-subtitle text-primary">Xã Lạc Dương</p>
-                <hr class="border-0 h-px bg-primary my-3" />
-                <p class="font-robo font-normal text-body text-justify">
-                  Lạc Dương là trái tim của văn hoá Cồng Chiêng Lâm Đồng, nơi hội tụ của cộng đồng
-                  dân tộc K’Ho với truyền thống lâu đời trong nghệ thuật diễn tấu và lễ hội.
-                </p>
-              </div>
-              <div class="mt-5">
-                <x-button theme="primary" outline :uppercase="false">Tìm hiểu thêm</x-button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div
-            class="flex-1 rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
-          >
-            <x-image :url="$image().url" />
-            <div class="p-5 flex flex-col s">
-              <div>
-                <p class="font-robo font-medium text-subtitle text-primary">Xã Đạ Tẻh</p>
-                <hr class="border-0 h-px bg-primary my-3" />
-                <p class="font-robo font-normal text-body text-justify">
-                  Đạ Tẻh là vùng đất còn lưu giữ nhiều nghệ nhân cồng chiêng lớn tuổi, nơi các giá
-                  trị truyền thống được truyền dạy qua nhiều thế hệ.
-                </p>
-              </div>
-              <div class="mt-5">
-                <x-button theme="primary" outline :uppercase="false">Tìm hiểu thêm</x-button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div
-            class="flex-1 rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
-          >
-            <x-image :url="$image().url" />
-            <div class="p-5 flex flex-col justify-between flex-1">
-              <div>
-                <p class="font-robo font-medium text-subtitle text-primary">Xã Bảo Lâm 3</p>
-                <x-line />
-                <p class="font-robo font-normal text-body text-justify">
-                  Bảo Lâm 3 là vùng đất giao thoa giữa văn hoá bản địa và hiện đại, nơi tiếng cồng
-                  chiêng vẫn vang lên trong đời sống thường nhật của người Mạ, K’Ho và Chu Ru.
-                </p>
-              </div>
-              <div class="mt-5">
-                <x-button theme="primary" outline :uppercase="false">Tìm hiểu thêm</x-button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SlideXa />
       </x-content-place>
     </section>
 
@@ -175,14 +114,15 @@
         <x-space :height="35" />
         <h2 class="font-robo font-bold text-title text-primary text-center">ĐƠN VỊ HỢP TÁC</h2>
         <x-space :height="65" />
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <!-- <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           <x-image :url="$image().url" />
           <x-image :url="$image().url" />
           <x-image :url="$image().url" />
           <x-image :url="$image().url" />
           <x-image :url="$image().url" />
           <x-image :url="$image().url" />
-        </div>
+        </div> -->
+        <SlideDonViHopTac />
       </x-content-place>
     </section>
     <x-space />
@@ -190,6 +130,8 @@
 </template>
 
 <script setup>
+  import SlideXa from './ignore/xa.vue';
+  import SlideDonViHopTac from './ignore/don-vi-hop-tac.vue';
   useHead({
     title: 'Trang chủ',
     // meta: [{ name: 'description', content: 'Website của Khoa - ví dụ SEO tốt hơn' }],
