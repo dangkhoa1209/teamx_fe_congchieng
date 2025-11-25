@@ -56,7 +56,7 @@
     <x-line />
     <x-space :height="40" />
     <section>
-      <div class="grid grid-cols-3 gap-x-[40px] gap-y-[50px]">
+      <div class="grid grid-cols-2 laptop:grid-cols-3 gap-x-[40px] gap-y-[50px]">
         <x-page-news-thumb-ver />
         <x-page-news-thumb-ver />
         <x-page-news-thumb-ver />

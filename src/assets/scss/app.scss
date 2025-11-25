@@ -7,30 +7,65 @@ body {
 }
 
 @layer utilities {
+  /* ====== TEXT SCALE CHUẨN RESPONSIVE ====== */
+
+  /* Hero Title – Tiêu đề lớn nhất (trang chủ, banner) */
   .text-hero {
-    @apply text-[40px];
+    @apply text-[32px] font-bold;
+    @apply tablet:text-[40px];
+    @apply laptop:text-[48px];
+    @apply desktop:text-[56px];
+    @apply wide:text-[64px];        /* 1440+ cực hoành tráng */
   }
 
+  /* Main Title – Tiêu đề trang, section */
   .text-title {
-     @apply text-[30px];
+    @apply text-[24px] font-bold;
+    @apply tablet:text-[28px];
+    @apply laptop:text-[32px];
+    @apply desktop:text-[36px];
+    @apply wide:text-[40px];
   }
 
+  /* Title News – Tiêu đề bài viết, card */
   .text-title-news {
-    @apply text-[22px];
+    @apply text-[18px] font-bold;
+    @apply tablet:text-[20px];
+    @apply laptop:text-[22px];
+    @apply wide:text-[24px];
   }
 
+  /* Subtitle – Mô tả ngắn, lead */
   .text-subtitle {
-     @apply text-[18px];
+    @apply text-[16px];
+    @apply tablet:text-[17px];
+    @apply laptop:text-[18px];
+    @apply wide:text-[19px];
   }
 
+  /* Body text – Nội dung chính */
   .text-body {
-     @apply text-[16px] leading-[25px];
+    @apply text-[15px];
+    @apply tablet:text-[15.5px];
+    @apply laptop:text-[16px];
+    @apply wide:text-[17px];
   }
 
+  /* Caption, note, label */
   .text-14 {
-     @apply text-[14px];
-  }
-  .text-mini {
     @apply text-[13px];
+    @apply laptop:text-[14px];
+  }
+
+  .text-mini {
+    @apply text-[12px] opacity-80;
+    @apply laptop:text-[13px];
+  }
+
+  /* Bonus: Class siêu tiện dùng cho tiêu đề có clamp() mượt như Notion */
+  .text-clamp {
+    font-size: clamp(24px, 4vw, 64px);
+    line-height: 1.2;
+    font-weight: 700;
   }
 }

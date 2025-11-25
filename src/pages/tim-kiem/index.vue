@@ -3,7 +3,7 @@
     <x-space :height="40" />
     <h2 class="font-bold text-subtitle text-primary">KẾT QUẢ TÌM KIẾM</h2>
     <x-space :height="40" />
-    <div class="flex gap-[40px]">
+    <div class="flex gap-[40px] flex-col laptop:flex-row">
       <div class="w-full">
         <inpit-filter v-model="filter.search" class="w-full" />
 
@@ -39,7 +39,7 @@
         />
         <x-space :height="80" />
       </div>
-      <div class="min-w-[400px] w-[400px]">
+      <div class="min-w-[400px] laptop:w-[400px]">
         <div>
           <h2 class="font-bold text-subtitle text-primary leading-[40px]">TIN TỨC NỔI BẬT</h2>
           <x-line className="" />
@@ -52,6 +52,7 @@
         </div>
       </div>
     </div>
+    <x-space :height="80" />
   </x-content-place>
 </template>
 <script setup>

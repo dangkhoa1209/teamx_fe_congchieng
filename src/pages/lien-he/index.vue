@@ -5,8 +5,8 @@
 
     <x-space :height="40" />
 
-    <div class="flex gap-5">
-      <div class="w-[35%]">
+    <div class="flex flex-col laptop:flex-row gap-[40px]">
+      <div class="laptop:w-[35%]">
         <p class="text-subtitle font-bold">Thông tin liên hệ</p>
         <x-space :height="50" />
         <div class="flex flex-col gap-[40px] text-body font-normal">
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <div class="w-[65%]">
+      <div class="laptop:w-[65%]">
         <p class="text-subtitle font-bold">Gửi yêu cầu liên hệ</p>
         <x-space :height="50" />
         <div>

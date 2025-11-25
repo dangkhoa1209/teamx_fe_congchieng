@@ -47,11 +47,14 @@
                 Cồng Chiêng.
               </p>
             </div>
+            <div class="my-[40px] block laptop:hidden">
+              <x-image :url="$image().url" :height="650" />
+            </div>
             <div class="flex">
               <x-button :uppercase="false" theme="primary">Tìm hiểu thêm</x-button>
             </div>
           </div>
-          <div class="min-w-[47%]">
+          <div class="min-w-[47%] hidden laptop:block">
             <x-image :url="$image().url" :height="650" />
           </div>
         </div>
@@ -69,7 +72,7 @@
           variant="bottom"
         />
         <x-space :height="50" />
-        <div class="flex gap-[40px]">
+        <div class="flex gap-[40px] flex-col laptop:flex-row">
           <x-page-news-thumb-ver />
           <x-page-news-thumb-ver />
           <x-page-news-thumb-ver />
@@ -101,10 +104,10 @@
         <x-space :height="50" />
 
         <!-- TODO: đổi thành slide image -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="flex gap-[40px] flex-col laptop:flex-row">
           <!-- Card 1 -->
           <div
-            class="rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+            class="flex-1 rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
           >
             <x-image :url="$image().url" />
             <div class="p-5 flex flex-col justify-between flex-1">
@@ -124,7 +127,7 @@
 
           <!-- Card 2 -->
           <div
-            class="rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+            class="flex-1 rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
           >
             <x-image :url="$image().url" />
             <div class="p-5 flex flex-col s">
@@ -144,7 +147,7 @@
 
           <!-- Card 3 -->
           <div
-            class="rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+            class="flex-1 rounded-[15px] bg-extra flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1"
           >
             <x-image :url="$image().url" />
             <div class="p-5 flex flex-col justify-between flex-1">
@@ -172,7 +175,7 @@
         <x-space :height="35" />
         <h2 class="font-robo font-bold text-title text-primary text-center">ĐƠN VỊ HỢP TÁC</h2>
         <x-space :height="65" />
-        <div class="flex gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           <x-image :url="$image().url" />
           <x-image :url="$image().url" />
           <x-image :url="$image().url" />

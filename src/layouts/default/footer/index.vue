@@ -2,7 +2,7 @@
   <footer class="bg-primary text-main">
     <x-content-place>
       <x-space :height="58" />
-      <div class="flex gap-16">
+      <div class="flex gap-16 flex-col laptop:flex-row">
         <div class="flex flex-col justify-between gap-8 w-[50%]">
           <div class="flex flex-col gap-8">
             <div class="flex gap-6 items-center">

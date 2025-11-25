@@ -79,7 +79,7 @@
 
     <!-- Grid Items -->
     <section>
-      <div class="grid grid-cols-3 gap-x-[40px] gap-y-[50px]">
+      <div class="grid grid-cols-2 laptop:grid-cols-3 gap-x-[40px] gap-y-[50px]">
         <x-page-news-thumb-ver v-for="n in 15" :key="n" />
       </div>
 

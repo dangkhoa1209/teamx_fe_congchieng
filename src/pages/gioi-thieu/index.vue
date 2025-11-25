@@ -9,7 +9,7 @@
 
     <x-space :height="40" />
 
-    <div class="flex gap-[40px]">
+    <div class="flex gap-[40px] flex-col laptop:flex-row">
       <div class="flex-1 flex flex-col gap-[25px] text-justify">
         <p>
           Từ thuở hồng hoang, khi con người biết khai thác kim loại từ lòng đất để tạo ra những tấm
@@ -30,7 +30,7 @@
           người Việt đều nhận ra và tự hào khi nhắc đến.
         </p>
       </div>
-      <div class="max-w-[46%] min-w-[46%]">
+      <div class="laptop:max-w-[46%] min-w-[46%]">
         <x-image :url="$image().url" :height="650" />
       </div>
     </div>
