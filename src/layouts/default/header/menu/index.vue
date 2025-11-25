@@ -1,4 +1,5 @@
 <template>
+  currentPath: {{ currentPath }}
   <nav class="sticky top-0 z-[999]">
     <div class="h-[75px]">
       <div class="header z-50 bg-main border border-primary">
@@ -22,6 +23,7 @@
                   :active-path="activePath"
                   :parent-path="[]"
                   :is-root="true"
+                  :current-path="currentPath"
                   @update:path="updatePath"
                   @mouseleave="scheduleClose"
                 />
@@ -36,7 +38,7 @@
               </button>
             </div>
 
-            <!-- SEARCH ICON (giữ nguyên) -->
+            <!-- SEARCH ICON -->
             <div
               class="relative h-[75px] flex items-center"
               @mouseenter="onEnter"
@@ -66,12 +68,16 @@
   import MenuDropdownItem from './MenuDropdownItem.vue';
   import InputFitter from './input-fitter.vue';
   import IconFind from '~/public/assets/icon/testsvg.svg';
-  import { useRouter } from 'vue-router';
 
   const router = useRouter();
+  const route = useRoute();
 
-  // === STATE CHUNG: ĐƯỜNG DẪN HOVER ===
-  const activePath = ref([]); // ['van-hoa', 'xa-parent', 'xa1']
+  const currentPath = computed(() => {
+    return route.path.replace(/\/$/, '') || '/trang-chu';
+  });
+
+  // === HOVER PATH STATE ===
+  const activePath = ref([]);
   let closeTimer = null;
 
   const updatePath = (path) => {
@@ -83,30 +89,38 @@
     clearTimeout(closeTimer);
     closeTimer = setTimeout(() => {
       activePath.value = [];
-    }, 350); // 350ms đủ để di chuyển xuống cấp con
+    }, 350);
   };
 
-  // Scroll ngang
+  // === SCROLL NGANG MENU ===
   const menuList = ref(null);
   const showPrev = ref(false);
   const showNext = ref(false);
+
   const checkScroll = () => {
     if (!menuList.value) return;
     const el = menuList.value;
     showPrev.value = el.scrollLeft > 10;
     showNext.value = el.scrollWidth - el.clientWidth - el.scrollLeft > 10;
   };
+
   const scrollLeft = () => menuList.value?.scrollBy({ left: -200, behavior: 'smooth' });
   const scrollRight = () => menuList.value?.scrollBy({ left: 200, behavior: 'smooth' });
+
   onMounted(() => {
     checkScroll();
     menuList.value?.addEventListener('scroll', checkScroll);
   });
 
-  // Search (giữ nguyên)
+  onUnmounted(() => {
+    menuList.value?.removeEventListener('scroll', checkScroll);
+  });
+
+  // === SEARCH ===
   const showSearch = ref(false);
   const isFocused = ref(false);
   const inputRef = ref(null);
+
   const onEnter = () => (showSearch.value = true);
   const onLeave = () => !isFocused.value && (showSearch.value = false);
   const focusInput = () => {
@@ -118,9 +132,7 @@
     onLeave();
   };
   const handleEnter = (v) => {
-    if (!v) {
-      return;
-    }
+    if (!v) return;
     isFocused.value = false;
     onLeave();
     router.push({ path: '/tim-kiem', query: { q: v } });
