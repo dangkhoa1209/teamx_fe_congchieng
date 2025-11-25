@@ -61,6 +61,20 @@
         <x-space :height="80" />
         <x-line className="" />
 
+        <section class="min-w-[400px] block laptop:hidden">
+          <div>
+            <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">
+              TIN TỨC NỔI BẬT
+            </h2>
+            <x-space :height="40" />
+            <div class="flex flex-col gap-[25px]">
+              <x-page-news-thumb-hor :exclude="['subTitle']" />
+              <x-page-news-thumb-hor :exclude="['subTitle']" />
+              <x-page-news-thumb-hor :exclude="['subTitle']" />
+            </div>
+          </div>
+        </section>
+
         <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC KHÁC</h2>
         <x-space :height="40" />
         <div class="flex gap-[25px]">
@@ -69,7 +83,7 @@
         </div>
         <x-space :height="80" />
       </section>
-      <section class="min-w-[400px] w-[400px]">
+      <section class="min-w-[400px] w-[400px] hidden laptop:block">
         <div>
           <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC NỔI BẬT</h2>
           <x-line className="" />
