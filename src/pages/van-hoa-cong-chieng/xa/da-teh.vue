@@ -1,21 +1,24 @@
 <template>
   <x-content-place class="font-robo">
+    <!-- ===== BREADCRUMB TITLE ===== -->
     <x-space :height="40" />
-    <h2 class="font-bold text-body text-primary">
-      <div class="flex items-center gap-2">
+
+    <x-title variant="bottom">
+      <div class="flex items-center gap-2 font-bold text-body text-primary leading-[1]">
         VĂN HOÁ CỒNG CHIÊNG
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Văn hóa cồng chiêng tại các xã
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Xã Đạ Tẻh
       </div>
-    </h2>
-    <x-space :height="40" />
+    </x-title>
 
-    <section class="flex flex-col gap-5">
-      <h2 class="font-bold text-body text-primary text-subtitle">
-        VĂN HÓA CỒNG CHIÊNG TẠI XÃ ĐẠ TẺH
-      </h2>
+    <x-space :height="50" />
+
+    <!-- ===== CONTENT BODY ===== -->
+    <section class="flex flex-col gap-[25px] text-justify leading-relaxed text-body">
+      <h2 class="font-bold text-primary text-subtitle">VĂN HÓA CỒNG CHIÊNG TẠI XÃ ĐẠ TẺH</h2>
+
       <p>
         Với đồng bào người Mạ và người K’Ho tại xã Đạ Tẻh, tiếng chiêng là ngôn ngữ thiêng liêng của
         Yàng (thần linh), là sợi dây kết nối giữa con người với vũ trụ. Cồng chiêng nơi đây không
@@ -25,6 +28,7 @@
         tranh văn hóa rực rỡ, chan hòa sức sống. Mỗi nhịp chiêng là một lời cầu mùa, mỗi điệu xoang
         là một nhịp đập của đất trời.
       </p>
+
       <p>
         Chính quyền địa phương đã triển khai chương trình bảo tồn gắn với truyền dạy, hình thành
         nhiều Câu lạc bộ cồng chiêng tại các thôn buôn, đồng thời mở lớp cho thanh niên (15 – 30
@@ -32,42 +36,46 @@
         không chỉ biết “nghe chiêng”, mà còn biết “thổi hồn vào chiêng”, tiếp nối mạch sống của di
         sản.
       </p>
+
       <p>
         Ngày nay, xã Đạ Tẻh đang hướng tới phát triển du lịch văn hóa cộng đồng, lấy cồng chiêng làm
         điểm nhấn, kết hợp với không gian nông nghiệp - sinh thái, tạo nên một mô hình “du lịch từ
         di sản” bền vững và đặc sắc.
       </p>
     </section>
+
     <x-space :height="50" />
+
+    <!-- ===== NEWS SECTION ===== -->
     <section>
-      <h2 class="font-bold text-body text-primary text-subtitle">TIN TỨC - SỰ KIỆN XÃ ĐẠ TẺH</h2>
+      <x-title
+        title="TIN TỨC - SỰ KIỆN XÃ ĐẠ TẺH"
+        variant="left"
+        class-name="font-bold text-body"
+      />
+
+      <x-space :height="40" />
+
       <x-page-news />
     </section>
 
+    <x-space :height="40" />
+
     <x-line />
 
-    <section>
-      <div class="grid grid-cols-3 gap-5">
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-      </div>
+    <x-space :height="40" />
 
+    <!-- ===== GRID MORE NEWS ===== -->
+    <section>
+      <div class="grid grid-cols-3 gap-x-[40px] gap-y-[50px]">
+        <x-page-news-thumb-ver v-for="i in 15" :key="i" />
+      </div>
+      <x-space :height="40" />
       <div class="flex justify-center">
         <x-button theme="primary" outline :uppercase="false">Xem thêm</x-button>
       </div>
     </section>
+
+    <x-space :height="80" />
   </x-content-place>
 </template>

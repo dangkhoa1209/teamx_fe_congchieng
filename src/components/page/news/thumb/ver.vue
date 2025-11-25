@@ -3,7 +3,7 @@
 <template>
   <div>
     <x-image :url="$image().url" />
-    <div class="py-5 flex flex-col gap-5">
+    <div class="pt-[25px] flex flex-col gap-[25px]">
       <p
         class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer text-justify"
       >

@@ -1,18 +1,19 @@
 <template>
   <x-content-place class="font-robo">
     <x-space :height="40" />
-    <h2 class="font-bold text-body text-primary">
-      <div class="flex items-center gap-2">
+    <x-title variant="bottom">
+      <div class="flex items-center gap-2 font-bold text-body text-primary m-0 leading-[1]">
         VĂN HOÁ CỒNG CHIÊNG
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Văn hóa cồng chiêng tại các xã
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
         Xã Bảo Lâm 3
       </div>
-    </h2>
-    <x-space :height="40" />
+    </x-title>
 
-    <section class="flex flex-col gap-5">
+    <x-space :height="50" />
+
+    <section class="flex flex-col gap-[25px] text-justify">
       <h2 class="font-bold text-body text-primary text-subtitle">
         VĂN HÓA CỒNG CHIÊNG TẠI XÃ BẢO LÂM 3
       </h2>
@@ -43,14 +44,19 @@
     </section>
     <x-space :height="50" />
     <section>
-      <h2 class="font-bold text-body text-primary text-subtitle">TIN TỨC - SỰ KIỆN XÃ BẢO LÂM 3</h2>
+      <x-title
+        title="TIN TỨC - SỰ KIỆN XÃ BẢO LÂM 3"
+        variant="left"
+        class-name="font-bold text-body"
+      />
+      <x-space :height="40" />
       <x-page-news />
     </section>
-
+    <x-space :height="40" />
     <x-line />
-
+    <x-space :height="40" />
     <section>
-      <div class="grid grid-cols-3 gap-5">
+      <div class="grid grid-cols-3 gap-x-[40px] gap-y-[50px]">
         <x-page-news-thumb-ver />
         <x-page-news-thumb-ver />
         <x-page-news-thumb-ver />
@@ -68,9 +74,11 @@
         <x-page-news-thumb-ver />
       </div>
 
+      <x-space :height="40" />
       <div class="flex justify-center">
         <x-button theme="primary" outline :uppercase="false">Xem thêm</x-button>
       </div>
     </section>
+    <x-space :height="80" />
   </x-content-place>
 </template>
