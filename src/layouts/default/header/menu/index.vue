@@ -1,6 +1,5 @@
 <template>
-  currentPath: {{ currentPath }}
-  <nav class="sticky top-0 z-[999]">
+  <nav class="sticky top-0 z-[999] select-none">
     <div class="h-[75px]">
       <div class="header z-50 bg-main border border-primary">
         <x-content-place>

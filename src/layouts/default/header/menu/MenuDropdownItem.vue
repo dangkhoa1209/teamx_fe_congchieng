@@ -10,7 +10,10 @@
     @mouseleave="$emit('mouseleave')"
   >
     <!-- GẠCH CHÂN DƯỚI - CHỈ HIỆN KHI ACTIVE (ROOT) - KHÔNG HOVER -->
-    <div v-if="isRoot && isActive" class="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
+    <div
+      v-if="isRoot && isActive"
+      class="absolute bottom-[10px] left-0 right-0 h-[2px] bg-primary mx-4"
+    />
 
     <!-- LINK HOẶC TEXT -->
     <x-link v-if="item.page" :to="item.page">
@@ -115,14 +118,38 @@
   });
 
   // ACTIVE: trang hiện tại có khớp với item.page không?
+  // ACTIVE: trang hiện tại có nằm trong cây con của item này không?
   const isActive = computed(() => {
-    if (!props.item.page) return false;
+    if (!props.item.page && !props.item.childrens) return false;
 
-    const itemPath = props.item.page.replace(/\/$/, '');
     const current = props.currentPath;
 
-    if (itemPath === current) return true;
-    if (props.isRoot && current.startsWith(itemPath + '/')) return true;
+    // Case 1: Item có page → khớp chính xác hoặc là cha của trang hiện tại
+    if (props.item.page) {
+      const itemPath = props.item.page.replace(/\/$/, '');
+      if (itemPath === current) return true;
+      if (current.startsWith(itemPath + '/')) return true;
+    }
+
+    // Case 2: Item KHÔNG có page (chỉ là nhóm) → kiểm tra xem có con nào active không
+    // → dùng đệ quy qua tất cả childrens để tìm xem currentPath có nằm trong không
+    if (props.item.childrens) {
+      const checkChildren = (items) => {
+        for (const child of items) {
+          if (child.page) {
+            const childPath = child.page.replace(/\/$/, '');
+            if (childPath === current || current.startsWith(childPath + '/')) {
+              return true;
+            }
+          }
+          if (child.childrens && checkChildren(child.childrens)) {
+            return true;
+          }
+        }
+        return false;
+      };
+      return checkChildren(props.item.childrens);
+    }
 
     return false;
   });
