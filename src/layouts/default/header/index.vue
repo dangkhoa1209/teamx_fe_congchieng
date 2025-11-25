@@ -37,7 +37,7 @@
       <!-- Background trang trí (desktop) -->
       <div class="absolute inset-0 pointer-events-none">
         <div class="max-w-[1440px] mx-auto h-full flex justify-end">
-          <IconHeader class="h-full text-primary opacity-20" />
+          <IconHeader class="h-full text-primary" />
         </div>
       </div>
     </div>
