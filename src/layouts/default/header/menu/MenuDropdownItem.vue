@@ -42,7 +42,7 @@
 
     <span
       v-else
-      class="block whitespace-nowrap cursor-default transition-all duration-300 px-4"
+      class="block whitespace-nowrap cursor-default transition-all duration-300"
       :class="[
         isRoot
           ? 'leading-[75px] uppercase text-[16px] font-robo font-medium text-primary'
