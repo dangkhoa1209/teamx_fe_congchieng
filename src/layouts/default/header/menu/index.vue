@@ -3,7 +3,7 @@
     <div class="h-[75px]">
       <div class="header z-50">
         <x-content-place>
-          <div class="relative flex justify-between items-center h-[75px] gap-5">
+          <div class="relative flex justify-between items-center h-[75px] gap-[40px]">
             <!-- MENU NGANG CÓ SCROLL -->
             <div ref="menuWrapper" class="relative overflow-hidden flex-1">
               <button

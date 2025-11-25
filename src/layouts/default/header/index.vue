@@ -92,9 +92,7 @@
   </header>
 
   <div class="sticky top-0 z-40 bg-main laptop:block hidden">
-    <x-content-place>
-      <Menu :menus="menus" />
-    </x-content-place>
+    <Menu :menus="menus" />
   </div>
 </template>
 
