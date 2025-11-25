@@ -1,7 +1,7 @@
 <template>
   <x-content-place class="font-robo text-body">
     <x-space :height="40" />
-    <h2 class="font-bold text-subtitle text-primary">GIỚI THIỆU</h2>
+    <x-title class-name="font-bold text-subtitle" title="GIỚI THIỆU" variant="bottom" />
     <x-space :height="40" />
     <h2 class="font-bold text-primary text-title">
       BẢO TỒN VÀ LAN TỎA VĂN HOÁ CỒNG CHIÊNG TÂY NGUYÊN
@@ -73,7 +73,8 @@
 
     <x-space :height="50" />
     <section class="flex flex-col">
-      <h2 class="font-bold text-subtitle text-primary">TẦM NHÌN</h2>
+      <x-title class-name="font-bold text-subtitle" title="TẦM NHÌN" variant="left" />
+
       <x-space :height="40" />
       <p class="text-justify">
         Chuyên trang hướng tới mục đích trở thành nền tảng thông tin – truyền thông số hàng đầu về
@@ -113,7 +114,8 @@
     </section>
     <x-space :height="50" />
     <section class="flex flex-col">
-      <h2 class="font-bold text-subtitle text-primary">SỨ MỆNH</h2>
+      <x-title class-name="font-bold text-subtitle" title="SỨ MỆNH" variant="left" />
+
       <x-space :height="40" />
       <p class="text-justify">
         Chuyên trang thông tin điện tử ra đời với sứ mệnh giữ gìn – lan tỏa – kết nối những giá trị
@@ -170,7 +172,11 @@
 
     <x-space :height="50" />
     <section class="flex flex-col">
-      <h2 class="font-bold text-subtitle text-primary">5 GIÁ TRỊ CỐT LÕI CỦA CỒNG CHIÊNG</h2>
+      <x-title
+        class-name="font-bold text-subtitle"
+        title="5 GIÁ TRỊ CỐT LÕI CỦA CỒNG CHIÊNG"
+        variant="left"
+      />
       <x-space :height="25" />
       <p class="text-justify">
         Trải qua hàng ngàn năm, tiếng chiêng không chỉ vang vọng trong những buôn làng, mà còn khắc
@@ -182,7 +188,11 @@
     </section>
     <x-space :height="50" />
     <section class="flex flex-col">
-      <h2 class="font-bold text-subtitle text-primary">GIÁ TRỊ CỐT LÕI CỦA CHUYÊN TRANG ĐIỆN TỬ</h2>
+      <x-title
+        class-name="font-bold text-subtitle"
+        title="GIÁ TRỊ CỐT LÕI CỦA CHUYÊN TRANG ĐIỆN TỬ"
+        variant="left"
+      />
       <x-space :height="25" />
       <p class="text-justify">
         Chuyên trang được xây dựng và vận hành dựa trên những giá trị cốt lõi mang chiều sâu văn

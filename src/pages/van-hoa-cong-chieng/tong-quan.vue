@@ -2,18 +2,31 @@
   <x-content-place>
     <x-space :height="40" />
     <section class="">
-      <h2 class="font-robo font-bold text-subtitle text-primary">VĂN HOÁ CỒNG CHIÊNG</h2>
+      <x-title
+        title="VĂN HOÁ CỒNG CHIÊNG"
+        variant="bottom"
+        class-name="font-robo font-bold text-subtitle"
+      />
+
       <x-space :height="40" />
       <h1 class="text-title font-bold font-robo text-primary">
         ÂM THANH CỒNG CHIÊNG HƠI THỞ VĂN HOÁ TÂY NGUYÊN
       </h1>
     </section>
     <x-space :height="40" />
-    <div class="flex gap-5">
+    <div class="flex gap-[40px]">
       <x-image :url="$image().url" />
       <x-image :url="$image().url" />
     </div>
-    <div class="font-robo text-body flex flex-col font-normal gap-5">
+
+    <x-space :height="50" />
+    <x-title
+      title="VĂN HÓA CỒNG CHIÊNG TẠI VIỆT NAM"
+      variant="left"
+      class-name="font-robo text-subtitle font-bold"
+    />
+    <x-space :height="40" />
+    <div class="font-robo text-body flex flex-col font-normal gap-[25px] text-justify">
       <p class="text-subtitle text-primary font-bold">Văn hóa cồng chiêng Tây Bắc</p>
       <p class="italic font-light">
         “Ở Tây Bắc, tiếng chiêng hòa cùng gió núi, mây trời như tiếng vọng của đất trời cổ xưa”
@@ -29,6 +42,10 @@
         mà còn là lời chào, lời tạ, lời tiễn thiêng liêng, cảm xúc.
       </p>
       <x-image :url="$image().url" />
+    </div>
+
+    <x-space :height="50" />
+    <div class="font-robo text-body flex flex-col font-normal gap-[25px] text-justify">
       <p class="text-subtitle text-primary font-bold">Văn hóa cồng chiêng Tây Nguyên</p>
       <p class="italic font-light">
         “Nếu nhịp chiêng Tây Bắc mang âm hưởng của núi cao thì Tây Nguyên là đại ngàn của âm thanh
@@ -64,6 +81,22 @@
         quá khứ - hiện tại - tương lai của người con Tây Nguyên.
       </p>
     </div>
+    <x-space :height="50" />
+    <x-title
+      title="VĂN HÓA CỒNG CHIÊNG TẠI CÁC XÃ THUỘC TỈNH LÂM ĐỒNG"
+      variant="left"
+      class-name="font-robo text-subtitle font-bold"
+    />
+    <x-space :height="25" />
+    <p class="font-robo text-body text-justify">
+      Văn hóa cồng chiêng tỉnh Lâm Đồng là linh hồn của vùng đất, nơi những thanh âm vang vọng giữa
+      đại ngàn vẫn còn mãi trong đời sống của bao thế hệ. Mỗi xã, mỗi buôn làng đều có cách gìn giữ
+      và “thổi hồn” riêng cho di sản này, tạo nên bức tranh đa sắc của không gian văn hóa cồng
+      chiêng Lâm Đồng – một phần không thể tách rời của di sản cồng chiêng Tây chiêng, đã được
+      UNESCO công nhận là Kiệt tác di sản truyền khẩu và phi vật thể của nhân loại.
+    </p>
+    <x-space :height="25" />
+    <x-image :url="$image().url" />
     <x-space :height="80" />
   </x-content-place>
 </template>

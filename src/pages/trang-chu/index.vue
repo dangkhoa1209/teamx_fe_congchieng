@@ -63,7 +63,11 @@
     <!-- TIỀM NĂNG PHÁT TRIỂN -->
     <section class="">
       <x-content-place>
-        <h2 class="font-robo font-bold text-title text-primary">TIỀM NĂNG PHÁT TRIỂN</h2>
+        <x-title
+          class-name="font-robo font-bold text-title"
+          title="TIỀM NĂNG PHÁT TRIỂN"
+          variant="bottom"
+        />
         <x-space :height="50" />
         <div class="flex gap-[40px]">
           <x-page-news-thumb-ver />
@@ -76,7 +80,11 @@
     <x-space />
     <section class="">
       <x-content-place>
-        <h2 class="font-robo font-bold text-title text-primary">TIN TỨC - SỰ KIỆN</h2>
+        <x-title
+          class-name="font-robo font-bold text-title"
+          title="TIN TỨC - SỰ KIỆN"
+          variant="bottom"
+        />
         <x-space :height="50" />
         <x-page-news />
       </x-content-place>
@@ -85,8 +93,11 @@
     <x-space />
     <section>
       <x-content-place>
-        <h2 class="font-robo font-bold text-title text-primary">VĂN HÓA CỒNG CHIÊNG TẠI CÁC XÃ</h2>
-
+        <x-title
+          class-name="font-robo font-bold text-title"
+          title="VĂN HÓA CỒNG CHIÊNG TẠI CÁC XÃ"
+          variant="bottom"
+        />
         <x-space :height="50" />
 
         <!-- TODO: đổi thành slide image -->
