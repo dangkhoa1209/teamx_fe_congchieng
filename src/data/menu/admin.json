@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Trang chủ",
+    "page": "/admin/trang-chu",
+    "id": "admin-trang-chu",
+    "permissions": [
+      "trang-chu"
+    ]
+  },
+  {
+    "label": "Tin tức - Sự kiện",
+    "id": "admin-tin-tuc-su-kien",
+    "permissions": [
+      "tin-tuc-su-kien",
+      "xa-lac-duong",
+      "xa-da-teh",
+      "xa-lac-bao-lam-3",
+      "xa-dinh-trang-thuong",
+      "xa-tam-dong-4"
+    ],
+    "childrens": [
+      {
+        "label": "Quản lý tin tức - sự kiện",
+        "id": "quan-ly-tin-tuc-su-kien",
+        "page": "/admin/tin-tuc-su-kien"
+      }
+    ]
+  },
+  {
+    "label": "Tài khoản",
+    "page": "/admin/tai-khoan",
+    "id": "admin-tai-khoan",
+    "permissions": [
+      "tai-khoan"
+    ]
+  },
+  {
+    "label": "Cá nhân",
+    "id": "admin-ca-nhan",
+    "page": "/admin/ca-nhan"
+  }
+]

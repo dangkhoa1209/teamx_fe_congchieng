@@ -36,32 +36,6 @@
                 ›
               </button>
             </div>
-
-            <!-- SEARCH ICON -->
-            <div
-              class="relative h-[75px] flex items-center"
-              @mouseenter="onEnter"
-              @mouseleave="onLeave"
-            >
-              <Icon
-                name="heroicons:magnifying-glass"
-                class="w-6 h-6 fill-primary cursor-pointer"
-                @click="focusInput"
-              />
-
-              <div
-                v-if="showSearch"
-                class="absolute bottom-0 right-0 translate-y-[100%] text-main w-64"
-              >
-                <input-fitter
-                  ref="inputRef"
-                  placeholder="Nhập từ khóa..."
-                  @focus="isFocused = true"
-                  @blur="outForcus"
-                  @enter="handleEnter"
-                />
-              </div>
-            </div>
           </div>
         </x-content-place>
       </div>
@@ -73,7 +47,8 @@
   import MenuDropdownItem from './MenuDropdownItem.vue';
   import InputFitter from './input-fitter.vue';
   import IconFind from '~/public/assets/icon/testsvg.svg';
-  import menus from '~/data/menu/index.json';
+  import menus from '~/data/menu/admin.json';
+
   const router = useRouter();
   const route = useRoute();
 

@@ -103,6 +103,7 @@
   import MobileMenu from './menu/MobileMenu.vue';
   import IconHeader from '~/public/assets/icon/header.svg';
   import InputFitter from './menu/input-fitter.vue';
+  import menus from '~/data/menu/index.json';
 
   const router = useRouter();
   const route = useRoute();
@@ -122,70 +123,6 @@
   };
 
   const onLogoError = (e) => (e.target.style.display = 'none');
-
-  // Menu data
-  const menus = [
-    { label: 'Trang chủ', page: '/trang-chu' },
-    { label: 'Giới thiệu', page: '/gioi-thieu' },
-    {
-      label: 'Văn hoá cồng chiêng',
-      id: 'van-hoa',
-      childrens: [
-        {
-          label: 'Tổng quan văn hoá cồng chiêng',
-          id: 'tong-quan',
-          page: '/van-hoa-cong-chieng/tong-quan',
-        },
-        {
-          label: 'Văn hóa cồng chiêng tại các Xã',
-          id: 'xa-parent',
-          childrens: [
-            {
-              label: 'Xã Lạc Dương',
-              id: 'xa-lac-duong',
-              page: '/van-hoa-cong-chieng/xa/lac-duong',
-            },
-            { label: 'Xã Đạ Tẻh', id: 'xa-da-teh', page: '/van-hoa-cong-chieng/xa/da-teh' },
-            { label: 'Xã Bảo Lâm 3', id: 'xa-bao-lam', page: '/van-hoa-cong-chieng/xa/bao-lam-3' },
-            {
-              label: 'Xã Đinh Trang Thượng',
-              id: 'xa-dinh-trang',
-              page: '/van-hoa-cong-chieng/xa/dinh-trang-thuong',
-            },
-            {
-              label: 'Xã Đam Rông 4',
-              id: 'xa-dam-rong',
-              page: '/van-hoa-cong-chieng/xa/tam-dong-4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'Tiềm năng phát triển',
-      id: 'tiem-nang',
-      childrens: [
-        {
-          label: 'Phát triển văn hóa - nghệ thuật',
-          id: 'tn1',
-          page: '/tiem-nang-phat-trien/van-hoa-nghe-thuat',
-        },
-        {
-          label: 'Phát triển du lịch văn hóa - cộng đồng',
-          id: 'tn2',
-          page: '/tiem-nang-phat-trien/du-lich-van-hoa-cong-dong',
-        },
-        {
-          label: 'Phát triển du lịch tại địa phương',
-          id: 'tn3',
-          page: '/tiem-nang-phat-trien/du-lich-tai-dia-phuong',
-        },
-      ],
-    },
-    { label: 'Tin tức - Sự kiện', page: '/tin-tuc-su-kien' },
-    { label: 'Hợp tác', page: '/hop-tac' },
-    { label: 'Liên hệ', page: '/lien-he' },
-  ];
 </script>
 <style scoped>
   .fade-enter-active,

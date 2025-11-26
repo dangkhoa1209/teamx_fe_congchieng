@@ -1,4 +1,4 @@
 <template>
-  <div />
+  <div>khoa</div>
 </template>
 <script setup></script>
