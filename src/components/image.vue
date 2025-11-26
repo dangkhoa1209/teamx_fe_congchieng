@@ -48,11 +48,14 @@
   const imgRef = ref(null);
 
   const cUrl = computed(() => {
-    if (url.value) {
-      return url.value;
-    } else if (path.value) {
+    if (path.value) {
       return `${config.apiURLFile}${path.value}`;
     }
+
+    if (url.value) {
+      return url.value;
+    }
+
     return null;
   });
 

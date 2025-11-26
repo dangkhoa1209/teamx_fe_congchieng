@@ -3,11 +3,10 @@
     <x-space :height="40" />
     <div class="mb-8">
       <h1 class="text-3xl font-bold text-gray-900">Tin nổi bật trang chủ</h1>
-      <p class="text-gray-600 mt-2">Kéo thả để thay đổi thứ tự • Click vào ô để chọn bài</p>
     </div>
 
     <!-- 4 ô cố292 định -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 laptop:grid-cols-2 gap-[40px]">
       <div v-for="slot in featuredSlots" :key="slot.position" class="relative group">
         <!-- Card -->
         <div
@@ -19,14 +18,9 @@
           ]"
           @click="openUpdate(slot.position)"
         >
-          <div v-if="slot.news" class="aspect-[4/3] relative">
-            <img :src="slot.news.thumbnail || '/no-image.jpg'" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-              <p class="text-xs opacity-90">Vị trí {{ slot.position }}</p>
-              <h3 class="font-bold text-lg line-clamp-2 mt-1">{{ slot.news.title }}</h3>
-              <p class="text-sm opacity-90 mt-1 line-clamp-1">{{ slot.news.subtitle }}</p>
-            </div>
+          <div v-if="slot.news" class="p-[25px]">
+            <p class="text-lg font-medium mb-5">Vị trí {{ slot.position }}</p>
+            <x-page-news-thumb-ver :news="slot.news" />
           </div>
 
           <!-- Trống -->
@@ -36,35 +30,10 @@
             <p class="text-sm mt-1">Click để chọn bài</p>
           </div>
         </div>
-
-        <!-- Nút xóa nhanh -->
-        <button
-          v-if="slot.news"
-          class="absolute top-3 right-3 bg-red-500 text-white w-9 h-9 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all shadow-lg hover:bg-red-600"
-          @click.stop="removeFeatured(slot.position)"
-        >
-          <i class="fas fa-times text-sm" />
-        </button>
       </div>
     </div>
 
-    <!-- Kéo thả sắp xếp -->
-    <div class="mt-10 text-center">
-      <p class="text-sm text-gray-500 mb-4">Kéo thả các ô để thay đổi thứ tự</p>
-      <div class="inline-flex gap-3 bg-gray-50 rounded-xl p-3">
-        <div
-          v-for="slot in featuredSlots.filter((s) => s.news)"
-          :key="slot.position"
-          class="w-32 h-24 rounded-lg overflow-hidden shadow cursor-move"
-          draggable="true"
-          @dragstart="dragStart($event, slot.position)"
-          @dragover.prevent
-          @drop="drop($event, slot.position)"
-        >
-          <img :src="slot.news.thumbnail" class="w-full h-full object-cover" />
-        </div>
-      </div>
-    </div>
+    <x-space :height="80" />
 
     <!-- Modal chọn bài -->
     <x-modal-action
@@ -115,6 +84,7 @@
   const newsIdSelected = ref('');
   const positionSelected = ref(1);
   const openModal = ref(false);
+  const featuredSlots = ref([]);
 
   const load = $lodash.debounce(async () => {
     const response = await $api($url.news.find, {
@@ -161,6 +131,48 @@
       $toast().success('Cập nhật tin nổi bật thành công');
       reset();
       close();
+      fetchFeatured();
+    }
+  };
+
+  const fetchFeatured = async () => {
+    console.log('sdfasdfsdfsdf');
+
+    try {
+      const response = await $api($url.admin.featuredNews.get, {
+        body: {
+          type: 'tin-tuc-su-kien',
+        },
+      });
+
+      const { data, success } = response?.data?.value || {
+        data: null,
+        success: false,
+      };
+
+      if (success) {
+        console.log('data', data);
+
+        featuredSlots.value = Array.from({ length: 4 }, (_, i) => {
+          const pos = i + 1;
+          const existed = data.find((x) => x.position === pos);
+          console.log('existed', existed);
+
+          return existed
+            ? {
+                position: pos,
+                news: existed.news || existed.backup || null,
+              }
+            : {
+                position: pos,
+                news: null,
+              };
+        });
+      }
+    } catch (err) {
+      console.log('err', err);
+
+      featuredSlots.value = Array.from({ length: 4 }, (_, i) => ({ position: i + 1, news: null }));
     }
   };
 
@@ -182,41 +194,17 @@
     { deep: true, immediate: true }
   );
 
+  onMounted(() => {
+    fetchFeatured();
+  });
+
   ///
 
-  const featuredSlots = ref([]); // luôn 4 phần tử
+  // luôn 4 phần tử
   const pickerVisible = ref(false);
   const pickerLoading = ref(false);
   const pickerPosition = ref(1);
   const tempSelectedId = ref('');
-
-  // Lấy 4 tin nổi bật
-  const fetchFeatured = async () => {
-    try {
-      const res = await $api($url.admin.featured.get, {
-        query: { type: 'homepage' },
-      });
-      const data = res?.data?.value || [];
-
-      // Đảm bảo luôn có 4 slot
-      featuredSlots.value = Array.from({ length: 4 }, (_, i) => {
-        const pos = i + 1;
-        const existed = data.find((x) => x.position === pos);
-        return existed
-          ? {
-              position: pos,
-              news: existed.news || existed.backup || null,
-            }
-          : {
-              position: pos,
-              news: null,
-            };
-      });
-    } catch (err) {
-      console.error(err);
-      featuredSlots.value = Array.from({ length: 4 }, (_, i) => ({ position: i + 1, news: null }));
-    }
-  };
 
   // Mở modal chọn bài
   const openPicker = (position) => {
@@ -299,6 +287,4 @@
     quickSuggestions.value = await searchNews('');
   };
   watch(pickerVisible, (v) => v && loadQuick());
-
-  onMounted(fetchFeatured);
 </script>
