@@ -21,13 +21,38 @@
     "childrens": [
       {
         "label": "Quản lý tin tức - sự kiện",
-        "id": "quan-ly-tin-tuc-su-kien",
-        "page": "/admin/tin-tuc-su-kien"
+        "id": "quan-ly-tin-tuc-su-kien-a",
+        "page": "/admin/tin-tuc-su-kien/quan-ly"
       },
       {
         "label": "Tin nổi bật",
-        "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat",
-        "page": "/admin/tin-tuc-su-kien/tin-noi-bat"
+        "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat-tat-ca",
+        "page": "/admin/tin-tuc-su-kien/tin-noi-bat/tat-ca"
+      },
+      {
+        "label": "Tin nổi bật Xã Lạc Dương",
+        "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat-xa-lac-duong",
+        "page": "/admin/tin-tuc-su-kien/tin-noi-bat/xa-lac-duong"
+      },
+      {
+        "label": "Tin nổi bật Xã Đạ Tẻh",
+        "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat-xa-da-teh",
+        "page": "/admin/tin-tuc-su-kien/tin-noi-bat/xa-da-teh"
+      },
+      {
+        "label": "Tin nổi bật Xã Bảo Lâm 3",
+        "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat-xa-bao-lam-3",
+        "page": "/admin/tin-tuc-su-kien/tin-noi-bat/xa-bao-lam-3"
+      },
+      {
+        "label": "Tin nổi bật Xã Đinh Trang Thượng",
+        "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat-xa-dinh-trang-thuong",
+        "page": "/admin/tin-tuc-su-kien/tin-noi-bat/xa-dinh-trang-thuong"
+      },
+      {
+        "label": "Tin nổi bật Xã Đam Rông 4",
+        "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat-xa-dam-rong-4",
+        "page": "/admin/tin-tuc-su-kien/tin-noi-bat/xa-dam-rong-4"
       }
     ]
   },

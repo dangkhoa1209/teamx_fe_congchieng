@@ -2,7 +2,7 @@
   <x-content-place>
     <x-space :height="40" />
     <div class="mb-8">
-      <h1 class="text-3xl font-bold text-gray-900">Tin nổi bật trang chủ</h1>
+      <h1 class="text-subtitle font-bold text-primary">{{ title }}</h1>
     </div>
 
     <!-- 4 ô cố292 định -->
@@ -39,9 +39,8 @@
     <x-modal-action
       v-model:visible="openModal"
       title="Chọn bài viết nổi bật"
-      :loading="pickerLoading"
       width="900px"
-      @close="pickerVisible = false"
+      @close="openModal = false"
       @submit="handleSave"
     >
       <div class="w-full">
@@ -66,11 +65,22 @@
 </template>
 
 <script setup>
-  import InpitFilter from '../ignore/input-fliter.vue';
+  const props = defineProps({
+    title: {
+      type: String,
+      default: 'Tin nổi bật',
+    },
+    type: {
+      type: String,
+      default: 'tin-tuc-su-kien',
+    },
+  });
+  import { nextTick } from 'vue';
+  import InpitFilter from '../../ignore/input-fliter.vue';
 
   const filter = ref({
     search: '',
-    location: '',
+    location: props.type == 'tin-tuc-su-kien' ? '' : props.type,
     time: '',
   });
 
@@ -87,6 +97,7 @@
   const featuredSlots = ref([]);
 
   const load = $lodash.debounce(async () => {
+    await nextTick();
     const response = await $api($url.news.find, {
       body: {
         filter: filter.value,
@@ -118,7 +129,7 @@
 
     const response = await $api($url.admin.featuredNews.update, {
       body: {
-        type: 'tin-tuc-su-kien',
+        type: props.type,
         position: positionSelected.value,
         newsId: newsIdSelected.value,
       },
@@ -136,12 +147,11 @@
   };
 
   const fetchFeatured = async () => {
-    console.log('sdfasdfsdfsdf');
-
     try {
+      await nextTick();
       const response = await $api($url.admin.featuredNews.get, {
         body: {
-          type: 'tin-tuc-su-kien',
+          type: props.type,
         },
       });
 
@@ -151,13 +161,9 @@
       };
 
       if (success) {
-        console.log('data', data);
-
         featuredSlots.value = Array.from({ length: 4 }, (_, i) => {
           const pos = i + 1;
           const existed = data.find((x) => x.position === pos);
-          console.log('existed', existed);
-
           return existed
             ? {
                 position: pos,
@@ -170,8 +176,6 @@
         });
       }
     } catch (err) {
-      console.log('err', err);
-
       featuredSlots.value = Array.from({ length: 4 }, (_, i) => ({ position: i + 1, news: null }));
     }
   };
@@ -194,97 +198,7 @@
     { deep: true, immediate: true }
   );
 
-  onMounted(() => {
-    fetchFeatured();
+  onMounted(async () => {
+    await fetchFeatured();
   });
-
-  ///
-
-  // luôn 4 phần tử
-  const pickerVisible = ref(false);
-  const pickerLoading = ref(false);
-  const pickerPosition = ref(1);
-  const tempSelectedId = ref('');
-
-  // Mở modal chọn bài
-  const openPicker = (position) => {
-    pickerPosition.value = position;
-    const current = featuredSlots.value.find((s) => s.position === position);
-    tempSelectedId.value = current?.news?._id || '';
-    pickerVisible.value = true;
-  };
-
-  // Chọn bài nhanh từ gợi ý
-  const selectQuick = (news) => {
-    tempSelectedId.value = news._id;
-    handleSubmit();
-  };
-
-  // Submit chọn bài
-  const handleSubmit = async () => {
-    pickerLoading.value = true;
-    try {
-      await $api($url.admin.featured.update, {
-        method: 'PUT',
-        body: {
-          type: 'homepage',
-          position: pickerPosition.value,
-          newsId: tempSelectedId.value || null,
-        },
-      });
-      $toast().success('Cập nhật tin nổi bật thành công!');
-      await fetchFeatured();
-      pickerVisible.value = false;
-    } catch (err) {
-      $toast().error('Có lỗi xảy ra');
-    } finally {
-      pickerLoading.value = false;
-    }
-  };
-
-  // Xóa nhanh
-  const removeFeatured = async (position) => {
-    if (!confirm('Bỏ ghim bài này khỏi vị trí nổi bật?')) return;
-    await $api($url.admin.featured.update, {
-      method: 'PUT',
-      body: { type: 'homepage', position, newsId: null },
-    });
-    await fetchFeatured();
-  };
-
-  // Kéo thả sắp xếp
-  const dragStart = (e, fromPos) => {
-    e.dataTransfer.setData('fromPos', fromPos);
-  };
-  const drop = async (e, toPos) => {
-    e.preventDefault();
-    const fromPos = e.dataTransfer.getData('fromPos');
-    if (!fromPos || fromPos === toPos) return;
-
-    await $api($url.admin.featured.reorder, {
-      method: 'PATCH',
-      body: { type: 'homepage', from: Number(fromPos), to: Number(toPos) },
-    });
-    await fetchFeatured();
-  };
-
-  // Tìm bài viết (dùng chung với x-form-auto-complete)
-  const searchNews = async (keyword = '') => {
-    const res = await $api($url.news.find, {
-      body: {
-        filter: { search: keyword, status: 'active' },
-        page: 1,
-        perPage: keyword ? 50 : 20,
-        sort: '-createdAt',
-      },
-    });
-    return res?.data?.value?.data?.data || [];
-  };
-
-  // Gợi ý nhanh (20 bài mới nhất)
-  const quickSuggestions = ref([]);
-  const loadQuick = async () => {
-    quickSuggestions.value = await searchNews('');
-  };
-  watch(pickerVisible, (v) => v && loadQuick());
 </script>
