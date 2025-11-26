@@ -4,7 +4,7 @@
 <template>
   <div class="flex gap-4">
     <div class="w-[40%] min-w-[40%]">
-      <x-image :url="$image().url" />
+      <x-image :path="news.thumbnail" :url="$image().url" />
     </div>
     <div class="w-[60%] flex flex-col gap-[25px]">
       <p

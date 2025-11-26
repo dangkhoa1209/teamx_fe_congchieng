@@ -23,6 +23,11 @@
         "label": "Quản lý tin tức - sự kiện",
         "id": "quan-ly-tin-tuc-su-kien",
         "page": "/admin/tin-tuc-su-kien"
+      },
+      {
+        "label": "Tin nổi bật",
+        "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat",
+        "page": "/admin/tin-tuc-su-kien/tin-noi-bat"
       }
     ]
   },

@@ -2,16 +2,18 @@
 <!-- x-page-news-thumb-ver -->
 <template>
   <div>
-    <x-image :url="$image().url" />
+    <x-image :path="news.thumbnail" :url="$image().url" />
     <div class="pt-[25px] flex flex-col gap-[25px]">
       <p
         class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer text-justify"
       >
-        PHÁT TRIỂN VĂN HÓA - NGHỆ THUẬT
+        {{ news.title || 'PHÁT TRIỂN VĂN HÓA - NGHỆ THUẬT' }}
       </p>
       <p class="font-robo font-normal text-body text-justify">
-        Xây dựng điểm check-in văn hoá như cổng làng truyền thống, tượng nghệ nhân, vườn nhạc cụ.
-        Kết hợp nghệ thuật trình diễn ánh sáng & âm thanh Cồng chiêng cho du lịch đêm
+        {{
+          news.subtitle ||
+          'Xây dựng điểm check-in văn hoá như cổng làng truyền thống, tượng nghệ nhân, vườn nhạc cụ. Kết hợp nghệ thuật trình diễn ánh sáng & âm thanh Cồng chiêng cho du lịch đêm'
+        }}
       </p>
     </div>
   </div>
