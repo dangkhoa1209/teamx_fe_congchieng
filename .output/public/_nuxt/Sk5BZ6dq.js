@@ -1,0 +1,1 @@
+import{c as t,o as a,aU as c}from"./CAxJ5yCY.js";const r={__name:"space",props:{height:{type:Number,default:100}},setup(e){return(h,i)=>(a(),t("div",{style:c({height:e.height+"px",minHeight:e.height+"px"})},null,4))}};export{r as _};

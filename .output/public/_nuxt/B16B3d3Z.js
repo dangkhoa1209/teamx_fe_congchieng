@@ -1,0 +1,1 @@
+import{c as e,o as s,s as r}from"./CAxJ5yCY.js";const o={__name:"line",props:{className:{type:String,default:"my-3"},classColor:{type:String,default:"bg-primary"}},setup(a){return(l,t)=>(s(),e("hr",{class:r(["border-0 h-[1px]",[a.className,a.classColor]])},null,2))}};export{o as _};
