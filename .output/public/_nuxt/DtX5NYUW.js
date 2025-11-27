@@ -1,0 +1,1 @@
+import{c as e}from"./CWcUHX0L.js";import{c as o,o as r,t as s,g as t}from"./DaeTOnTu.js";import"./B0Y2v7uQ.js";const _={__name:"index",setup(c){return(a,n)=>(r(),o("div",null,"checkPermission: "+s(t(e)("khoa")),1))}};export{_ as default};
