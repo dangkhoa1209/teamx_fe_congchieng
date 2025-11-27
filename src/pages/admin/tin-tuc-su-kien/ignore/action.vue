@@ -14,6 +14,7 @@
           name="location"
           :filterable="false"
           :clearable="false"
+          required
           placeholder="Tin tức - sự kiện trực thuộc cơ sở nào"
         />
 
@@ -78,13 +79,24 @@
               </div>
 
               <x-form-text-area
+                v-if="item.type === 'content-in-dam'"
+                v-model="item.data"
+                label="Nội dung In Đậm"
+                :name="'content' + item.id"
+                rules="required"
+                required
+                placeholder="Nhập nội dung"
+                :rows="6"
+              />
+
+              <x-form-text-area
                 v-if="item.type === 'content'"
                 v-model="item.data"
                 label="Nội dung chi tiết"
                 :name="'content-' + item.id"
                 rules="required"
                 required
-                placeholder="Nhập nội dung bài viết"
+                placeholder="Nhập nội dung"
                 :rows="6"
               />
 
@@ -126,15 +138,25 @@
         </draggable>
       </div>
 
-      <div class="border border-1 p-2 box-border flex flex-col gap-4 w-[200px]">
+      <div class="border border-1 p-2 box-border flex flex-col gap-4 w-[250px]">
         <p>Thêm vào bài viết</p>
         <x-form-button
           class="w-full"
           theme="primary"
+          outline
+          icon="heroicons-outline:bars-3"
+          @click="addContentInDam"
+        >
+          <span class="font-bold font-robo text-subtitle">Tiêu đề</span>
+        </x-form-button>
+        <x-form-button
+          class="w-full"
+          theme="primary"
+          outline
           icon="heroicons-outline:bars-3"
           @click="addContent"
         >
-          Nội dung
+          <span class="font-normal font-robo text-body">Nội dung</span>
         </x-form-button>
         <x-form-button
           class="w-full"
@@ -161,7 +183,7 @@
   const isLoading = ref(false);
 
   const init = {
-    location: '',
+    location: $newScope().list?.[0]?.value || '',
     author: '',
     title: '',
     subtitle: '',
@@ -179,6 +201,13 @@
     });
   };
 
+  const addContentInDam = () => {
+    formData.value.contents.push({
+      id: uuidv4(),
+      type: 'content-in-dam',
+      data: '',
+    });
+  };
   const addImage = () => {
     formData.value.contents.push({
       id: uuidv4(),

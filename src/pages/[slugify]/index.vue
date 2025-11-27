@@ -36,16 +36,26 @@
 
         <x-space :height="40" />
 
-        <h3 class="font-bold text-primary text-body">
+        <h3 class="font-bold text-primary text-subtitle">
           {{ newsData.subtitle }}
         </h3>
         <x-space :height="40" />
 
         <divs v-for="(content, index) in newsData.contents" :key="content">
-          <div v-if="content.type == 'content'">
-            <pre class="font-normal whitespace-pre-line font-robo">{{ content.data }}</pre>
+          <div v-if="content.type == 'content-in-dam'">
+            <pre class="font-bold whitespace-pre-line font-robo text-subtitle text-justif">{{
+              content.data
+            }}</pre>
 
-            <x-space v-if="newsData.contents?.[index + 1]?.type == 'content'" :height="25" />
+            <x-space v-if="newsData.contents?.[index + 1]?.type != 'image'" :height="25" />
+            <x-space v-else :height="40" />
+          </div>
+          <div v-else-if="content.type == 'content'">
+            <pre class="font-normal whitespace-pre-line font-robo text-body text-justify">{{
+              content.data
+            }}</pre>
+
+            <x-space v-if="newsData.contents?.[index + 1]?.type != 'image'" :height="25" />
             <x-space v-else :height="40" />
           </div>
           <div v-else-if="content.type == 'image'">
@@ -77,10 +87,15 @@
 
         <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC KHÁC</h2>
         <x-space :height="40" />
-        <div class="flex gap-[25px]">
-          <x-page-news-thumb-ver />
-          <x-page-news-thumb-ver />
-        </div>
+
+        <x-core-ttk :exclude="[newsData._id]">
+          <template #default="{ items }">
+            <div class="grid grid-cols-2 gap-[25px]">
+              <x-page-news-thumb-ver v-for="(item, index) in items" :key="index" :news="item" />
+            </div>
+          </template>
+        </x-core-ttk>
+
         <x-space :height="80" />
       </section>
       <section class="min-w-[400px] w-[400px] hidden laptop:block">
@@ -88,36 +103,37 @@
           <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC NỔI BẬT</h2>
           <x-line className="" />
           <x-space :height="40" />
-          <div class="flex flex-col gap-[25px]">
-            <x-page-news-thumb-hor :exclude="['subTitle']" />
-            <x-page-news-thumb-hor :exclude="['subTitle']" />
-            <x-page-news-thumb-hor :exclude="['subTitle']" />
-          </div>
+          <x-core-ttnb>
+            <template #default="{ items }">
+              <div class="flex flex-col gap-[25px]">
+                <x-page-news-thumb-hor
+                  v-for="(item, index) in items"
+                  :key="index"
+                  :exclude="['subTitle']"
+                  :news="item.news"
+                />
+              </div>
+            </template>
+          </x-core-ttnb>
         </div>
       </section>
     </div>
   </x-content-place>
 </template>
 <script setup>
-  import { nextTick, onMounted } from 'vue';
-
   const slugify = computed(() => useRoute().params.slugify);
   const newsData = ref(null);
 
-  // onMounted(async() => {
-  //    await nextTick()
-  //   const response = await $api($url.news.detail, {
-  //     body: {
-  //       slugify: slugify.value
-  //     }
-  //   })
+  const route = useRoute();
+  const url = useRequestURL();
+  const domain = url.origin;
 
-  //   console.log('response', response);
-
-  //   const { data, success } = response?.data?.value || { data: null, success: false }
-
-  //   console.log('data', data);
-  // })
+  useSeoMeta({
+    title: () => newsData.value?.title,
+    description: () => newsData.value?.subtitle,
+    ogUrl: () => domain + route.fullPath,
+    ogImage: () => domain + (newsData.value?.thumbnail || '/default.jpg'),
+  });
 
   const load = async () => {
     const response = await $api($url.news.detail, {
@@ -143,11 +159,4 @@
     },
     { immediate: true }
   );
-
-  // if(success) {
-  // $toast().success('Cập nhật mật khẩu thành công')
-  // reset()
-  // emits('refresh')
-  // close()
-  // }
 </script>

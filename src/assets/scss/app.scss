@@ -15,7 +15,6 @@ body {
     @apply tablet:text-[40px];
     @apply laptop:text-[48px];
     @apply desktop:text-[56px];
-    @apply wide:text-[64px];        /* 1440+ cực hoành tráng */
   }
 
   /* Main Title – Tiêu đề trang, section */
@@ -24,7 +23,6 @@ body {
     @apply tablet:text-[28px];
     @apply laptop:text-[32px];
     @apply desktop:text-[36px];
-    @apply wide:text-[40px];
   }
 
   /* Title News – Tiêu đề bài viết, card */
@@ -32,7 +30,6 @@ body {
     @apply text-[18px] font-bold;
     @apply tablet:text-[20px];
     @apply laptop:text-[22px];
-    @apply wide:text-[24px];
   }
 
   /* Subtitle – Mô tả ngắn, lead */
@@ -40,7 +37,6 @@ body {
     @apply text-[16px];
     @apply tablet:text-[17px];
     @apply laptop:text-[18px];
-    @apply wide:text-[19px];
   }
 
   /* Body text – Nội dung chính */
@@ -48,7 +44,6 @@ body {
     @apply text-[15px];
     @apply tablet:text-[15.5px];
     @apply laptop:text-[16px];
-    @apply wide:text-[17px];
   }
 
   /* Caption, note, label */

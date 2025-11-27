@@ -9,7 +9,7 @@ export default () => {
       return '';
     }
 
-    return scope[0].label || '';
+    return scope?.[0]?.label || '';
   };
 
   return {

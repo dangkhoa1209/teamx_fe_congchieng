@@ -120,6 +120,10 @@
       align: 'right',
       actions: [
         {
+          label: 'Xem',
+          value: 'view',
+        },
+        {
           label: 'Chỉnh sửa',
           value: 'update',
         },
@@ -161,6 +165,10 @@
   const handleRowAction = (data) => {
     const { action, row } = data;
     switch (action.value) {
+      case 'view':
+        const { slugify } = row;
+        window.open(`/${slugify}`, '_blank');
+        break;
       case 'update':
         modalAction.value?.open(row);
         break;

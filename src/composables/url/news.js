@@ -7,4 +7,8 @@ export default {
     method: 'post',
     url: '/news/find',
   },
+  other: {
+    method: 'post',
+    url: '/news/other',
+  },
 };
