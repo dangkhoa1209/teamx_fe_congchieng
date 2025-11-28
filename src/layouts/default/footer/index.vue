@@ -7,12 +7,9 @@
           <div class="flex flex-col gap-8">
             <div class="flex gap-6 items-center">
               <div class="flex items-center justify-center">
-                <img
-                  class="h-14 w-auto"
-                  :src="$image().urlSquare"
-                  alt="Logo"
-                  @error="onLogoError"
-                />
+                <div class="h-14 w-14">
+                  <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
+                </div>
               </div>
               <div>
                 <p class="font-mont font-semibold text-main text-mini">UBND TỈNH LÂM ĐỒNG</p>
@@ -27,14 +24,22 @@
             </p>
           </div>
           <div class="flex gap-4">
-            <div class="border border-main p-2 rounded-full box-border">
-              <img :src="$image().urlSquare" class="h-5 w-5 rounded-full" alt="" />
+            <div
+              class="border border-main hover:border-primary hover:bg-main p-2 rounded-full box-border cursor-pointer group"
+            >
+              <FBIcon class="h-5 w-5 fill-current text-main group-hover:text-primary" />
             </div>
-            <div class="border border-main p-2 rounded-full box-border">
-              <img :src="$image().urlSquare" class="h-5 w-5 rounded-full" alt="" />
+
+            <div
+              class="border border-main hover:border-primary hover:bg-main p-2 rounded-full box-border cursor-pointer group"
+            >
+              <YTIcon class="h-5 w-5 fill-current text-main group-hover:text-primary" />
             </div>
-            <div class="border border-main p-2 rounded-full box-border">
-              <img :src="$image().urlSquare" class="h-5 w-5 rounded-full" alt="" />
+
+            <div
+              class="border border-main hover:border-primary hover:bg-main p-2 rounded-full box-border cursor-pointer group"
+            >
+              <IGIcon class="h-5 w-5 fill-current text-main group-hover:text-primary" />
             </div>
           </div>
         </div>
@@ -73,4 +78,8 @@
     </x-content-place>
   </footer>
 </template>
-<script setup></script>
+<script setup>
+  import FBIcon from '~/public/assets/icon/fb.svg';
+  import YTIcon from '~/public/assets/icon/youtube.svg';
+  import IGIcon from '~/public/assets/icon/ig.svg';
+</script>

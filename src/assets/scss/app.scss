@@ -11,24 +11,22 @@ body {
 
   /* Hero Title – Tiêu đề lớn nhất (trang chủ, banner) */
   .text-hero {
-    @apply text-[32px] font-bold;
-    @apply tablet:text-[40px];
-    @apply laptop:text-[48px];
-    @apply desktop:text-[56px];
+    // @apply text-[32px] font-bold;
+    // @apply tablet:text-[40px];
+    @apply laptop:text-[40px];
   }
 
   /* Main Title – Tiêu đề trang, section */
   .text-title {
-    @apply text-[24px] font-bold;
-    @apply tablet:text-[28px];
-    @apply laptop:text-[32px];
-    @apply desktop:text-[36px];
+    // @apply text-[24px] font-bold;
+    // @apply tablet:text-[26px];
+    @apply laptop:text-[26px];
   }
 
   /* Title News – Tiêu đề bài viết, card */
   .text-title-news {
-    @apply text-[18px] font-bold;
-    @apply tablet:text-[20px];
+    // @apply text-[18px] font-bold;
+    // @apply tablet:text-[20px];
     @apply laptop:text-[22px];
   }
 

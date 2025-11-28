@@ -24,7 +24,7 @@
               >
                 Tìm kiếm:
               </label>
-              <div class="w-full laptop:w-[220px] laptop:w-[240px] wide:w-[280px]">
+              <div class="w-full laptop:w-[220px] wide:w-[280px]">
                 <DropdownFilter v-model="filter.location" :actions="locationTypes" />
               </div>
             </div>
@@ -36,7 +36,7 @@
               >
                 Thời gian:
               </label>
-              <div class="w-full laptop:w-[220px] laptop:w-[240px] wide:w-[280px]">
+              <div class="w-full laptop:w-[220px] wide:w-[280px]">
                 <DropdownFilter v-model="filter.time" :actions="timeOptions" />
               </div>
             </div>

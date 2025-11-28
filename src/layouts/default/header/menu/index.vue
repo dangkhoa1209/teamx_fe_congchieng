@@ -72,7 +72,6 @@
 <script setup>
   import MenuDropdownItem from './MenuDropdownItem.vue';
   import InputFitter from './input-fitter.vue';
-  import IconFind from '~/public/assets/icon/testsvg.svg';
   import menus from '~/data/menu/index.json';
   const router = useRouter();
   const route = useRoute();
