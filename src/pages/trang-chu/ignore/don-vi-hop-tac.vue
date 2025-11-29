@@ -9,8 +9,7 @@
 </template>
 <script setup>
   const breakpoints = {
-    640: { slidesPerView: 3 },
-    1024: { slidesPerView: 4 },
+    100: { slidesPerView: 4 },
     1280: { slidesPerView: 6 },
   };
 

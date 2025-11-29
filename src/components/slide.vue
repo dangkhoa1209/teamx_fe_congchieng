@@ -29,7 +29,7 @@
     breakpoints: {
       type: Object,
       default: () => ({
-        640: { slidesPerView: 1 },
+        0: { slidesPerView: 1 },
         1024: { slidesPerView: 2 },
         1280: { slidesPerView: 3 },
       }),

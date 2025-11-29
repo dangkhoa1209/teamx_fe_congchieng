@@ -27,7 +27,7 @@
               theme="primary"
               outline
               :uppercase="false"
-              class="w-full laptop:w-auto whitespace-nowrap"
+              class="laptop:w-auto whitespace-nowrap"
               @click="clickTo(item.slugify)"
             >
               Tìm hiểu thêm

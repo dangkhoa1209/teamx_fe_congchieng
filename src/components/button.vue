@@ -1,12 +1,12 @@
 <template>
   <button
-    class="font-robo text-[16px] font-medium h-[48px] rounded-[24px] transition-colors"
+    class="font-robo text-body font-medium h-[32px] tablet:h-[45px] laptop:h-[48px] rounded-full transition-colors"
     :class="cClass"
     :type="type"
     :disabled="disabled"
     @click="handleClick"
   >
-    <div class="px-10">
+    <div class="px-6 tablet:8 laptop:px-10">
       <slot />
     </div>
   </button>
