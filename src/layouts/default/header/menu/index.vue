@@ -1,7 +1,7 @@
 <template>
   <nav class="sticky top-0 z-[999] select-none">
     <div class="h-[75px]">
-      <div class="header z-50">
+      <div class="header z-50 border-b border-primary">
         <x-content-place>
           <div class="relative flex justify-between items-center h-[75px] gap-[40px]">
             <!-- MENU NGANG CÓ SCROLL -->

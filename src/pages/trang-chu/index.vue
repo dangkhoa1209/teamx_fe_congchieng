@@ -21,7 +21,7 @@
 
           <h2 class="font-robo font-bold text-hero">HƠI THỞ VĂN HOÁ TÂY NGUYÊN</h2>
 
-          <x-button class="mt-5">KHÁM PHÁ NGAY</x-button>
+          <x-button class="mt-5" @click="clickTo('gioi-thieu')">KHÁM PHÁ NGAY</x-button>
         </main>
       </section>
     </div>
@@ -55,7 +55,13 @@
               <x-image :url="$image().url" :height="650" />
             </div>
             <div class="flex">
-              <x-button :uppercase="false" theme="primary">Tìm hiểu thêm</x-button>
+              <x-button
+                :uppercase="false"
+                theme="primary"
+                @click="clickTo('van-hoa-cong-chieng/tong-quan')"
+              >
+                Tìm hiểu thêm
+              </x-button>
             </div>
           </div>
           <div class="min-w-[47%] hidden laptop:block">
@@ -76,7 +82,7 @@
           variant="bottom"
         />
         <x-space :height="50" />
-        <VanHoaNgheThuat />
+        <x-page-van-hoa-nghe-thuat />
       </x-content-place>
     </section>
 
@@ -131,9 +137,15 @@
 <script setup>
   import SlideXa from './ignore/xa.vue';
   import SlideDonViHopTac from './ignore/don-vi-hop-tac.vue';
-  import VanHoaNgheThuat from './ignore/van-hoa-nghe-thuat.vue';
+  const router = useRouter();
+
   useHead({
     title: 'Trang chủ',
     // meta: [{ name: 'description', content: 'Website của Khoa - ví dụ SEO tốt hơn' }],
   });
+
+  const clickTo = (slugfy) => {
+    if (!slugfy) return;
+    router.push({ path: `/${slugfy}` });
+  };
 </script>

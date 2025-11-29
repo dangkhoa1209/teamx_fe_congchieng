@@ -1,7 +1,9 @@
 <template>
   <x-slide :items="lists" :breakpoints="breakpoints">
     <template #default="{ item }">
-      <x-image :url="item.image" />
+      <div class="w-full h-[100px] flex items-center justify-center overflow-hidden">
+        <img :src="item.image" class="h-[100px] object-contain" />
+      </div>
     </template>
   </x-slide>
 </template>
@@ -14,25 +16,22 @@
 
   const lists = [
     {
-      image: $image().url,
+      image: '/assets/hoptac/lienminhgr.svg',
     },
     {
-      image: $image().url,
+      image: '/assets/hoptac/cityofmusic.svg',
     },
     {
-      image: $image().url,
+      image: '/assets/hoptac/tcddl.svg',
     },
     {
-      image: $image().url,
+      image: '/assets/hoptac/namabank.svg',
     },
     {
-      image: $image().url,
+      image: '/assets/hoptac/seameo.png',
     },
     {
-      image: $image().url,
-    },
-    {
-      image: $image().url,
+      image: '/assets/hoptac/kingcafe.svg',
     },
   ];
 </script>

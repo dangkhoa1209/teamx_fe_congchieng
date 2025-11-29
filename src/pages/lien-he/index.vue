@@ -1,5 +1,5 @@
 <template>
-  <x-content-place class="font-robo">
+  <x-content-place class="font-robo text-primary">
     <x-space :height="40" />
     <x-title title="LIÊN HỆ" variant="bottom" class-name="font-bold text-subtitle" />
 
@@ -7,9 +7,9 @@
 
     <div class="flex flex-col laptop:flex-row gap-[40px]">
       <div class="laptop:w-[35%]">
-        <p class="text-subtitle font-bold">Thông tin liên hệ</p>
+        <p class="text-subtitle font-bold text-primary">Thông tin liên hệ</p>
         <x-space :height="50" />
-        <div class="flex flex-col gap-[40px] text-body font-normal">
+        <div class="flex flex-col gap-[30px] text-body font-normal">
           <p>
             Ban Biên tập Chuyên Trang thông tin điện tử -
             <br />
@@ -39,7 +39,7 @@
       </div>
 
       <div class="laptop:w-[65%]">
-        <p class="text-subtitle font-bold">Gửi yêu cầu liên hệ</p>
+        <p class="text-subtitle font-bold text-primary">Gửi yêu cầu liên hệ</p>
         <x-space :height="50" />
         <div>
           <x-form submitText="Lưu" :handle-error="false" :show-button="false" @submit="onSubmit">
@@ -74,16 +74,16 @@
                 rules="required"
                 required
               />
-
-              <div class="flex justify-end">
-                <x-button theme="primary" type="submit" :uppercase="false">Gửi yêu cầu</x-button>
-              </div>
+            </div>
+            <x-space :height="60" />
+            <div class="flex justify-end">
+              <x-button theme="primary" type="submit" :uppercase="false">Gửi yêu cầu</x-button>
             </div>
           </x-form>
         </div>
       </div>
     </div>
-    <x-space :height="60" />
+    <x-space :height="80" />
   </x-content-place>
 </template>
 <script setup>

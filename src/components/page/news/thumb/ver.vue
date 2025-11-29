@@ -2,10 +2,11 @@
 <!-- x-page-news-thumb-ver -->
 <template>
   <div>
-    <x-image :path="news?.thumbnail" :url="$image().url" />
+    <x-image :path="news?.thumbnail" :url="$image().url" :click-to="news?.slugfy" />
     <div class="pt-[25px] flex flex-col gap-[25px]">
       <p
-        class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer text-justify"
+        class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer"
+        @click="handleClick"
       >
         {{ news?.title || 'PHÁT TRIỂN VĂN HÓA - NGHỆ THUẬT' }}
       </p>
@@ -42,4 +43,10 @@
       default: '',
     },
   });
+  const router = useRouter();
+  const handleClick = () => {
+    if (props.news?.slugfy) {
+      router.push({ path: `/${props.news.slugfy}` });
+    }
+  };
 </script>

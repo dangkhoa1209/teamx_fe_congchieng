@@ -1,5 +1,5 @@
 <template>
-  <x-content-place class="font-robo text-body text-justify">
+  <x-content-place class="font-robo text-body text-justify text-black">
     <x-space :height="40" />
     <x-title title="HỢP TÁC" variant="bottom" class-name="font-bold text-subtitle" />
     <x-space :height="40" />

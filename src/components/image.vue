@@ -9,8 +9,12 @@
         class="w-full h-full object-cover object-center rounded-[inherit] transition-transform duration-300"
         :width="width"
         :height="height"
+        :class="{
+          'cursor-pointer': clickTo,
+        }"
         lazy
         @error="onError"
+        @click="onClick"
       />
 
       <div
@@ -39,9 +43,10 @@
     width: { type: Number, default: 900 },
     height: { type: Number, default: 600 },
     title: { type: String },
+    clickTo: { type: String, default: '' },
   });
 
-  const { width, height, path, url } = toRefs(props);
+  const { width, height, path, url, clickTo } = toRefs(props);
   const radiusStyle = computed(() =>
     typeof props.radius === 'number' ? `${props.radius}px` : props.radius
   );
@@ -59,6 +64,13 @@
     return null;
   });
 
+  const router = useRouter();
+
+  const onClick = () => {
+    if (clickTo.value) {
+      router.push({ path: `/${clickTo.value}` });
+    }
+  };
   const onError = () => {
     if (imgRef.value && imgRef.value.style) imgRef.value.style.display = 'none';
   };

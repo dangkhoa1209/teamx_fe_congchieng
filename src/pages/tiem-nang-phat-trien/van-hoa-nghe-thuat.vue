@@ -90,23 +90,7 @@
     <x-title title="BÀI VIẾT CÙNG CHUYÊN MỤC" variant="left" class-name="font-bold text-subtitle" />
     <x-space :height="40" />
     <section>
-      <div class="grid grid-cols-2 laptop:grid-cols-3 gap-5">
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-      </div>
+      <x-page-van-hoa-nghe-thuat :exclude="['van-hoa-nghe-thuat']" />
     </section>
     <x-space :height="80" />
   </x-content-place>

@@ -7,10 +7,7 @@
       <x-image :path="news?.thumbnail" :url="$image().url" />
     </div>
     <div class="w-[60%] flex flex-col gap-[25px]">
-      <p
-        v-if="!exclude.includes('title')"
-        class="font-robo font-medium text-subtitle text-primary text-justify"
-      >
+      <p v-if="!exclude.includes('title')" class="font-robo font-medium text-subtitle text-primary">
         {{ news?.title || 'Giữ gìn bản sắc văn hoá qua du lịch cồng chiêng ở Lâm Đồng' }}
       </p>
       <p v-if="!exclude.includes('subTitle')" class="font-robo font-normal text-body text-justify">

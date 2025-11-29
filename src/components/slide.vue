@@ -1,6 +1,6 @@
 <template>
   <!-- THÊM DIV BỌC + PB ĐỂ CHỪA CHỖ CHO CHẤM TRÒN -->
-  <div class="w-full pb-12 laptop:pb-16">
+  <div class="w-full">
     <Swiper
       :modules="[Autoplay, Pagination]"
       :slides-per-view="1"

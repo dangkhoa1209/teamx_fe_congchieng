@@ -47,7 +47,14 @@
     if (outline.value) {
       // outline = true
       if (theme.value === 'primary') {
-        results.push('bg-transparent', 'text-primary', 'border', 'border-primary');
+        results.push(
+          'bg-transparent',
+          'text-primary',
+          'border',
+          'border-primary',
+          'hover:bg-primary',
+          'hover:text-main'
+        );
       } else {
         results.push('bg-transparent', 'text-main', 'border', 'border-main');
       }
@@ -61,9 +68,9 @@
           'text-main',
           'hover:bg-main',
           'hover:text-primary',
-          'border', // bật border
-          'border-transparent', // border mặc định trong suốt
-          'hover:border-primary' // hover thì border đổi màu primary
+          'border',
+          'border-transparent',
+          'hover:border-primary'
         );
       }
     }
