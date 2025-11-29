@@ -3,7 +3,7 @@
     <x-content-place>
       <x-space :height="58" />
       <div class="flex gap-16 flex-col laptop:flex-row">
-        <div class="flex flex-col justify-between gap-8 w-[50%]">
+        <div class="flex flex-col justify-between gap-8 w-[100%] laptop:w-[40%]">
           <div class="flex flex-col gap-8">
             <div class="flex gap-6 items-center">
               <div class="flex items-center justify-center">
@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <div class="w-[25%] flex flex-col gap-6">
+        <div class="w-[100%] laptop:w-[25%] flex flex-col gap-6">
           <p class="font-medium text-subtitle">DANH MỤC</p>
           <p class="font-normal text-boby cursor-pointer" @click="clickTo('gioi-thieu')">
             Giới thiệu về chuyên trang
@@ -65,7 +65,7 @@
           </p>
           <p class="font-normal text-boby cursor-pointer" @click="clickTo('hop-tac')">Hợp tác</p>
         </div>
-        <div class="w-[35%] flex flex-col gap-6">
+        <div class="w-[100%] laptop:w-[35%] flex flex-col gap-6">
           <p class="font-medium text-subtitle">LIÊN HỆ</p>
           <p class="font-normal text-boby">
             Ban Biên tập Chuyên Trang thông tin điện tử - Sở Văn hóa, Thể thao và Du lịch tỉnh Lâm
@@ -85,7 +85,7 @@
         <p
           class="font-medium text-subtitle text-center inline-flex items-center justify-center gap-1"
         >
-          <span class="text-[25px] leading-none">©</span>
+          <span class="text-title leading-none">©</span>
           Bản quyền thuộc Sở Văn Hoá, Thể thao & Du lịch tỉnh Lâm Đồng
         </p>
       </div>
@@ -98,8 +98,8 @@
   import IGIcon from '~/public/assets/icon/ig.svg';
 
   const router = useRouter();
-  const clickTo = (slugfy) => {
-    if (!slugfy) return;
-    router.push({ path: `/${slugfy}` });
+  const clickTo = (slugify) => {
+    if (!slugify) return;
+    router.push({ path: `/${slugify}` });
   };
 </script>

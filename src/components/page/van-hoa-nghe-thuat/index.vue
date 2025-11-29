@@ -18,21 +18,21 @@
       title: 'PHÁT TRIỂN VĂN HÓA - NGHỆ THUẬT',
       subtitle:
         'Không gian cồng chiêng Tây Nguyên là nguồn cảm hứng lớn, đóng góp vào nền văn hóa, nghệ thuật nước nhà những thanh âm độc bản và phong phú',
-      slugfy: 'tiem-nang-phat-trien/van-hoa-nghe-thuat',
+      slugify: 'tiem-nang-phat-trien/van-hoa-nghe-thuat',
       type: 'van-hoa-nghe-thuat',
     },
     {
       title: 'PHÁT TRIỂN DU LỊCH VĂN HÓA - CỘNG ĐỒNG',
       subtitle:
         'Gắn liền không gian văn hóa cồng chiêng Tây Nguyên với việc phát triển du lịch văn hóa - cộng đồng là kim chỉ nam cho ngành văn hóa, du lịch của vùng',
-      slugfy: 'tiem-nang-phat-trien/du-lich-van-hoa-cong-dong',
+      slugify: 'tiem-nang-phat-trien/du-lich-van-hoa-cong-dong',
       type: 'du-lich-van-hoa-cong-dong',
     },
     {
       title: 'PHÁT TRIỂN DU LỊCH TẠI ĐỊA PHƯƠNG',
       subtitle:
         'Giữ gìn và lan tỏa không gian văn hóa cồng chiêng tại các vùng, xã, địa phương không chỉ là phương thức hữu hiệu để phát triển du lịch mà còn góp phần bảo tồn và giữ gìn di sản văn hóa phi vật thể nhân loại',
-      slugfy: 'tiem-nang-phat-trien/du-lich-tai-dia-phuong',
+      slugify: 'tiem-nang-phat-trien/du-lich-tai-dia-phuong',
       type: 'du-lich-tai-dia-phuong',
     },
   ];

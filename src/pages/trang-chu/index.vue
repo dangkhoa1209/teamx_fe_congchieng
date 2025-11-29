@@ -144,8 +144,8 @@
     // meta: [{ name: 'description', content: 'Website của Khoa - ví dụ SEO tốt hơn' }],
   });
 
-  const clickTo = (slugfy) => {
-    if (!slugfy) return;
-    router.push({ path: `/${slugfy}` });
+  const clickTo = (slugify) => {
+    if (!slugify) return;
+    router.push({ path: `/${slugify}` });
   };
 </script>
