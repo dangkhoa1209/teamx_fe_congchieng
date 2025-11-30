@@ -1,6 +1,7 @@
 <template>
   <x-content-place>
     <div>
+      <x-space :height="30" />
       <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
         <div>
           <h1 class="text-2xl font-semibold text-gray-900">Quản lý tin tức - sự kiện</h1>
@@ -9,7 +10,7 @@
           Thêm tin tức - sự kiện
         </x-form-button>
       </div>
-
+      <x-space :height="30" />
       <!-- {{ $newScope().list }}
       {{ $newScope().key }} -->
       <div class="rounded-xl border border-gray-200 bg-main shadow-sm">

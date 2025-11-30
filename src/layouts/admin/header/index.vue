@@ -1,17 +1,13 @@
 <template>
-  <header class="relative z-50 user-select-none">
-    <!-- HEADER TRÊN CÙNG -->
+  <header class="relative z-50">
     <div class="bg-primary relative">
       <x-content-place>
-        <div class="flex items-center justify-between py-5 laptop:py-8">
-          <!-- Logo + Tên đơn vị -->
+        <div class="flex items-center justify-between py-2 tablet:py-6 laptop:py-8">
           <div class="flex items-center gap-4 laptop:gap-10">
-            <img
-              class="h-14 w-auto laptop:h-20"
-              :src="$image().urlSquare"
-              alt="Logo"
-              @error="onLogoError"
-            />
+            <div class="h-8 w-8 tablet:h-16 tablet:w-16 laptop:h-20 laptop:w-20">
+              <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
+            </div>
+
             <div class="hidden tablet:block text-main">
               <p class="font-mont font-semibold text-[16px] laptop:text-[20px] leading-tight">
                 UBND TỈNH LÂM ĐỒNG
@@ -22,19 +18,17 @@
             </div>
           </div>
 
-          <!-- NÚT MOBILE (dưới laptop) -->
           <div class="flex items-center gap-4 laptop:hidden">
-            <button class="p-2" @click="toggleSearch">
-              <Icon name="heroicons:magnifying-glass" class="w-7 h-7 text-main" />
-            </button>
             <button class="p-2" @click="isDrawerOpen = true">
-              <Icon name="heroicons:bars-3" class="w-8 h-8 text-main" />
+              <Icon
+                name="heroicons:bars-3"
+                class="w-5 h-5 tablet:w-8 tablet:h-8 laptop:w-8 laptop:h-8 text-main"
+              />
             </button>
           </div>
         </div>
       </x-content-place>
 
-      <!-- Background trang trí (desktop) -->
       <div class="absolute inset-0 pointer-events-none">
         <div class="max-w-[1440px] mx-auto h-full flex justify-end">
           <IconHeader class="h-full text-primary" />
@@ -42,9 +36,6 @@
       </div>
     </div>
 
-    <!-- MENU NGANG - CHỈ HIỆN TỪ LAPTOP TRỞ LÊN + STICKY -->
-
-    <!-- DRAWER MOBILE -->
     <teleport to="body">
       <transition name="fade">
         <div v-if="isDrawerOpen" class="fixed inset-0 z-[9999]" @click.self="isDrawerOpen = false">
@@ -57,18 +48,22 @@
             :class="isDrawerOpen ? 'translate-x-0' : 'translate-x-full'"
           >
             <!-- Header drawer -->
-            <div class="bg-primary p-5 flex items-center justify-between">
+            <div
+              class="bg-primary px-4 h-[58.5px] tablet:h-[112px] flex items-center justify-between"
+            >
               <div class="flex items-center gap-4">
-                <img class="h-12 w-auto" :src="$image().urlSquare" alt="Logo" />
+                <div class="h-8 w-8 tablet:h-16 tablet:w-16">
+                  <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
+                </div>
                 <div class="text-main">
-                  <p class="font-mont text-xs">UBND TỈNH LÂM ĐỒNG</p>
-                  <p class="font-mont text-sm font-bold opacity-90">
+                  <p class="font-mont text-[12px]">UBND TỈNH LÂM ĐỒNG</p>
+                  <p class="font-mont text-[12px] font-bold opacity-90">
                     SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
                   </p>
                 </div>
               </div>
               <button class="p-2" @click="isDrawerOpen = false">
-                <Icon name="heroicons:x-mark" class="w-8 h-8 text-main" />
+                <Icon name="heroicons:x-mark" class="w-6 h-6 text-main" />
               </button>
             </div>
 
@@ -86,7 +81,6 @@
     <Menu :menus="menus" />
   </div>
 </template>
-
 <script setup>
   import { ref, nextTick } from 'vue';
   import { useRouter, useRoute } from 'vue-router';

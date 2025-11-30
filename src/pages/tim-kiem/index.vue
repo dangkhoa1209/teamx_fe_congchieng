@@ -6,44 +6,33 @@
     <div class="flex gap-[40px] flex-col laptop:flex-row">
       <div class="w-full">
         <inpit-filter v-model="filter.search" class="w-full" placeholder="Nhập từ khoá" />
-
-        <!-- filter -->
-        <!-- PHẦN FILTER RESPONSIVE -->
+        <x-space :height="15" />
         <div class="w-full user-select-none">
-          <p class="font-robo font-medium text-subtitle text-primary mb-4 laptop:mb-0">
-            Bộ lọc tìm kiếm
-          </p>
-
-          <div
-            class="grid grid-cols-1 laptop:grid-cols-2 laptop:flex laptop:gap-8 mt-4 laptop:mt-1 items-start"
-          >
+          <div class="flex justify-start gap-40px">
             <!-- ITEM 1: TÌM KIẾM -->
-            <div class="flex laptop:items-center gap-3 laptop:gap-5">
-              <label
-                class="font-robo font-medium leading-[40px] whitespace-nowrap text-gray-700 min-w-[100px]"
-              >
+            <div class="flex laptop:items-center gap-3 laptop:gap-2">
+              <label class="font-robo font-medium leading-[40px] whitespace-nowrap min-w-[100px]">
                 Tìm kiếm:
               </label>
-              <div class="w-full laptop:w-[220px] laptop:w-[240px] wide:w-[280px]">
+              <div class="w-full laptop:w-[200px]">
                 <DropdownFilter v-model="filter.location" :actions="locationTypes" />
               </div>
             </div>
 
             <!-- ITEM 2: THỜI GIAN -->
-            <div class="flex laptop:items-center gap-3 laptop:gap-5 mt-4 laptop:mt-0">
-              <label
-                class="font-robo font-medium leading-[40px] whitespace-nowrap text-gray-700 min-w-[100px]"
-              >
+            <div class="flex laptop:items-center gap-3 laptop:gap-2 mt-4 laptop:mt-0">
+              <label class="font-robo font-medium leading-[40px] whitespace-nowrapmin-w-[100px]">
                 Thời gian:
               </label>
-              <div class="w-full laptop:w-[220px] laptop:w-[240px] wide:w-[280px]">
+              <div class="w-full laptop:w-[200px]">
                 <DropdownFilter v-model="filter.time" :actions="timeOptions" />
               </div>
             </div>
           </div>
         </div>
-        <x-line className="" />
-        <x-space :height="30" />
+        <x-space :height="15" />
+        <x-line />
+        <x-space :height="40" />
         <div class="flex flex-col gap-[40px]">
           <template v-for="item in lists.data" :key="item">
             <x-page-news-thumb-hor :news="item" />
@@ -60,15 +49,13 @@
         <x-space :height="80" />
       </div>
       <div class="min-w-[400px] laptop:w-[400px]">
-        <div>
-          <h2 class="font-bold text-subtitle text-primary leading-[40px]">TIN TỨC NỔI BẬT</h2>
-          <x-line className="" />
-          <x-space :height="40" />
-          <div class="flex flex-col gap-[25px]">
-            <x-page-news-thumb-hor :exclude="['subTitle']" />
-            <x-page-news-thumb-hor :exclude="['subTitle']" />
-            <x-page-news-thumb-hor :exclude="['subTitle']" />
-          </div>
+        <h2 class="font-bold text-subtitle text-primary leading-[40px]">TIN TỨC NỔI BẬT</h2>
+        <x-line />
+        <x-space :height="40" />
+        <div class="flex flex-col gap-[25px]">
+          <x-page-news-thumb-hor :exclude="['subTitle']" />
+          <x-page-news-thumb-hor :exclude="['subTitle']" />
+          <x-page-news-thumb-hor :exclude="['subTitle']" />
         </div>
       </div>
     </div>

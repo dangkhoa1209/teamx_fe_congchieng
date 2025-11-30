@@ -1,11 +1,11 @@
 <template>
-  <hr class="border-0 h-[1px]" :class="[className, classColor]" />
+  <hr class="border h-[2px]" :class="[className, classColor]" />
 </template>
 <script setup>
   const props = defineProps({
     className: {
       type: String,
-      default: 'my-3',
+      default: '',
     },
     classColor: {
       type: String,

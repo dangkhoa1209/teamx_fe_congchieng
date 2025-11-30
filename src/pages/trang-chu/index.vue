@@ -5,17 +5,22 @@
     <div class="max-w-[1440px] mx-auto">
       <section class="relative">
         <!-- Ảnh -->
-        <x-image :url="$image().url" :height="600" class="w-full h-full object-cover" :radius="0" />
+        <x-image
+          :url="$image().url"
+          :height="685"
+          :width="1440"
+          class="w-full h-full object-cover"
+          :radius="0"
+        />
 
-        <!-- Nội dung overlay giữa ảnh -->
+        <div class="absolute inset-0 bg-primary/40" />
+
         <main
-          class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-main text-center gap-1"
+          class="absolute inset-0 flex flex-col items-center justify-center text-main text-center gap-1"
         >
           <h1 class="font-robo font-bold text-hero">ÂM THANH CỒNG CHIÊNG</h1>
-
           <h2 class="font-robo font-bold text-hero">HƠI THỞ VĂN HOÁ TÂY NGUYÊN</h2>
-
-          <x-button class="mt-5">KHÁM PHÁ NGAY</x-button>
+          <x-button class="mt-5" @click="clickTo('gioi-thieu')">KHÁM PHÁ NGAY</x-button>
         </main>
       </section>
     </div>
@@ -34,24 +39,28 @@
               </h2>
               <x-space :height="30" />
               <p class="font-robo font-normal text-body text-justify">
-                Chuyên trang thông tin điện tử “Văn hoá Cồng Chiêng Lâm Đồng” được xây dựng theo kế
-                hoạch của Sở Văn hoá, Thể thao và Du lịch tỉnh Lâm Đồng năm 2025, nhằm mục tiêu giới
-                thiệu, quảng bá và bảo tồn giá trị văn hoá truyền thống của các dân tộc thiểu số gắn
-                liền với phát triển du lịch cộng đồng bền vững.
-              </p>
-              <x-space :height="20" />
-              <p class="font-robo font-normal text-body text-justify">
-                Trang thông tin đóng vai trò là cầu nối giữa văn hoá – công nghệ – du lịch, giúp
-                người dân, du khách và doanh nghiệp cùng tiếp cận, tìm hiểu, trải nghiệm và chung
-                tay gìn giữ di sản văn hoá phi vật thể đặc trưng của Tây Nguyên – Không gian văn hoá
-                Cồng Chiêng.
+                Từ thuở hồng hoang, khi con người biết khai thác kim loại từ lòng đất để tạo ra
+                những tấm đồng đầu tiên - Tiếng chiêng đã ra đời, như tiếng gọi nguyên sơ của sự
+                sống. Hàng ngàn năm trôi qua, cồng chiêng trở thành hơi thở của núi rừng, là linh
+                hồn của con người nơi đại ngàn, đồng thời là biểu tượng của sức sống, niềm tin và
+                khát vọng. Bên ánh lửa bập bùng giữa rừng sâu, con người đã tụ hội quanh tiếng
+                chiêng để kể những câu chuyện của buôn làng. Nhờ tiếng chiêng, con người biết hướng
+                về cội nguồn - nhớ đất, nhớ trời, nhớ tổ tiên và những điều thiêng liêng ẩn sâu
+                trong tâm hồn. Tiếng chiêng cất lên từ sự sống và cũng mở ra một cuộc sống tràn đầy
+                màu sắc và sinh khí...
               </p>
             </div>
             <div class="my-[40px] block laptop:hidden">
               <x-image :url="$image().url" :height="650" />
             </div>
             <div class="flex">
-              <x-button :uppercase="false" theme="primary">Tìm hiểu thêm</x-button>
+              <x-button
+                :uppercase="false"
+                theme="primary"
+                @click="clickTo('van-hoa-cong-chieng/tong-quan')"
+              >
+                Tìm hiểu thêm
+              </x-button>
             </div>
           </div>
           <div class="min-w-[47%] hidden laptop:block">
@@ -72,11 +81,7 @@
           variant="bottom"
         />
         <x-space :height="50" />
-        <div class="flex gap-[40px] flex-col laptop:flex-row">
-          <x-page-news-thumb-ver />
-          <x-page-news-thumb-ver />
-          <x-page-news-thumb-ver />
-        </div>
+        <x-page-van-hoa-nghe-thuat />
       </x-content-place>
     </section>
 
@@ -102,7 +107,6 @@
           variant="bottom"
         />
         <x-space :height="50" />
-
         <SlideXa />
       </x-content-place>
     </section>
@@ -132,8 +136,15 @@
 <script setup>
   import SlideXa from './ignore/xa.vue';
   import SlideDonViHopTac from './ignore/don-vi-hop-tac.vue';
+  const router = useRouter();
+
   useHead({
     title: 'Trang chủ',
     // meta: [{ name: 'description', content: 'Website của Khoa - ví dụ SEO tốt hơn' }],
   });
+
+  const clickTo = (slugify) => {
+    if (!slugify) return;
+    router.push({ path: `/${slugify}` });
+  };
 </script>

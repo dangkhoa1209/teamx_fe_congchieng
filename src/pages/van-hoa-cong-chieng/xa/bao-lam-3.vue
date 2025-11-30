@@ -2,12 +2,18 @@
   <x-content-place class="font-robo">
     <x-space :height="40" />
     <x-title variant="bottom">
-      <div class="flex items-center gap-2 font-bold text-body text-primary m-0 leading-[1]">
-        VĂN HOÁ CỒNG CHIÊNG
-        <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Văn hóa cồng chiêng tại các xã
-        <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Xã Bảo Lâm 3
+      <div
+        class="flex flex-wrap items-center gap-2 font-bold text-body text-primary m-0 leading-[1]"
+      >
+        <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
+
+        <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
+
+        <span class="whitespace-normal">Văn hóa cồng chiêng tại các xã</span>
+
+        <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
+
+        <span class="whitespace-normal">Xã Bảo Lâm 3</span>
       </div>
     </x-title>
 

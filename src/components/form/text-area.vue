@@ -17,7 +17,7 @@
         :disabled="disabled"
         :readonly="readonly"
         :rows="rows"
-        class="w-full rounded-2xl border px-4 py-2 transition-colors duration-200 outline-none bg-main border-primary hover:border-primary focus:ring-2 focus:ring-primary disabled:bg-gray-100 disabled:cursor-not-allowed resize-none text-body font-medium font-robo"
+        class="w-full rounded-xl tablet:rounded-2xl border px-4 py-2 transition-colors duration-200 outline-none bg-main border-primary hover:border-primary focus:ring-2 focus:ring-primary disabled:bg-gray-100 disabled:cursor-not-allowed resize-none text-body font-medium font-robo"
       />
       <!-- Error -->
       <p v-if="errors.length" class="mt-1 text-sm text-red-500">

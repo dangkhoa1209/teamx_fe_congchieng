@@ -2,37 +2,47 @@
   <x-content-place class="font-robo">
     <x-space :height="40" />
     <x-title variant="bottom">
-      <div class="flex items-center gap-2 font-bold text-body text-primary">
-        TIỀM NĂNG PHÁT TRIỂN
-        <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Phát triển du lịch văn hóa - cộng đồng
+      <div
+        class="flex flex-wrap items-center gap-2 font-bold text-body text-primary m-0 leading-[1]"
+      >
+        <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
+
+        <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
+
+        <span class="whitespace-normal">Phát triển văn hóa - nghệ thuật</span>
       </div>
     </x-title>
     <x-space :height="40" />
-    <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN DU LỊCH VĂN HÓA - CỘNG ĐỒNG</h2>
+    <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN VĂN HÓA - NGHỆ THUẬT</h2>
     <x-space :height="40" />
     <section class="flex flex-col gap-[25px]">
       <p class="font-bold text-subtitle text-primary">
-        Gắn liền không gian văn hóa cồng chiêng Tây Nguyên với việc phát triển du lịch văn hóa -
-        cộng đồng là kim chỉ nam cho ngành văn hóa, du lịch của vùng.
+        Không gian cồng chiêng Tây Nguyên là nguồn cảm hứng lớn, đóng góp vào nền văn hóa, nghệ
+        thuật nước nhà những thanh âm độc bản và phong phú.
       </p>
       <p>
-        Không gian văn hóa cồng chiêng Tây Nguyên từ lâu đã là một kho tàng sống động, nơi hội tụ
-        những giá trị nguyên bản của đời sống cộng đồng các dân tộc bản địa. Những thanh âm vang
-        vọng giữa núi rừng không chỉ chứa đựng tâm hồn, niềm tin và lịch sử mà còn mở ra tiềm năng
-        mạnh mẽ để phát triển du lịch văn hóa - cộng đồng theo hướng bền vững và giàu bản sắc.
+        Chuyên trang điện tử không chỉ là kênh giới thiệu di sản, mà còn là một nền tảng sáng tạo
+        mới, mở ra tiềm năng phát triển vượt bậc cho lĩnh vực văn hóa - nghệ thuật đương đại. Với
+        lợi thế tổng hợp thông tin, dữ liệu, tư liệu quý và khả năng truyền tải đa phương tiện,
+        chuyên trang trở thành “cầu nối” giữa kho tàng văn hóa truyền thống và cộng đồng sáng tạo
+        trong nước và Quốc tế.
       </p>
       <p>
-        Khi gắn kết cồng chiêng với hoạt động du lịch, các địa phương có cơ hội xây dựng những sản
-        phẩm đặc thù: tour trải nghiệm cồng chiêng ngay tại buôn làng, đêm diễn chiêng lửa, các lớp
-        học chế tác và diễn tấu, lễ hội truyền thống, trải nghiệm ẩm thực bản địa và sinh hoạt nhà
-        dài, nhà rông. Du khách không chỉ “xem” văn hóa, mà được sống trong văn hóa, trở thành một
-        phần của câu chuyện cộng đồng.
+        Không gian cồng chiêng Tây Nguyên không chỉ là di sản văn hóa của các dân tộc bản địa mà còn
+        là “ngân hàng âm thanh” giàu chất liệu cho các loại hình nghệ thuật đương đại. Từ âm sắc
+        trầm hùng, vang ngân của chiêng - cồng, nghệ sĩ, nhà nghiên cứu, biên đạo và nhạc sĩ đã tìm
+        thấy những giá trị thẩm mỹ sâu xa, làm nên những sáng tạo nghệ thuật độc đáo và có bản sắc.
+        Trong âm nhạc, nhịp chiêng đa tầng, hòa thanh thiên nhiên và tiết tấu xoang cổ truyền đã trở
+        thành cảm hứng cho nhiều tác phẩm giao hưởng, khí nhạc, ca khúc mang màu sắc đại ngàn. Các
+        nhà soạn nhạc khai thác ngữ điệu dân gian Tây Nguyên để đưa vào bản phối hiện đại, tạo nên
+        cầu nối giữa truyền thống và thời đại mới. Nhiều tác phẩm sân khấu, âm nhạc thính phòng hay
+        nhạc phim đã sử dụng chất liệu cồng chiêng như một biểu tượng của sức sống, sự thiêng liêng
+        và tinh thần bất khuất của con người Tây Nguyên.
       </p>
     </section>
     <x-space :height="40" />
     <section>
-      <div class="flex gap-5">
+      <div class="flex gap-[40px]">
         <x-image :url="$image().url" />
         <x-image :url="$image().url" />
       </div>
@@ -40,18 +50,20 @@
     <x-space :height="40" />
     <section class="flex flex-col gap-[25px]">
       <p>
-        Chuyên trang điện tử đóng vai trò như cầu nối để những giá trị này được tiếp cận rộng rãi
-        hơn. Thông qua việc số hóa dữ liệu, giới thiệu hình ảnh, video, câu chuyện buôn làng và các
-        sản phẩm du lịch đặc trưng, chuyên trang giúp du khách, doanh nghiệp và cơ quan quản lý hiểu
-        rõ hơn tiềm năng từng địa phương. Đây cũng là nền tảng để thu hút đầu tư, kết nối tour
-        tuyến, xây dựng thương hiệu du lịch văn hóa Lâm Đồng dựa trên bản sắc Tây Nguyên.
+        Trong lĩnh vực múa và nghệ thuật biểu diễn, các điệu xoang cộng đồng, vòng tròn đoàn kết và
+        ngôn ngữ hình thể của đồng bào đã được chuyển hóa thành ngôn ngữ múa đương đại. Các biên đạo
+        khai thác nhịp điệu xoay vòng – vốn là tinh thần cốt lõi của nhiều nghi lễ truyền thống – để
+        tạo nên những tác phẩm giàu chiều sâu văn hóa và tính biểu tượng. Điện ảnh, mỹ thuật và thời
+        trang cũng ghi nhận sự lan tỏa của cồng chiêng. Hình ảnh vòng xoang bên ánh lửa, hoa văn thổ
+        cẩm K’Ho – Mạ – Gia Rai, hay không gian nhà dài Ê Đê đã trở thành nguồn tư liệu quý giá cho
+        các nhiếp ảnh gia, đạo diễn và nhà thiết kế sáng tạo nên các bộ sưu tập, triển lãm và phim
+        tài liệu mang đậm dấu ấn Tây Nguyên.
       </p>
       <p>
-        Với sự đồng hành của chính quyền địa phương, cộng đồng dân tộc thiểu số và các đơn vị làm du
-        lịch, mô hình phát triển dựa trên cồng chiêng có thể trở thành một hướng đi bền vững, vừa
-        bảo tồn di sản vừa tạo sinh kế cho người dân. Cồng chiêng, vì thế, không chỉ ngân vang trong
-        đời sống văn hóa, mà còn trở thành nhịp cầu dẫn dắt du khách đến gần hơn với trái tim của
-        đại ngàn.
+        Phát triển văn hóa – nghệ thuật dựa trên nền tảng cồng chiêng không chỉ góp phần làm giàu
+        kho tàng sáng tạo quốc gia, mà còn khẳng định vị thế của Lâm Đồng và Tây Nguyên như một
+        trung tâm văn hóa độc bản – nơi truyền thống và đương đại giao hòa, nâng tầm di sản Việt Nam
+        ra thế giới
       </p>
     </section>
     <x-space :height="40" />
@@ -61,11 +73,19 @@
     <x-space :height="40" />
     <section class="flex flex-col gap-[25px]">
       <p>
-        Như vậy, chuyên trang không chỉ kể câu chuyện du lịch - cộng đồng mà còn góp phần mở ra
-        hướng phát triển mới cho cả vùng: phát triển du lịch dựa trên di sản, tôn trọng yếu tố bản
-        địa, lấy con người làm trung tâm và văn hóa làm nguồn lực cốt lõi. Đây chính là tiềm năng
-        dài hạn mà chuyên trang hướng tới trong hành trình đưa cồng chiêng trở thành biểu tượng du
-        lịch văn hóa đặc sắc của tỉnh Lâm Đồng.
+        Như vậy, chuyên trang là “đầu mối” kết nối các dự án nghệ thuật - văn hóa: từ những workshop
+        sáng tác âm nhạc, lớp truyền dạy cồng chiêng, cuộc thi làm phim ngắn, dự án mỹ thuật lấy cảm
+        hứng từ Tây Nguyên... đến các chương trình Festival, trình diễn sân khấu và sự kiện văn hóa
+        lớn của tỉnh. Nhờ tính chất mở và liên kết cao, chuyên trang đóng vai trò nền tảng kích hoạt
+        sáng tạo, nơi các ý tưởng có thể nảy nở và lan tỏa.
+      </p>
+      <p>
+        Ngoài ra, sự hiện diện của chuyên trang giúp đưa văn hóa cồng chiêng vào đời sống đương đại
+        bằng các sản phẩm truyền thông sáng tạo: từ podcast, mini-series, phóng sự nghệ thuật, tài
+        liệu học thuật đến nội dung giáo dục dành cho học sinh. Những sản phẩm này không chỉ giới
+        thiệu di sản mà còn nuôi dưỡng cảm hứng nghệ thuật cho thế hệ trẻ. Trong bối cảnh chuyển đổi
+        số của ngành văn hóa, chuyên trang trở thành một “trung tâm mềm” – nơi di sản không bị trưng
+        bày tĩnh tại, mà sống động, lan tỏa và truyền cảm hứng.
       </p>
     </section>
     <x-space :height="80" />
@@ -74,23 +94,7 @@
     <x-title title="BÀI VIẾT CÙNG CHUYÊN MỤC" variant="left" class-name="font-bold text-subtitle" />
     <x-space :height="40" />
     <section>
-      <div class="grid grid-cols-2 laptop:grid-cols-3 gap-5">
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-      </div>
+      <x-page-van-hoa-nghe-thuat :exclude="['van-hoa-nghe-thuat']" />
     </section>
     <x-space :height="80" />
   </x-content-place>

@@ -4,12 +4,13 @@
 <template>
   <div class="flex gap-4">
     <div class="w-[40%] min-w-[40%]">
-      <x-image :path="news?.thumbnail" :url="$image().url" />
+      <x-image :path="news?.thumbnail" :url="$image().url" :click-to="news?.slugify" />
     </div>
     <div class="w-[60%] flex flex-col gap-[25px]">
       <p
         v-if="!exclude.includes('title')"
-        class="font-robo font-medium text-subtitle text-primary text-justify"
+        class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer"
+        @click="handleClick"
       >
         {{ news?.title || 'Giữ gìn bản sắc văn hoá qua du lịch cồng chiêng ở Lâm Đồng' }}
       </p>
@@ -49,4 +50,11 @@
       default: '',
     },
   });
+
+  const router = useRouter();
+  const handleClick = () => {
+    if (props.news?.slugify) {
+      router.push({ path: `/${props.news.slugify}` });
+    }
+  };
 </script>

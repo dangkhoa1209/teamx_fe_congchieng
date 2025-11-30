@@ -9,8 +9,12 @@
         class="w-full h-full object-cover object-center rounded-[inherit] transition-transform duration-300"
         :width="width"
         :height="height"
+        :class="{
+          'cursor-pointer': clickTo,
+        }"
         lazy
         @error="onError"
+        @click="onClick"
       />
 
       <div
@@ -35,16 +39,34 @@
     url: String,
     path: String,
     alt: { type: String, default: 'Image' },
-    radius: { type: [Number, String], default: 15 },
+    radius: { type: [Number, String], default: null },
     width: { type: Number, default: 900 },
     height: { type: Number, default: 600 },
     title: { type: String },
+    clickTo: { type: String, default: '' },
   });
 
-  const { width, height, path, url } = toRefs(props);
-  const radiusStyle = computed(() =>
-    typeof props.radius === 'number' ? `${props.radius}px` : props.radius
-  );
+  const { width, height, path, url, clickTo } = toRefs(props);
+  const windowWidth = ref(window?.innerWidth);
+
+  onMounted(() => {
+    const handleResize = () => (windowWidth.value = window?.innerWidth);
+    window.addEventListener('resize', handleResize);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', () => {});
+  });
+
+  const radiusStyle = computed(() => {
+    if (['number', 'string'].includes(typeof props.radius)) {
+      return typeof props.radius === 'number' ? `${props.radius}px` : props.radius;
+    }
+
+    if (windowWidth.value >= 1024) return '15px'; // desktop
+    if (windowWidth.value >= 640) return '12px'; // tablet
+    return '10px'; // mobile
+  });
   const imgRef = ref(null);
 
   const cUrl = computed(() => {
@@ -59,6 +81,13 @@
     return null;
   });
 
+  const router = useRouter();
+
+  const onClick = () => {
+    if (clickTo.value) {
+      router.push({ path: `/${clickTo.value}` });
+    }
+  };
   const onError = () => {
     if (imgRef.value && imgRef.value.style) imgRef.value.style.display = 'none';
   };

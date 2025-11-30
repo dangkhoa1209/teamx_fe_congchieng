@@ -2,13 +2,31 @@
   "admin-tai-khoan": [
     "tai-khoan"
   ],
-  "admin-tin-tuc-su-kien": [
+  "admin-tin-tuc-su-kien-quan-ly": [
     "tin-tuc-su-kien",
     "xa-lac-duong",
     "xa-da-teh",
     "xa-lac-bao-lam-3",
     "xa-dinh-trang-thuong",
-    "xa-tam-dong-4"
+    "xa-dam-dong-4"
+  ],
+  "admin-tin-tuc-su-kien-tin-noi-bat-tat-ca": [
+    "tin-tuc-su-kien"
+  ],
+  "admin-tin-tuc-su-kien-tin-noi-bat-xa-lac-duong": [
+    "xa-lac-duong"
+  ],
+  "admin-tin-tuc-su-kien-tin-noi-bat-xa-da-teh": [
+    "xa-da-teh"
+  ],
+  "admin-tin-tuc-su-kien-tin-noi-bat-xa-lac-bao-lam-3": [
+    "xa-lac-bao-lam-3"
+  ],
+  "admin-tin-tuc-su-kien-tin-noi-bat-xa-dinh-trang-thuong": [
+    "xa-dinh-trang-thuong"
+  ],
+  "admin-tin-tuc-su-kien-tin-noi-bat-xa-dam-dong-4": [
+    "xa-dam-dong-4"
   ],
   "admin-trang-chu": [
     "trang-chu"

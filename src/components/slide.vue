@@ -1,6 +1,6 @@
 <template>
   <!-- THÊM DIV BỌC + PB ĐỂ CHỪA CHỖ CHO CHẤM TRÒN -->
-  <div class="w-full pb-12 laptop:pb-16">
+  <div class="w-full">
     <Swiper
       :modules="[Autoplay, Pagination]"
       :slides-per-view="1"
@@ -29,7 +29,7 @@
     breakpoints: {
       type: Object,
       default: () => ({
-        640: { slidesPerView: 1 },
+        0: { slidesPerView: 1 },
         1024: { slidesPerView: 2 },
         1280: { slidesPerView: 3 },
       }),

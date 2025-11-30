@@ -18,7 +18,7 @@
           :min="min"
           :max="max"
           :value="field.value"
-          class="w-full rounded-2xl border px-4 py-2 transition-colors duration-200 outline-none bg-main border-primary hover:border-primary focus:ring-2 focus:ring-primary disabled:bg-gray-100 disabled:cursor-not-allowed h-[60px] text-body font-medium font-robo"
+          class="w-full rounded-xl tablet:rounded-2xl border py-1 px-2 tablet:px-4 tablet:py-2 h-[35px] tablet:h-[60px] transition-colors duration-200 outline-none bg-main border-primary hover:border-primary focus:ring-2 focus:ring-primary disabled:bg-gray-100 disabled:cursor-not-allowed text-body font-medium font-robo"
           @input="handleInput($event, field)"
         />
 
@@ -29,7 +29,10 @@
           class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
           @click="togglePassword"
         >
-          <Icon :name="showPassword ? 'heroicons-solid:eye' : 'heroicons-solid:eye-slash'" class="h-6 w-6" />
+          <Icon
+            :name="showPassword ? 'heroicons-solid:eye' : 'heroicons-solid:eye-slash'"
+            class="h-6 w-6"
+          />
         </button>
       </div>
 
@@ -84,7 +87,9 @@
   // === Password Toggle ===
   const showPassword = ref(false);
   const isPasswordType = computed(() => props.type === 'password');
-  const inputType = computed(() => (isPasswordType.value && !showPassword.value ? 'password' : 'text'));
+  const inputType = computed(() =>
+    isPasswordType.value && !showPassword.value ? 'password' : 'text'
+  );
 
   const togglePassword = () => {
     showPassword.value = !showPassword.value;
@@ -131,7 +136,7 @@
     (newVal) => {
       value.value = newVal ?? '';
     },
-    { immediate: true },
+    { immediate: true }
   );
 </script>
 

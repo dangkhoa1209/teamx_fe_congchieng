@@ -2,10 +2,14 @@
   <x-content-place class="font-robo">
     <x-space :height="40" />
     <x-title variant="bottom">
-      <div class="flex items-center gap-2 font-bold text-body text-primary">
-        TIỀM NĂNG PHÁT TRIỂN
-        <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Phát triển du lịch tại địa phương
+      <div
+        class="flex flex-wrap items-center gap-2 font-bold text-body text-primary m-0 leading-[1]"
+      >
+        <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
+
+        <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
+
+        <span class="whitespace-normal">Phát triển du lịch tại địa phương</span>
       </div>
     </x-title>
     <x-space :height="40" />
@@ -78,7 +82,8 @@
     <x-title title="BÀI VIẾT CÙNG CHUYÊN MỤC" variant="left" class-name="font-bold text-subtitle" />
     <x-space :height="40" />
     <section>
-      <div class="grid grid-cols-2 laptop:grid-cols-3 gap-5">
+      <x-page-van-hoa-nghe-thuat :exclude="['du-lich-tai-dia-phuong']" />
+      <!-- <div class="grid grid-cols-2 laptop:grid-cols-3 gap-5">
         <x-page-news-thumb-ver />
         <x-page-news-thumb-ver />
         <x-page-news-thumb-ver />
@@ -94,7 +99,7 @@
         <x-page-news-thumb-ver />
         <x-page-news-thumb-ver />
         <x-page-news-thumb-ver />
-      </div>
+      </div> -->
     </section>
     <x-space :height="80" />
   </x-content-place>

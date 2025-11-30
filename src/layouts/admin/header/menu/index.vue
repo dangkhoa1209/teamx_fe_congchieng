@@ -1,7 +1,7 @@
 <template>
   <nav class="sticky top-0 z-[999] select-none">
     <div class="h-[75px]">
-      <div class="header z-50">
+      <div class="header z-50 border-b border-primary">
         <x-content-place>
           <div class="relative flex justify-between items-center h-[75px] gap-[40px]">
             <!-- MENU NGANG CÓ SCROLL -->
@@ -46,9 +46,7 @@
 <script setup>
   import MenuDropdownItem from './MenuDropdownItem.vue';
   import InputFitter from './input-fitter.vue';
-  import IconFind from '~/public/assets/icon/testsvg.svg';
   import menus from '~/data/menu/admin.json';
-
   const router = useRouter();
   const route = useRoute();
 

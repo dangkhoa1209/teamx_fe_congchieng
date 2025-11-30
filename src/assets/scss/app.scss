@@ -1,5 +1,5 @@
 body {
-  @apply bg-main min-h-screen;
+  @apply bg-main min-h-screen font-robo text-black;
 }
 
 .user-select-none {
@@ -9,58 +9,84 @@ body {
 @layer utilities {
   /* ====== TEXT SCALE CHUẨN RESPONSIVE ====== */
 
-  /* Hero Title – Tiêu đề lớn nhất (trang chủ, banner) */
+  // /* Hero Title – Tiêu đề lớn nhất (trang chủ, banner) */
+  // .text-hero {
+  //   @apply laptop:text-[40px];
+  // }
+
+  // /* Main Title – Tiêu đề trang, section */
+  // .text-title {
+  //   @apply laptop:text-[26px];
+  // }
+
+  // /* Title News – Tiêu đề bài viết, card */
+  // .text-title-news {
+  //   @apply laptop:text-[22px];
+  // }
+
+  // /* Subtitle – Mô tả ngắn, lead */
+  // .text-subtitle {
+  //   @apply laptop:text-[18px];
+  // }
+
+  // /* Body text – Nội dung chính */
+  // .text-body {
+  //   @apply laptop:text-[16px];
+  // }
+
+  // /* Caption, note, label */
+  // .text-14 {
+  //   @apply laptop:text-[14px];
+  // }
+
+  // .text-mini {
+  //   @apply laptop:text-[13px];
+  // }
+
+  // /* Bonus: Class siêu tiện dùng cho tiêu đề có clamp() mượt như Notion */
+  // .text-clamp {
+  //   font-size: clamp(24px, 4vw, 64px);
+  //   line-height: 1.2;
+  //   font-weight: 700;
+  // }
+
+  /* Hero Title */
   .text-hero {
-    @apply text-[32px] font-bold;
-    @apply tablet:text-[40px];
-    @apply laptop:text-[48px];
-    @apply desktop:text-[56px];
+    font-size: clamp(18px, 3.33vw, 40px);
   }
 
-  /* Main Title – Tiêu đề trang, section */
+  /* Main Title */
   .text-title {
-    @apply text-[24px] font-bold;
-    @apply tablet:text-[28px];
-    @apply laptop:text-[32px];
-    @apply desktop:text-[36px];
+    font-size: clamp(16px, 2.22vw, 26px);
   }
 
-  /* Title News – Tiêu đề bài viết, card */
+  /* Title News */
   .text-title-news {
-    @apply text-[18px] font-bold;
-    @apply tablet:text-[20px];
-    @apply laptop:text-[22px];
+    font-size: clamp(14px, 1.85vw, 22px);
   }
 
-  /* Subtitle – Mô tả ngắn, lead */
+  .text-20px {
+    font-size: clamp(14px, 1.48vw, 20px);
+  }
+
+
+  /* Subtitle */
   .text-subtitle {
-    @apply text-[16px];
-    @apply tablet:text-[17px];
-    @apply laptop:text-[18px];
+    font-size: clamp(14px, 1.57vw, 18px);
   }
 
-  /* Body text – Nội dung chính */
+  /* Body */
   .text-body {
-    @apply text-[15px];
-    @apply tablet:text-[15.5px];
-    @apply laptop:text-[16px];
+    font-size: clamp(13px, 1.48vw, 16px);
   }
 
-  /* Caption, note, label */
+  /* Caption / Label / Note */
   .text-14 {
-    @apply text-[13px];
-    @apply laptop:text-[14px];
+    font-size: clamp(11px, 1.30vw, 14px);
   }
 
-  .text-mini {
-    @apply text-[12px] opacity-80;
-    @apply laptop:text-[13px];
+  .text-copy-right {
+    font-size: clamp(11px, 2.22vw, 20px);
   }
 
-  /* Bonus: Class siêu tiện dùng cho tiêu đề có clamp() mượt như Notion */
-  .text-clamp {
-    font-size: clamp(24px, 4vw, 64px);
-    line-height: 1.2;
-    font-weight: 700;
-  }
 }

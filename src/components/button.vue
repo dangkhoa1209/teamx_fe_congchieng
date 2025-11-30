@@ -1,12 +1,12 @@
 <template>
   <button
-    class="font-robo text-[16px] font-medium h-[48px] rounded-[24px] transition-colors"
+    class="font-robo text-body font-medium h-[28px] tablet:h-[45px] laptop:h-[48px] rounded-full transition-colors"
     :class="cClass"
     :type="type"
     :disabled="disabled"
     @click="handleClick"
   >
-    <div class="px-10">
+    <div class="px-4 tablet:8 laptop:px-10">
       <slot />
     </div>
   </button>
@@ -47,7 +47,14 @@
     if (outline.value) {
       // outline = true
       if (theme.value === 'primary') {
-        results.push('bg-transparent', 'text-primary', 'border', 'border-primary');
+        results.push(
+          'bg-transparent',
+          'text-primary',
+          'border',
+          'border-primary',
+          'hover:bg-primary',
+          'hover:text-main'
+        );
       } else {
         results.push('bg-transparent', 'text-main', 'border', 'border-main');
       }
@@ -61,9 +68,9 @@
           'text-main',
           'hover:bg-main',
           'hover:text-primary',
-          'border', // bật border
-          'border-transparent', // border mặc định trong suốt
-          'hover:border-primary' // hover thì border đổi màu primary
+          'border',
+          'border-transparent',
+          'hover:border-primary'
         );
       }
     }

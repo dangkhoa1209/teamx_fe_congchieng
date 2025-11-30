@@ -20,7 +20,7 @@ const locationTypes = [
     label: 'Xã Đinh Trang Thượng',
   },
   {
-    value: 'xa-tam-dong-4',
+    value: 'xa-dam-dong-4',
     label: 'Xã Đam Rông 4',
   },
 ];

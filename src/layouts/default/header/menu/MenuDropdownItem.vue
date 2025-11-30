@@ -12,7 +12,7 @@
     <!-- GẠCH CHÂN DƯỚI - CHỈ HIỆN KHI ACTIVE (ROOT) - KHÔNG HOVER -->
     <div
       v-if="isRoot && isActive"
-      class="absolute bottom-[10px] left-0 right-0 h-[2px] bg-primary"
+      class="absolute bottom-[0px] left-0 right-0 h-[2px] bg-primary"
     />
 
     <!-- LINK HOẶC TEXT -->
@@ -60,12 +60,12 @@
     <!-- DROPDOWN CON -->
     <teleport v-if="item.childrens && isOpen" to="body">
       <div
-        class="absolute bg-primary text-main border border-main z-[9999] shadow-2xl"
+        class="absolute bg-primary z-[9999] shadow-2xl"
         :style="dropdownStyle"
         @mouseenter="enter"
         @mouseleave="$emit('mouseleave')"
       >
-        <ul class="border border-main border-t-primary">
+        <ul>
           <MenuDropdownItem
             v-for="(child, i) in item.childrens"
             :key="child.id || child.label"
