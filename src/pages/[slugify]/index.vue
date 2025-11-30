@@ -11,13 +11,13 @@
     <!-- body -->
 
     <!-- header news -->
-    <div v-if="newsData" class="flex gap-[40px]">
+    <div v-if="newsData" class="flex gap-[40px]=">
       <div>
         <h2 class="font-bold text-title-news text-primary">
           {{ newsData.title }}
         </h2>
       </div>
-      <div class="min-w-[400px] w-[400px]" />
+      <div class="tablet:min-w-[400px] hidden laptop:block" />
     </div>
     <div v-if="newsData" class="flex gap-[40px]">
       <!-- news -->
@@ -71,17 +71,25 @@
         <x-space :height="80" />
         <x-line className="" />
 
-        <section class="min-w-[400px] block laptop:hidden">
+        <section class="tablet:min-w-[400px] block laptop:hidden">
           <div>
             <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">
               TIN TỨC NỔI BẬT
             </h2>
             <x-space :height="40" />
-            <div class="flex flex-col gap-[25px]">
-              <x-page-news-thumb-hor :exclude="['subTitle']" />
-              <x-page-news-thumb-hor :exclude="['subTitle']" />
-              <x-page-news-thumb-hor :exclude="['subTitle']" />
-            </div>
+
+            <x-core-ttnb>
+              <template #default="{ items }">
+                <div class="flex flex-col gap-[25px]">
+                  <x-page-news-thumb-hor
+                    v-for="(item, index) in items"
+                    :key="index"
+                    :exclude="['subTitle']"
+                    :news="item.news"
+                  />
+                </div>
+              </template>
+            </x-core-ttnb>
           </div>
         </section>
 
@@ -98,7 +106,7 @@
 
         <x-space :height="80" />
       </section>
-      <section class="min-w-[400px] w-[400px] hidden laptop:block">
+      <section class="w-full hidden laptop:block">
         <div>
           <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC NỔI BẬT</h2>
           <x-line className="" />
