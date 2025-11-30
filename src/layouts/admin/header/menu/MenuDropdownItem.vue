@@ -1,5 +1,6 @@
 <template>
   <li
+    v-if="checkPermission(item.permissions, true)"
     ref="itemRef"
     class="relative"
     :class="{
@@ -87,6 +88,7 @@
 <script setup>
   import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue';
   import { useRoute } from 'vue-router';
+  import { checkPermission } from '~/utils/permission-check';
 
   const route = useRoute();
 

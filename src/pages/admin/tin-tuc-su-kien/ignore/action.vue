@@ -194,6 +194,7 @@
   const formData = ref($lodash.cloneDeep(init));
 
   const addContent = () => {
+    $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'content',
@@ -202,6 +203,7 @@
   };
 
   const addContentInDam = () => {
+    $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'content-in-dam',
@@ -209,6 +211,7 @@
     });
   };
   const addImage = () => {
+    $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'image',
