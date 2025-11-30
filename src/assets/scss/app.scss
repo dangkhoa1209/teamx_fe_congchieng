@@ -52,7 +52,7 @@ body {
 
   /* Hero Title */
   .text-hero {
-    font-size: clamp(17px, 3.33vw, 40px);
+    font-size: clamp(18px, 3.33vw, 40px);
   }
 
   /* Main Title */
@@ -64,6 +64,11 @@ body {
   .text-title-news {
     font-size: clamp(14px, 1.85vw, 22px);
   }
+
+  .text-20px {
+    font-size: clamp(14px, 1.48vw, 20px);
+  }
+
 
   /* Subtitle */
   .text-subtitle {
@@ -81,7 +86,7 @@ body {
   }
 
   .text-copy-right {
-    font-size: clamp(11px, 2.22vw, 26px);
+    font-size: clamp(11px, 2.22vw, 20px);
   }
 
 }

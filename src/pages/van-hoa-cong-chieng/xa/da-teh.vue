@@ -4,12 +4,16 @@
     <x-space :height="40" />
 
     <x-title variant="bottom">
-      <div class="flex items-center gap-2 font-bold text-body text-primary leading-[1]">
-        VĂN HOÁ CỒNG CHIÊNG
+      <div class="flex flex-wrap items-center gap-2 font-bold text-body text-primary leading-[1]">
+        <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
+
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Văn hóa cồng chiêng tại các xã
+
+        <span class="whitespace-normal">Văn hóa cồng chiêng tại các xã</span>
+
         <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Xã Đạ Tẻh
+
+        <span class="whitespace-normal">Xã Đạ Tẻh</span>
       </div>
     </x-title>
 

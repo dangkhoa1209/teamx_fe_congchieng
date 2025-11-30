@@ -2,10 +2,14 @@
   <x-content-place class="font-robo">
     <x-space :height="40" />
     <x-title variant="bottom">
-      <div class="flex items-center gap-2 font-bold text-body text-primary">
-        TIỀM NĂNG PHÁT TRIỂN
-        <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Phát triển văn hóa - nghệ thuật
+      <div
+        class="flex flex-wrap items-center gap-2 font-bold text-body text-primary m-0 leading-[1]"
+      >
+        <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
+
+        <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
+
+        <span class="whitespace-normal">Phát triển văn hóa - nghệ thuật</span>
       </div>
     </x-title>
     <x-space :height="40" />

@@ -44,7 +44,7 @@
         <div>
           <x-form submitText="Lưu" :handle-error="false" :show-button="false" @submit="onSubmit">
             <div class="flex flex-col gap-10">
-              <div class="flex gap-5">
+              <div class="flex flex-col tablet:flex-row gap-5">
                 <x-form-input
                   v-model="formData.name"
                   label="Họ và tên"

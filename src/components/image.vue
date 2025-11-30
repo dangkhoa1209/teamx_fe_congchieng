@@ -39,7 +39,7 @@
     url: String,
     path: String,
     alt: { type: String, default: 'Image' },
-    radius: { type: [Number, String], default: '' },
+    radius: { type: [Number, String], default: null },
     width: { type: Number, default: 900 },
     height: { type: Number, default: 600 },
     title: { type: String },

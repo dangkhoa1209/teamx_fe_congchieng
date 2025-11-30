@@ -4,10 +4,14 @@
 
     <!-- Tiêu đề chính -->
     <x-title variant="bottom">
-      <div class="flex items-center gap-2 font-bold text-body text-primary">
-        TIỀM NĂNG PHÁT TRIỂN
-        <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
-        Phát triển du lịch văn hóa - cộng đồng
+      <div
+        class="flex flex-wrap items-center gap-2 font-bold text-body text-primary m-0 leading-[1]"
+      >
+        <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
+
+        <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
+
+        <span class="whitespace-normal">Phát triển du lịch văn hóa - cộng đồng</span>
       </div>
     </x-title>
 

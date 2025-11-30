@@ -2,9 +2,9 @@
   <header class="relative z-50">
     <div class="bg-primary relative">
       <x-content-place>
-        <div class="flex items-center justify-between py-5 laptop:py-8">
+        <div class="flex items-center justify-between py-2 tablet:py-6 laptop:py-8">
           <div class="flex items-center gap-4 laptop:gap-10">
-            <div class="h-14 w-14 laptop:h-20 laptop:w-20">
+            <div class="h-8 w-8 tablet:h-18 tablet:w-18 laptop:h-20 laptop:w-20">
               <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
             </div>
 
@@ -20,10 +20,13 @@
 
           <div class="flex items-center gap-4 laptop:hidden">
             <button class="p-2" @click="toggleSearch">
-              <Icon name="heroicons:magnifying-glass" class="w-7 h-7 text-main" />
+              <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-main" />
             </button>
             <button class="p-2" @click="isDrawerOpen = true">
-              <Icon name="heroicons:bars-3" class="w-8 h-8 text-main" />
+              <Icon
+                name="heroicons:bars-3"
+                class="w-5 h-5 tablet:w-8 tablet:h-8 laptop:w-8 laptop:h-8 text-main"
+              />
             </button>
           </div>
         </div>
@@ -48,20 +51,20 @@
             :class="isDrawerOpen ? 'translate-x-0' : 'translate-x-full'"
           >
             <!-- Header drawer -->
-            <div class="bg-primary p-5 flex items-center justify-between">
+            <div class="bg-primary px-4 h-[58.5px] flex items-center justify-between">
               <div class="flex items-center gap-4">
-                <div class="h-12 w-12">
+                <div class="h-8 w-8">
                   <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
                 </div>
                 <div class="text-main">
-                  <p class="font-mont text-xs">UBND TỈNH LÂM ĐỒNG</p>
-                  <p class="font-mont text-sm font-bold opacity-90">
+                  <p class="font-mont text-[12px]">UBND TỈNH LÂM ĐỒNG</p>
+                  <p class="font-mont text-[12px] font-bold opacity-90">
                     SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
                   </p>
                 </div>
               </div>
               <button class="p-2" @click="isDrawerOpen = false">
-                <Icon name="heroicons:x-mark" class="w-8 h-8 text-main" />
+                <Icon name="heroicons:x-mark" class="w-6 h-6 text-main" />
               </button>
             </div>
 
