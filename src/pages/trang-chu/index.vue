@@ -13,14 +13,13 @@
           :radius="0"
         />
 
-        <!-- Nội dung overlay giữa ảnh -->
+        <div class="absolute inset-0 bg-primary/40" />
+
         <main
-          class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-main text-center gap-1"
+          class="absolute inset-0 flex flex-col items-center justify-center text-main text-center gap-1"
         >
           <h1 class="font-robo font-bold text-hero">ÂM THANH CỒNG CHIÊNG</h1>
-
           <h2 class="font-robo font-bold text-hero">HƠI THỞ VĂN HOÁ TÂY NGUYÊN</h2>
-
           <x-button class="mt-5" @click="clickTo('gioi-thieu')">KHÁM PHÁ NGAY</x-button>
         </main>
       </section>
