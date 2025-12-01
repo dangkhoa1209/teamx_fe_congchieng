@@ -31,7 +31,7 @@
         </p>
       </div>
       <div class="laptop:max-w-[46%] min-w-[46%]">
-        <x-image :url="$image().url" :height="650" />
+        <x-image url="/assets/page/gioi-thieu/1.jpg" :height="650" />
       </div>
     </div>
     <div class="flex gap-[25px]" />
@@ -84,7 +84,7 @@
         ngàn Tây Nguyên.
       </p>
       <x-space :height="40" />
-      <x-image :url="$image().url" />
+      <x-image url="/assets/page/gioi-thieu/2.jpg" />
       <x-space :height="40" />
       <div>
         <p>Trong tầm nhìn dài hạn, chuyên trang hướng đến mục tiêu:</p>
@@ -186,7 +186,7 @@
         </li>
       </ul>
       <x-space :height="40" />
-      <x-image :url="$image().url" />
+      <x-image url="/assets/page/gioi-thieu/3.jpg" />
     </section>
 
     <x-space :height="50" />

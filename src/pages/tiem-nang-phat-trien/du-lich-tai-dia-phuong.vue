@@ -40,8 +40,8 @@
     <x-space :height="40" />
     <section>
       <div class="flex gap-5">
-        <x-image :url="$image().url" />
-        <x-image :url="$image().url" />
+        <x-image url="/assets/page/phat-trien/dia-phuong/1.jpg" />
+        <x-image url="/assets/page/phat-trien/dia-phuong/2.jpg" />
       </div>
     </section>
 
@@ -73,7 +73,7 @@
 
     <x-space :height="40" />
     <section>
-      <x-image :url="$image().url" />
+      <x-image url="/assets/page/phat-trien/dia-phuong/3.jpg" />
     </section>
 
     <x-space :height="80" />

@@ -6,7 +6,7 @@
       <section class="relative">
         <!-- Ảnh -->
         <x-image
-          :url="$image().url"
+          url="/assets/page/trang-chu/1.jpg"
           :height="685"
           :width="1440"
           class="w-full h-full object-cover"
@@ -51,7 +51,7 @@
               </p>
             </div>
             <div class="my-[40px] block laptop:hidden">
-              <x-image :url="$image().url" :height="650" />
+              <x-image url="/assets/page/trang-chu/2.jpg" :height="650" />
             </div>
             <div class="flex">
               <x-button
@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="min-w-[47%] hidden laptop:block">
-            <x-image :url="$image().url" :height="650" />
+            <x-image url="/assets/page/trang-chu/2.jpg" :height="650" />
           </div>
         </div>
       </x-content-place>

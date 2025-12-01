@@ -15,8 +15,8 @@
     </section>
     <x-space :height="40" />
     <div class="flex gap-[40px]">
-      <x-image :url="$image().url" />
-      <x-image :url="$image().url" />
+      <x-image url="/assets/page/van-hoa-cong-chieng/1.jpg" />
+      <x-image url="/assets/page/van-hoa-cong-chieng/2.jpg" />
     </div>
 
     <x-space :height="50" />
@@ -41,7 +41,7 @@
         sống hào sảng và yêu thương, chan hòa với trời đất. Mỗi hồi chiêng không chỉ để “gọi mùa”,
         mà còn là lời chào, lời tạ, lời tiễn thiêng liêng, cảm xúc.
       </p>
-      <x-image :url="$image().url" />
+      <x-image url="/assets/page/van-hoa-cong-chieng/3.jpg" />
     </div>
 
     <x-space :height="50" />
@@ -96,7 +96,7 @@
       UNESCO công nhận là Kiệt tác di sản truyền khẩu và phi vật thể của nhân loại.
     </p>
     <x-space :height="25" />
-    <x-image :url="$image().url" />
+    <x-image url="/assets/page/van-hoa-cong-chieng/4.jpg" />
     <x-space :height="80" />
   </x-content-place>
 </template>

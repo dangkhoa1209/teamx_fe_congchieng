@@ -43,8 +43,8 @@
     <!-- Grid ảnh -->
     <section>
       <div class="flex gap-5">
-        <x-image :url="$image().url" />
-        <x-image :url="$image().url" />
+        <x-image url="/assets/page/phat-trien/cong-dong/1.jpg" />
+        <x-image url="/assets/page/phat-trien/cong-dong/2.jpg" />
       </div>
     </section>
 
@@ -70,7 +70,7 @@
     <x-space :height="40" />
     <!-- Ảnh đơn -->
     <section>
-      <x-image :url="$image().url" />
+      <x-image url="/assets/page/phat-trien/cong-dong/3.jpg" />
     </section>
 
     <x-space :height="40" />
