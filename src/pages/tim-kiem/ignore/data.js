@@ -12,7 +12,7 @@ const locationTypes = [
     label: 'Xã Đạ Tẻh',
   },
   {
-    value: 'xa-lac-bao-lam-3',
+    value: 'xa-bao-lam-3',
     label: 'Xã Bảo Lâm 3',
   },
   {

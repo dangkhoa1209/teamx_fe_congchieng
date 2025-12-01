@@ -76,7 +76,7 @@
         class-name="font-bold text-body"
       />
       <x-space :height="40" />
-      <x-page-news />
+      <x-page-news type="xa-dam-dong-4" />
     </section>
 
     <x-space :height="40" />
@@ -84,16 +84,22 @@
     <x-space :height="40" />
 
     <!-- Grid Items -->
-    <section>
-      <div class="grid grid-cols-2 laptop:grid-cols-3 gap-x-[40px] gap-y-[50px]">
-        <x-page-news-thumb-ver v-for="n in 15" :key="n" />
-      </div>
+    <x-core-ttk :limit="18" type="xa-dam-dong-4">
+      <template #default="{ items, loadMore, hasMore }">
+        <div class="grid grid-cols-2 laptop:grid-cols-3 gap-x-[40px] gap-y-[50px]">
+          <x-page-news-thumb-ver v-for="(item, index) in items" :key="index" :news="item" />
+        </div>
 
-      <x-space :height="40" />
-      <div class="flex justify-center">
-        <x-button theme="primary" outline :uppercase="false">Xem thêm</x-button>
-      </div>
-    </section>
+        <div v-if="hasMore">
+          <x-space :height="50" />
+          <div class="flex justify-center">
+            <x-button theme="primary" outline :uppercase="false" @click="loadMore">
+              Xem thêm
+            </x-button>
+          </div>
+        </div>
+      </template>
+    </x-core-ttk>
 
     <x-space :height="80" />
   </x-content-place>

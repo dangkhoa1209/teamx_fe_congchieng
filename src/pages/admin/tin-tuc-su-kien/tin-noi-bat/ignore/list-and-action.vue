@@ -5,7 +5,6 @@
       <h1 class="text-subtitle font-bold text-primary">{{ title }}</h1>
     </div>
 
-    <!-- 4 ô cố292 định -->
     <div class="grid grid-cols-1 laptop:grid-cols-2 gap-[40px]">
       <div v-for="slot in featuredSlots" :key="slot.position" class="relative group">
         <!-- Card -->
@@ -23,7 +22,6 @@
             <x-page-news-thumb-ver :news="slot.news" />
           </div>
 
-          <!-- Trống -->
           <div v-else class="h-64 flex flex-col items-center justify-center text-gray-400">
             <i class="fas fa-plus text-5xl mb-4 opacity-30" />
             <p class="text-lg font-medium">Vị trí {{ slot.position }}</p>
@@ -46,14 +44,13 @@
       <div class="w-full">
         <inpit-filter v-model="filter.search" class="w-full h-11" placeholder="Nhập từ khoá" />
       </div>
-      newsIdSelected: {{ newsIdSelected }} positionSelected: {{ positionSelected }}
       <div class="grid grid-cols-1 laptop:grid-cols-3 gap-x-[40px] gap-y-[50px] mt-[40px]">
         <div
           v-for="item in lists.data"
           :key="item._id"
           class="cursor-pointer"
           :class="{
-            'news-item-active': newsIdSelected === item._id,
+            'news-item-active bg-slate-200 rounded-xl p-2': newsIdSelected === item._id,
           }"
           @click="newsIdSelected = item._id"
         >
@@ -112,6 +109,10 @@
     };
 
     if (success) {
+      data.data.map((item) => {
+        item.slugify = null;
+        return item;
+      });
       lists.value = data;
     }
   }, 300);
@@ -134,10 +135,16 @@
         newsId: newsIdSelected.value,
       },
     });
+
+    console.log('response?.data?.value', response?.data?.value);
+
     const { data, success } = response?.data?.value || {
       data: null,
       success: false,
     };
+
+    console.log('success', success);
+
     if (success) {
       $toast().success('Cập nhật tin nổi bật thành công');
       reset();
@@ -164,6 +171,10 @@
         featuredSlots.value = Array.from({ length: 4 }, (_, i) => {
           const pos = i + 1;
           const existed = data.find((x) => x.position === pos);
+          if (existed) {
+            delete existed.news.slugify;
+          }
+
           return existed
             ? {
                 position: pos,

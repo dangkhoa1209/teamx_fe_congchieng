@@ -71,7 +71,7 @@
         <x-space :height="80" />
         <x-line className="" />
 
-        <section class="tablet:min-w-[400px] block laptop:hidden">
+        <section class="w-full max-w-[400px] block laptop:hidden">
           <div>
             <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">
               TIN TỨC NỔI BẬT
@@ -106,7 +106,7 @@
 
         <x-space :height="80" />
       </section>
-      <section class="w-full hidden laptop:block">
+      <section class="w-full min-w-[400px] hidden laptop:block">
         <div>
           <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC NỔI BẬT</h2>
           <x-line className="" />

@@ -1,6 +1,5 @@
-import Toastification from 'vue-toastification';
+import { useToast } from 'vue-toastification';
 
 export default function () {
-  const { useToast } = Toastification;
   return useToast();
 }

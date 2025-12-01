@@ -48,15 +48,22 @@
         />
         <x-space :height="80" />
       </div>
-      <div class="min-w-[400px] laptop:w-[400px]">
+      <div class="w-full laptop:max-w-[400px]">
         <h2 class="font-bold text-subtitle text-primary leading-[40px]">TIN TỨC NỔI BẬT</h2>
         <x-line />
         <x-space :height="40" />
-        <div class="flex flex-col gap-[25px]">
-          <x-page-news-thumb-hor :exclude="['subTitle']" />
-          <x-page-news-thumb-hor :exclude="['subTitle']" />
-          <x-page-news-thumb-hor :exclude="['subTitle']" />
-        </div>
+        <x-core-ttnb>
+          <template #default="{ items }">
+            <div class="flex flex-col gap-[25px]">
+              <x-page-news-thumb-hor
+                v-for="(item, index) in items"
+                :key="index"
+                :exclude="['subTitle']"
+                :news="item.news"
+              />
+            </div>
+          </template>
+        </x-core-ttnb>
       </div>
     </div>
     <x-space :height="80" />
@@ -80,7 +87,7 @@
   const lists = ref({
     data: [],
     page: 1,
-    perPage: 2,
+    perPage: 10,
     total: 0,
   });
 
