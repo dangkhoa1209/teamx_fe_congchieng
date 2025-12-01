@@ -1,15 +1,6 @@
 <template>
-  <x-core-ttnb>
+  <x-core-ttnb :type="type">
     <template #default="{ items }">
-      <!-- <div class="flex flex-col gap-[25px]">
-        <x-page-news-thumb-hor
-          v-for="(item, index) in items"
-          :key="index"
-          :exclude="['subTitle']"
-          :news="item.news"
-        />
-      </div> -->
-
       <div class="flex gap-[40px] flex-col laptop:flex-row">
         <div v-if="items.length >= 1" class="flex flex-col gap-5 laptop:w-[56.6%]">
           <x-page-news-thumb-ver :news="items[0].news" />
@@ -26,4 +17,11 @@
     </template>
   </x-core-ttnb>
 </template>
-<script setup></script>
+<script setup>
+  const props = defineProps({
+    type: {
+      type: String,
+      default: 'tin-tuc-su-kien',
+    },
+  });
+</script>

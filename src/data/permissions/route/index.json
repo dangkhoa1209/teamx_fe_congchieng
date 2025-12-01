@@ -6,7 +6,7 @@
     "tin-tuc-su-kien",
     "xa-lac-duong",
     "xa-da-teh",
-    "xa-lac-bao-lam-3",
+    "xa-bao-lam-3",
     "xa-dinh-trang-thuong",
     "xa-dam-dong-4"
   ],
@@ -19,8 +19,8 @@
   "admin-tin-tuc-su-kien-tin-noi-bat-xa-da-teh": [
     "xa-da-teh"
   ],
-  "admin-tin-tuc-su-kien-tin-noi-bat-xa-lac-bao-lam-3": [
-    "xa-lac-bao-lam-3"
+  "admin-tin-tuc-su-kien-tin-noi-bat-xa-bao-lam-3": [
+    "xa-bao-lam-3"
   ],
   "admin-tin-tuc-su-kien-tin-noi-bat-xa-dinh-trang-thuong": [
     "xa-dinh-trang-thuong"

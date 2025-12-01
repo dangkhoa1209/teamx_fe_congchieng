@@ -16,7 +16,10 @@
             Văn hóa, Thể thao và Du lịch tỉnh Lâm Đồng
           </p>
           <div class="flex items-center gap-5">
-            <Icon name="heroicons-solid:map-pin" class="text-primary w-8 h-8" />
+            <!-- <Icon name="heroicons-solid:map-pin" class="text-primary /> -->
+            <LocationIcon
+              class="h-6 w-6 laptop:w-8 laptop:h-8 fill-current text-main group-hover:text-primary"
+            />
             <p>
               Tầng 6 khu 9 tầng, số 36 Trần Phú,
               <br />
@@ -24,15 +27,21 @@
             </p>
           </div>
           <div class="flex items-center gap-5">
-            <Icon name="heroicons-solid:phone" class="text-primary w-8 h-8" />
+            <PhoneIcon
+              class="h-6 w-6 laptop:w-8 laptop:h-8 fill-current text-main group-hover:text-primary"
+            />
             <p>(0263) 3540881</p>
           </div>
           <div class="flex items-center gap-5">
-            <Icon name="heroicons-solid:phone" class="text-primary w-8 h-8" />
+            <FaxIcon
+              class="h-6 w-6 laptop:w-8 laptop:h-8 fill-current text-main group-hover:text-primary"
+            />
             <p>(0263) 3833086</p>
           </div>
           <div class="flex items-center gap-5">
-            <Icon name="heroicons-solid:envelope" class="text-primary w-8 h-8" />
+            <MailIcon
+              class="h-6 w-6 laptop:w-8 laptop:h-8 fill-current text-main group-hover:text-primary"
+            />
             <p>svhttdl.lamdong.gov.vn</p>
           </div>
         </div>
@@ -87,6 +96,10 @@
   </x-content-place>
 </template>
 <script setup>
+  import LocationIcon from '~/public/assets/icon/location.svg';
+  import PhoneIcon from '~/public/assets/icon/phone.svg';
+  import FaxIcon from '~/public/assets/icon/fax.svg';
+  import MailIcon from '~/public/assets/icon/mail.svg';
   const formData = ref({
     name: '',
     phone: '',

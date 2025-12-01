@@ -73,7 +73,7 @@
       description:
         'Nằm ở vùng Tây Bắc của tỉnh Lâm Đồng, xã Đam Rông 4 là một trong những không gian cư trú đặc trưng của các dân tộc Mạ và K’Ho - hai chủ thể quan trọng trong Không gian văn hóa Cồng chiêng Tây Nguyên được UNESCO ghi danh',
       image: $image().url,
-      slugify: 'van-hoa-cong-chieng/xa/tam-dong-4',
+      slugify: 'van-hoa-cong-chieng/xa/dam-dong-4',
     },
   ];
 

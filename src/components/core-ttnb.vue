@@ -1,4 +1,7 @@
 <template>
+  <div v-if="!featuredSlots.length && show">
+    <p class="text-body">Chưa có tin tức sự kiện nổi bật</p>
+  </div>
   <slot :items="featuredSlots" />
 </template>
 <script setup>
@@ -10,6 +13,7 @@
   });
 
   const featuredSlots = ref([]);
+  const show = ref(false);
   const fetchFeatured = async () => {
     try {
       await nextTick();
@@ -26,9 +30,11 @@
 
       if (success) {
         featuredSlots.value = data;
+        show.value = true;
       }
     } catch (err) {
       featuredSlots.value = [];
+      show.value = true;
     }
   };
 

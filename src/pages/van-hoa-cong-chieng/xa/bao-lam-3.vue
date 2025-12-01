@@ -56,35 +56,29 @@
         class-name="font-bold text-body"
       />
       <x-space :height="40" />
-      <x-page-news />
+      <x-page-news type="xa-bao-lam-3" />
     </section>
     <x-space :height="40" />
     <x-line />
     <x-space :height="40" />
-    <section>
-      <div class="grid grid-cols-2 laptop:grid-cols-3 gap-x-[40px] gap-y-[50px]">
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-      </div>
 
-      <x-space :height="40" />
-      <div class="flex justify-center">
-        <x-button theme="primary" outline :uppercase="false">Xem thêm</x-button>
-      </div>
-    </section>
+    <x-core-ttk :limit="18" type="xa-bao-lam-3">
+      <template #default="{ items, loadMore, hasMore }">
+        <div class="grid grid-cols-2 laptop:grid-cols-3 gap-x-[40px] gap-y-[50px]">
+          <x-page-news-thumb-ver v-for="(item, index) in items" :key="index" :news="item" />
+        </div>
+
+        <div v-if="hasMore">
+          <x-space :height="50" />
+          <div class="flex justify-center">
+            <x-button theme="primary" outline :uppercase="false" @click="loadMore">
+              Xem thêm
+            </x-button>
+          </div>
+        </div>
+      </template>
+    </x-core-ttk>
+
     <x-space :height="80" />
   </x-content-place>
 </template>
