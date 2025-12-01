@@ -22,17 +22,38 @@
     <div v-if="newsData" class="flex gap-[40px]">
       <!-- news -->
       <section>
-        <div class="flex justify-between align-middle mt-5 leading-[40px]">
+        <div class="flex justify-between align-middle mt-5">
           <div>
-            <span>{{ $formatter().formatVNTime(newsData.createdAt) }}</span>
+            <span class="">{{ $formatter().formatVNTime(newsData.createdAt) }}</span>
           </div>
-          <div class="flex gap-2">
-            <span>icon</span>
-            <span>icon</span>
-            <span>icon</span>
+          <div class="flex gap-4">
+            <div
+              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-2 rounded-full box-border cursor-pointer group"
+            >
+              <FBIcon
+                class="h-4 w-4 laptop:w-5 laptop:h-5 fill-current text-primary group-hover:text-main"
+              />
+            </div>
+
+            <div
+              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-2 rounded-full box-border cursor-pointer group"
+            >
+              <YTIcon
+                class="h-4 w-4 laptop:w-5 laptop:h-5 fill-current text-primary group-hover:text-main"
+              />
+            </div>
+
+            <div
+              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-2 rounded-full box-border cursor-pointer group"
+            >
+              <IGIcon
+                class="h-4 w-4 laptop:w-5 laptop:h-5 fill-current text-primary group-hover:text-main"
+              />
+            </div>
           </div>
         </div>
-        <x-line className="" />
+        <x-space :height="15" />
+        <x-line  />
 
         <x-space :height="40" />
 
@@ -109,7 +130,8 @@
       <section class="w-full min-w-[400px] hidden laptop:block">
         <div>
           <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC NỔI BẬT</h2>
-          <x-line className="" />
+          <x-space :height="15" />
+          <x-line />
           <x-space :height="40" />
           <x-core-ttnb>
             <template #default="{ items }">
@@ -129,6 +151,10 @@
   </x-content-place>
 </template>
 <script setup>
+  import FBIcon from '~/public/assets/icon/fb.svg';
+  import YTIcon from '~/public/assets/icon/youtube.svg';
+  import IGIcon from '~/public/assets/icon/ig.svg';
+
   const slugify = computed(() => useRoute().params.slugify);
   const newsData = ref(null);
 
