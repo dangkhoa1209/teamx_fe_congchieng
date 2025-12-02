@@ -3,7 +3,7 @@
     <!-- title page -->
     <x-space :height="40" />
     <div>
-      <h2 class="font-bold text-body text-primary">TIN TỨC - SỰ KIỆN</h2>
+      <h2 class="font-bold text-14 text-primary">TIN TỨC - SỰ KIỆN</h2>
       <x-space :height="10" />
       <x-line className="w-[60px] h-[2px]" />
     </div>
@@ -11,7 +11,7 @@
     <!-- body -->
 
     <!-- header news -->
-    <div v-if="newsData" class="flex gap-[40px]=">
+    <div v-if="newsData" class="flex gap-[40px]">
       <div>
         <h2 class="font-bold text-title-news text-primary">
           {{ newsData.title }}
