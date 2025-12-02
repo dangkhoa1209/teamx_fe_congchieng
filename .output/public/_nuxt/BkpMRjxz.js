@@ -1,0 +1,1 @@
+import{c as e,o as s,v as l}from"./jcdN500y.js";const o={__name:"line",props:{className:{type:String,default:""},classColor:{type:String,default:"bg-primary"}},setup(a){return(r,t)=>(s(),e("hr",{class:l(["h-[1px]",[a.className,a.classColor]])},null,2))}};export{o as _};

@@ -478,12 +478,12 @@ const _routes = [
       {
         name: "admin-ca-nhan",
         path: "ca-nhan",
-        component: () => import('./index-BBTPX9e3.mjs')
+        component: () => import('./index-B-LgjqsL.mjs')
       },
       {
         name: "admin-tai-khoan",
         path: "tai-khoan",
-        component: () => import('./index-Cd_q7Cdk.mjs')
+        component: () => import('./index-CTFvE9My.mjs')
       },
       {
         name: "admin-trang-chu",
@@ -493,48 +493,48 @@ const _routes = [
       {
         name: "admin-tai-khoan-ignore-action",
         path: "tai-khoan/ignore/action",
-        component: () => import('./action-BJUt0Kop.mjs')
+        component: () => import('./action-CovNYfxb.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-delete",
         path: "tai-khoan/ignore/delete",
-        component: () => import('./delete-BxrI0bIb.mjs')
+        component: () => import('./delete-sZoxwt1O.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-quan-ly",
         path: "tin-tuc-su-kien/quan-ly",
         meta: __nuxt_page_meta$1 || {},
-        component: () => import('./quan-ly-DogXfGGf.mjs')
+        component: () => import('./quan-ly-Ck0hZqbl.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-action",
         path: "tin-tuc-su-kien/ignore/action",
-        component: () => import('./action-BIqE5bVS.mjs').then((n) => n.b)
+        component: () => import('./action-Ce_7rarl.mjs').then((n) => n.b)
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-delete",
         path: "tin-tuc-su-kien/ignore/delete",
-        component: () => import('./delete-D6qRuxXD.mjs')
+        component: () => import('./delete-CL_5JsZh.mjs')
       },
       {
         name: "admin-ca-nhan-ignore-change-password",
         path: "ca-nhan/ignore/change-password",
-        component: () => import('./change-password-DAlZu7fB.mjs')
+        component: () => import('./change-password-4Ieq9oSE.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-update-password",
         path: "tai-khoan/ignore/update-password",
-        component: () => import('./update-password-B5zZ4XGg.mjs')
+        component: () => import('./update-password-TAy4QTQV.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-update-permission",
         path: "tai-khoan/ignore/update-permission",
-        component: () => import('./update-permission-ClJzAdps.mjs')
+        component: () => import('./update-permission-CsIvajex.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-tat-ca",
         path: "tin-tuc-su-kien/tin-noi-bat/tat-ca",
-        component: () => import('./tat-ca-CJB-RnEH.mjs')
+        component: () => import('./tat-ca-Csj72R8G.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-input-fliter",
@@ -544,32 +544,32 @@ const _routes = [
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-da-teh",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-da-teh",
-        component: () => import('./xa-da-teh-FHDBMvrT.mjs')
+        component: () => import('./xa-da-teh-Ddw9R7Ls.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-bao-lam-3",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-bao-lam-3",
-        component: () => import('./xa-bao-lam-3-ntMlhg-r.mjs')
+        component: () => import('./xa-bao-lam-3-C6yuwpyh.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-lac-duong",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-lac-duong",
-        component: () => import('./xa-lac-duong-CoRCfxye.mjs')
+        component: () => import('./xa-lac-duong-CKWL5wyH.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-dam-rong-4",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-dam-rong-4",
-        component: () => import('./xa-dam-rong-4-DGNKjP8K.mjs')
+        component: () => import('./xa-dam-rong-4-CMAv15kj.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-dinh-trang-thuong",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-dinh-trang-thuong",
-        component: () => import('./xa-dinh-trang-thuong-B4y8djFz.mjs')
+        component: () => import('./xa-dinh-trang-thuong-YaVjsY1j.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-ignore-list-and-action",
         path: "tin-tuc-su-kien/tin-noi-bat/ignore/list-and-action",
-        component: () => import('./list-and-action-C7j4hEP0.mjs')
+        component: () => import('./list-and-action-BKrIIxEM.mjs')
       }
     ]
   },
@@ -581,32 +581,32 @@ const _routes = [
   {
     name: "hop-tac",
     path: "/hop-tac",
-    component: () => import('./index-CONzT1b2.mjs')
+    component: () => import('./index-Dov4DcIw.mjs')
   },
   {
     name: "lien-he",
     path: "/lien-he",
-    component: () => import('./index-BX56xgxo.mjs')
+    component: () => import('./index-C1bCbAzW.mjs')
   },
   {
     name: "tim-kiem",
     path: "/tim-kiem",
-    component: () => import('./index-BEnFPSPZ.mjs')
+    component: () => import('./index-9Lz5VNfv.mjs')
   },
   {
     name: "slugify",
     path: "/:slugify()",
-    component: () => import('./index-Bi3OuU6E.mjs')
+    component: () => import('./index-CrQiVfdT.mjs')
   },
   {
     name: "trang-chu",
     path: "/trang-chu",
-    component: () => import('./index-D5AWRqdR.mjs')
+    component: () => import('./index-Ysj15hyW.mjs')
   },
   {
     name: "gioi-thieu",
     path: "/gioi-thieu",
-    component: () => import('./index-CKbZrRzy.mjs')
+    component: () => import('./index-ClYuk4ZN.mjs')
   },
   {
     name: "tim-kiem-ignore-data",
@@ -621,7 +621,7 @@ const _routes = [
   {
     name: "tin-tuc-su-kien",
     path: "/tin-tuc-su-kien",
-    component: () => import('./index-DyXOeoS3.mjs')
+    component: () => import('./index-BmeG4DDF.mjs')
   },
   {
     name: "gioi-thieu-ignore-chi-khi",
@@ -641,12 +641,12 @@ const _routes = [
   {
     name: "van-hoa-cong-chieng-tong-quan",
     path: "/van-hoa-cong-chieng/tong-quan",
-    component: () => import('./tong-quan-CujBsxMi.mjs')
+    component: () => import('./tong-quan-DcxQ9rWf.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-da-teh",
     path: "/van-hoa-cong-chieng/xa/da-teh",
-    component: () => import('./da-teh-C5C6DDGj.mjs')
+    component: () => import('./da-teh-CAB6mYaf.mjs')
   },
   {
     name: "tim-kiem-ignore-dropdown-filter",
@@ -661,37 +661,37 @@ const _routes = [
   {
     name: "van-hoa-cong-chieng-xa-bao-lam-3",
     path: "/van-hoa-cong-chieng/xa/bao-lam-3",
-    component: () => import('./bao-lam-3-BrCBWN_z.mjs')
+    component: () => import('./bao-lam-3-B-YIOXd2.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-lac-duong",
     path: "/van-hoa-cong-chieng/xa/lac-duong",
-    component: () => import('./lac-duong-gt3NVQC8.mjs')
+    component: () => import('./lac-duong-Cbn2hhCA.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-dam-dong-4",
     path: "/van-hoa-cong-chieng/xa/dam-dong-4",
-    component: () => import('./dam-dong-4-CTxVhdEj.mjs')
+    component: () => import('./dam-dong-4-BR1faI-v.mjs')
   },
   {
     name: "tiem-nang-phat-trien-van-hoa-nghe-thuat",
     path: "/tiem-nang-phat-trien/van-hoa-nghe-thuat",
-    component: () => import('./van-hoa-nghe-thuat-Czmd6hqB.mjs')
+    component: () => import('./van-hoa-nghe-thuat-BN92tgVl.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-dinh-trang-thuong",
     path: "/van-hoa-cong-chieng/xa/dinh-trang-thuong",
-    component: () => import('./dinh-trang-thuong-CakSYWM-.mjs')
+    component: () => import('./dinh-trang-thuong-DqulrFeD.mjs')
   },
   {
     name: "tiem-nang-phat-trien-du-lich-tai-dia-phuong",
     path: "/tiem-nang-phat-trien/du-lich-tai-dia-phuong",
-    component: () => import('./du-lich-tai-dia-phuong-Xng5t0U6.mjs')
+    component: () => import('./du-lich-tai-dia-phuong-J5gh7AMX.mjs')
   },
   {
     name: "tiem-nang-phat-trien-du-lich-van-hoa-cong-dong",
     path: "/tiem-nang-phat-trien/du-lich-van-hoa-cong-dong",
-    component: () => import('./du-lich-van-hoa-cong-dong-Bh8S5aWd.mjs')
+    component: () => import('./du-lich-van-hoa-cong-dong-Y_2wO_XQ.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {
@@ -1959,7 +1959,7 @@ const search_objects_H8FUWFv7Pj6qqm_emZjCFKOoEzWasRkc8EtKbNmTPvI = /* @__PURE__ 
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
-const toastification__hJSICKNBRqxfKbdCI8KCpSXsu2wZPqQW_SmWKQ7Cr_Q = /* @__PURE__ */ defineNuxtPlugin(() => {
+const toastification_efWeqLt4Q1a668C4RwCfwtwzRAHGKE7pQiASKxLtqmU = /* @__PURE__ */ defineNuxtPlugin(() => {
   const nuxtApp = useNuxtApp();
   const options = {
     position: "top-right",
@@ -2013,7 +2013,7 @@ const plugins = [
   plugin_IqSFGHiWkXfcd1GUWq1qC60QEvYtIIxjVafbxmje9Ys,
   plugin_jjl2DFTrQxMG7TqNyE_rvcIV8r2uFVLO_Sius2B7lXg,
   search_objects_H8FUWFv7Pj6qqm_emZjCFKOoEzWasRkc8EtKbNmTPvI,
-  toastification__hJSICKNBRqxfKbdCI8KCpSXsu2wZPqQW_SmWKQ7Cr_Q,
+  toastification_efWeqLt4Q1a668C4RwCfwtwzRAHGKE7pQiASKxLtqmU,
   vee_validate_of0_6_GLRet9EjrNK456kqHhINJfhGRjOlH8tia_YhM
 ];
 const layouts = {
