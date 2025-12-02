@@ -1,0 +1,1 @@
+import{_ as o}from"./DWiO6iTb.js";import{_ as t,e as a,o as s,w as _,a as c}from"./uv7w3r5D.js";const r={};function f(l,e){const n=o;return s(),a(n,null,{default:_(()=>[...e[0]||(e[0]=[c("div",null,"Chào mừng bạn!",-1)])]),_:1})}const d=t(r,[["render",f]]);export{d as default};
