@@ -88,9 +88,7 @@
       <x-line class-color="bg-main" />
 
       <div class="py-8 flex justify-center">
-        <p
-          class="font-medium text-subtitle text-center inline-flex items-center justify-center gap-1"
-        >
+        <p class="font-medium text-center inline-flex items-center justify-center gap-1">
           <span class="text-title leading-none">©</span>
           <span class="text-copy-right">
             Bản quyền thuộc Sở Văn Hoá, Thể thao & Du lịch tỉnh Lâm Đồng
