@@ -18,7 +18,7 @@
     <x-space :height="40" />
 
     <!-- Section giới thiệu -->
-    <section class="flex flex-col gap-[25px]">
+    <section class="flex flex-col gap-[25px] text-justify">
       <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN DU LỊCH VĂN HÓA - CỘNG ĐỒNG</h2>
       <p class="font-bold text-subtitle text-primary">
         Gắn liền không gian văn hóa cồng chiêng Tây Nguyên với việc phát triển du lịch văn hóa -
@@ -42,7 +42,7 @@
     <x-space :height="40" />
     <!-- Grid ảnh -->
     <section>
-      <div class="flex gap-5">
+      <div class="flex flex-col table:flex-row gap-[30px] tablet:gap-[40px]">
         <x-image url="/assets/page/phat-trien/cong-dong/1.jpg" />
         <x-image url="/assets/page/phat-trien/cong-dong/2.jpg" />
       </div>
@@ -50,7 +50,7 @@
 
     <x-space :height="40" />
     <!-- Section nội dung tiếp -->
-    <section class="flex flex-col gap-[25px]">
+    <section class="flex flex-col gap-[25px] text-justify">
       <p>
         Chuyên trang điện tử đóng vai trò như cầu nối để những giá trị này được tiếp cận rộng rãi
         hơn. Thông qua việc số hóa dữ liệu, giới thiệu hình ảnh, video, câu chuyện buôn làng và các
@@ -75,7 +75,7 @@
 
     <x-space :height="40" />
     <!-- Section kết luận -->
-    <section class="flex flex-col gap-[25px]">
+    <section class="flex flex-col gap-[25px] text-justify">
       <p>
         Như vậy, chuyên trang không chỉ kể câu chuyện du lịch - cộng đồng mà còn góp phần mở ra
         hướng phát triển mới cho cả vùng: phát triển du lịch dựa trên di sản, tôn trọng yếu tố bản

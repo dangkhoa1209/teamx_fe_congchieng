@@ -28,43 +28,43 @@
           </div>
           <div class="flex gap-4">
             <div
-              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-2 rounded-full box-border cursor-pointer group"
+              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-[5px] rounded-full box-border cursor-pointer group"
             >
               <FBIcon
-                class="h-4 w-4 laptop:w-5 laptop:h-5 fill-current text-primary group-hover:text-main"
+                class="h-3 w-3 laptop:w-4 laptop:h-4 fill-current text-primary group-hover:text-main"
               />
             </div>
 
             <div
-              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-2 rounded-full box-border cursor-pointer group"
+              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-[5px] rounded-full box-border cursor-pointer group"
             >
               <YTIcon
-                class="h-4 w-4 laptop:w-5 laptop:h-5 fill-current text-primary group-hover:text-main"
+                class="h-3 w-3 laptop:w-4 laptop:h-4 fill-current text-primary group-hover:text-main"
               />
             </div>
 
             <div
-              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-2 rounded-full box-border cursor-pointer group"
+              class="border border-primary hover:border-primary hover:bg-primary hover:text-main p-[5px] rounded-full box-border cursor-pointer group"
             >
               <IGIcon
-                class="h-4 w-4 laptop:w-5 laptop:h-5 fill-current text-primary group-hover:text-main"
+                class="h-3 w-3 laptop:w-4 laptop:h-4 fill-current text-primary group-hover:text-main"
               />
             </div>
           </div>
         </div>
-        <x-space :height="15" />
-        <x-line  />
+        <x-space :height="15" class="mb-[1px]" />
+        <x-line />
 
         <x-space :height="40" />
 
-        <h3 class="font-bold text-primary text-subtitle">
+        <h3 class="font-bold text-subtitle text-justify">
           {{ newsData.subtitle }}
         </h3>
         <x-space :height="40" />
 
         <divs v-for="(content, index) in newsData.contents" :key="content">
           <div v-if="content.type == 'content-in-dam'">
-            <pre class="font-bold whitespace-pre-line font-robo text-subtitle text-justif">{{
+            <pre class="font-bold whitespace-pre-line font-robo text-subtitle text-justify">{{
               content.data
             }}</pre>
 
@@ -129,7 +129,7 @@
       </section>
       <section class="w-full min-w-[400px] hidden laptop:block">
         <div>
-          <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC NỔI BẬT</h2>
+          <h2 class="font-bold text-subtitle text-primary mt-5">TIN TỨC NỔI BẬT</h2>
           <x-space :height="15" />
           <x-line />
           <x-space :height="40" />

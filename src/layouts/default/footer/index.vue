@@ -49,7 +49,7 @@
             </div>
           </div>
         </div>
-        <div class="w-[100%] laptop:w-[25%] flex flex-col gap-6">
+        <div class="w-[100%] laptop:w-[25%] flex flex-col gap-3 tablet:gap-6">
           <p class="font-medium text-subtitle">DANH MỤC</p>
           <p class="font-normal text-body cursor-pointer" @click="clickTo('gioi-thieu')">
             Giới thiệu về chuyên trang
@@ -71,7 +71,7 @@
           </p>
           <p class="font-normal text-body cursor-pointer" @click="clickTo('hop-tac')">Hợp tác</p>
         </div>
-        <div class="w-[100%] laptop:w-[35%] flex flex-col gap-6">
+        <div class="w-[100%] laptop:w-[35%] flex flex-col gap-3 tablet:gap-6">
           <p class="font-medium text-subtitle">LIÊN HỆ</p>
           <p class="font-normal text-body">
             Ban Biên tập Chuyên Trang thông tin điện tử - Sở Văn hóa, Thể thao và Du lịch tỉnh Lâm

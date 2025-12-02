@@ -29,9 +29,9 @@
   // computed height
   const CHeight = computed(() => {
     if (width.value <= 640) {
-      return props.height * 0.3; // -50%
+      return props.height * 0.8; // -50%
     } else if (width.value <= 1024) {
-      return props.height * 0.9; // -10%
+      return props.height; // -10%
     }
     return props.height;
   });

@@ -8,13 +8,13 @@
         class-name="font-robo font-bold text-subtitle"
       />
 
-      <x-space :height="40" />
+      <!-- <x-space :height="40" />
       <h1 class="text-title font-bold font-robo text-primary">
         ÂM THANH CỒNG CHIÊNG HƠI THỞ VĂN HOÁ TÂY NGUYÊN
-      </h1>
+      </h1> -->
     </section>
     <x-space :height="40" />
-    <div class="flex gap-[40px]">
+    <div class="flex flex-col tablet:flex-row gap-[40px]">
       <x-image url="/assets/page/van-hoa-cong-chieng/1.jpg" />
       <x-image url="/assets/page/van-hoa-cong-chieng/2.jpg" />
     </div>
@@ -26,21 +26,25 @@
       class-name="font-robo text-subtitle font-bold"
     />
     <x-space :height="40" />
-    <div class="font-robo text-body flex flex-col font-normal gap-[25px] text-justify">
+    <div class="font-robo text-body font-normal text-justify">
       <p class="text-subtitle text-primary font-bold">Văn hóa cồng chiêng Tây Bắc</p>
+      <x-space :height="25" />
       <p class="italic font-light">
         “Ở Tây Bắc, tiếng chiêng hòa cùng gió núi, mây trời như tiếng vọng của đất trời cổ xưa”
       </p>
-      <p>
+      <x-space :height="25" />
+      <p class="text-justify">
         Trong các lễ hội như Xên bản, Xên mường, tiếng chiêng hòa cùng tiếng khèn, trống, tiếng hát,
         tiếng chân người nhảy múa bên đống lửa. Với người Thái, Mường, Dao, Tày, Nùng..., chiêng là
         biểu tượng của sự no đủ, lòng biết ơn và mối giao hòa giữa con người với thiên nhiên.
       </p>
-      <p>
+      <x-space :height="25" />
+      <p class="text-justify">
         Âm sắc của chiêng Tây Bắc trong trẻo, phóng khoáng nhưng uy nghiêm, thể hiện một tâm thế
         sống hào sảng và yêu thương, chan hòa với trời đất. Mỗi hồi chiêng không chỉ để “gọi mùa”,
         mà còn là lời chào, lời tạ, lời tiễn thiêng liêng, cảm xúc.
       </p>
+      <x-space :height="40" />
       <x-image url="/assets/page/van-hoa-cong-chieng/3.jpg" />
     </div>
 
@@ -95,7 +99,7 @@
       chiêng Lâm Đồng – một phần không thể tách rời của di sản cồng chiêng Tây chiêng, đã được
       UNESCO công nhận là Kiệt tác di sản truyền khẩu và phi vật thể của nhân loại.
     </p>
-    <x-space :height="25" />
+    <x-space :height="40" />
     <x-image url="/assets/page/van-hoa-cong-chieng/4.jpg" />
     <x-space :height="80" />
   </x-content-place>

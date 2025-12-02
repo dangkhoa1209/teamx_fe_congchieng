@@ -1,5 +1,5 @@
 <template>
-  <hr class="border h-[2px]" :class="[className, classColor]" />
+  <hr class="h-[1px]" :class="[className, classColor]" />
 </template>
 <script setup>
   const props = defineProps({

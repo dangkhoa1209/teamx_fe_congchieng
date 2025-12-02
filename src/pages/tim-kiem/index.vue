@@ -50,6 +50,7 @@
       </div>
       <div class="w-full laptop:max-w-[400px]">
         <h2 class="font-bold text-subtitle text-primary leading-[40px]">TIN TỨC NỔI BẬT</h2>
+        <x-space :height="1" />
         <x-line />
         <x-space :height="40" />
         <x-core-ttnb>

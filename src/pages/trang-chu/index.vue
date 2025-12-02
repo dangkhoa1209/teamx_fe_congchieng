@@ -25,9 +25,8 @@
       </section>
     </div>
 
-    <x-space />
     <!-- BẢO TỒN VÀ LAN TỎA  -->
-    <section class="">
+    <section class="pt-[40px] tablet:pt-[80px]">
       <x-content-place>
         <div class="flex gap-[50px]">
           <div class="flex flex-col justify-between">
