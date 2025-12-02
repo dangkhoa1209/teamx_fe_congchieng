@@ -57,14 +57,14 @@
 
         <x-space :height="40" />
 
-        <h3 class="font-bold text-primary text-subtitle">
+        <h3 class="font-bold text-subtitle text-justify">
           {{ newsData.subtitle }}
         </h3>
         <x-space :height="40" />
 
         <divs v-for="(content, index) in newsData.contents" :key="content">
           <div v-if="content.type == 'content-in-dam'">
-            <pre class="font-bold whitespace-pre-line font-robo text-subtitle text-justif">{{
+            <pre class="font-bold whitespace-pre-line font-robo text-subtitle text-justify">{{
               content.data
             }}</pre>
 
