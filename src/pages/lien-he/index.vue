@@ -1,7 +1,7 @@
 <template>
   <x-content-place class="font-robo text-primary">
     <x-space :height="40" />
-    <x-title title="LIÊN HỆ" variant="bottom" class-name="font-bold text-subtitle" />
+    <x-title title="LIÊN HỆ" variant="bottom" class-name="font-bold text-14" />
 
     <x-space :height="40" />
 

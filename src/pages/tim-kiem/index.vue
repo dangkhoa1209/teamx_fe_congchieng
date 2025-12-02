@@ -1,7 +1,7 @@
 <template>
   <x-content-place class="font-robo text-body">
     <x-space :height="40" />
-    <h2 class="font-bold text-subtitle text-primary">KẾT QUẢ TÌM KIẾM</h2>
+    <h2 class="font-bold text-14 text-primary">KẾT QUẢ TÌM KIẾM</h2>
     <x-space :height="40" />
     <div class="flex gap-[40px] flex-col laptop:flex-row">
       <div class="w-full">

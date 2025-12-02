@@ -2,7 +2,7 @@
   <x-content-place>
     <x-space :height="40" />
     <section class="">
-      <x-title title="TIN TỨC - SỰ KIỆN" variant="bottom" class-name="font-bold text-subtitle" />
+      <x-title title="TIN TỨC - SỰ KIỆN" variant="bottom" class-name="font-bold text-14" />
       <x-space :height="40" />
       <x-page-news />
     </section>

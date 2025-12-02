@@ -20,7 +20,9 @@
         >
           <h1 class="font-robo font-bold text-hero">ÂM THANH CỒNG CHIÊNG</h1>
           <h2 class="font-robo font-bold text-hero">HƠI THỞ VĂN HOÁ TÂY NGUYÊN</h2>
-          <x-button class="mt-5" @click="clickTo('gioi-thieu')">KHÁM PHÁ NGAY</x-button>
+          <x-button class="mt-5" @click="clickTo('van-hoa-cong-chieng/tong-quan')">
+            KHÁM PHÁ NGAY
+          </x-button>
         </main>
       </section>
     </div>
@@ -53,11 +55,7 @@
               <x-image url="/assets/page/trang-chu/2.jpg" :height="650" />
             </div>
             <div class="flex">
-              <x-button
-                :uppercase="false"
-                theme="primary"
-                @click="clickTo('van-hoa-cong-chieng/tong-quan')"
-              >
+              <x-button :uppercase="false" theme="primary" @click="clickTo('gioi-thieu')">
                 Tìm hiểu thêm
               </x-button>
             </div>

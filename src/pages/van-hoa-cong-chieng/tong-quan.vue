@@ -3,9 +3,9 @@
     <x-space :height="40" />
     <section class="">
       <x-title
-        title="VĂN HOÁ CỒNG CHIÊNG"
+        title="TỔNG QUAN VĂN HOÁ CỒNG CHIÊNG"
         variant="bottom"
-        class-name="font-robo font-bold text-subtitle"
+        class-name="font-robo font-bold text-14"
       />
 
       <!-- <x-space :height="40" />
