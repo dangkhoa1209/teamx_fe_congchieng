@@ -5,12 +5,12 @@
     <x-image :path="news?.thumbnail" :url="news?.url" :click-to="news?.slugify" />
     <div class="pt-[15px] tablet:pt-[25px] flex flex-col gap-[10px] tablet:gap-[25px]">
       <p
-        class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer"
+        class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer line-clamp-3"
         @click="handleClick"
       >
         {{ news?.title }}
       </p>
-      <p class="font-robo font-normal text-body text-justify">
+      <p class="font-robo font-normal text-body text-justify line-clamp-3">
         {{ news?.subtitle }}
       </p>
     </div>
