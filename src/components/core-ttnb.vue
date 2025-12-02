@@ -1,6 +1,6 @@
 <template>
   <div v-if="!featuredSlots.length && show">
-    <p class="text-body">Chưa có tin tức sự kiện nổi bật</p>
+    <p class="text-body text-center">Chưa có tin tức sự kiện nổi bật</p>
   </div>
   <slot :items="featuredSlots" />
 </template>

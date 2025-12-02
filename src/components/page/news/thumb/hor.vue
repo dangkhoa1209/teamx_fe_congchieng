@@ -4,7 +4,7 @@
 <template>
   <div class="flex gap-4">
     <div class="w-[40%] min-w-[40%]">
-      <x-image :path="news?.thumbnail" :url="$image().url" :click-to="news?.slugify" />
+      <x-image :path="news?.thumbnail" :url="news?.url" :click-to="news?.slugify" />
     </div>
     <div class="w-[60%] flex flex-col gap-[25px]">
       <p
@@ -12,13 +12,10 @@
         class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer"
         @click="handleClick"
       >
-        {{ news?.title || 'Giữ gìn bản sắc văn hoá qua du lịch cồng chiêng ở Lâm Đồng' }}
+        {{ news?.title }}
       </p>
       <p v-if="!exclude.includes('subTitle')" class="font-robo font-normal text-body text-justify">
-        {{
-          news?.subTitle ||
-          'Xây dựng điểm check-in văn hoá như cổng làng truyền thống, tượng nghệ nhân, vườn nhạc cụ. Kết hợp nghệ thuật trình diễn ánh sáng & âm thanh Cồng chiêng cho du lịch đêm'
-        }}
+        {{ news?.subTitle }}
       </p>
     </div>
   </div>

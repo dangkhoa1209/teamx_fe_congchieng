@@ -15,7 +15,7 @@
     <x-space :height="40" />
     <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN VĂN HÓA - NGHỆ THUẬT</h2>
     <x-space :height="40" />
-    <section class="flex flex-col gap-[25px]">
+    <section class="flex flex-col gap-[25px] text-justify">
       <p class="font-bold text-subtitle text-primary">
         Không gian cồng chiêng Tây Nguyên là nguồn cảm hứng lớn, đóng góp vào nền văn hóa, nghệ
         thuật nước nhà những thanh âm độc bản và phong phú.
@@ -42,13 +42,13 @@
     </section>
     <x-space :height="40" />
     <section>
-      <div class="flex gap-[40px]">
+      <div class="flex flex-col table:flex-row gap-[30px] tablet:gap-[40px]">
         <x-image url="/assets/page/phat-trien/nghe-thuat/1.jpg" />
         <x-image url="/assets/page/phat-trien/nghe-thuat/2.jpg" />
       </div>
     </section>
     <x-space :height="40" />
-    <section class="flex flex-col gap-[25px]">
+    <section class="flex flex-col gap-[25px] text-justify">
       <p>
         Trong lĩnh vực múa và nghệ thuật biểu diễn, các điệu xoang cộng đồng, vòng tròn đoàn kết và
         ngôn ngữ hình thể của đồng bào đã được chuyển hóa thành ngôn ngữ múa đương đại. Các biên đạo
@@ -71,7 +71,7 @@
       <x-image url="/assets/page/phat-trien/nghe-thuat/3.jpg" />
     </section>
     <x-space :height="40" />
-    <section class="flex flex-col gap-[25px]">
+    <section class="flex flex-col gap-[25px] text-justify">
       <p>
         Như vậy, chuyên trang là “đầu mối” kết nối các dự án nghệ thuật - văn hóa: từ những workshop
         sáng tác âm nhạc, lớp truyền dạy cồng chiêng, cuộc thi làm phim ngắn, dự án mỹ thuật lấy cảm

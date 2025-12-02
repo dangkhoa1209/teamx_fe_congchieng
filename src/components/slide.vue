@@ -60,11 +60,8 @@
   /* Mobile nhỏ hơn chút – giữ nguyên ý bạn */
   @media (max-width: 640px) {
     .society-slide :deep(.swiper-pagination-bullet) {
-      width: 9px;
-      height: 9px;
-    }
-    .society-slide :deep(.swiper-pagination-bullet-active) {
-      transform: scale(1.5);
+      width: 6px;
+      height: 6px;
     }
   }
 </style>

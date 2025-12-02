@@ -2,19 +2,16 @@
 <!-- x-page-news-thumb-ver -->
 <template>
   <div>
-    <x-image :path="news?.thumbnail" :url="$image().url" :click-to="news?.slugify" />
-    <div class="pt-[25px] flex flex-col gap-[25px]">
+    <x-image :path="news?.thumbnail" :url="news?.url" :click-to="news?.slugify" />
+    <div class="pt-[15px] tablet:pt-[25px] flex flex-col gap-[10px] tablet:gap-[25px]">
       <p
         class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer"
         @click="handleClick"
       >
-        {{ news?.title || 'PHÁT TRIỂN VĂN HÓA - NGHỆ THUẬT' }}
+        {{ news?.title }}
       </p>
       <p class="font-robo font-normal text-body text-justify">
-        {{
-          news?.subtitle ||
-          'Xây dựng điểm check-in văn hoá như cổng làng truyền thống, tượng nghệ nhân, vườn nhạc cụ. Kết hợp nghệ thuật trình diễn ánh sáng & âm thanh Cồng chiêng cho du lịch đêm'
-        }}
+        {{ news?.subtitle }}
       </p>
     </div>
   </div>

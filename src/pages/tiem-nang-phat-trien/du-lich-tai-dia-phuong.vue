@@ -14,7 +14,7 @@
     </x-title>
     <x-space :height="40" />
 
-    <section class="flex flex-col gap-[25px]">
+    <section class="flex flex-col gap-[25px] text-justify">
       <h2 class="font-bold text-primary text-subtitle">PHÁT TRIỂN DU LỊCH TẠI ĐỊA PHƯƠNG</h2>
       <p class="font-bold text-subtitle text-primary">
         Giữ gìn và lan tỏa không gian văn hóa cồng chiêng tại các vùng, xã, địa phương không chỉ là
@@ -39,14 +39,14 @@
 
     <x-space :height="40" />
     <section>
-      <div class="flex gap-5">
+      <div class="flex flex-col table:flex-row gap-[30px] tablet:gap-[40px]">
         <x-image url="/assets/page/phat-trien/dia-phuong/1.jpg" />
         <x-image url="/assets/page/phat-trien/dia-phuong/2.jpg" />
       </div>
     </section>
 
     <x-space :height="40" />
-    <section class="flex flex-col gap-[25px]">
+    <section class="flex flex-col gap-[25px] text-justify">
       <p>
         Chuyên trang điện tử về mô hình văn hóa cồng chiêng đóng vai trò hệ thống hóa và giới thiệu
         sâu sắc tiềm năng ấy, giúp mỗi địa phương xây dựng hình ảnh riêng trong bức tranh chung của
@@ -83,23 +83,6 @@
     <x-space :height="40" />
     <section>
       <x-page-van-hoa-nghe-thuat :exclude="['du-lich-tai-dia-phuong']" />
-      <!-- <div class="grid grid-cols-2 laptop:grid-cols-3 gap-5">
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-        <x-page-news-thumb-ver />
-      </div> -->
     </section>
     <x-space :height="80" />
   </x-content-place>

@@ -34,8 +34,7 @@
         <x-image url="/assets/page/gioi-thieu/1.jpg" :height="650" />
       </div>
     </div>
-    <div class="flex gap-[25px]" />
-    <x-space :height="25" />
+    <x-space :height="40" />
     <p class="text-justify">
       Chuyên trang thông tin điện tử được xây dựng nhằm giới thiệu và quảng bá mô hình văn hóa cồng
       chiêng gắn với phát triển du lịch tỉnh Lâm Đồng. Đây là không gian trực tuyến tôn vinh di sản,
