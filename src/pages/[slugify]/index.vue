@@ -99,7 +99,7 @@
             </h2>
             <x-space :height="40" />
 
-            <x-core-ttnb>
+            <x-core-ttnb :exclude="[newsData._id]">
               <template #default="{ items }">
                 <div class="flex flex-col gap-[25px]">
                   <x-page-news-thumb-hor
@@ -133,7 +133,7 @@
           <x-space :height="15" />
           <x-line />
           <x-space :height="40" />
-          <x-core-ttnb>
+          <x-core-ttnb :exclude="[newsData._id]">
             <template #default="{ items }">
               <div class="flex flex-col gap-[25px]">
                 <x-page-news-thumb-hor

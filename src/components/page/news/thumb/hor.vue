@@ -9,12 +9,15 @@
     <div class="w-[60%] flex flex-col gap-[25px]">
       <p
         v-if="!exclude.includes('title')"
-        class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer"
+        class="font-robo font-medium text-subtitle text-primary hover:opacity-[79%] cursor-pointer line-clamp-3"
         @click="handleClick"
       >
         {{ news?.title }}
       </p>
-      <p v-if="!exclude.includes('subTitle')" class="font-robo font-normal text-body text-justify">
+      <p
+        v-if="!exclude.includes('subTitle')"
+        class="font-robo font-normal text-body text-justify line-clamp-3"
+      >
         {{ news?.subTitle }}
       </p>
     </div>

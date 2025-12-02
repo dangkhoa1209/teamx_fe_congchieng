@@ -10,6 +10,7 @@
       type: String,
       default: 'tin-tuc-su-kien',
     },
+    exclude: { type: Array, default: () => [] },
   });
 
   const featuredSlots = ref([]);
@@ -20,6 +21,7 @@
       const response = await $api($url.featuredNews.get, {
         body: {
           type: props.type,
+          exclude: props.exclude || [],
         },
       });
 
