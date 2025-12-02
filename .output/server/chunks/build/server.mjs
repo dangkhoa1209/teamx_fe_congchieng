@@ -534,7 +534,7 @@ const _routes = [
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-tat-ca",
         path: "tin-tuc-su-kien/tin-noi-bat/tat-ca",
-        component: () => import('./tat-ca-Csj72R8G.mjs')
+        component: () => import('./tat-ca-E_tKKErd.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-input-fliter",
@@ -544,32 +544,32 @@ const _routes = [
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-da-teh",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-da-teh",
-        component: () => import('./xa-da-teh-Ddw9R7Ls.mjs')
+        component: () => import('./xa-da-teh-BAWPYcuh.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-bao-lam-3",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-bao-lam-3",
-        component: () => import('./xa-bao-lam-3-C6yuwpyh.mjs')
+        component: () => import('./xa-bao-lam-3-pk3C2tdo.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-lac-duong",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-lac-duong",
-        component: () => import('./xa-lac-duong-CKWL5wyH.mjs')
+        component: () => import('./xa-lac-duong-DNAxTpYR.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-dam-rong-4",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-dam-rong-4",
-        component: () => import('./xa-dam-rong-4-CMAv15kj.mjs')
+        component: () => import('./xa-dam-rong-4-CK6E3sqh.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-dinh-trang-thuong",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-dinh-trang-thuong",
-        component: () => import('./xa-dinh-trang-thuong-YaVjsY1j.mjs')
+        component: () => import('./xa-dinh-trang-thuong-DpwxkqjU.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-ignore-list-and-action",
         path: "tin-tuc-su-kien/tin-noi-bat/ignore/list-and-action",
-        component: () => import('./list-and-action-BKrIIxEM.mjs')
+        component: () => import('./list-and-action-DFcBpqSH.mjs')
       }
     ]
   },
@@ -591,17 +591,17 @@ const _routes = [
   {
     name: "tim-kiem",
     path: "/tim-kiem",
-    component: () => import('./index-9Lz5VNfv.mjs')
+    component: () => import('./index-D7-ELzBj.mjs')
   },
   {
     name: "slugify",
     path: "/:slugify()",
-    component: () => import('./index-CrQiVfdT.mjs')
+    component: () => import('./index-W_4fylCF.mjs')
   },
   {
     name: "trang-chu",
     path: "/trang-chu",
-    component: () => import('./index-Ysj15hyW.mjs')
+    component: () => import('./index-DixYgYRs.mjs')
   },
   {
     name: "gioi-thieu",
@@ -616,12 +616,12 @@ const _routes = [
   {
     name: "trang-chu-ignore-xa",
     path: "/trang-chu/ignore/xa",
-    component: () => import('./xa-DeH63lpq.mjs')
+    component: () => import('./xa-BlKu62Rj.mjs')
   },
   {
     name: "tin-tuc-su-kien",
     path: "/tin-tuc-su-kien",
-    component: () => import('./index-BmeG4DDF.mjs')
+    component: () => import('./index-Dv-5_ZF1.mjs')
   },
   {
     name: "gioi-thieu-ignore-chi-khi",
@@ -646,7 +646,7 @@ const _routes = [
   {
     name: "van-hoa-cong-chieng-xa-da-teh",
     path: "/van-hoa-cong-chieng/xa/da-teh",
-    component: () => import('./da-teh-CAB6mYaf.mjs')
+    component: () => import('./da-teh-DGsKY_Kl.mjs')
   },
   {
     name: "tim-kiem-ignore-dropdown-filter",
@@ -661,37 +661,37 @@ const _routes = [
   {
     name: "van-hoa-cong-chieng-xa-bao-lam-3",
     path: "/van-hoa-cong-chieng/xa/bao-lam-3",
-    component: () => import('./bao-lam-3-B-YIOXd2.mjs')
+    component: () => import('./bao-lam-3-BBQYvHa7.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-lac-duong",
     path: "/van-hoa-cong-chieng/xa/lac-duong",
-    component: () => import('./lac-duong-Cbn2hhCA.mjs')
+    component: () => import('./lac-duong-BeT23V2P.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-dam-dong-4",
     path: "/van-hoa-cong-chieng/xa/dam-dong-4",
-    component: () => import('./dam-dong-4-BR1faI-v.mjs')
+    component: () => import('./dam-dong-4-DOfDKjEJ.mjs')
   },
   {
     name: "tiem-nang-phat-trien-van-hoa-nghe-thuat",
     path: "/tiem-nang-phat-trien/van-hoa-nghe-thuat",
-    component: () => import('./van-hoa-nghe-thuat-BN92tgVl.mjs')
+    component: () => import('./van-hoa-nghe-thuat-CqBeVu8C.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-dinh-trang-thuong",
     path: "/van-hoa-cong-chieng/xa/dinh-trang-thuong",
-    component: () => import('./dinh-trang-thuong-DqulrFeD.mjs')
+    component: () => import('./dinh-trang-thuong-CV43FMkK.mjs')
   },
   {
     name: "tiem-nang-phat-trien-du-lich-tai-dia-phuong",
     path: "/tiem-nang-phat-trien/du-lich-tai-dia-phuong",
-    component: () => import('./du-lich-tai-dia-phuong-J5gh7AMX.mjs')
+    component: () => import('./du-lich-tai-dia-phuong-Cy_k5iUR.mjs')
   },
   {
     name: "tiem-nang-phat-trien-du-lich-van-hoa-cong-dong",
     path: "/tiem-nang-phat-trien/du-lich-van-hoa-cong-dong",
-    component: () => import('./du-lich-van-hoa-cong-dong-Y_2wO_XQ.mjs')
+    component: () => import('./du-lich-van-hoa-cong-dong-GPOr2znH.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {
@@ -2025,8 +2025,8 @@ const layouts = {
   "admin-header-menu": defineAsyncComponent(() => import('./index-D5bcOGXM.mjs').then((n) => n.i).then((m) => m.default || m)),
   "admin-header-menu-input-fitter": defineAsyncComponent(() => import('./input-fitter-DT5qAuIU.mjs').then((m) => m.default || m)),
   auth: defineAsyncComponent(() => import('./auth-C_DuilNG.mjs').then((m) => m.default || m)),
-  default: defineAsyncComponent(() => import('./default-DxWiD3Pq.mjs').then((m) => m.default || m)),
-  "default-footer": defineAsyncComponent(() => import('./index-DX0YbG8b.mjs').then((m) => m.default || m)),
+  default: defineAsyncComponent(() => import('./default-DbeVdixI.mjs').then((m) => m.default || m)),
+  "default-footer": defineAsyncComponent(() => import('./index-DHA9g5J6.mjs').then((m) => m.default || m)),
   "default-header": defineAsyncComponent(() => import('./index-DpL7f75h.mjs').then((m) => m.default || m)),
   "default-header-menu-dropdown-item": defineAsyncComponent(() => import('./MenuDropdownItem-CkeG-Mc5.mjs').then((m) => m.default || m)),
   "default-header-menu-mobile-menu": defineAsyncComponent(() => import('./MobileMenu-BYD4Xipd.mjs').then((m) => m.default || m)),
