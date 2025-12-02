@@ -1,7 +1,7 @@
 <template>
   <x-content-place class="font-robo text-body">
     <x-space :height="40" />
-    <x-title class-name="font-bold text-subtitle" title="GIỚI THIỆU" variant="bottom" />
+    <x-title class-name="font-bold text-14" title="GIỚI THIỆU" variant="bottom" />
     <x-space :height="40" />
     <h2 class="font-bold text-primary text-title">
       BẢO TỒN VÀ LAN TỎA VĂN HOÁ CỒNG CHIÊNG TÂY NGUYÊN

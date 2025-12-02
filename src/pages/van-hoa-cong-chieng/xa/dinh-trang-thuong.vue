@@ -4,9 +4,7 @@
     <x-space :height="40" />
 
     <x-title variant="bottom">
-      <div
-        class="flex flex-wrap items-center gap-2 font-bold text-body text-primary m-0 leading-[1]"
-      >
+      <div class="flex flex-wrap items-center gap-2 font-bold text-14 text-primary m-0 leading-[1]">
         <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
 
         <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />

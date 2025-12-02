@@ -177,7 +177,8 @@
   import $lodash from '../../../../composables/$lodash';
   import { v4 as uuidv4 } from 'uuid';
   const config = useRuntimeConfig().public;
-
+  import { useToast } from 'vue-toastification';
+  const toast = useToast();
   const emits = defineEmits(['refresh']);
   const isVisible = ref(false);
   const isLoading = ref(false);
@@ -194,7 +195,7 @@
   const formData = ref($lodash.cloneDeep(init));
 
   const addContent = () => {
-    $toast().info('Thêm thành công');
+    toast.info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'content',
@@ -203,7 +204,7 @@
   };
 
   const addContentInDam = () => {
-    $toast().info('Thêm thành công');
+    toast.info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'content-in-dam',
@@ -211,7 +212,7 @@
     });
   };
   const addImage = () => {
-    $toast().info('Thêm thành công');
+    toast.info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'image',
@@ -308,7 +309,7 @@
           success: false,
         };
         if (success) {
-          $toast().success('Thêm tin tức - sự kiện thành công.');
+          toast.success('Thêm tin tức - sự kiện thành công.');
           reset();
           emits('refresh');
           close();
@@ -326,7 +327,7 @@
           success: false,
         };
         if (success) {
-          $toast().success('Cập nhật tin tức - sự kiện thành công.');
+          toast.success('Cập nhật tin tức - sự kiện thành công.');
           reset();
           emits('refresh');
           close();
