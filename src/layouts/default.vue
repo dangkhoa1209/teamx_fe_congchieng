@@ -8,8 +8,7 @@
   import Header from './default/header/index.vue';
   import Footer from './default/footer/index.vue';
 
-  // useHead({
-  //   title: '',
-  //   meta: [{ name: 'description', content: '' }],
-  // });
+  useHead({
+    title: 'Văn hoá cồng chiêng',
+  });
 </script>

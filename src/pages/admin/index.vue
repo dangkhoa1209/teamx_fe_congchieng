@@ -1,8 +1,9 @@
 <template>
-  <x-content-place>
-    <div class="mt-5">
-      <p>Chào mừng bạn!</p>
+  <x-content-place class="flex items-center justify-center">
+    <div class="mt-[100px] text-center">
+      <p class="text-title font-semibold">CHÀO MỪNG ĐẾN TRANG QUẢN LÝ</p>
     </div>
   </x-content-place>
 </template>
+
 <script setup></script>
