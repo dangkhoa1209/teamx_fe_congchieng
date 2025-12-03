@@ -4,15 +4,19 @@
       <x-content-place>
         <div class="flex items-center justify-between py-2 tablet:py-6 laptop:py-8">
           <div class="flex items-center gap-4 laptop:gap-10">
-            <div class="h-8 w-8 tablet:h-16 tablet:w-16 laptop:h-20 laptop:w-20">
+            <div class="h-8 w-8 tablet:h-18 tablet:w-18 laptop:h-20 laptop:w-20">
               <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
             </div>
 
-            <div class="hidden tablet:block text-main">
-              <p class="font-mont font-semibold text-[16px] laptop:text-[20px] leading-tight">
+            <div class="text-main">
+              <p
+                class="font-mont font-semibold text-[12px] tablet:text-[16px] laptop:text-[20px] leading-tight"
+              >
                 UBND TỈNH LÂM ĐỒNG
               </p>
-              <p class="font-mont font-semibold text-[22px] laptop:text-[28px] leading-tight">
+              <p
+                class="font-mont font-semibold text-[12px] tablet:text-[22px] laptop:text-[28px] leading-tight"
+              >
                 SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
               </p>
             </div>
@@ -49,15 +53,17 @@
           >
             <!-- Header drawer -->
             <div
-              class="bg-primary px-4 h-[58.5px] tablet:h-[112px] flex items-center justify-between"
+              class="bg-primary px-4 h-[58.5px] tablet:h-[102.5px] flex items-center justify-between"
             >
               <div class="flex items-center gap-4">
                 <div class="h-8 w-8 tablet:h-16 tablet:w-16">
                   <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
                 </div>
                 <div class="text-main">
-                  <p class="font-mont text-[12px]">UBND TỈNH LÂM ĐỒNG</p>
-                  <p class="font-mont text-[12px] font-bold opacity-90">
+                  <p class="font-mont text-[12px] font-semibold leading-tight">
+                    UBND TỈNH LÂM ĐỒNG
+                  </p>
+                  <p class="font-mont text-[12px] font-semibold leading-tight">
                     SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
                   </p>
                 </div>
