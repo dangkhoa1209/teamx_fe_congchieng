@@ -1,0 +1,1 @@
+import{a}from"./V6MrZC5P.js";import{aZ as n,ao as i}from"./C-IbVoAI.js";import{$ as r}from"./CBITvyxX.js";const g=n(t=>{const o=t.name;if(!o.startsWith("admin")||["admin-auth-login","admin-auth-forgot-password"].includes(o))return;const e="admin-auth-login",{auth:s}=r();if(!s?.getAccessToken)return i({name:e});a(t.name.toString())});export{g as default};
