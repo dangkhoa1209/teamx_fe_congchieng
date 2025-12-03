@@ -88,7 +88,7 @@
       success: false,
     };
     if (success) {
-      // process.client && $toast().success('Cập nhật ảnh thành công');
+      process.client && $toast().success('Cập nhật ảnh thành công');
       loadData();
     }
   };

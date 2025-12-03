@@ -39,7 +39,7 @@ const errorProcess = (app, error) => {
       const errorData = error.value.data || {};
       errorDataList = errorData.errors ? Array(errorData.errors) : errorData.errors;
       if (typeof errorDataList === 'string') {
-        $toast().error(errorDataList);
+        // $toast().error(errorDataList);
         return;
       }
 
@@ -52,7 +52,7 @@ const errorProcess = (app, error) => {
           handleToastError(msg);
         });
       } else {
-        $toast().error('Lỗi kết nối máy chủ');
+        // $toast().error('Lỗi kết nối máy chủ');
       }
     }
   }
@@ -65,13 +65,13 @@ const handleToastError = (msg) => {
   }
 
   if (typeof msg === 'string') {
-    $toast().error(decode(msg));
+    // $toast().error(decode(msg));
   }
   if (typeof msg === 'object' && 'msg' in msg) {
-    $toast().error(String(msg.msg));
+    // $toast().error(String(msg.msg));
   }
   if (typeof msg === 'object' && 'message' in msg) {
-    $toast().error(msg.message);
+    // $toast().error(msg.message);
   }
 };
 
@@ -228,7 +228,7 @@ export default async function $api(source, options = {}, showError = true) {
     return response;
   } catch (e) {
     console.log('e', e);
-    $toast().error(e.message || 'Lỗi kết nối máy chủ');
+    // $toast().error(e.message || 'Lỗi kết nối máy chủ');
     throw e;
   }
 }
