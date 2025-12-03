@@ -8,22 +8,30 @@
         <inpit-filter v-model="filter.search" class="w-full" placeholder="Nhập từ khoá" />
         <x-space :height="15" />
         <div class="w-full user-select-none">
-          <div class="flex justify-start gap-40px">
+          <div
+            class="flex flex-col laptop:flex-row laptop:items-center gap-4 laptop:gap-[40px] w-full"
+          >
             <!-- ITEM 1: TÌM KIẾM -->
-            <div class="flex laptop:items-center gap-3 laptop:gap-2">
+            <div
+              class="flex flex-col laptop:flex-row laptop:items-center gap-2 w-full laptop:w-auto"
+            >
               <label class="font-robo font-medium leading-[40px] whitespace-nowrap min-w-[100px]">
                 Tìm kiếm:
               </label>
+
               <div class="w-full laptop:w-[200px]">
                 <DropdownFilter v-model="filter.location" :actions="locationTypes" />
               </div>
             </div>
 
             <!-- ITEM 2: THỜI GIAN -->
-            <div class="flex laptop:items-center gap-3 laptop:gap-2 mt-4 laptop:mt-0">
-              <label class="font-robo font-medium leading-[40px] whitespace-nowrapmin-w-[100px]">
+            <div
+              class="flex flex-col laptop:flex-row laptop:items-center gap-2 w-full laptop:w-auto"
+            >
+              <label class="font-robo font-medium leading-[40px] whitespace-nowrap min-w-[100px]">
                 Thời gian:
               </label>
+
               <div class="w-full laptop:w-[200px]">
                 <DropdownFilter v-model="filter.time" :actions="timeOptions" />
               </div>
