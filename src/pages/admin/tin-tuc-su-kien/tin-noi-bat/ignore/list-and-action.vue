@@ -125,7 +125,7 @@
 
   const handleSave = async () => {
     if (!newsIdSelected.value) {
-      // process.client && $toast().error('Vui lòng chọn tin tức - sự kiện');
+      process.client && $toast().error('Vui lòng chọn tin tức - sự kiện');
     }
 
     const response = await $api($url.admin.featuredNews.update, {
@@ -142,7 +142,7 @@
     };
 
     if (success) {
-      // process.client && $toast().success('Cập nhật tin nổi bật thành công');
+      process.client && $toast().success('Cập nhật tin nổi bật thành công');
       reset();
       close();
       fetchFeatured();

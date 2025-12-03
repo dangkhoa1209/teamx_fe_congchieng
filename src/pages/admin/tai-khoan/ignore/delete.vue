@@ -64,7 +64,7 @@
         success: false,
       };
       if (success) {
-        // process.client && $toast().success('Xoá tài khoản thành công');
+        process.client && $toast().success('Xoá tài khoản thành công');
         reset();
         emits('refresh');
         close();
