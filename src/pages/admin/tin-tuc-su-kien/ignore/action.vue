@@ -200,7 +200,7 @@
   const formData = ref($lodash.cloneDeep(init));
 
   const addContent = () => {
-    process.client && $toast().info('Thêm thành công');
+    // process.client && $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'content',
@@ -209,7 +209,7 @@
   };
 
   const addContentInDam = () => {
-    process.client && $toast().info('Thêm thành công');
+    // process.client && $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'content-in-dam',
@@ -217,7 +217,7 @@
     });
   };
   const addImage = () => {
-    process.client && $toast().info('Thêm thành công');
+    // process.client && $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'image',
@@ -314,7 +314,7 @@
           success: false,
         };
         if (success) {
-          process.client && $toast().success('Thêm tin tức - sự kiện thành công.');
+          // process.client && $toast().success('Thêm tin tức - sự kiện thành công.');
           reset();
           emits('refresh');
           close();
@@ -332,7 +332,7 @@
           success: false,
         };
         if (success) {
-          process.client && $toast().success('Cập nhật tin tức - sự kiện thành công.');
+          // process.client && $toast().success('Cập nhật tin tức - sự kiện thành công.');
           reset();
           emits('refresh');
           close();

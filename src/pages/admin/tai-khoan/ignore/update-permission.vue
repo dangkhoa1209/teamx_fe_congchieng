@@ -65,7 +65,7 @@
         success: false,
       };
       if (success) {
-        process.client && $toast().success('Cập nhật quyền thành công.');
+        // process.client && $toast().success('Cập nhật quyền thành công.');
         reset();
         emits('refresh');
         close();
