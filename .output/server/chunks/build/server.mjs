@@ -467,74 +467,79 @@ const _routes = [
       {
         name: "admin",
         path: "",
-        component: () => import('./index-CQzPXlor.mjs')
+        component: () => import('./index-DA7BbGUk.mjs')
       },
       {
         name: "admin-auth-login",
         path: "auth/login",
         meta: { ...__nuxt_page_meta$2 || {}, ...{ "middleware": "auth" } },
-        component: () => import('./login--xnB-tIr.mjs')
+        component: () => import('./login-DTWHBkuf.mjs')
       },
       {
         name: "admin-ca-nhan",
         path: "ca-nhan",
-        component: () => import('./index-DoiL9mHn.mjs')
+        component: () => import('./index-CLTBIu0X.mjs')
       },
       {
         name: "admin-tai-khoan",
         path: "tai-khoan",
-        component: () => import('./index-hyYm_VI4.mjs')
+        component: () => import('./index-B4zwNQ62.mjs')
       },
       {
         name: "admin-trang-chu",
         path: "trang-chu",
-        component: () => import('./index-DN-QNK0E.mjs')
+        component: () => import('./index-CUCCi5lb.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-action",
         path: "tai-khoan/ignore/action",
-        component: () => import('./action-DtK1lFPr.mjs')
+        component: () => import('./action-rO0d0pX-.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-delete",
         path: "tai-khoan/ignore/delete",
-        component: () => import('./delete-M539wmbX.mjs')
+        component: () => import('./delete-D6G4DTbX.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-quan-ly",
         path: "tin-tuc-su-kien/quan-ly",
         meta: __nuxt_page_meta$1 || {},
-        component: () => import('./quan-ly-D4LAcY-a.mjs')
+        component: () => import('./quan-ly-CK-BEJTa.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-action",
         path: "tin-tuc-su-kien/ignore/action",
-        component: () => import('./action-CAhwMqC9.mjs').then((n) => n.b)
+        component: () => import('./action-mWOGauP_.mjs').then((n) => n.b)
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-delete",
         path: "tin-tuc-su-kien/ignore/delete",
-        component: () => import('./delete-npI3fT1V.mjs')
+        component: () => import('./delete-D-0bolNU.mjs')
       },
       {
         name: "admin-ca-nhan-ignore-change-password",
         path: "ca-nhan/ignore/change-password",
-        component: () => import('./change-password-5R2kQnkb.mjs')
+        component: () => import('./change-password-JwPIQB8q.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-update-password",
         path: "tai-khoan/ignore/update-password",
-        component: () => import('./update-password-BJ98oyso.mjs')
+        component: () => import('./update-password-DIDcC5RN.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-update-permission",
         path: "tai-khoan/ignore/update-permission",
-        component: () => import('./update-permission-BKqWWOeE.mjs')
+        component: () => import('./update-permission-Bl5JRFUH.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-tat-ca",
         path: "tin-tuc-su-kien/tin-noi-bat/tat-ca",
-        component: () => import('./tat-ca-Bsm4lk3x.mjs')
+        component: () => import('./tat-ca-Dja2b5Sq.mjs')
+      },
+      {
+        name: "admin-trang-chu-ignore-update-page-image",
+        path: "trang-chu/ignore/update-page-image",
+        component: () => import('./update-page-image-xeAiSW51.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-input-fliter",
@@ -544,32 +549,32 @@ const _routes = [
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-da-teh",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-da-teh",
-        component: () => import('./xa-da-teh-Nqe_J5oV.mjs')
+        component: () => import('./xa-da-teh-BwDMZcbt.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-bao-lam-3",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-bao-lam-3",
-        component: () => import('./xa-bao-lam-3-BLKD5POa.mjs')
+        component: () => import('./xa-bao-lam-3-Cmmpwfjb.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-lac-duong",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-lac-duong",
-        component: () => import('./xa-lac-duong-D9KG44CU.mjs')
+        component: () => import('./xa-lac-duong-CXrJWYy0.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-dam-rong-4",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-dam-rong-4",
-        component: () => import('./xa-dam-rong-4-wwg3V_y_.mjs')
+        component: () => import('./xa-dam-rong-4-BGnJUBDN.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-dinh-trang-thuong",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-dinh-trang-thuong",
-        component: () => import('./xa-dinh-trang-thuong-z5R1fMQ9.mjs')
+        component: () => import('./xa-dinh-trang-thuong-C7skM_Vh.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-ignore-list-and-action",
         path: "tin-tuc-su-kien/tin-noi-bat/ignore/list-and-action",
-        component: () => import('./list-and-action-QZnMnX80.mjs')
+        component: () => import('./list-and-action-6wRLr1yr.mjs')
       }
     ]
   },
@@ -591,17 +596,17 @@ const _routes = [
   {
     name: "tim-kiem",
     path: "/tim-kiem",
-    component: () => import('./index-BnH_KSEk.mjs')
+    component: () => import('./index-HCg3lC0Y.mjs')
   },
   {
     name: "slugify",
     path: "/:slugify()",
-    component: () => import('./index-BM2fY-rA.mjs')
+    component: () => import('./index-CrbdD24X.mjs')
   },
   {
     name: "trang-chu",
     path: "/trang-chu",
-    component: () => import('./index-rydIizKY.mjs')
+    component: () => import('./index-1MIvKwfm.mjs')
   },
   {
     name: "gioi-thieu",
@@ -616,12 +621,12 @@ const _routes = [
   {
     name: "trang-chu-ignore-xa",
     path: "/trang-chu/ignore/xa",
-    component: () => import('./xa-DRm7zqB2.mjs')
+    component: () => import('./xa-CT1xGCBc.mjs')
   },
   {
     name: "tin-tuc-su-kien",
     path: "/tin-tuc-su-kien",
-    component: () => import('./index-YYJut6Qv.mjs')
+    component: () => import('./index-aemKy5MM.mjs')
   },
   {
     name: "gioi-thieu-ignore-chi-khi",
@@ -646,7 +651,7 @@ const _routes = [
   {
     name: "van-hoa-cong-chieng-xa-da-teh",
     path: "/van-hoa-cong-chieng/xa/da-teh",
-    component: () => import('./da-teh-BQAGS4gl.mjs')
+    component: () => import('./da-teh-BTPBndLa.mjs')
   },
   {
     name: "tim-kiem-ignore-dropdown-filter",
@@ -661,17 +666,17 @@ const _routes = [
   {
     name: "van-hoa-cong-chieng-xa-bao-lam-3",
     path: "/van-hoa-cong-chieng/xa/bao-lam-3",
-    component: () => import('./bao-lam-3-CCuV84Ei.mjs')
+    component: () => import('./bao-lam-3-DuVyaDVC.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-lac-duong",
     path: "/van-hoa-cong-chieng/xa/lac-duong",
-    component: () => import('./lac-duong-CMS6Ohc4.mjs')
+    component: () => import('./lac-duong-CFfeO47j.mjs')
   },
   {
     name: "van-hoa-cong-chieng-xa-dam-dong-4",
     path: "/van-hoa-cong-chieng/xa/dam-dong-4",
-    component: () => import('./dam-dong-4-RVxFRWpQ.mjs')
+    component: () => import('./dam-dong-4-ByImHU4L.mjs')
   },
   {
     name: "tiem-nang-phat-trien-van-hoa-nghe-thuat",
@@ -681,7 +686,7 @@ const _routes = [
   {
     name: "van-hoa-cong-chieng-xa-dinh-trang-thuong",
     path: "/van-hoa-cong-chieng/xa/dinh-trang-thuong",
-    component: () => import('./dinh-trang-thuong-DAeR-jIr.mjs')
+    component: () => import('./dinh-trang-thuong-C6pGtC-b.mjs')
   },
   {
     name: "tiem-nang-phat-trien-du-lich-tai-dia-phuong",
@@ -812,7 +817,7 @@ const globalMiddleware = [
   manifest_45route_45rule
 ];
 const namedMiddleware = {
-  auth: () => import('./auth-CujZMkTu.mjs')
+  auth: () => import('./auth-BGdfNZiE.mjs')
 };
 const plugin$1 = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:router",
@@ -2017,17 +2022,17 @@ const plugins = [
   vee_validate_of0_6_GLRet9EjrNK456kqHhINJfhGRjOlH8tia_YhM
 ];
 const layouts = {
-  admin: defineAsyncComponent(() => import('./admin-lSrMsVqi.mjs').then((m) => m.default || m)),
-  "admin-header": defineAsyncComponent(() => import('./index-DuzTjgMz.mjs').then((m) => m.default || m)),
-  "admin-header-menu-dropdown-item": defineAsyncComponent(() => import('./MenuDropdownItem-BJrZcXqT.mjs').then((m) => m.default || m)),
+  admin: defineAsyncComponent(() => import('./admin-DAkUUhLT.mjs').then((m) => m.default || m)),
+  "admin-header": defineAsyncComponent(() => import('./index-Ci1osAMV.mjs').then((m) => m.default || m)),
+  "admin-header-menu-dropdown-item": defineAsyncComponent(() => import('./MenuDropdownItem-D2iSj5_k.mjs').then((m) => m.default || m)),
   "admin-header-menu-mobile-menu": defineAsyncComponent(() => import('./MobileMenu-CiKu2Jry.mjs').then((m) => m.default || m)),
   "admin-header-menu-mobile-menu-item": defineAsyncComponent(() => import('./MobileMenuItem-MXQopccL.mjs').then((m) => m.default || m)),
-  "admin-header-menu": defineAsyncComponent(() => import('./index-DsbAIouo.mjs').then((n) => n.i).then((m) => m.default || m)),
+  "admin-header-menu": defineAsyncComponent(() => import('./index-D9oGACb4.mjs').then((n) => n.i).then((m) => m.default || m)),
   "admin-header-menu-input-fitter": defineAsyncComponent(() => import('./input-fitter-DT5qAuIU.mjs').then((m) => m.default || m)),
   auth: defineAsyncComponent(() => import('./auth-C_DuilNG.mjs').then((m) => m.default || m)),
-  default: defineAsyncComponent(() => import('./default-Cp9r-5ZS.mjs').then((m) => m.default || m)),
+  default: defineAsyncComponent(() => import('./default-ChwQGsM9.mjs').then((m) => m.default || m)),
   "default-footer": defineAsyncComponent(() => import('./index-3Y-9WuXT.mjs').then((m) => m.default || m)),
-  "default-header": defineAsyncComponent(() => import('./index-CwlCsePS.mjs').then((m) => m.default || m)),
+  "default-header": defineAsyncComponent(() => import('./index-B9Sjaibo.mjs').then((m) => m.default || m)),
   "default-header-menu-dropdown-item": defineAsyncComponent(() => import('./MenuDropdownItem-BHrt9Oob.mjs').then((m) => m.default || m)),
   "default-header-menu-mobile-menu": defineAsyncComponent(() => import('./MobileMenu-BYD4Xipd.mjs').then((m) => m.default || m)),
   "default-header-menu-mobile-menu-item": defineAsyncComponent(() => import('./MobileMenuItem-CkOXNymv.mjs').then((m) => m.default || m)),
