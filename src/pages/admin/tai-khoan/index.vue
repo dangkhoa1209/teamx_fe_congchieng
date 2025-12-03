@@ -1,6 +1,7 @@
 <template>
   <x-content-place>
     <div>
+      <x-space :height="30" />
       <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
         <div>
           <h1 class="text-2xl font-semibold text-gray-900">Quản lý tài khoản</h1>
