@@ -45,6 +45,9 @@
           <template v-for="item in lists.data" :key="item">
             <x-page-news-thumb-hor :news="item" />
           </template>
+          <p v-if="!lists.data.length && show" class="text-body text-center">
+            Không tìm thấy tin tức sự kiện
+          </p>
         </div>
 
         <x-space :height="60" />
@@ -100,6 +103,8 @@
     total: 0,
   });
 
+  const show = ref(false);
+
   const load = $lodash.debounce(async () => {
     const response = await $api($url.news.find, {
       body: {
@@ -117,6 +122,7 @@
     if (success) {
       lists.value = data;
     }
+    show.value = true;
   }, 300);
 
   watch(
