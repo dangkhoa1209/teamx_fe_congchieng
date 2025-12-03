@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   srcDir: 'src/',
   ssr: true,
+  nitro: {
+    preset: 'node-server', // 'vercel', 'netlify'
+  },
   app: {
     head: {
       link: [

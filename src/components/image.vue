@@ -10,7 +10,7 @@
         :width="width"
         :height="height"
         :class="{ 'cursor-pointer': clickTo }"
-        lazy
+        :loading="loading"
         @load="onLoad"
         @error="onError"
         @click="onClick"
@@ -18,7 +18,7 @@
 
       <div
         v-else
-        class="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400 text-sm rounded-[inherit]"
+        class="absolute inset-0 flex items-center justify-center bg-gray-200 text-gray-400 text-sm rounded-[inherit]"
       >
         No Image
       </div>
@@ -45,13 +45,14 @@
     height: { type: Number, default: 600 },
     title: { type: String },
     clickTo: { type: String, default: '' },
+    loading: { type: String, default: 'lazy' },
   });
 
   const { width, height, path, url, clickTo } = toRefs(props);
 
   const imgRef = ref(null);
   const displayWidth = ref(0);
-  let resizeObserver = null;
+  // let resizeObserver = null;
 
   const radiusStyle = computed(() => {
     if (['number', 'string'].includes(typeof props.radius)) {
@@ -74,13 +75,13 @@
 
     displayWidth.value = el.clientWidth;
 
-    resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        displayWidth.value = entry.contentRect.width;
-      }
-    });
+    // resizeObserver = new ResizeObserver((entries) => {
+    //   for (const entry of entries) {
+    //     displayWidth.value = entry.contentRect.width;
+    //   }
+    // });
 
-    resizeObserver.observe(el);
+    // resizeObserver.observe(el);
   };
 
   const onError = () => {
@@ -94,7 +95,7 @@
     }
   };
 
-  onUnmounted(() => {
-    if (resizeObserver) resizeObserver.disconnect();
-  });
+  // onUnmounted(() => {
+  //   if (resizeObserver) resizeObserver.disconnect();
+  // });
 </script>
