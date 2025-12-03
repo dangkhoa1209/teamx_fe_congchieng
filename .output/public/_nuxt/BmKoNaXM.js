@@ -1,1 +1,0 @@
-import{a}from"./DAoGpo_p.js";import{aY as n,an as i}from"./CJRuhas0.js";import{$ as r}from"./Ed4PVstx.js";const g=n(t=>{const e=t.name;if(!e.startsWith("admin")||["admin-auth-login","admin-auth-forgot-password"].includes(e))return;const o="admin-auth-login",{auth:s}=r();if(!s?.getAccessToken)return i({name:o});a(t.name.toString())});export{g as default};

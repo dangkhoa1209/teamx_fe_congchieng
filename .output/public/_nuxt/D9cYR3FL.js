@@ -1,0 +1,1 @@
+import{_ as o}from"./D4Z1_gn7.js";import{_ as s,e as a,o as c,w as _,a as n}from"./CRLkJYKs.js";const r={};function l(f,e){const t=o;return c(),a(t,null,{default:_(()=>[...e[0]||(e[0]=[n("div",{class:"mt-5"},[n("p",null,"Chào mừng bạn!")],-1)])]),_:1})}const p=s(r,[["render",l]]);export{p as default};
