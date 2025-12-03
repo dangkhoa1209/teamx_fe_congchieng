@@ -9,10 +9,9 @@
         class="w-full h-full object-cover object-center rounded-[inherit] transition-transform duration-300"
         :width="width"
         :height="height"
-        :class="{
-          'cursor-pointer': clickTo,
-        }"
+        :class="{ 'cursor-pointer': clickTo }"
         lazy
+        @load="onLoad"
         @error="onError"
         @click="onClick"
       />
@@ -25,15 +24,17 @@
       </div>
     </div>
   </div>
-  <p v-if="title" class="text-center font-light text-14 italic leading-[25px] pt-[10px]">
+
+  <p v-if="title" class="text-center font-light text-[14px] italic leading-[25px] pt-[10px]">
     {{ title }}
   </p>
 </template>
 
 <script setup>
-  import { computed, ref, toRefs } from 'vue';
   import { NuxtImg } from '#components';
+
   const config = useRuntimeConfig().public;
+  const router = useRouter();
 
   const props = defineProps({
     url: String,
@@ -47,48 +48,53 @@
   });
 
   const { width, height, path, url, clickTo } = toRefs(props);
-  const windowWidth = ref(window?.innerWidth);
 
-  onMounted(() => {
-    const handleResize = () => (windowWidth.value = window?.innerWidth);
-    window.addEventListener('resize', handleResize);
-  });
-
-  onUnmounted(() => {
-    window.removeEventListener('resize', () => {});
-  });
+  const imgRef = ref(null);
+  const displayWidth = ref(0);
+  let resizeObserver = null;
 
   const radiusStyle = computed(() => {
     if (['number', 'string'].includes(typeof props.radius)) {
       return typeof props.radius === 'number' ? `${props.radius}px` : props.radius;
     }
 
-    if (windowWidth.value >= 1024) return '15px'; // desktop
-    if (windowWidth.value >= 640) return '12px'; // tablet
-    return '10px'; // mobile
+    if (displayWidth.value < 640) return '10px';
+    return '15px';
   });
-  const imgRef = ref(null);
 
   const cUrl = computed(() => {
-    if (path.value) {
-      return `${config.apiURLFile}${path.value}`;
-    }
-
-    if (url.value) {
-      return url.value;
-    }
-
+    if (path.value) return `${config.apiURLFile}${path.value}`;
+    if (url.value) return url.value;
     return null;
   });
 
-  const router = useRouter();
+  const onLoad = () => {
+    const el = imgRef.value?.$el || imgRef.value;
+    if (!el) return;
+
+    displayWidth.value = el.clientWidth;
+
+    resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        displayWidth.value = entry.contentRect.width;
+      }
+    });
+
+    resizeObserver.observe(el);
+  };
+
+  const onError = () => {
+    const el = imgRef.value?.$el || imgRef.value;
+    if (el) el.style.display = 'none';
+  };
 
   const onClick = () => {
     if (clickTo.value) {
       router.push({ path: `/${clickTo.value}` });
     }
   };
-  const onError = () => {
-    if (imgRef.value && imgRef.value.style) imgRef.value.style.display = 'none';
-  };
+
+  onUnmounted(() => {
+    if (resizeObserver) resizeObserver.disconnect();
+  });
 </script>

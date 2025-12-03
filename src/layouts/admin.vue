@@ -7,6 +7,6 @@
   import Header from './admin/header/index.vue';
 
   useHead({
-    title: 'Admin',
+    title: 'Quản lý văn hoá cồng chiêng',
   });
 </script>

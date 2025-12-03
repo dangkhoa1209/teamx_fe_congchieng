@@ -1,10 +1,18 @@
 <template>
-  <input
-    v-model="cValue"
-    type="text"
-    :placeholder="placeholder"
-    class="w-full rounded border-[0.1rem] px-4 py-2 transition-colors duration-200 outline-none bg-main border-primary placeholder-black disabled:bg-gray-100 disabled:cursor-not-allowed h-[40px] text-body font-medium font-robo"
-  />
+  <div class="relative w-full">
+    <input
+      v-model="cValue"
+      type="text"
+      :placeholder="placeholder"
+      class="w-full rounded border-[0.1rem] px-4 pr-12 py-2 transition-colors duration-200 outline-none bg-main border-primary placeholder-black disabled:bg-gray-100 disabled:cursor-not-allowed h-[40px] text-body font-medium font-robo"
+    />
+
+    <Icon
+      name="heroicons:magnifying-glass"
+      class="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 text-primary hover:opacity-79 cursor-pointer"
+      @click="emits('change', value)"
+    />
+  </div>
 </template>
 
 <script setup>

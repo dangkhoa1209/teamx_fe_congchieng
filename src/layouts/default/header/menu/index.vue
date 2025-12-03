@@ -45,7 +45,7 @@
             >
               <Icon
                 name="heroicons:magnifying-glass"
-                class="w-6 h-6 fill-primary cursor-pointer"
+                class="w-6 h-6 text-primary cursor-pointer"
                 @click="focusInput"
               />
 
