@@ -7,8 +7,7 @@
 <script setup>
   import { useNuxtApp } from '#app';
   import { useForm } from 'vee-validate';
-  import { useToast } from 'vue-toastification';
-  const toast = useToast();
+
   const props = defineProps({
     handleError: {
       type: Boolean,
@@ -33,7 +32,7 @@
 
     errorList.forEach((message) => {
       if (message) {
-        toast.error(String(message));
+        process.client && $toast().error(String(message));
       }
     });
   };
