@@ -4,7 +4,8 @@
       <div class="h-full flex flex-col bg-extra rounded-2xl overflow-hidden">
         <div class="w-full">
           <x-image
-            :url="item.image || $image().url"
+            :path="image?.[item.type]"
+            :url="item.image"
             class="w-full h-full object-cover"
             alt="{{ item.name }}"
           />
@@ -39,6 +40,9 @@
   </x-slide>
 </template>
 <script setup>
+  const props = defineProps({
+    image: Object,
+  });
   const xaList = [
     {
       name: 'Xã Lạc Dương',
@@ -47,6 +51,7 @@
       image: $image().url,
       slugify: 'van-hoa-cong-chieng/xa/lac-duong',
       image: '/assets/xa/LD.jpg',
+      type: 'xa-lac-duong',
     },
     {
       name: 'Xã Đạ Tẻh',
@@ -55,6 +60,7 @@
       image: $image().url,
       slugify: 'van-hoa-cong-chieng/xa/da-teh',
       image: '/assets/xa/DT.jpg',
+      type: 'xa-da-teh',
     },
     {
       name: 'Xã Bảo Lâm 3',
@@ -63,6 +69,7 @@
       image: $image().url,
       slugify: 'van-hoa-cong-chieng/xa/bao-lam-3',
       image: '/assets/xa/BL3.jpg',
+      type: 'xa-bao-lam-3',
     },
     {
       name: 'Xã Đinh Trang Thượng',
@@ -71,6 +78,7 @@
       image: $image().url,
       slugify: 'van-hoa-cong-chieng/xa/dinh-trang-thuong',
       image: '/assets/xa/DTT.jpg',
+      type: 'xa-dinh-trang-thuong',
     },
     {
       name: 'Xã Đam Rông 4',
@@ -79,6 +87,7 @@
       image: $image().url,
       slugify: 'van-hoa-cong-chieng/xa/dam-dong-4',
       image: '/assets/xa/DR4.jpg',
+      type: 'xa-dam-dong-4',
     },
   ];
 

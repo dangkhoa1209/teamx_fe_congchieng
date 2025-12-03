@@ -24,7 +24,7 @@
       <section>
         <div class="flex justify-between align-middle mt-5">
           <div>
-            <span class="">{{ $formatter().formatVNTime(newsData.createdAt) }}</span>
+            <span class="text-[10px]">{{ $formatter().formatVNTime(newsData.createdAt) }}</span>
           </div>
           <div class="flex gap-4">
             <div
@@ -57,14 +57,14 @@
 
         <x-space :height="40" />
 
-        <h3 class="font-bold text-subtitle text-justify">
+        <h3 class="font-bold text-body text-justify">
           {{ newsData.subtitle }}
         </h3>
         <x-space :height="40" />
 
         <divs v-for="(content, index) in newsData.contents" :key="content">
           <div v-if="content.type == 'content-in-dam'">
-            <pre class="font-bold whitespace-pre-line font-robo text-subtitle text-justify">{{
+            <pre class="font-bold whitespace-pre-line font-robo text-body text-justify">{{
               content.data
             }}</pre>
 
@@ -92,7 +92,7 @@
         <x-space :height="80" />
         <x-line className="" />
 
-        <section class="w-full max-w-[400px] block laptop:hidden">
+        <section class="w-full block laptop:hidden">
           <div>
             <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">
               TIN TỨC NỔI BẬT

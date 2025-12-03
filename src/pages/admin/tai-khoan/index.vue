@@ -40,7 +40,7 @@
           @refresh="fetchList"
         />
       </div>
-       <x-space :height="80" />
+      <x-space :height="80" />
       <ModelAction ref="modalAction" @refresh="fetchList" />
       <ModelUpdatePermission ref="modelUpdatePermission" @refresh="fetchList" />
       <ModelUpdatePassword ref="modelUpdatePassword" @refresh="fetchList" />

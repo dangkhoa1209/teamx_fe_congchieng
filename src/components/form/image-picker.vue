@@ -50,7 +50,9 @@
         <!-- Action buttons -->
         <div v-if="imageSrc && !croppedData" class="flex justify-end gap-2 pt-2 w-full">
           <x-form-button theme="primary" outline @click="clearImage">Huỷ</x-form-button>
-          <x-form-button theme="primary" @click="cropImage(handleChange)">Chọn</x-form-button>
+          <x-form-button theme="primary" @click="cropImage(handleChange)">
+            {{ props.labelConfirm }}
+          </x-form-button>
         </div>
 
         <!-- Preview + Edit -->
@@ -76,7 +78,7 @@
 </template>
 
 <script setup>
-  import { ref, nextTick, watch, computed } from 'vue';
+  import { ref, nextTick, watch, computed, toRefs } from 'vue';
   import { Field } from 'vee-validate';
   import Cropper from 'cropperjs';
   import 'cropperjs/dist/cropper.css';
@@ -89,7 +91,21 @@
     label: String,
     rules: [String, Object, Function],
     required: Boolean,
+    width: {
+      type: Number,
+      width: 900,
+    },
+    height: {
+      type: Number,
+      width: 600,
+    },
+    labelConfirm: {
+      type: String,
+      width: 'Chọn',
+    },
   });
+
+  const { width, height } = toRefs(props);
 
   const isDragging = ref(false);
   const imageSrc = ref(null);
@@ -130,7 +146,7 @@
       nextTick(() => {
         cropper?.destroy();
         cropper = new Cropper(cropperImage.value, {
-          aspectRatio: 900 / 600,
+          aspectRatio: width.value / height.value,
           viewMode: 1,
           autoCropArea: 1,
         });
@@ -143,7 +159,7 @@
     if (!cropper) return;
 
     const targetWidth = 1920;
-    const targetHeight = Math.round((600 / 900) * targetWidth);
+    const targetHeight = Math.round((height.value / width.value) * targetWidth);
 
     const canvas = cropper.getCroppedCanvas({
       width: targetWidth,
@@ -184,7 +200,7 @@
       nextTick(() => {
         cropper?.destroy();
         cropper = new Cropper(cropperImage.value, {
-          aspectRatio: 900 / 600,
+          aspectRatio: width.value / height.value,
           viewMode: 1,
           autoCropArea: 1,
         });
