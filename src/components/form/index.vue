@@ -32,7 +32,7 @@
 
     errorList.forEach((message) => {
       if (message) {
-        process.client && $toast().error(String(message));
+        // process.client && $toast().error(String(message));
       }
     });
   };

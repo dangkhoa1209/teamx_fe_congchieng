@@ -28,7 +28,7 @@
         ]
       },
       {
-        "label": "Tin nổi bật",
+        "label": "Tin nổi bật chung",
         "id": "quan-ly-tin-tuc-su-kien-tin-noi-bat-tat-ca",
         "page": "/admin/tin-tuc-su-kien/tin-noi-bat/tat-ca",
         "permissions": [

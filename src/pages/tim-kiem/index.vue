@@ -12,9 +12,7 @@
             class="flex flex-col laptop:flex-row laptop:items-center gap-4 laptop:gap-[40px] w-full"
           >
             <!-- ITEM 1: TÌM KIẾM -->
-            <div
-              class="flex flex-col laptop:flex-row laptop:items-center gap-2 w-full laptop:w-auto"
-            >
+            <div class="flex laptop:items-center gap-2 w-full laptop:w-auto">
               <label class="font-robo font-medium leading-[40px] whitespace-nowrap min-w-[100px]">
                 Tìm kiếm:
               </label>
@@ -25,9 +23,7 @@
             </div>
 
             <!-- ITEM 2: THỜI GIAN -->
-            <div
-              class="flex flex-col laptop:flex-row laptop:items-center gap-2 w-full laptop:w-auto"
-            >
+            <div class="flex laptop:items-center gap-2 w-full laptop:w-auto">
               <label class="font-robo font-medium leading-[40px] whitespace-nowrap min-w-[100px]">
                 Thời gian:
               </label>

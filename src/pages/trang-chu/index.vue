@@ -1,11 +1,12 @@
 <template>
-  <div class="user-select-none">
+  <div v-if="show" class="user-select-none">
     <!-- Banner -->
     <!-- TODO: gán x-content-place -->
     <div class="max-w-[1440px] mx-auto">
       <section class="relative">
         <!-- Ảnh -->
         <x-image
+          :path="image?.banner"
           url="/assets/page/trang-chu/1.jpg"
           :height="685"
           :width="1440"
@@ -104,7 +105,7 @@
           variant="bottom"
         />
         <x-space :height="50" />
-        <SlideXa />
+        <SlideXa :image="image" />
       </x-content-place>
     </section>
 
@@ -115,14 +116,6 @@
         <x-space :height="35" />
         <h2 class="font-robo font-bold text-title text-primary text-center">ĐƠN VỊ HỢP TÁC</h2>
         <x-space :height="65" />
-        <!-- <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          <x-image :url="$image().url" />
-          <x-image :url="$image().url" />
-          <x-image :url="$image().url" />
-          <x-image :url="$image().url" />
-          <x-image :url="$image().url" />
-          <x-image :url="$image().url" />
-        </div> -->
         <SlideDonViHopTac />
       </x-content-place>
     </section>
@@ -137,11 +130,32 @@
 
   useHead({
     title: 'Trang chủ',
-    // meta: [{ name: 'description', content: 'Website của Khoa - ví dụ SEO tốt hơn' }],
   });
 
   const clickTo = (slugify) => {
     if (!slugify) return;
     router.push({ path: `/${slugify}` });
   };
+
+  const image = ref({});
+  const show = ref(false);
+
+  const loadData = $lodash.debounce(async () => {
+    const response = await $api($url.image_page.get, { body: { type: 'type' } });
+    const { data, success } = response?.data?.value || {
+      data: null,
+      success: false,
+    };
+
+    if (success) {
+      image.value = data;
+      show.value = true;
+      return;
+    }
+    image.value = {};
+  }, 50);
+
+  onMounted(() => {
+    loadData();
+  });
 </script>

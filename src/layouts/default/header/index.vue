@@ -8,17 +8,21 @@
               <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
             </div>
 
-            <div class="hidden tablet:block text-main">
-              <p class="font-mont font-semibold text-[16px] laptop:text-[20px] leading-tight">
+            <div class="text-main">
+              <p
+                class="font-mont font-semibold text-[12px] tablet:text-[16px] laptop:text-[20px] leading-tight"
+              >
                 UBND TỈNH LÂM ĐỒNG
               </p>
-              <p class="font-mont font-semibold text-[22px] laptop:text-[28px] leading-tight">
+              <p
+                class="font-mont font-semibold text-[12px] tablet:text-[22px] laptop:text-[28px] leading-tight"
+              >
                 SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
               </p>
             </div>
           </div>
 
-          <div class="flex items-center gap-4 laptop:hidden">
+          <div class="flex items-center gap-1 tablet:gap-4 laptop:hidden">
             <button class="p-2" @click="toggleSearch">
               <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-main" />
             </button>
@@ -51,14 +55,18 @@
             :class="isDrawerOpen ? 'translate-x-0' : 'translate-x-full'"
           >
             <!-- Header drawer -->
-            <div class="bg-primary px-4 h-[58.5px] flex items-center justify-between">
+            <div
+              class="bg-primary px-4 h-[58.5px] tablet:h-[102.5px] flex items-center justify-between"
+            >
               <div class="flex items-center gap-4">
                 <div class="h-8 w-8">
                   <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
                 </div>
                 <div class="text-main">
-                  <p class="font-mont text-[12px]">UBND TỈNH LÂM ĐỒNG</p>
-                  <p class="font-mont text-[12px] font-bold opacity-90">
+                  <p class="font-mont text-[12px] font-semibold leading-tight">
+                    UBND TỈNH LÂM ĐỒNG
+                  </p>
+                  <p class="font-mont text-[12px] font-semibold leading-tight">
                     SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
                   </p>
                 </div>

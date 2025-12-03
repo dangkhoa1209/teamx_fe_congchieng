@@ -68,7 +68,7 @@
         success: false,
       };
       if (success) {
-        process.client && $toast().success('Cập nhật mật khẩu thành công');
+        // process.client && $toast().success('Cập nhật mật khẩu thành công');
         reset();
         emits('refresh');
         close();

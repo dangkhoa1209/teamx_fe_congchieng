@@ -11,8 +11,6 @@
         </x-form-button>
       </div>
       <x-space :height="30" />
-      <!-- {{ $newScope().list }}
-      {{ $newScope().key }} -->
       <div class="rounded-xl border border-gray-200 bg-main shadow-sm">
         <x-data-table
           :columns="columns"
@@ -63,7 +61,7 @@
           @refresh="fetchList"
         />
       </div>
-
+      <x-space :height="80" />
       <ModalAction ref="modalAction" @refresh="fetchList" />
       <ModelDelete ref="modelDelete" @refresh="fetchList" />
     </div>

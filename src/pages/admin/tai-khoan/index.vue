@@ -1,6 +1,7 @@
 <template>
   <x-content-place>
     <div>
+      <x-space :height="30" />
       <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
         <div>
           <h1 class="text-2xl font-semibold text-gray-900">Quản lý tài khoản</h1>
@@ -9,35 +10,37 @@
           Thêm tài khoản
         </x-form-button>
       </div>
+      <x-space :height="30" />
+      <div class="rounded-xl border border-gray-200 bg-main shadow-sm">
+        <x-data-table
+          :columns="columns"
+          :rows="tableList.data"
+          :loading="isLoading"
+          empty-text="Chưa có tài khoản."
+          show-index
+          sticky-header
+          @onAction="handleRowAction"
+        >
+          <template #cell-permissions="{ row }">
+            <div v-if="row.permissions || row.permissions.length">
+              <p v-for="(permission, index) in row.permissions || []" :key="permission">
+                {{ permissionsObj[permission] }}
+              </p>
+            </div>
+          </template>
+        </x-data-table>
 
-      <x-data-table
-        :columns="columns"
-        :rows="tableList.data"
-        :loading="isLoading"
-        empty-text="Chưa có tài khoản."
-        show-index
-        sticky-header
-        @onAction="handleRowAction"
-      >
-        <template #cell-permissions="{ row }">
-          <div v-if="row.permissions || row.permissions.length">
-            <p v-for="(permission, index) in row.permissions || []" :key="permission">
-              {{ permissionsObj[permission] }}
-            </p>
-          </div>
-        </template>
-      </x-data-table>
-
-      <x-data-table-pagination
-        :page="tableList.currentPage"
-        :page-size="tableList.size"
-        :total-items="tableList.totalItems"
-        :loading="isLoading"
-        @update:page="tableList.currentPage = $event"
-        @update:page-size="tableList.size = $event"
-        @refresh="fetchList"
-      />
-
+        <x-data-table-pagination
+          :page="tableList.currentPage"
+          :page-size="tableList.size"
+          :total-items="tableList.totalItems"
+          :loading="isLoading"
+          @update:page="tableList.currentPage = $event"
+          @update:page-size="tableList.size = $event"
+          @refresh="fetchList"
+        />
+      </div>
+      <x-space :height="80" />
       <ModelAction ref="modalAction" @refresh="fetchList" />
       <ModelUpdatePermission ref="modelUpdatePermission" @refresh="fetchList" />
       <ModelUpdatePassword ref="modelUpdatePassword" @refresh="fetchList" />

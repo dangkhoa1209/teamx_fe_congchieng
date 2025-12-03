@@ -5,140 +5,147 @@
     :loading="isLoading"
     @submit="handleSubmit"
   >
-    <div class="flex gap-2">
-      <div class="w-full flex flex-col gap-4">
-        <x-form-select
-          v-model="formData.location"
-          :options="$newScope().list"
-          label="Trực thuộc"
-          name="location"
-          :filterable="false"
-          :clearable="false"
-          required
-          placeholder="Tin tức - sự kiện trực thuộc cơ sở nào"
-        />
+    <div class="flex gap-2 h-full max-h-[70vh]">
+      <div class="flex-1 flex flex-col min-w-0">
+        <div class="flex-1 overflow-y-auto pr-4">
+          <div class="w-full flex flex-col gap-4">
+            <x-form-select
+              v-model="formData.location"
+              :options="$newScope().list"
+              label="Trực thuộc"
+              name="location"
+              :filterable="false"
+              :clearable="false"
+              required
+              placeholder="Tin tức - sự kiện trực thuộc cơ sở nào"
+            />
 
-        <x-form-select
-          v-model="formData.status"
-          :options="[
-            { label: 'Hoạt động', value: 'active' },
-            { label: 'Dừng hoạt động', value: 'unactive' },
-          ]"
-          label="Trạng thái"
-          name="status"
-          :filterable="false"
-          :clearable="false"
-          placeholder="Chọn trạng thái"
-        />
+            <x-form-select
+              v-model="formData.status"
+              :options="[
+                { label: 'Hoạt động', value: 'active' },
+                { label: 'Dừng hoạt động', value: 'unactive' },
+              ]"
+              label="Trạng thái"
+              name="status"
+              :filterable="false"
+              :clearable="false"
+              placeholder="Chọn trạng thái"
+            />
 
-        <x-form-input
-          v-model="formData.author"
-          label="Tác giả"
-          name="author"
-          placeholder="Tên tác giả"
-        />
+            <x-form-input
+              v-model="formData.author"
+              label="Tác giả"
+              name="author"
+              placeholder="Tên tác giả"
+            />
 
-        <x-form-input
-          v-model="formData.title"
-          label="Tiêu đề"
-          name="title"
-          rules="required"
-          required
-          placeholder="Nhập tiêu đề bài viết"
-        />
+            <x-form-input
+              v-model="formData.title"
+              label="Tiêu đề"
+              name="title"
+              rules="required"
+              required
+              placeholder="Nhập tiêu đề bài viết"
+            />
 
-        <x-form-input
-          v-model="formData.subtitle"
-          label="Tiêu đề phụ"
-          name="subtitle"
-          rules="required"
-          required
-          placeholder="Nhập tiêu đề phụ"
-        />
+            <x-form-input
+              v-model="formData.subtitle"
+              label="Tiêu đề phụ"
+              name="subtitle"
+              rules="required"
+              required
+              placeholder="Nhập tiêu đề phụ"
+            />
 
-        <draggable
-          v-model="formData.contents"
-          handle=".drag-handle"
-          item-key="id"
-          class="space-y-4"
-        >
-          <template #item="{ element: item, index }">
-            <div class="border rounded-lg p-3 relative bg-main shadow-sm flex flex-col gap-2">
-              <!-- Drag handle & Delete button -->
-              <div class="flex justify-end gap-2 top-2 right-2">
-                <span class="drag-handle cursor-move">
-                  <Icon name="heroicons-solid:bars-4" class="text-black w-5 h-5 opacity-70" />
-                </span>
-                <span class="drag-handle cursor-move">
-                  <Icon
-                    name="heroicons-solid:x-mark"
-                    class="text-primary w-5 h-5"
-                    @click="removeItem(index)"
-                  />
-                </span>
-              </div>
-
-              <x-form-text-area
-                v-if="item.type === 'content-in-dam'"
-                v-model="item.data"
-                label="Nội dung In Đậm"
-                :name="'content' + item.id"
-                rules="required"
-                required
-                placeholder="Nhập nội dung"
-                :rows="6"
-              />
-
-              <x-form-text-area
-                v-if="item.type === 'content'"
-                v-model="item.data"
-                label="Nội dung chi tiết"
-                :name="'content-' + item.id"
-                rules="required"
-                required
-                placeholder="Nhập nội dung"
-                :rows="6"
-              />
-
-              <div v-if="item.type === 'image'" class="rounded-2xl border px-4 py-2 border-primary">
-                <div v-if="item.url">
-                  <p>Hình ảnh</p>
-                  <x-image :url="`${config.apiURLFile}${item.url}`" />
-                  <div class="flex gap-2 pt-2">
-                    <x-form-button @click="clearImage(index)">Chọn ảnh mới</x-form-button>
+            <draggable
+              v-model="formData.contents"
+              handle=".drag-handle"
+              item-key="id"
+              class="space-y-4"
+            >
+              <template #item="{ element: item, index }">
+                <div class="border rounded-lg p-3 relative bg-main shadow-sm flex flex-col gap-2">
+                  <!-- Drag handle & Delete button -->
+                  <div class="flex justify-end gap-2 top-2 right-2">
+                    <span class="drag-handle cursor-move">
+                      <Icon name="heroicons-solid:bars-4" class="text-black w-5 h-5 opacity-70" />
+                    </span>
+                    <span class="drag-handle cursor-move">
+                      <Icon
+                        name="heroicons-solid:x-mark"
+                        class="text-primary w-5 h-5"
+                        @click="removeItem(index)"
+                      />
+                    </span>
                   </div>
-                  <x-form-input
-                    v-model="item.imageTitle"
-                    label="Tiêu đề cho ảnh"
-                    name="titleforimage"
-                    placeholder="Nhập tiêu đề ảnh"
-                    :name="'title-image-' + item.id"
-                    class="pt-2"
-                  />
-                </div>
-                <div v-else>
-                  <x-form-image-picker
-                    v-model="item.image"
-                    :name="'content-' + item.id"
-                    label="Hình ảnh"
+
+                  <x-form-text-area
+                    v-if="item.type === 'content-in-dam'"
+                    v-model="item.data"
+                    label="Nội dung In Đậm"
+                    :name="'content' + item.id"
                     rules="required"
                     required
+                    placeholder="Nhập nội dung"
+                    :rows="6"
                   />
-                  <x-form-input
-                    v-model="item.imageTitle"
-                    label="Tiêu đề cho ảnh"
-                    name="titleforimage"
-                    placeholder="Nhập tiêu đề ảnh"
-                    :name="'title-image-' + item.id"
+
+                  <x-form-text-area
+                    v-if="item.type === 'content'"
+                    v-model="item.data"
+                    label="Nội dung chi tiết"
+                    :name="'content-' + item.id"
+                    rules="required"
+                    required
+                    placeholder="Nhập nội dung"
+                    :rows="6"
                   />
+
+                  <div
+                    v-if="item.type === 'image'"
+                    class="rounded-2xl border px-4 py-2 border-primary"
+                  >
+                    <div v-if="item.url">
+                      <p>Hình ảnh</p>
+                      <x-image :url="`${config.apiURLFile}${item.url}`" />
+                      <div class="flex gap-2 pt-2">
+                        <x-form-button @click="clearImage(index)">Chọn ảnh mới</x-form-button>
+                      </div>
+                      <x-form-input
+                        v-model="item.imageTitle"
+                        label="Tiêu đề cho ảnh"
+                        name="titleforimage"
+                        placeholder="Nhập tiêu đề ảnh"
+                        :name="'title-image-' + item.id"
+                        class="pt-2"
+                      />
+                    </div>
+                    <div v-else>
+                      <x-form-image-picker
+                        v-model="item.image"
+                        :name="'content-' + item.id"
+                        label="Hình ảnh"
+                        rules="required"
+                        required
+                      />
+                      <x-form-input
+                        v-model="item.imageTitle"
+                        label="Tiêu đề cho ảnh"
+                        name="titleforimage"
+                        placeholder="Nhập tiêu đề ảnh"
+                        :name="'title-image-' + item.id"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </template>
-        </draggable>
+              </template>
+            </draggable>
+          </div>
+        </div>
       </div>
 
-      <div class="border border-1 p-2 box-border flex flex-col gap-4 w-[250px]">
+      <div class="border border-1 p-2 box-border flex flex-col gap-4 w-[250px] flex-shrink-0">
         <p>Thêm vào bài viết</p>
         <x-form-button
           class="w-full"
@@ -171,14 +178,12 @@
     </div>
   </x-modal-action>
 </template>
-
 <script setup>
   import draggable from 'vuedraggable';
   import $lodash from '../../../../composables/$lodash';
   import { v4 as uuidv4 } from 'uuid';
   const config = useRuntimeConfig().public;
 
-  
   const emits = defineEmits(['refresh']);
   const isVisible = ref(false);
   const isLoading = ref(false);
@@ -195,7 +200,7 @@
   const formData = ref($lodash.cloneDeep(init));
 
   const addContent = () => {
-    process.client && $toast().info('Thêm thành công');
+    // process.client && $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'content',
@@ -204,7 +209,7 @@
   };
 
   const addContentInDam = () => {
-    process.client && $toast().info('Thêm thành công');
+    // process.client && $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'content-in-dam',
@@ -212,7 +217,7 @@
     });
   };
   const addImage = () => {
-    process.client && $toast().info('Thêm thành công');
+    // process.client && $toast().info('Thêm thành công');
     formData.value.contents.push({
       id: uuidv4(),
       type: 'image',
@@ -309,7 +314,7 @@
           success: false,
         };
         if (success) {
-          process.client && $toast().success('Thêm tin tức - sự kiện thành công.');
+          // process.client && $toast().success('Thêm tin tức - sự kiện thành công.');
           reset();
           emits('refresh');
           close();
@@ -327,7 +332,7 @@
           success: false,
         };
         if (success) {
-          process.client && $toast().success('Cập nhật tin tức - sự kiện thành công.');
+          // process.client && $toast().success('Cập nhật tin tức - sự kiện thành công.');
           reset();
           emits('refresh');
           close();
