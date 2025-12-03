@@ -29,8 +29,8 @@
     password: '',
     permissions: [],
   };
-  import { useToast } from 'vue-toastification';
-  const toast = useToast();
+
+  
   const emits = defineEmits(['refresh']);
   const isVisible = ref(false);
   const isLoading = ref(false);
@@ -68,7 +68,7 @@
         success: false,
       };
       if (success) {
-        toast.success('Cập nhật mật khẩu thành công');
+        process.client && $toast().success('Cập nhật mật khẩu thành công');
         reset();
         emits('refresh');
         close();

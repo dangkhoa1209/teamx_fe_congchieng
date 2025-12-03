@@ -75,8 +75,8 @@
   import { nextTick } from 'vue';
   import InpitFilter from '../../ignore/input-fliter.vue';
 
-  import { useToast } from 'vue-toastification';
-  const toast = useToast();
+
+  
   const filter = ref({
     search: '',
     location: props.type == 'tin-tuc-su-kien' ? '' : props.type,
@@ -127,7 +127,7 @@
 
   const handleSave = async () => {
     if (!newsIdSelected.value) {
-      toast.error('Vui lòng chọn tin tức - sự kiện');
+      process.client && $toast().error('Vui lòng chọn tin tức - sự kiện');
     }
 
     const response = await $api($url.admin.featuredNews.update, {
@@ -148,7 +148,7 @@
     console.log('success', success);
 
     if (success) {
-      toast.success('Cập nhật tin nổi bật thành công');
+      process.client && $toast().success('Cập nhật tin nổi bật thành công');
       reset();
       close();
       fetchFeatured();

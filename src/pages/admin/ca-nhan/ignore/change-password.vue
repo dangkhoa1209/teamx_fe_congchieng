@@ -44,8 +44,8 @@
   const isVisible = ref(false);
   const isLoading = ref(false);
   const modalAction = ref(null);
-  import { useToast } from 'vue-toastification';
-  const toast = useToast();
+
+  
   const formData = ref($lodash.cloneDeep(initData));
 
   const open = (taiKhoan) => {
@@ -80,7 +80,7 @@
         success: false,
       };
       if (success) {
-        toast.success('Cập nhật mật khẩu thành công');
+        process.client && $toast().success('Cập nhật mật khẩu thành công');
         reset();
         emits('refresh');
         close();
