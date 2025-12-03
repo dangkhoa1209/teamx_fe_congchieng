@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show" class="user-select-none">
+  <div v-show="show" class="user-select-none">
     <!-- Banner -->
     <!-- TODO: gán x-content-place -->
     <div class="max-w-[1440px] mx-auto">
@@ -12,6 +12,7 @@
           :width="1440"
           class="w-full h-full object-cover"
           :radius="0"
+          loading="eager"
         />
 
         <div class="absolute inset-0 bg-primary/40" />
@@ -126,6 +127,7 @@
 <script setup>
   import SlideXa from './ignore/xa.vue';
   import SlideDonViHopTac from './ignore/don-vi-hop-tac.vue';
+  import { nextTick } from 'vue';
   const router = useRouter();
 
   useHead({
@@ -140,8 +142,11 @@
   const image = ref({});
   const show = ref(false);
 
-  const loadData = $lodash.debounce(async () => {
-    const response = await $api($url.image_page.get, { body: { type: 'type' } });
+  const loadData = async () => {
+    const response = await $api($url.image_page.get, {
+      body: { type: 'type' },
+    });
+
     const { data, success } = response?.data?.value || {
       data: null,
       success: false,
@@ -149,13 +154,16 @@
 
     if (success) {
       image.value = data;
-      show.value = true;
-      return;
+    } else {
+      image.value = {};
     }
-    image.value = {};
-  }, 50);
+
+    show.value = true;
+  };
 
   onMounted(() => {
-    loadData();
+    nextTick(() => {
+      loadData();
+    });
   });
 </script>
