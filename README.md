@@ -1,75 +1,46 @@
-# Nuxt Minimal Starter
+# Fontend API – Cồng Chiêng Lâm Đồng
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Fontend cho hệ thống **Cồng chiêng Lâm Đồng**
 
-## Setup
+---
 
-Make sure to install dependencies:
+# Công nghệ sử dụng
+
+- **Framework:** NuxtJS 3
+- **Render Mode:** SSR
+- **Ngôn ngữ:** JavaScript (ES6+)
+- **CSS Framework:** Tailwind CSS
+- **State Management:** Pinia
+- **HTTP Client:** useFetch
+- **Image Optimization:** Nuxt Image
+- **Icons:** Iconify / Heroicons
+- **Build Tool:** Vite
+
+
+## Yêu cầu môi trường
+
+* Node.js 20.19.5
+* NPM 
+
+## Biến môi trường (.env) – BẮT BUỘC
+
+Tạo file `.env` từ `.env.example` và sửa đổi
+
+
+**Lưu ý:** Sau khi chạy `npm run init` ở BE, dữ liệu `oauth_clients` sinh ra phải **copy sang FE (.env)**
+
+---
+
+## Cài đặt dự án
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
+## Build and Run
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+npm run start
+``
