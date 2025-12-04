@@ -5,6 +5,8 @@
   <slot :items="featuredSlots" />
 </template>
 <script setup>
+  import { nextTick } from 'vue';
+
   const props = defineProps({
     type: {
       type: String,
@@ -25,10 +27,14 @@
         },
       });
 
+      console.log('sdfsdfsdf response', response.data.value);
+
       const { data, success } = response?.data?.value || {
         data: null,
         success: false,
       };
+
+      console.log('data', data);
 
       if (success) {
         featuredSlots.value = data;
@@ -40,7 +46,7 @@
     }
   };
 
-  onMounted(async () => {
-    await fetchFeatured();
+  onMounted(() => {
+    nextTick(fetchFeatured());
   });
 </script>

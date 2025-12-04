@@ -92,13 +92,14 @@
         <x-space :height="80" />
         <x-line className="" />
 
-        <section class="w-full block laptop:hidden">
+        <section v-if="!isLaptop" class="w-full block laptop:hidden">
           <div>
             <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">
               TIN TỨC NỔI BẬT
             </h2>
             <x-space :height="40" />
 
+            <!-- mobile -->
             <x-core-ttnb :exclude="[newsData._id]">
               <template #default="{ items }">
                 <div class="flex flex-col gap-[25px]">
@@ -116,7 +117,6 @@
 
         <h2 class="font-bold text-subtitle text-primary mt-5 leading-[40px]">TIN TỨC KHÁC</h2>
         <x-space :height="40" />
-
         <x-core-ttk :exclude="[newsData._id]">
           <template #default="{ items }">
             <div class="grid grid-cols-2 gap-[25px]">
@@ -127,7 +127,9 @@
 
         <x-space :height="80" />
       </section>
-      <section class="w-full min-w-[400px] hidden laptop:block">
+
+      <!-- laptop -->
+      <section v-if="isLaptop" class="w-full min-w-[400px] hidden laptop:block">
         <div>
           <h2 class="font-bold text-subtitle text-primary mt-5">TIN TỨC NỔI BẬT</h2>
           <x-space :height="15" />
@@ -154,6 +156,7 @@
   import FBIcon from '~/public/assets/icon/fb.svg';
   import YTIcon from '~/public/assets/icon/youtube.svg';
   import IGIcon from '~/public/assets/icon/ig.svg';
+  import { useBreakpoints } from '@vueuse/core';
 
   const slugify = computed(() => useRoute().params.slugify);
   const newsData = ref(null);
@@ -161,6 +164,12 @@
   const route = useRoute();
   const url = useRequestURL();
   const domain = url.origin;
+
+  const breakpoints = useBreakpoints({
+    laptop: 1024,
+  });
+
+  const isLaptop = breakpoints.greater('laptop');
 
   useSeoMeta({
     title: () => newsData.value?.title,
