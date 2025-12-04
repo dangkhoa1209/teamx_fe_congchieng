@@ -77,6 +77,9 @@
             <nav class="flex-1 overflow-y-auto">
               <MobileMenu :menus="menus" @close="isDrawerOpen = false" />
             </nav>
+            <div class="my-10 flex justify-center">
+              <x-button theme="primary" @click="handleLogOut">Đăng xuất</x-button>
+            </div>
           </div>
         </div>
       </transition>
@@ -95,6 +98,7 @@
   import IconHeader from '~/public/assets/icon/header.svg';
   import InputFitter from './menu/input-fitter.vue';
   import menus from '~/data/menu/admin.json';
+  const { auth } = $store();
 
   const router = useRouter();
   const route = useRoute();
@@ -111,6 +115,16 @@
     if (!q) return;
     isDrawerOpen.value = false;
     router.push({ path: '/tim-kiem', query: { q } });
+  };
+
+  const handleLogOut = async () => {
+    try {
+      await $api($url.admin.profile.logout, { method: 'POST' });
+    } catch (e) {
+    } finally {
+      auth.clear();
+      router.push({ name: 'admin-auth-login' });
+    }
   };
 
   const onLogoError = (e) => (e.target.style.display = 'none');

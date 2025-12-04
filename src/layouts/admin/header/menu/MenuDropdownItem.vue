@@ -43,16 +43,24 @@
 
     <span
       v-else
-      class="block whitespace-nowrap cursor-default transition-all duration-300"
+      class="flex items-center gap-2 whitespace-nowrap cursor-default transition-all duration-300 group"
       :class="[
         isRoot
           ? 'leading-[75px] uppercase text-[16px] font-robo font-medium text-primary'
           : 'leading-[40px] text-14 font-robo font-medium text-main px-[15px]',
         !isRoot && isActive ? 'bg-main text-primary' : ' text-main',
         !isRoot && !isActive ? 'hover:bg-main hover:text-primary' : '',
+        item.isAction ? 'cursor-pointer' : '',
       ]"
+      @click="handleItemClick(item)"
     >
+      <Icon
+        v-if="item.itemIconName"
+        :name="item.itemIconName"
+        class="w-[16px] h-[16px] text-main group-hover:text-primary"
+      />
       {{ item.label }}
+      <Icon v-if="item.iconName" :name="item.iconName" class="w-[16px] h-[16px] text-primary" />
     </span>
 
     <!-- Đường kẻ ngang giữa các item con -->
@@ -78,6 +86,7 @@
             :is-root="false"
             @update:path="$emit('update:path', $event)"
             @mouseleave="$emit('mouseleave')"
+            @action="$emit('action', $event)"
           />
         </ul>
       </div>
@@ -101,7 +110,7 @@
     isRoot: { type: Boolean, default: true },
   });
 
-  const emit = defineEmits(['update:path', 'mouseleave']);
+  const emit = defineEmits(['update:path', 'mouseleave', 'action']);
 
   const itemRef = ref(null);
   const dropdownStyle = ref({});
@@ -180,6 +189,16 @@
         minWidth: '240px',
       };
     }
+  };
+
+  const handleItemClick = (item) => {
+    console.log('item', item);
+
+    if (!item.isAction) {
+      return;
+    }
+
+    emit('action', item.id);
   };
 
   watch(isOpen, (open) => open && nextTick(updateDropdownPosition), { flush: 'post' });

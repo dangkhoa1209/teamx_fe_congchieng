@@ -36,22 +36,77 @@
                 ›
               </button>
             </div>
+
+            <div>
+              <ul ref="menuList" class="flex gap-[52px] overflow-x-auto no-scrollbar scroll-smooth">
+                <MenuDropdownItem
+                  v-for="item in profileMenu"
+                  :key="item.id || item.label"
+                  :item="item"
+                  :active-path="activePath"
+                  :parent-path="[]"
+                  :is-root="true"
+                  :current-path="currentPath"
+                  @update:path="updatePath"
+                  @mouseleave="scheduleClose"
+                  @action="handleAction"
+                />
+              </ul>
+            </div>
           </div>
         </x-content-place>
       </div>
     </div>
+
+    <ModelChangePassWord ref="modelChangePassWord" />
   </nav>
 </template>
 
 <script setup>
+  import { computed } from 'vue';
   import MenuDropdownItem from './MenuDropdownItem.vue';
   import InputFitter from './input-fitter.vue';
   import menus from '~/data/menu/admin.json';
+  import profile from '~/data/menu/profile.json';
+  import { values } from 'lodash-es';
   const router = useRouter();
   const route = useRoute();
+  const { auth } = $store();
+
+  import ModelChangePassWord from './ignore/change-password.vue';
+
+  const modelChangePassWord = ref();
 
   const currentPath = computed(() => {
     return route.path.replace(/\/$/, '') || '/trang-chu';
+  });
+
+  const profileMenu = computed(() => {
+    return [
+      {
+        label: auth?.user?.username?.toUpperCase() || '',
+        id: 'admin-profile',
+        iconName: 'heroicons:chevron-down',
+        childrens: [
+          {
+            label: auth?.user?.username?.toUpperCase() || '',
+            id: 'admin-profile-admin',
+          },
+          {
+            label: 'Đổi mật khẩu',
+            id: 'admin-profile-password',
+            itemIconName: 'heroicons:lock-open',
+            isAction: true,
+          },
+          {
+            label: 'Đăng xuất',
+            id: 'admin-profile-log-out',
+            itemIconName: 'heroicons:arrow-right-start-on-rectangle',
+            isAction: true,
+          },
+        ],
+      },
+    ];
   });
 
   // === HOVER PATH STATE ===
@@ -114,6 +169,30 @@
     isFocused.value = false;
     onLeave();
     router.push({ path: '/tim-kiem', query: { q: v } });
+  };
+
+  const handleAction = (value) => {
+    if (value == 'admin-profile-log-out') {
+      handleLogOut();
+      return;
+    }
+    if (value == 'admin-profile-password') {
+      handleChangePassword();
+    }
+  };
+
+  const handleLogOut = async () => {
+    try {
+      await $api($url.admin.profile.logout, { method: 'POST' });
+    } catch (e) {
+    } finally {
+      auth.clear();
+      router.push({ name: 'admin-auth-login' });
+    }
+  };
+
+  const handleChangePassword = () => {
+    modelChangePassWord.value && modelChangePassWord.value.open(auth.user);
   };
 </script>
 

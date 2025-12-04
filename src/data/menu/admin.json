@@ -84,10 +84,5 @@
     "permissions": [
       "tai-khoan"
     ]
-  },
-  {
-    "label": "Cá nhân",
-    "id": "admin-ca-nhan",
-    "page": "/admin/ca-nhan"
   }
 ]

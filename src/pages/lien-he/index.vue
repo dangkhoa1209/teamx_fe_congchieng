@@ -62,16 +62,16 @@
                 />
               </div>
               <x-form-input
-                v-model="formData.mail"
+                v-model="formData.email"
                 label="Email"
                 name="email"
                 rules="required"
                 required
               />
               <x-form-text-area
-                v-model="formData.content"
+                v-model="formData.description"
                 label="Nội dung"
-                name="content"
+                name="description"
                 rules="required"
                 required
               />
@@ -96,8 +96,35 @@
     name: '',
     phone: '',
     email: '',
-    content: '',
+    description: '',
   });
 
-  const onSubmit = () => {};
+  const isSubmit = ref(false);
+
+  const onSubmit = async () => {
+    if (isSubmit.value) {
+      return;
+    }
+
+    isSubmit.value = true;
+    process.client && $toast().info('Đang gửi yêu cầu liên hệ');
+    const response = await $api($url.contact.request, {
+      body: formData.value,
+    });
+    const { data, success } = response?.data?.value || {
+      data: null,
+      success: false,
+    };
+    if (success) {
+      process.client && $toast().success('Gửi yêu cầu liên hệ thành công');
+      formData.value = {
+        name: '',
+        phone: '',
+        email: '',
+        description: '',
+      };
+    }
+
+    isSubmit.value = false;
+  };
 </script>

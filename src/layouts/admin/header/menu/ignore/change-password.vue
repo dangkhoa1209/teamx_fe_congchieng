@@ -24,7 +24,7 @@
           name="new_create_password"
           rules="required"
           required
-          type="newpassword"
+          type="password"
           placeholder="Nhập mật khẩu mới"
         />
       </div>
@@ -45,7 +45,6 @@
   const isLoading = ref(false);
   const modalAction = ref(null);
 
-  
   const formData = ref($lodash.cloneDeep(initData));
 
   const open = (taiKhoan) => {

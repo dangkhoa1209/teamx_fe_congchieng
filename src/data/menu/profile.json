@@ -1,0 +1,16 @@
+[
+  {
+    "label": "profile",
+    "id": "admin-profile",
+    "childrens": [
+      {
+        "label": "Amdin",
+        "id": "admin-profile-admin"
+      },
+      {
+        "label": "Amdin",
+        "id": "admin-profile-admin"
+      }
+    ]
+  }
+]
