@@ -11,11 +11,12 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        {
-          rel: 'icon',
-          type: 'image/x-icon',
-          href: '/favicon.ico',
-        },
+        // {
+        //   rel: 'icon',
+        //   type: 'image/x-icon',
+        //   href: '/favicon.ico',
+        // },
+        { rel: 'icon', type: 'image/svg+xml', href: '/qh.svg' },
         // {
         //   rel: 'preconnect',
         //   href: 'https://fonts.googleapis.com'
