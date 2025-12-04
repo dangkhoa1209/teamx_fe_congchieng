@@ -1,9 +1,31 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50">
-    <div class="bg-main shadow-lg rounded-2xl p-8 w-full max-w-md">
-      <h1 class="text-2xl font-semibold text-center text-primary mb-6">Đăng nhập quản trị</h1>
+  <div class="min-h-screen flex flex-col items-center justify-center bg-primary">
+    <div>
+      <div class="flex items-center justify-between py-2 tablet:py-6 laptop:py-8">
+        <div class="flex items-center gap-4 laptop:gap-10">
+          <div class="h-8 w-8 tablet:h-18 tablet:w-18 laptop:h-20 laptop:w-20">
+            <img src="/assets/icon/qh.svg" class="w-full h-full object-contain" />
+          </div>
 
-      <form class="space-y-4" @submit.prevent="handleLogin">
+          <div class="text-main">
+            <p
+              class="font-mont font-semibold text-[12px] tablet:text-[16px] laptop:text-[20px] leading-tight"
+            >
+              UBND TỈNH LÂM ĐỒNG
+            </p>
+            <p
+              class="font-mont font-semibold text-[12px] tablet:text-[22px] laptop:text-[28px] leading-tight"
+            >
+              SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-main shadow-lg rounded-2xl p-8 w-full max-w-md">
+      <h1 class="text-2xl font-semibold text-center text-primary mb-6">ĐĂNG NHẬP TRANG QUẢN TRỊ</h1>
+
+      <form class="space-y-6" @submit.prevent="handleLogin">
         <x-form-input
           v-model="username"
           label="Tài khoản"
@@ -19,7 +41,7 @@
           placeholder="Nhập mật khẩu"
         />
 
-        <x-form-button type="submit" theme="primary">Đăng nhập</x-form-button>
+        <x-button class="w-full" type="submit" theme="primary">Đăng nhập</x-button>
       </form>
     </div>
   </div>
