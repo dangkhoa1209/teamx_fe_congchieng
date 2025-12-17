@@ -128,13 +128,17 @@
       process.client && $toast().error('Vui lòng chọn tin tức - sự kiện');
     }
 
-    const response = await $api($url.admin.featuredNews.update, {
-      body: {
-        type: props.type,
-        position: positionSelected.value,
-        newsId: newsIdSelected.value,
+    const response = await $api(
+      $url.admin.featuredNews.update,
+      {
+        body: {
+          type: props.type,
+          position: positionSelected.value,
+          newsId: newsIdSelected.value,
+        },
       },
-    });
+      true
+    );
 
     const { data, success } = response?.data?.value || {
       data: null,

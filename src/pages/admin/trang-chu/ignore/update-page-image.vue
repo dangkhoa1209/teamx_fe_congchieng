@@ -81,7 +81,7 @@
 
     fd.append(`image`, file, fileName);
 
-    const response = await $api($url.admin.image_page.update, { body: fd });
+    const response = await $api($url.admin.image_page.update, { body: fd }, true);
 
     const { data, success } = response?.data?.value || {
       data: null,

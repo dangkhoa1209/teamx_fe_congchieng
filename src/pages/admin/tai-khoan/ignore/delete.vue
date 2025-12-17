@@ -26,7 +26,6 @@
     permissions: [],
   };
 
-  
   const emits = defineEmits(['refresh']);
   const isVisible = ref(false);
   const isLoading = ref(false);
@@ -55,9 +54,13 @@
   const handleSubmit = async (values) => {
     isLoading.value = true;
     try {
-      const response = await $api($url.admin.account.delete, {
-        body: formData.value,
-      });
+      const response = await $api(
+        $url.admin.account.delete,
+        {
+          body: formData.value,
+        },
+        true
+      );
 
       const { success } = response?.data?.value || {
         data: null,

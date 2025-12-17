@@ -308,7 +308,7 @@
     try {
       if (!formData.value._id) {
         const fd = await buildFormData(formData.value);
-        const response = await $api($url.admin.news.create, { body: fd });
+        const response = await $api($url.admin.news.create, { body: fd }, true);
         const { data, success } = response?.data?.value || {
           data: null,
           success: false,
@@ -321,12 +321,16 @@
         }
       } else {
         const fd = await buildFormData(formData.value);
-        const response = await $api($url.admin.news.update, {
-          body: fd,
-          uriParams: {
-            ':id': formData.value._id,
+        const response = await $api(
+          $url.admin.news.update,
+          {
+            body: fd,
+            uriParams: {
+              ':id': formData.value._id,
+            },
           },
-        });
+          true
+        );
         const { data, success } = response?.data?.value || {
           data: null,
           success: false,
