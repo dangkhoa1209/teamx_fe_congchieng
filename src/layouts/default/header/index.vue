@@ -17,7 +17,7 @@
               <p
                 class="font-mont font-semibold text-[12px] tablet:text-[22px] laptop:text-[28px] leading-tight"
               >
-                SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
+                CHUYÊN TRANG ĐIỆN TỬ CỒNG CHIÊNG
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@
                     UBND TỈNH LÂM ĐỒNG
                   </p>
                   <p class="font-mont text-[12px] font-semibold leading-tight">
-                    SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
+                    CHUYÊN TRANG ĐIỆN TỬ CỒNG CHIÊNG
                   </p>
                 </div>
               </div>

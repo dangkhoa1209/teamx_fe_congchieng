@@ -14,7 +14,7 @@
               <div>
                 <p class="font-mont font-semibold text-main text-mini">UBND TỈNH LÂM ĐỒNG</p>
                 <p class="font-mont font-semibold text-main text-subtitle">
-                  SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
+                  CHUYÊN TRANG ĐIỆN TỬ CỒNG CHIÊNG
                 </p>
               </div>
             </div>

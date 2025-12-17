@@ -223,7 +223,6 @@ export default async function $api(source, options = {}, showError = true) {
       });
       return null;
     }
-    console.log('response1: ', response);
 
     return response;
   } catch (e) {

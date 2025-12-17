@@ -16,7 +16,7 @@
             <p
               class="font-mont font-semibold text-[12px] tablet:text-[22px] laptop:text-[28px] leading-tight"
             >
-              SỞ VĂN HOÁ, THỂ THAO VÀ DU LỊCH
+              CHUYÊN TRANG ĐIỆN TỬ CỒNG CHIÊNG
             </p>
           </div>
         </div>
