@@ -24,7 +24,13 @@
         "id": "quan-ly-tin-tuc-su-kien-a",
         "page": "/admin/tin-tuc-su-kien/quan-ly",
         "permissions": [
-          "tin-tuc-su-kien"
+          "tin-tuc-su-kien",
+          "tin-tuc-su-kien",
+          "xa-lac-duong",
+          "xa-da-teh",
+          "xa-bao-lam-3",
+          "xa-dinh-trang-thuong",
+          "xa-dam-dong-4"
         ]
       },
       {

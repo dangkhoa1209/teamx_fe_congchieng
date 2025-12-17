@@ -39,7 +39,7 @@ const errorProcess = (app, error) => {
       const errorData = error.value.data || {};
       errorDataList = errorData.errors ? Array(errorData.errors) : errorData.errors;
       if (typeof errorDataList === 'string') {
-        // $toast().error(errorDataList);
+        process.client && $toast().error(errorDataList);
         return;
       }
 
@@ -52,7 +52,7 @@ const errorProcess = (app, error) => {
           handleToastError(msg);
         });
       } else {
-        // $toast().error('Lỗi kết nối máy chủ');
+        process.client && $toast().error('Lỗi kết nối máy chủ');
       }
     }
   }
@@ -65,13 +65,13 @@ const handleToastError = (msg) => {
   }
 
   if (typeof msg === 'string') {
-    // $toast().error(decode(msg));
+    process.client && $toast().error(decode(msg));
   }
   if (typeof msg === 'object' && 'msg' in msg) {
-    // $toast().error(String(msg.msg));
+    process.client && $toast().error(String(msg.msg));
   }
   if (typeof msg === 'object' && 'message' in msg) {
-    // $toast().error(msg.message);
+    process.client && $toast().error(msg.message);
   }
 };
 
@@ -103,7 +103,7 @@ const disableReactive = (data) => {
   return data;
 };
 
-export default async function $api(source, options = {}, showError = true) {
+export default async function $api(source, options = {}, showError = false) {
   const app = useNuxtApp();
   const config = useRuntimeConfig().public;
   const { auth } = $store();
@@ -223,7 +223,6 @@ export default async function $api(source, options = {}, showError = true) {
       });
       return null;
     }
-    console.log('response1: ', response);
 
     return response;
   } catch (e) {

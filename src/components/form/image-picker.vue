@@ -51,7 +51,7 @@
         <div v-if="imageSrc && !croppedData" class="flex justify-end gap-2 pt-2 w-full">
           <x-form-button theme="primary" outline @click="clearImage">Huỷ</x-form-button>
           <x-form-button theme="primary" @click="cropImage(handleChange)">
-            {{ props.labelConfirm }}
+            {{ labelConfirm }}
           </x-form-button>
         </div>
 
@@ -101,11 +101,11 @@
     },
     labelConfirm: {
       type: String,
-      width: 'Chọn',
+      default: 'Chọn',
     },
   });
 
-  const { width, height } = toRefs(props);
+  const { width, height, labelConfirm } = toRefs(props);
 
   const isDragging = ref(false);
   const imageSrc = ref(null);
