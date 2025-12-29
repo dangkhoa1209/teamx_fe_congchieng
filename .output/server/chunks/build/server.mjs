@@ -499,12 +499,12 @@ const _routes = [
         name: "admin-tin-tuc-su-kien-quan-ly",
         path: "tin-tuc-su-kien/quan-ly",
         meta: __nuxt_page_meta$1 || {},
-        component: () => import('./quan-ly-CEjU9dUu.mjs')
+        component: () => import('./quan-ly-BWFIx9Hj.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-action",
         path: "tin-tuc-su-kien/ignore/action",
-        component: () => import('./action-BElPQQUW.mjs').then((n) => n.b)
+        component: () => import('./action-CHoU6wKc.mjs').then((n) => n.b)
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-delete",
@@ -581,7 +581,7 @@ const _routes = [
   {
     name: "lien-he",
     path: "/lien-he",
-    component: () => import('./index-D9HLVDJ6.mjs')
+    component: () => import('./index-CceyHtJQ.mjs')
   },
   {
     name: "tim-kiem",
@@ -2021,8 +2021,8 @@ const layouts = {
   "admin-header-menu": defineAsyncComponent(() => import('./index-K-qF47u6.mjs').then((n) => n.i).then((m) => m.default || m)),
   "admin-header-menu-input-fitter": defineAsyncComponent(() => import('./input-fitter-DT5qAuIU.mjs').then((m) => m.default || m)),
   auth: defineAsyncComponent(() => import('./auth-C_DuilNG.mjs').then((m) => m.default || m)),
-  default: defineAsyncComponent(() => import('./default-Drbr-bZX.mjs').then((m) => m.default || m)),
-  "default-footer": defineAsyncComponent(() => import('./index-CHVMm_fZ.mjs').then((m) => m.default || m)),
+  default: defineAsyncComponent(() => import('./default-DEn6wyA-.mjs').then((m) => m.default || m)),
+  "default-footer": defineAsyncComponent(() => import('./index-CsOzwFyw.mjs').then((m) => m.default || m)),
   "default-header": defineAsyncComponent(() => import('./index-DT7gcBu_.mjs').then((m) => m.default || m)),
   "default-header-menu-dropdown-item": defineAsyncComponent(() => import('./MenuDropdownItem-BHrt9Oob.mjs').then((m) => m.default || m)),
   "default-header-menu-mobile-menu": defineAsyncComponent(() => import('./MobileMenu-BYD4Xipd.mjs').then((m) => m.default || m)),
