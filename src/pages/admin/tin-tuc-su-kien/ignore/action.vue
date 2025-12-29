@@ -151,28 +151,28 @@
           class="w-full"
           theme="primary"
           outline
-          icon="heroicons-outline:bars-3"
+          icon="heroicons-outline:plus"
           @click="addContent"
         >
-          <span class="font-normal font-robo text-body">Nội dung +</span>
+          <span class="font-normal font-robo text-body">Nội dung</span>
         </x-form-button>
         <x-form-button
           class="w-full"
           theme="primary"
           outline
-          icon="heroicons-outline:bars-3"
+          icon="heroicons-outline:plus"
           @click="addContentInDam"
         >
-          <span class="font-robo text-body">Nội dung in đậm +</span>
+          <span class="font-robo text-body">Nội dung in đậm</span>
         </x-form-button>
         <x-form-button
           class="w-full"
           theme="primary"
-          icon="heroicons-outline:photo"
+          icon="heroicons-outline:plus"
           outline
           @click="addImage"
         >
-          Hình ảnh +
+          Hình ảnh
         </x-form-button>
       </div>
     </div>
