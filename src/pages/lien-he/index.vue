@@ -11,30 +11,32 @@
         <x-space :height="50" />
         <div class="flex flex-col gap-[30px] text-body font-normal">
           <p>
-            Ban Biên tập Chuyên Trang thông tin điện tử -
+            Ban quản lý Chuyên trang thông tin điện tử cồng chiêng tỉnh Lâm Đồng
+            <!-- Ban Biên tập Chuyên Trang thông tin điện tử -
             <br />
-            Văn hóa, Thể thao và Du lịch tỉnh Lâm Đồng
+            Văn hóa, Thể thao và Du lịch tỉnh Lâm Đồng -->
           </p>
           <div class="flex items-center gap-5">
             <!-- <Icon name="heroicons-solid:map-pin" class="text-primary /> -->
             <LocationIcon class="h-[25px] w-6 laptop:w-8 laptop:h-[35px] fill-primary" />
             <p>
-              Tầng 6 khu 9 tầng, số 36 Trần Phú,
+              Phòng văn hóa xã hội xã Lạc Dương
+              <!-- Tầng 6 khu 9 tầng, số 36 Trần Phú,
               <br />
-              phường Xuân Hương - Đà Lạt, tỉnh Lâm Đồng
+              phường Xuân Hương - Đà Lạt, tỉnh Lâm Đồng -->
             </p>
           </div>
           <div class="flex items-center gap-5">
             <PhoneIcon class="h-6 w-6 laptop:w-8 laptop:h-8" />
-            <p>(0263) 3540881</p>
+            <p>0969 856 159</p>
           </div>
-          <div class="flex items-center gap-5">
+          <!-- <div class="flex items-center gap-5">
             <FaxIcon class="h-6 w-6 laptop:w-8 laptop:h-8" />
             <p>(0263) 3833086</p>
-          </div>
+          </div> -->
           <div class="flex items-center gap-5">
             <MailIcon class="h-6 w-6 laptop:w-8 laptop:h-8 fill-primary" />
-            <p>svhttdl.lamdong.gov.vn</p>
+            <p>haint2.lacduong@lamdong.gov.vn</p>
           </div>
         </div>
       </div>

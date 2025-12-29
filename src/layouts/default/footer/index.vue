@@ -3,7 +3,7 @@
     <x-content-place>
       <x-space :height="58" />
       <div class="flex gap-16 flex-col laptop:flex-row">
-        <div class="flex flex-col justify-between gap-8 w-[100%] laptop:w-[40%]">
+        <div class="flex flex-col justify-between gap-8 w-[100%] laptop:w-[43%]">
           <div class="flex flex-col gap-8">
             <div class="flex gap-6 items-center">
               <div class="flex items-center justify-center">
@@ -71,17 +71,14 @@
           </p>
           <p class="font-normal text-body cursor-pointer" @click="clickTo('hop-tac')">Hợp tác</p>
         </div>
-        <div class="w-[100%] laptop:w-[33%] flex flex-col gap-3 tablet:gap-6">
+        <div class="w-[100%] laptop:w-[30%] flex flex-col gap-3 tablet:gap-6">
           <p class="font-medium text-subtitle">LIÊN HỆ</p>
           <p class="font-normal text-body">
-            Ban Biên tập Chuyên Trang thông tin điện tử - Sở Văn hóa, Thể thao và Du lịch tỉnh Lâm
-            Đồng
+            Ban quản lý Chuyên trang thông tin điện tử cồng chiêng tỉnh Lâm Đồng
           </p>
-          <p class="font-normal text-body">
-            Địa chỉ: Tầng 2 khu 9 tầng, Số 36 Trần Phú, Phường Xuân Hương Đà Lạt - Tỉnh Lâm Đồng
-          </p>
-          <p class="font-normal text-body">Số điện thoại: (0263) 3822141</p>
-          <p class="font-normal text-body">Email: svhttdl.lamdong.gov.vn</p>
+          <p class="font-normal text-body">Địa chỉ: Phòng văn hóa xã hội xã Lạc Dương</p>
+          <p class="font-normal text-body">Số điện thoại: 0969 856 159</p>
+          <p class="font-normal text-body">Email: haint2.lacduong@lamdong.gov.vn</p>
         </div>
       </div>
       <x-space :height="58" />
