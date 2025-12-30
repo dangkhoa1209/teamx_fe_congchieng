@@ -478,58 +478,58 @@ const _routes = [
       {
         name: "admin-tai-khoan",
         path: "tai-khoan",
-        component: () => import('./index-w-9WOVf7.mjs')
+        component: () => import('./index-DbVbcn6s.mjs')
       },
       {
         name: "admin-trang-chu",
         path: "trang-chu",
-        component: () => import('./index-BFfs6pTt.mjs')
+        component: () => import('./index-G4QSTAYZ.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-action",
         path: "tai-khoan/ignore/action",
-        component: () => import('./action-CX3ou6m2.mjs')
+        component: () => import('./action-CdBzqFiM.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-delete",
         path: "tai-khoan/ignore/delete",
-        component: () => import('./delete-BkB87zRG.mjs')
+        component: () => import('./delete-C0v6Isj6.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-quan-ly",
         path: "tin-tuc-su-kien/quan-ly",
         meta: __nuxt_page_meta$1 || {},
-        component: () => import('./quan-ly-Cc0DWSXv.mjs')
+        component: () => import('./quan-ly-DmdxS_0_.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-action",
         path: "tin-tuc-su-kien/ignore/action",
-        component: () => import('./action-C3loVmjz.mjs').then((n) => n.b)
+        component: () => import('./action-BPcJvB7i.mjs').then((n) => n.b)
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-delete",
         path: "tin-tuc-su-kien/ignore/delete",
-        component: () => import('./delete-QSfTI78T.mjs')
+        component: () => import('./delete-D-fao-bf.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-update-password",
         path: "tai-khoan/ignore/update-password",
-        component: () => import('./update-password-CQRPnVyl.mjs')
+        component: () => import('./update-password-gZLBKXws.mjs')
       },
       {
         name: "admin-tai-khoan-ignore-update-permission",
         path: "tai-khoan/ignore/update-permission",
-        component: () => import('./update-permission-BcV6Rf7u.mjs')
+        component: () => import('./update-permission-DgY6nIC8.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-tat-ca",
         path: "tin-tuc-su-kien/tin-noi-bat/tat-ca",
-        component: () => import('./tat-ca-BDAnqzC4.mjs')
+        component: () => import('./tat-ca-BrRPVC9k.mjs')
       },
       {
         name: "admin-trang-chu-ignore-update-page-image",
         path: "trang-chu/ignore/update-page-image",
-        component: () => import('./update-page-image-D-KyAGVU.mjs')
+        component: () => import('./update-page-image-BVIY0Nv0.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-input-fliter",
@@ -539,32 +539,32 @@ const _routes = [
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-da-teh",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-da-teh",
-        component: () => import('./xa-da-teh-D_OXBInl.mjs')
+        component: () => import('./xa-da-teh-DNAA6L-g.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-bao-lam-3",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-bao-lam-3",
-        component: () => import('./xa-bao-lam-3-DJd3q3rp.mjs')
+        component: () => import('./xa-bao-lam-3-D2HqeYBw.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-lac-duong",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-lac-duong",
-        component: () => import('./xa-lac-duong-4kfmN68w.mjs')
+        component: () => import('./xa-lac-duong-BioaO7Fh.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-dam-rong-4",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-dam-rong-4",
-        component: () => import('./xa-dam-rong-4-B7FvTHEj.mjs')
+        component: () => import('./xa-dam-rong-4-CGQ-O0eF.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-xa-dinh-trang-thuong",
         path: "tin-tuc-su-kien/tin-noi-bat/xa-dinh-trang-thuong",
-        component: () => import('./xa-dinh-trang-thuong-DDE6nabQ.mjs')
+        component: () => import('./xa-dinh-trang-thuong-cSSkmznr.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-tin-noi-bat-ignore-list-and-action",
         path: "tin-tuc-su-kien/tin-noi-bat/ignore/list-and-action",
-        component: () => import('./list-and-action-buTsRBA3.mjs')
+        component: () => import('./list-and-action-DtsD4Nl4.mjs')
       }
     ]
   },
@@ -2012,13 +2012,13 @@ const plugins = [
   vee_validate_of0_6_GLRet9EjrNK456kqHhINJfhGRjOlH8tia_YhM
 ];
 const layouts = {
-  admin: defineAsyncComponent(() => import('./admin-C0v5L6V7.mjs').then((m) => m.default || m)),
-  "admin-header": defineAsyncComponent(() => import('./index-COhvz7g9.mjs').then((m) => m.default || m)),
+  admin: defineAsyncComponent(() => import('./admin-BlyCui7I.mjs').then((m) => m.default || m)),
+  "admin-header": defineAsyncComponent(() => import('./index-DjfiWJaM.mjs').then((m) => m.default || m)),
   "admin-header-menu-dropdown-item": defineAsyncComponent(() => import('./MenuDropdownItem-Dei1bhor.mjs').then((m) => m.default || m)),
   "admin-header-menu-mobile-menu": defineAsyncComponent(() => import('./MobileMenu-CiKu2Jry.mjs').then((m) => m.default || m)),
   "admin-header-menu-mobile-menu-item": defineAsyncComponent(() => import('./MobileMenuItem-MXQopccL.mjs').then((m) => m.default || m)),
-  "admin-header-menu-ignore-change-password": defineAsyncComponent(() => import('./change-password-m4Br2s_9.mjs').then((m) => m.default || m)),
-  "admin-header-menu": defineAsyncComponent(() => import('./index-BIrfQXJo.mjs').then((n) => n.i).then((m) => m.default || m)),
+  "admin-header-menu-ignore-change-password": defineAsyncComponent(() => import('./change-password-BVWuvSYB.mjs').then((m) => m.default || m)),
+  "admin-header-menu": defineAsyncComponent(() => import('./index-BCfDAKR0.mjs').then((n) => n.i).then((m) => m.default || m)),
   "admin-header-menu-input-fitter": defineAsyncComponent(() => import('./input-fitter-DT5qAuIU.mjs').then((m) => m.default || m)),
   auth: defineAsyncComponent(() => import('./auth-C_DuilNG.mjs').then((m) => m.default || m)),
   default: defineAsyncComponent(() => import('./default-DEn6wyA-.mjs').then((m) => m.default || m)),
