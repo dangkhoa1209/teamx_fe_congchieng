@@ -4,7 +4,7 @@ import svgLoader from 'vite-svg-loader';
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   srcDir: 'src/',
-  ssr: true,
+  ssr: false,
   nitro: {
     preset: 'node-server', // 'vercel', 'netlify'
   },
