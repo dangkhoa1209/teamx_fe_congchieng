@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <div
-      v-if="modelValue"
+      v-show="modelValue"
       class="fixed inset-0 z-[2000] flex items-center justify-center bg-black/40"
       tabindex="-1"
       @click.self="handleBackdropClick"
