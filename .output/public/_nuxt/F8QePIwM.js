@@ -1,1 +1,0 @@
-import{i as t,c as l,o,a as c,x as p,v as n}from"./DNM2FWSB.js";const r={class:"w-full"},u={__name:"content-place",props:{className:{type:String,default:""}},setup(a){const e=t(()=>"px-4 tablet:px-6 laptop:px-10 wide:px-[120px]");return(s,d)=>(o(),l("div",r,[c("div",{class:n(["mx-auto w-full max-w-[1440px]",[e.value,a.className]])},[p(s.$slots,"default")],2)]))}};export{u as _};
