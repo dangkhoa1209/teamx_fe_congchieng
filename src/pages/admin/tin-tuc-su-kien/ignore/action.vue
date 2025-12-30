@@ -69,19 +69,10 @@
                   <!-- Drag handle & Delete button -->
                   <div class="flex justify-end gap-2 top-2 right-2">
                     <span class="drag-handle cursor-move">
-                      <Icon
-                        name="heroicons-solid:bars-4"
-                        mode="svg"
-                        class="text-black w-5 h-5 opacity-70"
-                      />
+                      <BarsIcon class="text-black w-5 h-5 opacity-70" />
                     </span>
                     <span class="drag-handle cursor-pointer">
-                      <Icon
-                        name="heroicons-solid:x-mark"
-                        mode="svg"
-                        class="text-primary w-5 h-5"
-                        @click="removeItem(index)"
-                      />
+                      <XmarkIcon class="text-primary w-5 h-5" @click="removeItem(index)" />
                     </span>
                   </div>
 
@@ -158,6 +149,9 @@
           @click="addContent"
         >
           <span class="font-normal font-robo text-body">Nội dung</span>
+          <template #icon>
+            <PlusIcon class="h-5 w-5 fill-primary" />
+          </template>
         </x-form-button>
         <x-form-button
           class="w-full"
@@ -167,6 +161,9 @@
           @click="addContentInDam"
         >
           <span class="font-robo text-body">Nội dung in đậm</span>
+          <template #icon>
+            <PlusIcon class="h-5 w-5 fill-primary" />
+          </template>
         </x-form-button>
         <x-form-button
           class="w-full"
@@ -176,6 +173,9 @@
           @click="addImage"
         >
           Hình ảnh
+          <template #icon>
+            <PlusIcon class="h-5 w-5 fill-primary" />
+          </template>
         </x-form-button>
       </div>
     </div>
@@ -186,6 +186,9 @@
   import $lodash from '../../../../composables/$lodash';
   import { v4 as uuidv4 } from 'uuid';
   const config = useRuntimeConfig().public;
+  import PlusIcon from '~/public/assets/icon/he-thong/plus-solid.svg';
+  import BarsIcon from '~/public/assets/icon/he-thong/bars-solid.svg';
+  import XmarkIcon from '~/public/assets/icon/he-thong/xmark-solid.svg';
 
   const emits = defineEmits(['refresh']);
   const isVisible = ref(false);

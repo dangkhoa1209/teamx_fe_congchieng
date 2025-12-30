@@ -7,7 +7,9 @@
     @click="emits('click')"
   >
     <div class="flex gap-1 items-center">
-      <Icon v-if="cIcon" :name="cIcon" class="h-5 w-5" />
+      <slot name="icon">
+        <Icon v-if="cIcon" :name="cIcon" class="h-5 w-5" />
+      </slot>
       <p><slot /></p>
     </div>
   </button>
