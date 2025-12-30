@@ -71,7 +71,7 @@
                     <span class="drag-handle cursor-move">
                       <Icon name="heroicons-solid:bars-4" class="text-black w-5 h-5 opacity-70" />
                     </span>
-                    <span class="drag-handle cursor-move">
+                    <span class="drag-handle cursor-pointer">
                       <Icon
                         name="heroicons-solid:x-mark"
                         class="text-primary w-5 h-5"
@@ -115,7 +115,6 @@
                       <x-form-input
                         v-model="item.imageTitle"
                         label="Tiêu đề cho ảnh"
-                        name="titleforimage"
                         placeholder="Nhập tiêu đề ảnh"
                         :name="'title-image-' + item.id"
                         class="pt-2"
@@ -132,7 +131,6 @@
                       <x-form-input
                         v-model="item.imageTitle"
                         label="Tiêu đề cho ảnh"
-                        name="titleforimage"
                         placeholder="Nhập tiêu đề ảnh"
                         :name="'title-image-' + item.id"
                       />
