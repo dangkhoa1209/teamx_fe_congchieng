@@ -69,11 +69,16 @@
                   <!-- Drag handle & Delete button -->
                   <div class="flex justify-end gap-2 top-2 right-2">
                     <span class="drag-handle cursor-move">
-                      <Icon name="heroicons-solid:bars-4" class="text-black w-5 h-5 opacity-70" />
+                      <Icon
+                        name="heroicons-solid:bars-4"
+                        mode="svg"
+                        class="text-black w-5 h-5 opacity-70"
+                      />
                     </span>
                     <span class="drag-handle cursor-pointer">
                       <Icon
                         name="heroicons-solid:x-mark"
+                        mode="svg"
                         class="text-primary w-5 h-5"
                         @click="removeItem(index)"
                       />

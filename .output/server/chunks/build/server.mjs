@@ -499,12 +499,12 @@ const _routes = [
         name: "admin-tin-tuc-su-kien-quan-ly",
         path: "tin-tuc-su-kien/quan-ly",
         meta: __nuxt_page_meta$1 || {},
-        component: () => import('./quan-ly-cCwMmxZw.mjs')
+        component: () => import('./quan-ly-Cc0DWSXv.mjs')
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-action",
         path: "tin-tuc-su-kien/ignore/action",
-        component: () => import('./action-BesbRfPM.mjs').then((n) => n.b)
+        component: () => import('./action-C3loVmjz.mjs').then((n) => n.b)
       },
       {
         name: "admin-tin-tuc-su-kien-ignore-delete",
