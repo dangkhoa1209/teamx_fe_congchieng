@@ -7,7 +7,7 @@
       class="w-full rounded border-[0.1rem] px-4 pr-12 py-2 transition-colors duration-200 outline-none bg-main border-primary placeholder-black disabled:bg-gray-100 disabled:cursor-not-allowed h-[40px] text-body font-medium font-robo"
     />
 
-    <Icon
+    <MagnifyingGlass
       name="heroicons:magnifying-glass"
       class="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 text-primary hover:opacity-79 cursor-pointer"
       @click="emits('change', value)"
@@ -19,6 +19,7 @@
   import { computed, ref, toRefs } from 'vue';
   const value = ref('');
   const emits = defineEmits(['update:modelValue', 'change']);
+  import MagnifyingGlass from '~/public/assets/icon/he-thong/magnifying-glass.svg';
 
   const props = defineProps({
     modelValue: {

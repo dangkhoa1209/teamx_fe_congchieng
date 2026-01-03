@@ -24,10 +24,7 @@
 
           <div class="flex items-center gap-4 laptop:hidden">
             <button class="p-2" @click="isDrawerOpen = true">
-              <Icon
-                name="heroicons:bars-3"
-                class="w-5 h-5 tablet:w-8 tablet:h-8 laptop:w-8 laptop:h-8 text-main"
-              />
+              <Bar3Icon class="w-5 h-5 tablet:w-8 tablet:h-8 laptop:w-8 laptop:h-8 text-main" />
             </button>
           </div>
         </div>
@@ -69,7 +66,7 @@
                 </div>
               </div>
               <button class="p-2" @click="isDrawerOpen = false">
-                <Icon name="heroicons:x-mark" class="w-6 h-6 text-main" />
+                <XmarkIcon class="w-6 h-6 fill-main" />
               </button>
             </div>
 
@@ -99,6 +96,8 @@
   import InputFitter from './menu/input-fitter.vue';
   import menus from '~/data/menu/admin.json';
   const { auth } = $store();
+  import Bar3Icon from '~/public/assets/icon/he-thong/bar-3.svg';
+  import XmarkIcon from '~/public/assets/icon/he-thong/xmark-solid.svg';
 
   const router = useRouter();
   const route = useRoute();

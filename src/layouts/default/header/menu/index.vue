@@ -43,7 +43,7 @@
               @mouseenter="onEnter"
               @mouseleave="onLeave"
             >
-              <Icon
+              <MagnifyingGlassIcon
                 name="heroicons:magnifying-glass"
                 class="w-6 h-6 text-primary cursor-pointer"
                 @click="focusInput"
@@ -75,6 +75,7 @@
   import menus from '~/data/menu/index.json';
   const router = useRouter();
   const route = useRoute();
+  import MagnifyingGlassIcon from '~/public/assets/icon/he-thong/magnifying-glass.svg';
 
   const currentPath = computed(() => {
     return route.path.replace(/\/$/, '') || '/trang-chu';

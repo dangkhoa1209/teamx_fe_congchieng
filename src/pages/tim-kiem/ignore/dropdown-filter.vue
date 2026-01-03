@@ -3,7 +3,7 @@
     <!-- Trigger button -->
     <div class="flex items-center cursor-pointer px-3" @click="toggle">
       <p class="leading-[40px]">{{ selectedLabel || 'Kết quả' }}</p>
-      <Icon name="mdi:dots-vertical" class="h-4 w-4 ml-1" />
+      <DotsVerticalIcon class="h-4 w-4 ml-1" />
     </div>
 
     <!-- Dropdown -->
@@ -34,6 +34,7 @@
 <script setup>
   import { ref, computed, watch, toRefs } from 'vue';
   import { onClickOutside } from '@vueuse/core';
+  import DotsVerticalIcon from '~/public/assets/icon/he-thong/dots-vertical.svg';
 
   const props = defineProps({
     modelValue: [String, Number],

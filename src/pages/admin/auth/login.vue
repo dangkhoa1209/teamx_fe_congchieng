@@ -82,10 +82,14 @@
       grant_type: config?.grantType,
     };
 
-    const res = await $api($url.auth.login, {
-      body: new URLSearchParams(dataForm),
-      headers: myHeaders,
-    });
+    const res = await $api(
+      $url.auth.login,
+      {
+        body: new URLSearchParams(dataForm),
+        headers: myHeaders,
+      },
+      true
+    );
 
     const { data, success } = res?.data?.value || {
       data: null,

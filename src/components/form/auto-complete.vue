@@ -58,7 +58,7 @@
               class="text-gray-500 transition-transform"
               :class="{ 'rotate-180': showDropdown }"
             >
-              <Icon name="heroicons:chevron-down" class="w-7 h-7 text-primary" />
+              <!-- <Icon name="heroicons:chevron-down" class="w-7 h-7 text-primary" /> -->
             </span>
           </div>
         </div>

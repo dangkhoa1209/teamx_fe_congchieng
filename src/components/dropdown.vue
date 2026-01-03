@@ -5,7 +5,7 @@
       class="inline-flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary/40"
       @click="toggle"
     >
-      <Icon name="mdi:dots-vertical" class="h-4 w-4" />
+      <DotsVertical class="h-4 w-4" />
       <p class="whitespace-nowrap">Thao tác</p>
     </button>
 
@@ -22,7 +22,6 @@
               :class="actionButtonClasses(action)"
               @click="selectAction(action)"
             >
-              <Icon v-if="action.icon" :name="action.icon" class="h-4 w-4" />
               <span>{{ action.label }}</span>
             </button>
           </li>
@@ -34,6 +33,7 @@
 
 <script setup>
   import { onClickOutside } from '@vueuse/core';
+  import DotsVertical from '~/public/assets/icon/he-thong/dots-vertical.svg';
 
   const props = defineProps({
     actions: {

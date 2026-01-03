@@ -8,7 +8,10 @@
         >
           <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
 
-          <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
+          <ChevronDoubleRightIcon
+            name="heroicons:chevron-double-right"
+            class="w-[0.9em] h-[0.9em]"
+          />
 
           <span class="whitespace-normal">Tổng quan văn hoá cồng chiêng</span>
         </div>
@@ -110,4 +113,6 @@
     <x-space :height="80" />
   </x-content-place>
 </template>
-<script setup></script>
+<script setup>
+  import ChevronDoubleRightIcon from '~/public/assets/icon/he-thong/chevron-double-right.svg';
+</script>

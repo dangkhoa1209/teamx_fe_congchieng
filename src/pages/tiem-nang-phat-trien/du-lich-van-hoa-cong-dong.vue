@@ -7,7 +7,7 @@
       <div class="flex flex-wrap items-center gap-2 font-bold text-14 text-primary m-0 leading-[1]">
         <span class="whitespace-normal">TIỀM NĂNG PHÁT TRIỂN</span>
 
-        <Icon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
+        <ChevronDoubleRightIcon name="heroicons:chevron-double-right" class="w-[0.9em] h-[0.9em]" />
 
         <span class="whitespace-normal">Phát triển du lịch văn hóa - cộng đồng</span>
       </div>
@@ -97,4 +97,6 @@
   </x-content-place>
 </template>
 
-<script setup></script>
+<script setup>
+  import ChevronDoubleRightIcon from '~/public/assets/icon/he-thong/chevron-double-right.svg';
+</script>

@@ -54,13 +54,24 @@
       ]"
       @click="handleItemClick(item)"
     >
-      <Icon
+      <!-- <Icon
         v-if="item.itemIconName"
         :name="item.itemIconName"
+         class="w-[16px] h-[16px] text-main group-hover:text-primary"
+      /> -->
+      <LockOpenIcon
+        v-if="item.itemIconName == 'heroicons:lock-open'"
+        class="w-[16px] h-[16px] text-main group-hover:text-primary"
+      />
+      <LogoutIcon
+        v-if="item.itemIconName == 'heroicons:arrow-right-start-on-rectangle'"
         class="w-[16px] h-[16px] text-main group-hover:text-primary"
       />
       {{ item.label }}
-      <Icon v-if="item.iconName" :name="item.iconName" class="w-[16px] h-[16px] text-primary" />
+      <ChevronDown
+        v-if="item.iconName == 'heroicons:chevron-down'"
+        class="w-[16px] h-[16px] text-primary"
+      />
     </span>
 
     <!-- Đường kẻ ngang giữa các item con -->
@@ -98,7 +109,9 @@
   import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue';
   import { useRoute } from 'vue-router';
   import { checkPermission } from '~/utils/permission-check';
-
+  import LockOpenIcon from '~/public/assets/icon/he-thong/lock-open.svg';
+  import LogoutIcon from '~/public/assets/icon/he-thong/logout.svg';
+  import ChevronDown from '~/public/assets/icon/he-thong/chevron-down.svg';
   const route = useRoute();
 
   const props = defineProps({

@@ -21,7 +21,7 @@
             class="rounded-full p-2 text-gray-500 hover:bg-gray-100"
             @click="handleClose"
           >
-            <Icon name="mdi:close" class="h-5 w-5" />
+            <XmarkIcon class="h-5 w-5" />
           </button>
         </div>
 
@@ -49,6 +49,7 @@
 </template>
 
 <script setup>
+  import XmarkIcon from '~/public/assets/icon/he-thong/xmark-solid.svg';
   const props = defineProps({
     modelValue: {
       type: Boolean,

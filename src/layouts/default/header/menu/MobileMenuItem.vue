@@ -11,7 +11,7 @@
       @click="handleClick"
     >
       <span>{{ item.label }}</span>
-      <Icon
+      <ChevronRightIcon
         v-if="item.childrens"
         name="heroicons:chevron-right"
         class="w-5 h-5 transition-transform"
@@ -35,7 +35,7 @@
 <script setup>
   import { ref, computed } from 'vue';
   import { useRoute } from 'vue-router';
-
+  import ChevronRightIcon from '~/public/assets/icon/he-thong/chevron-right.svg';
   const props = defineProps({
     item: Object,
     depth: Number,

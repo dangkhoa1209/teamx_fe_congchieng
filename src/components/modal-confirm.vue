@@ -29,10 +29,7 @@
             :disabled="loading"
             @click="$emit('confirm')"
           >
-            <span v-if="loading" class="inline-flex items-center gap-2">
-              <Icon name="svg-spinners:180-ring-with-bg" class="h-4 w-4" />
-              Đang xử lý...
-            </span>
+            <span v-if="loading" class="inline-flex items-center gap-2">Đang xử lý...</span>
             <span v-else>
               {{ confirmText }}
             </span>

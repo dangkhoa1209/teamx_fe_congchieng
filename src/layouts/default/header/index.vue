@@ -24,10 +24,10 @@
 
           <div class="flex items-center gap-1 tablet:gap-4 laptop:hidden">
             <button class="p-2" @click="toggleSearch">
-              <Icon name="heroicons:magnifying-glass" class="w-5 h-5 text-main" />
+              <MagnifyingGlassIcon name="heroicons:magnifying-glass" class="w-5 h-5 text-main" />
             </button>
             <button class="p-2" @click="isDrawerOpen = true">
-              <Icon
+              <Bar3Icon
                 name="heroicons:bars-3"
                 class="w-5 h-5 tablet:w-8 tablet:h-8 laptop:w-8 laptop:h-8 text-main"
               />
@@ -72,7 +72,7 @@
                 </div>
               </div>
               <button class="p-2" @click="isDrawerOpen = false">
-                <Icon name="heroicons:x-mark" class="w-6 h-6 text-main" />
+                <XmarkSolidIcon name="heroicons:x-mark" class="w-6 h-6 text-main fill-white" />
               </button>
             </div>
 
@@ -108,6 +108,9 @@
   import IconHeader from '~/public/assets/icon/header.svg';
   import InputFitter from './menu/input-fitter.vue';
   import menus from '~/data/menu/index.json';
+  import MagnifyingGlassIcon from '~/public/assets/icon/he-thong/magnifying-glass.svg';
+  import Bar3Icon from '~/public/assets/icon/he-thong/bar-3.svg';
+  import XmarkSolidIcon from '~/public/assets/icon/he-thong/xmark-solid.svg';
 
   const router = useRouter();
   const route = useRoute();

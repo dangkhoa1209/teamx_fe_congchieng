@@ -5,7 +5,6 @@
       {{ label }}
       <span v-if="required" class="ml-0.5 text-red-500">*</span>
     </label>
-
     <!-- VeeValidate Field -->
     <Field v-slot="{ field, errors }" :name="name" :label="label" :rules="rules">
       <div class="relative w-full">
@@ -29,10 +28,8 @@
           class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
           @click="togglePassword"
         >
-          <Icon
-            :name="showPassword ? 'heroicons-solid:eye' : 'heroicons-solid:eye-slash'"
-            class="h-6 w-6"
-          />
+          <EyeIcon v-show="showPassword" class="h-6 w-6" />
+          <EyeSlashIcon v-show="!showPassword" class="h-6 w-6" />
         </button>
       </div>
 
@@ -47,9 +44,10 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
   import { Field, useField } from 'vee-validate';
-  import { defineProps, defineEmits, ref, computed, watch } from 'vue';
+  import EyeIcon from '~/public/assets/icon/he-thong/eye.svg';
+  import EyeSlashIcon from '~/public/assets/icon/he-thong/eye-slash.svg';
 
   // === Props ===
   const props = defineProps({
@@ -96,8 +94,8 @@
   };
 
   // === Xử lý Input ===
-  const handleInput = (event: Event, field: any) => {
-    const target = event.target as HTMLInputElement;
+  const handleInput = (event, field) => {
+    const target = event.target;
     let rawValue = target.value;
 
     if (props.type === 'number') {
@@ -107,7 +105,7 @@
         return;
       }
 
-      let num: number = props.numberInteger ? parseInt(rawValue, 10) : parseFloat(rawValue);
+      let num = props.numberInteger ? parseInt(rawValue, 10) : parseFloat(rawValue);
 
       if (isNaN(num)) {
         num = props.min ?? 0;
@@ -124,7 +122,7 @@
   };
 
   // === Helper: Cập nhật field + emit ===
-  const updateFieldAndEmit = (field: any, value: string | number) => {
+  const updateFieldAndEmit = (field, value) => {
     field.value = value;
     emits('update:modelValue', value);
     emits('change', value);

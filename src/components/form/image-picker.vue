@@ -23,7 +23,8 @@
             'bg-gray-100': isDragging,
           }"
         >
-          <Icon name="mdi:image-plus-outline" class="w-6 h-6 mb-1 text-gray-400" />
+          <ImagePlusOutline class="w-6 h-6 mb-1 text-gray-400" />
+
           <span v-if="!isDragging">Chọn ảnh hoặc kéo thả vào đây</span>
           <span v-else class="text-primary font-semibold">Thả ảnh vào đây</span>
           <input
@@ -82,6 +83,7 @@
   import { Field } from 'vee-validate';
   import Cropper from 'cropperjs';
   import 'cropperjs/dist/cropper.css';
+  import ImagePlusOutline from '~/public/assets/icon/he-thong/image-plus-outline.svg';
 
   const emit = defineEmits(['update:modelValue', 'change']);
 

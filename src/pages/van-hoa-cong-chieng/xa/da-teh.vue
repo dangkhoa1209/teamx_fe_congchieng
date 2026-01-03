@@ -7,11 +7,11 @@
       <div class="flex flex-wrap items-center gap-2 font-bold text-14 text-primary leading-[1]">
         <span class="whitespace-normal">VĂN HOÁ CỒNG CHIÊNG</span>
 
-        <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
+        <ChevronDoubleRightIcon name="heroicons:chevron-double-right" class="w-4 h-4" />
 
         <span class="whitespace-normal">Văn hóa cồng chiêng tại các xã</span>
 
-        <Icon name="heroicons:chevron-double-right" class="w-4 h-4" />
+        <ChevronDoubleRightIcon name="heroicons:chevron-double-right" class="w-4 h-4" />
 
         <span class="whitespace-normal">Xã Đạ Tẻh</span>
       </div>
@@ -90,3 +90,6 @@
     <x-space :height="80" />
   </x-content-place>
 </template>
+<script setup>
+  import ChevronDoubleRightIcon from '~/public/assets/icon/he-thong/chevron-double-right.svg';
+</script>

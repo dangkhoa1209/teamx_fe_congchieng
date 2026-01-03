@@ -8,7 +8,8 @@
   >
     <div class="flex gap-1 items-center">
       <slot name="icon">
-        <Icon v-if="cIcon" :name="cIcon" class="h-5 w-5" />
+        <Icon v-if="cIcon && !props.loading" :name="cIcon" class="h-5 w-5" />
+        <RingWithBg v-if="props.loading" class="h-5 w-5 fill-main" />
       </slot>
       <p><slot /></p>
     </div>
@@ -16,6 +17,7 @@
 </template>
 <script setup>
   import { computed, toRefs } from 'vue';
+  import RingWithBg from '~/public/assets/icon/he-thong/180-ring-with-bg.svg';
 
   const props = defineProps({
     icon: {
@@ -73,20 +75,7 @@
   });
 
   const cIcon = computed(() => {
-    if (props.loading) {
-      return 'svg-spinners:180-ring-with-bg';
-    }
-
     return props.icon || '';
   });
   const emits = defineEmits(['click']);
-
-  // Material Design Icons	mdi:	<Icon name="mdi:close" />
-  // Heroicons (Solid)	heroicons-solid:	<Icon name="heroicons-solid:trash" />
-  // Heroicons (Outline)	heroicons-outline:	<Icon name="heroicons-outline:home" />
-  // Tabler Icons	tabler:	<Icon name="tabler:edit" />
-  // Phosphor Icons	ph:	<Icon name="ph:heart-fill" />
-  // Lucide Icons	lucide:	<Icon name="lucide:settings" />
-  // Bootstrap Icons	bi:	<Icon name="bi:check-circle" />
-  // Solar Icons	solar:	<Icon name="solar:bell-outline" />
 </script>

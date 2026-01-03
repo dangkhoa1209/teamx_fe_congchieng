@@ -349,7 +349,6 @@
         }
       }
     } catch (error) {
-      console.error('Failed to create news', error);
     } finally {
       isLoading.value = false;
     }

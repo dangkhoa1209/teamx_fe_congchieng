@@ -17,7 +17,6 @@
             Văn hóa, Thể thao và Du lịch tỉnh Lâm Đồng -->
           </p>
           <div class="flex items-center gap-5">
-            <!-- <Icon name="heroicons-solid:map-pin" class="text-primary /> -->
             <LocationIcon class="h-[25px] w-6 laptop:w-8 laptop:h-[35px] fill-primary" />
             <p>
               Phòng văn hóa xã hội xã Lạc Dương
